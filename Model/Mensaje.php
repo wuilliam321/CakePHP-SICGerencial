@@ -16,6 +16,7 @@ class Mensaje extends AppModel {
  * @var string
  */
 	public $displayField = 'id';
+	public $actsAs = array('Tree');
 
 /**
  * Validation rules

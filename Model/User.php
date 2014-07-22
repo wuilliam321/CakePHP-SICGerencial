@@ -8,9 +8,12 @@ App::uses('AuthComponent', 'Controller/Component');
  * @property Sistema $Sistema
  */
 class User extends AppModel {
-	public $virtualFields = array(
-	    'name' => 'CONCAT(User.first_name, " ", User.last_name)'
-	);
+	public function __construct($id = false, $table = null, $ds = null) {
+		parent::__construct($id, $table, $ds);
+			$this->virtualFields['name'] = sprintf(
+			'CONCAT(%s.first_name, " ", %s.last_name)', $this->alias, $this->alias
+		);
+	}
 
 /**
  * Use database config
@@ -101,7 +104,7 @@ class User extends AppModel {
 			'counterQuery' => ''
 		),
 		'Asignador' => array(
-			'className' => 'User',
+			'className' => 'Asignacione',
 			'foreignKey' => 'asignador_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -114,7 +117,7 @@ class User extends AppModel {
 			'counterQuery' => ''
 		),
 		'Responsable' => array(
-			'className' => 'User',
+			'className' => 'Asignacione',
 			'foreignKey' => 'responsable_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -127,7 +130,7 @@ class User extends AppModel {
 			'counterQuery' => ''
 		),
 		'Enviador' => array(
-			'className' => 'User',
+			'className' => 'Mensaje',
 			'foreignKey' => 'enviador_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -140,7 +143,7 @@ class User extends AppModel {
 			'counterQuery' => ''
 		),
 		'Receptor' => array(
-			'className' => 'User',
+			'className' => 'Mensaje',
 			'foreignKey' => 'receptor_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -173,19 +176,19 @@ class User extends AppModel {
 			'offset' => '',
 			'finderQuery' => '',
 		),
-		'Asignacione' => array(
-			'className' => 'Asignacione',
-			'joinTable' => 'asignaciones_users',
-			'foreignKey' => 'user_id',
-			'associationForeignKey' => 'asignacione_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
+		// 'Asignacione' => array(
+		// 	'className' => 'Asignacione',
+		// 	'joinTable' => 'asignaciones_users',
+		// 	'foreignKey' => 'user_id',
+		// 	'associationForeignKey' => 'asignacione_id',
+		// 	'unique' => 'keepExisting',
+		// 	'conditions' => '',
+		// 	'fields' => '',
+		// 	'order' => '',
+		// 	'limit' => '',
+		// 	'offset' => '',
+		// 	'finderQuery' => '',
+		// )
 	);
 
 

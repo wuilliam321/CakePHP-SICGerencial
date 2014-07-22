@@ -15,12 +15,14 @@ class AsignacionesUserTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.asignaciones_user',
 		'app.user',
+		'app.group',
+		'app.evaluacione',
 		'app.asignacione',
-		'app.asignador',
-		'app.responsable',
 		'app.adjunto',
 		'app.correccione',
-		'app.evaluacione'
+		'app.mensaje',
+		'app.sistema',
+		'app.sistemas_user'
 	);
 
 /**
