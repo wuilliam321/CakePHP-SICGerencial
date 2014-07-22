@@ -1,0 +1,115 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="974" measuredH="382" mockupW="960" mockupH="358">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="14" y="24" w="960" h="358" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sistema%20de%20Control%20de%20Gestion%20y%20Comunicacion%0Ahttp%3A//</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="20" y="145" w="947" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="20" y="111" w="529" h="-1" measuredW="514" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Sistema%20de%20Control%20de%20Gestion%20y%20Comunicacion</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="__group__" x="550" y="113" w="415" h="21" measuredW="415" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="371" h="-1" measuredW="149" measuredH="21" zOrder="0" locked="false" isInGroup="3">
+          <controlProperties>
+            <align>right</align>
+            <text>Javier%20Esteva%20%28Contralor%29</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Link" x="379" y="2" w="-1" h="-1" measuredW="36" measuredH="19" zOrder="1" locked="false" isInGroup="3">
+          <controlProperties>
+            <text>logout</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="29" y="183" w="-1" h="-1" measuredW="299" measuredH="26" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>18</size>
+        <text>Finalizar%20Instruccion%20/%20Comunicacion</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="29" y="209" w="930" h="123" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Datos%20de%20la%20comunicacion</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::VRule" x="457" y="220" w="-1" h="97" measuredW="10" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="860" y="290" w="84" h="27" measuredW="73" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Finalizar</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="__group__" x="44" y="232" w="325" h="21" measuredW="325" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="161" h="-1" measuredW="62" measuredH="21" zOrder="0" locked="false" isInGroup="34">
+          <controlProperties>
+            <text>Evaluador%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="164" y="0" w="161" h="-1" measuredW="81" measuredH="21" zOrder="1" locked="false" isInGroup="34">
+          <controlProperties>
+            <text>Javier%20Esteva</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="39" controlTypeID="__group__" x="43" y="280" w="399" h="21" measuredW="399" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="161" h="-1" measuredW="157" measuredH="21" zOrder="0" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>Instruccion/Comunicacion%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="163" y="0" w="-1" h="-1" measuredW="236" measuredH="21" zOrder="1" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>Acto%20administrativo%20para%20aprobar%20el%20SAC</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="40" controlTypeID="__group__" x="43" y="256" w="325" h="21" measuredW="325" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="161" h="-1" measuredW="57" measuredH="21" zOrder="0" locked="false" isInGroup="40">
+          <controlProperties>
+            <text>Evaluado%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="164" y="0" w="161" h="-1" measuredW="82" measuredH="21" zOrder="1" locked="false" isInGroup="40">
+          <controlProperties>
+            <text>Alfredo%20Flores</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="42" controlTypeID="__group__" x="482" y="232" w="229" h="28" measuredW="229" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="4" w="161" h="-1" measuredW="109" measuredH="21" zOrder="0" locked="false" isInGroup="42">
+          <controlProperties>
+            <text>Entrega%20a%20tiempo%3F</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Switch" x="161" y="0" w="-1" h="-1" measuredW="68" measuredH="28" zOrder="1" locked="false" isInGroup="42"/>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="43" controlTypeID="__group__" x="482" y="263" w="321" h="27" measuredW="321" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="3" w="161" h="-1" measuredW="71" measuredH="21" zOrder="0" locked="false" isInGroup="43">
+          <controlProperties>
+            <text>Calificacion%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::ButtonBar" x="161" y="0" w="-1" h="-1" measuredW="160" measuredH="27" zOrder="1" locked="false" isInGroup="43">
+          <controlProperties>
+            <selectedIndex>2</selectedIndex>
+            <text>1%2C2%2C3%2C4%2C5</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
