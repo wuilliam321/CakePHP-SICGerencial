@@ -150,6 +150,7 @@ class UsersController extends AppController {
 			if ($this->Auth->login()) {
 				$this->User->setDataSource("auth");
 				$auth_user = $this->Session->read("Auth.User");
+				$this->User->recursive = -1;
 				$user = $this->User->findByUsername($this->request->data['User']['username']);
 				if ($user) {
 					$this->checkAro($user);

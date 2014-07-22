@@ -205,19 +205,19 @@ class Asignacione extends AppModel {
  *
  * @var array
  */
-	// public $hasAndBelongsToMany = array(
-	// 	'User' => array(
-	// 		'className' => 'User',
-	// 		'joinTable' => 'asignaciones_users',
-	// 		'foreignKey' => 'asignacione_id',
-	// 		'associationForeignKey' => 'user_id',
-	// 		'unique' => 'keepExisting',
-	// 		'conditions' => '',
-	// 		'fields' => '',
-	// 		'order' => '',
-	// 		'limit' => '',
-	// 		'offset' => '',
-	// 		'finderQuery' => '',
-	// 	)
-	// );
+	public $hasAndBelongsToMany = array(
+		'User' => array(
+			'className' => 'User',
+			'joinTable' => 'asignaciones_users',
+			'foreignKey' => 'asignacione_id',
+			'associationForeignKey' => 'user_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		)
+	);
 }

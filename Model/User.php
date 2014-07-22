@@ -176,19 +176,19 @@ class User extends AppModel {
 			'offset' => '',
 			'finderQuery' => '',
 		),
-		// 'Asignacione' => array(
-		// 	'className' => 'Asignacione',
-		// 	'joinTable' => 'asignaciones_users',
-		// 	'foreignKey' => 'user_id',
-		// 	'associationForeignKey' => 'asignacione_id',
-		// 	'unique' => 'keepExisting',
-		// 	'conditions' => '',
-		// 	'fields' => '',
-		// 	'order' => '',
-		// 	'limit' => '',
-		// 	'offset' => '',
-		// 	'finderQuery' => '',
-		// )
+		'Asignacione' => array(
+			'className' => 'Asignacione',
+			'joinTable' => 'asignaciones_users',
+			'foreignKey' => 'user_id',
+			'associationForeignKey' => 'asignacione_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		)
 	);
 
 
