@@ -44,9 +44,23 @@ class AsignacionesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($tipo = null, $parent_id = null) {
+		$auth_user = $this->Session->read('Auth.User');
+
+		$parent = null;
+		if ($parent_id) {
+			$this->Asignacione->ParentAsignacione->recursive = -1;
+			$parent = $this->Asignacione->ParentAsignacione->findById($parent_id);
+		}
+
 		if ($this->request->is('post')) {
 			$this->Asignacione->create();
+			$this->request->data['Asignacione']['tipo'] = $tipo;
+			$this->request->data['Asignacione']['asignador_id'] = $auth_user['id'];
+			$this->request->data['Asignacione']['parent_id'] = $parent_id;
+			if ($parent_id) {
+				$this->request->data['Asignacione']['tipo'] = $parent['ParentAsignacione']['tipo'];
+			}
 			if ($this->Asignacione->save($this->request->data)) {
 				$this->Session->setFlash(__('The asignacione has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -54,11 +68,10 @@ class AsignacionesController extends AppController {
 				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'));
 			}
 		}
-		$asignadors = $this->Asignacione->Asignador->find('list');
-		$responsables = $this->Asignacione->Responsable->find('list');
-		$parents = $this->Asignacione->ParentAsignacione->find('list');
+		$responsables = $this->Asignacione->Responsable->find('list', array('conditions' => array('Responsable.id NOT' => $auth_user['id'])));
+
 		$users = $this->Asignacione->User->find('list');
-		$this->set(compact('asignadors', 'responsables', 'parents', 'users'));
+		$this->set(compact('responsables', 'parent', 'users'));
 	}
 
 /**
@@ -83,11 +96,12 @@ class AsignacionesController extends AppController {
 			$options = array('conditions' => array('Asignacione.' . $this->Asignacione->primaryKey => $id));
 			$this->request->data = $this->Asignacione->find('first', $options);
 		}
+		$parent['ParentAsignacione'] = $this->request->data['ParentAsignacione'];
 		$asignadors = $this->Asignacione->Asignador->find('list');
 		$responsables = $this->Asignacione->Responsable->find('list');
 		$parents = $this->Asignacione->ParentAsignacione->find('list');
 		$users = $this->Asignacione->User->find('list');
-		$this->set(compact('asignadors', 'responsables', 'parents', 'users'));
+		$this->set(compact('asignadors', 'responsables', 'parents', 'parent', 'users'));
 	}
 
 /**
@@ -122,6 +136,7 @@ class AsignacionesController extends AppController {
 		$asignaciones = $this->Asignacione->findAllByTipoAndParentId('I', null);
 		foreach ($asignaciones as &$asignacione) {
 			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 0);
+			$asignacione['Avance'] = $this->Asignacione->Avance->findAllByAsignacioneId($asignacione['Asignacione']['id']);
 		}
 		$this->set(compact('asignaciones'));
 	}

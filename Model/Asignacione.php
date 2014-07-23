@@ -77,6 +77,26 @@ class Asignacione extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'porcentaje_asignado' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'progreso' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'fecha_asignacion' => array(
 			'datetime' => array(
 				'rule' => array('datetime'),
@@ -148,6 +168,19 @@ class Asignacione extends AppModel {
 	public $hasMany = array(
 		'Adjunto' => array(
 			'className' => 'Adjunto',
+			'foreignKey' => 'asignacione_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Avance' => array(
+			'className' => 'Avance',
 			'foreignKey' => 'asignacione_id',
 			'dependent' => false,
 			'conditions' => '',

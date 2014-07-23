@@ -1,0 +1,114 @@
+<?php
+App::uses('AppController', 'Controller');
+/**
+ * Avances Controller
+ *
+ * @property Avance $Avance
+ * @property PaginatorComponent $Paginator
+ * @property SessionComponent $Session
+ */
+class AvancesController extends AppController {
+
+/**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array('Paginator', 'Session');
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		$this->Avance->recursive = 0;
+		$this->set('avances', $this->Paginator->paginate());
+	}
+
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		if (!$this->Avance->exists($id)) {
+			throw new NotFoundException(__('Invalid avance'));
+		}
+		$options = array('conditions' => array('Avance.' . $this->Avance->primaryKey => $id));
+		$this->set('avance', $this->Avance->find('first', $options));
+	}
+
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function add($asignacione_id) {
+		$auth_user = $this->Session->read('Auth.User');
+		if ($this->request->is('post')) {
+			$this->Avance->create();
+			$this->request->data['Avance']['asignacione_id'] = $asignacione_id;
+			$this->request->data['Avance']['user_id'] = $auth_user['id'];
+			if ($this->Avance->save($this->request->data)) {
+				$this->Session->setFlash(__('The avance has been saved.'));
+				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
+			}
+		}
+		$asignacione = $this->Avance->Asignacione->findById($asignacione_id);
+		$user = $this->Avance->User->findById($auth_user['id']);
+		$this->set(compact('asignacione', 'user'));
+	}
+
+/**
+ * edit method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function edit($id = null) {
+		if (!$this->Avance->exists($id)) {
+			throw new NotFoundException(__('Invalid avance'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Avance->save($this->request->data)) {
+				$this->Session->setFlash(__('The avance has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Avance.' . $this->Avance->primaryKey => $id));
+			$this->request->data = $this->Avance->find('first', $options);
+		}
+		$asignaciones = $this->Avance->Asignacione->find('list');
+		$users = $this->Avance->User->find('list');
+		$this->set(compact('asignaciones', 'users'));
+	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		$this->Avance->id = $id;
+		if (!$this->Avance->exists()) {
+			throw new NotFoundException(__('Invalid avance'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Avance->delete()) {
+			$this->Session->setFlash(__('The avance has been deleted.'));
+		} else {
+			$this->Session->setFlash(__('The avance could not be deleted. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'index'));
+	}
+}
