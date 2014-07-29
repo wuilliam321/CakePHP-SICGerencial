@@ -1,17 +1,23 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Asignacione Model
+ * Comunicacione Model
  *
- * @property Asignador $Asignador
- * @property Responsable $Responsable
- * @property Asignacione $ParentAsignacione
- * @property Adjunto $Adjunto
- * @property Asignacione $ChildAsignacione
+ * @property Remitente $Remitente
+ * @property Comunicacione $ParentComunicacione
+ * @property Comunicacione $ChildComunicacione
  * @property Correccione $Correccione
- * @property Evaluacione $Evaluacione
  */
-class Asignacione extends AppModel {
+class Comunicacione extends AppModel {
+
+/**
+ * Behaviors
+ *
+ * @var array
+ */
+	public $actsAs = array(
+		'Tree',
+	);
 
 /**
  * Display field
@@ -19,7 +25,6 @@ class Asignacione extends AppModel {
  * @var string
  */
 	public $displayField = 'titulo';
-	public $actsAs = array('Tree');
 
 /**
  * Validation rules
@@ -37,27 +42,7 @@ class Asignacione extends AppModel {
 		// 		//'on' => 'create', // Limit validation to 'create' or 'update' operations
 		// 	),
 		// ),
-		'asignador_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'responsable_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'dependencia_id' => array(
+		'remitente_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -87,27 +72,7 @@ class Asignacione extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'porcentaje_asignado' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'progreso' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'fecha_asignacion' => array(
+		'fecha_remision' => array(
 			'datetime' => array(
 				'rule' => array('datetime'),
 				//'message' => 'Your custom message here',
@@ -117,7 +82,7 @@ class Asignacione extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'fecha_entrega' => array(
+		'fecha_fin' => array(
 			'datetime' => array(
 				'rule' => array('datetime'),
 				//'message' => 'Your custom message here',
@@ -137,30 +102,16 @@ class Asignacione extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Asignador' => array(
+		'Remitente' => array(
 			'className' => 'User',
-			'foreignKey' => 'asignador_id',
+			'foreignKey' => 'remitente_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'Responsable' => array(
-			'className' => 'User',
-			'foreignKey' => 'responsable_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'ParentAsignacione' => array(
-			'className' => 'Asignacione',
+		'ParentComunicacione' => array(
+			'className' => 'Comunicacione',
 			'foreignKey' => 'parent_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Dependencia' => array(
-			'className' => 'Dependencia',
-			'foreignKey' => 'dependencia_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -173,34 +124,8 @@ class Asignacione extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Adjunto' => array(
-			'className' => 'Adjunto',
-			'foreignKey' => 'asignacione_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Avance' => array(
-			'className' => 'Avance',
-			'foreignKey' => 'asignacione_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'ChildAsignacione' => array(
-			'className' => 'Asignacione',
+		'ChildComunicacione' => array(
+			'className' => 'Comunicacione',
 			'foreignKey' => 'parent_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -214,20 +139,7 @@ class Asignacione extends AppModel {
 		),
 		'Correccione' => array(
 			'className' => 'Correccione',
-			'foreignKey' => 'asignacione_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Evaluacione' => array(
-			'className' => 'Evaluacione',
-			'foreignKey' => 'asignacione_id',
+			'foreignKey' => 'comunicacione_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -248,8 +160,8 @@ class Asignacione extends AppModel {
 	public $hasAndBelongsToMany = array(
 		'User' => array(
 			'className' => 'User',
-			'joinTable' => 'asignaciones_users',
-			'foreignKey' => 'asignacione_id',
+			'joinTable' => 'comunicaciones_users',
+			'foreignKey' => 'comunicacione_id',
 			'associationForeignKey' => 'user_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
@@ -260,4 +172,5 @@ class Asignacione extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+
 }

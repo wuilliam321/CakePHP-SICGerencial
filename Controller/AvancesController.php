@@ -48,18 +48,21 @@ class AvancesController extends AppController {
  */
 	public function add($asignacione_id) {
 		$auth_user = $this->Session->read('Auth.User');
+		$asignacione = $this->Avance->Asignacione->findById($asignacione_id);
 		if ($this->request->is('post')) {
 			$this->Avance->create();
+			$this->Avance->Asignacione->recursive = -1;
 			$this->request->data['Avance']['asignacione_id'] = $asignacione_id;
-			$this->request->data['Avance']['user_id'] = $auth_user['id'];
+			$this->request->data['Avance']['user_id'] = $asignacione['Asignacione']['responsable_id'];
 			if ($this->Avance->save($this->request->data)) {
+				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
+				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
 			}
 		}
-		$asignacione = $this->Avance->Asignacione->findById($asignacione_id);
 		$user = $this->Avance->User->findById($auth_user['id']);
 		$this->set(compact('asignacione', 'user'));
 	}
@@ -75,10 +78,15 @@ class AvancesController extends AppController {
 		if (!$this->Avance->exists($id)) {
 			throw new NotFoundException(__('Invalid avance'));
 		}
+		$auth_user = $this->Session->read('Auth.User');
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Avance->save($this->request->data)) {
+				$avance = $this->Avance->findById($id);
+				$asignacione = $this->Avance->Asignacione->findById($avance['Avance']['asignacione_id']);
+				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
+				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
 			}
@@ -86,9 +94,9 @@ class AvancesController extends AppController {
 			$options = array('conditions' => array('Avance.' . $this->Avance->primaryKey => $id));
 			$this->request->data = $this->Avance->find('first', $options);
 		}
-		$asignaciones = $this->Avance->Asignacione->find('list');
-		$users = $this->Avance->User->find('list');
-		$this->set(compact('asignaciones', 'users'));
+		$asignacione = $this->Avance->Asignacione->findById($this->request->data['Avance']['asignacione_id']);
+		$user = $this->Avance->User->findById($auth_user['id']);
+		$this->set(compact('asignacione', 'user'));
 	}
 
 /**

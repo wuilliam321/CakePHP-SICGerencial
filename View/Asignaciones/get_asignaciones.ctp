@@ -1,14 +1,15 @@
 <table class="table table-condensed table-bordered table-striped">
-<!-- 	<thead>
+	<thead>
 		<tr>
 			<th>&nbsp;</th>
 			<th>Codigo</th>
 			<th>Titulo</th>
+			<th>Asignador</th>
 			<th>Responsable</th>
 			<th>Progreso</th>
-			<th>Adjuntos</th>
+			<th>Acciones</th>
 		</tr>
-	</thead> -->
+	</thead>
 	<tbody>
 		<?php if (empty($asignaciones)): ?>
 			<tr>
@@ -29,8 +30,8 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="progress">
-									<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $asignacione['Asignacione']['progreso']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $asignacione['Asignacione']['progreso']; ?>%">
-										<span><?php echo $asignacione['Asignacione']['progreso']; ?>%</span>
+									<div class="progress-bar progress-bar-<?php echo $asignacione['Asignacione']['bar_class']; ?>" role="progressbar" aria-valuenow="<?php echo $asignacione['Asignacione']['progreso']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $asignacione['Asignacione']['progreso']; ?>%">
+										<span><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</span>
 									</div>
 								</div>
 							</div>
@@ -42,6 +43,7 @@
 					<td>
 						<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 						<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+						<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 					</td>
 				</tr>
 				<tr style="display:none">
@@ -68,7 +70,7 @@
 										<tbody>
 											<?php if (empty($asignacione['ChildrenAsignacione'])): ?>
 												<tr>
-													<td colspan="6"><?php echo __('No hay detalles de las asignaciones'); ?></td>
+													<td colspan="6"><?php echo __('No se ha desglozado la presente asignacion'); ?></td>
 												</tr>
 											<?php else: ?>
 												<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
@@ -84,7 +86,7 @@
 																</div>
 																<div class="col-xs-6">
 																	<div class="progress">
-																		<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $children_asignacione['Asignacione']['progreso']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $children_asignacione['Asignacione']['progreso']; ?>%">
+																		<div class="progress-bar progress-bar-<?php echo $children_asignacione['Asignacione']['bar_class']; ?>" role="progressbar" aria-valuenow="<?php echo $children_asignacione['Asignacione']['progreso']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $children_asignacione['Asignacione']['progreso']; ?>%">
 																			<span><?php echo $children_asignacione['Asignacione']['progreso']; ?>%</span>
 																		</div>
 																	</div>
@@ -95,10 +97,9 @@
 															</div>
 														</td>
 														<td>
-														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<span class="glyphicon glyphicon-plus"></span>
-															<span class="glyphicon glyphicon-search"></span>
-															<span class="glyphicon glyphicon-envelope"></span>
+															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+															<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span> ', array('controller' => 'avances', 'action' => 'add', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
+															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'asignaciones', 'action' => 'delete', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
 														</td>
 													</tr>
 												<?php endforeach; ?>
@@ -109,10 +110,11 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
-									<h4><?php echo __('Record de avances del responsable: ') . $asignacione['Responsable']['name']; ?></h4>
+									<h4><?php echo __('Registro de avances'); ?></h4>
 									<table class="table table-condensed table-bordered table-hover">
 										<thead>
 											<tr>
+												<th><?php echo __('Responsable'); ?></th>
 												<th><?php echo __('Fecha'); ?></th>
 												<th><?php echo __('Detalles'); ?></th>
 												<th><?php echo __('Porcentaje Avanzado'); ?></th>
@@ -120,27 +122,25 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php if (empty($asignacione['Avance'])): ?>
+											<?php if (empty($avances)): ?>
 												<tr>
 													<td colspan="6"><?php echo __('No hay avances registrados en la asignacion'); ?></td>
 												</tr>
 											<?php else: ?>
-												<?php foreach ($asignacione['Avance'] as $avance): ?>
+												<?php foreach ($avances as $avance): ?>
 													<tr>
+														<td><?php echo $avance['User']['name']; ?></td>
 														<td><?php echo $avance['Avance']['created']; ?></td>
 														<td><?php echo $avance['Avance']['detalles']; ?></td>
 														<td>
 															<div class="progress">
-																<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $avance['Avance']['porcentaje_avanzado']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $avance['Avance']['porcentaje_avanzado']; ?>%">
+																<div class="progress-bar progress-bar-<?php echo $avance['Avance']['bar_class']; ?>" role="progressbar" aria-valuenow="<?php echo $avance['Avance']['porcentaje_avanzado']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $avance['Avance']['porcentaje_avanzado']; ?>%">
 																	<span><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</span>
 																</div>
 															</div>
 														</td>
 														<td>
 														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<span class="glyphicon glyphicon-plus"></span>
-															<span class="glyphicon glyphicon-search"></span>
-															<span class="glyphicon glyphicon-envelope"></span>
 														</td>
 													</tr>
 												<?php endforeach; ?>
@@ -150,8 +150,11 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xs-12">
+								<div class="col-xs-4">
 									<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span> ' . __('Agregar avance'), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
+								</div>
+								<div class="col-xs-8 text-right">
+									<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span> ' . __('Finalizar'), array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 								</div>
 							</div>
 						</div>

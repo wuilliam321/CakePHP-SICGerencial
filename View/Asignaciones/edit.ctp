@@ -12,7 +12,57 @@
 		<div class="row">
 			<div class="col-xs-4 left-sidebar">
 				<?php echo $this->Form->input('id'); ?>
-				<?php if ($parent): ?>
+				<div class="form-group">
+					<?php echo $this->Form->label('responsable_id', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('responsable_id'); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('dependencia_id', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('dependencia_id'); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('fecha_asignacion', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('fecha_asignacion', array('type' => 'text', 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('fecha_entrega', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('fecha_entrega', array('type' => 'text', 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('User', __('Colaboradores'), array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('User'); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('porcentaje_asignado', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('porcentaje_asignado', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
+					</div>
+				</div><!-- 
+
+				<div class="form-group">
+					<?php //echo $this->Form->label('progreso', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php //echo $this->Form->input('progreso', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
+					</div>
+				</div> -->
+				<hr />
+
+				<?php if ($parent['ParentAsignacione']['id']): ?>
 					<div class="form-group">
 						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label')); ?>
 						<div class="col-xs-8">
@@ -42,7 +92,7 @@
 					<div class="form-group">
 						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label')); ?>
 						<div class="col-xs-8">
-							<?php if ($parent): ?>
+							<?php if ($parent['ParentAsignacione']['id']): ?>
 								<div class="col-xs-12">
 									<input disabled="disabled" class="form-control" value="<?php echo $parent['ParentAsignacione']['codigo']; ?>" />
 								</div>
@@ -52,48 +102,6 @@
 						</div>
 					</div>
 				<?php endif; ?>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('responsable_id', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('responsable_id'); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('porcentaje_asignado', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('porcentaje_asignado', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('progreso', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('progreso', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('fecha_asignacion', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('fecha_asignacion', array('type' => 'text', 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('fecha_entrega', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('fecha_entrega', array('type' => 'text', 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('User', __('Colaboradores'), array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('User'); ?>
-					</div>
-				</div>
 			</div>
 			<div class="col-xs-8">
 				<div class="form-group">

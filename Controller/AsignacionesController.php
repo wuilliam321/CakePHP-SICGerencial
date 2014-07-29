@@ -44,7 +44,7 @@ class AsignacionesController extends AppController {
  *
  * @return void
  */
-	public function add($tipo = null, $parent_id = null) {
+	public function add($parent_id = null) {
 		$auth_user = $this->Session->read('Auth.User');
 
 		$parent = null;
@@ -55,13 +55,14 @@ class AsignacionesController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->Asignacione->create();
-			$this->request->data['Asignacione']['tipo'] = $tipo;
 			$this->request->data['Asignacione']['asignador_id'] = $auth_user['id'];
 			$this->request->data['Asignacione']['parent_id'] = $parent_id;
-			if ($parent_id) {
-				$this->request->data['Asignacione']['tipo'] = $parent['ParentAsignacione']['tipo'];
-			}
 			if ($this->Asignacione->save($this->request->data)) {
+				if ($parent_id) {
+					$asignacione = $this->Asignacione->findById($parent_id);
+					$asignacione['Asignacione']['porcentaje_distribuido'] += $this->request->data['Asignacione']['porcentaje_asignado'];
+					$this->Asignacione->save($asignacione);
+				}
 				$this->Session->setFlash(__('The asignacione has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -69,9 +70,9 @@ class AsignacionesController extends AppController {
 			}
 		}
 		$responsables = $this->Asignacione->Responsable->find('list', array('conditions' => array('Responsable.id NOT' => $auth_user['id'])));
-
+		$dependencias = $this->Asignacione->Dependencia->find('list');
 		$users = $this->Asignacione->User->find('list');
-		$this->set(compact('responsables', 'parent', 'users'));
+		$this->set(compact('responsables', 'parent', 'dependencias', 'users'));
 	}
 
 /**
@@ -100,8 +101,9 @@ class AsignacionesController extends AppController {
 		$asignadors = $this->Asignacione->Asignador->find('list');
 		$responsables = $this->Asignacione->Responsable->find('list');
 		$parents = $this->Asignacione->ParentAsignacione->find('list');
+		$dependencias = $this->Asignacione->Dependencia->find('list');
 		$users = $this->Asignacione->User->find('list');
-		$this->set(compact('asignadors', 'responsables', 'parents', 'parent', 'users'));
+		$this->set(compact('responsables', 'parent', 'dependencias', 'users'));
 	}
 
 /**
@@ -125,29 +127,72 @@ class AsignacionesController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	public function getAsignacionesByTipo($tipo) {
-		$this->layout = false;
-		$this->set('asignaciones', $this->Asignacione->findAllByTipo($tipo));
-	}
-
 	public function getAsignaciones() {
 		$this->layout = false;
 		$this->Asignacione->recursive = 0;
-		$asignaciones = $this->Asignacione->findAllByTipoAndParentId('I', null);
+		$asignaciones = $this->Asignacione->findAllByParentIdAndCompletada(null, 0);
+		$asignacione_ids = array();
 		foreach ($asignaciones as &$asignacione) {
+			$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime($asignacione['Asignacione']['fecha_asignacion']);
+			$asignacione['Asignacione']['dias_disponibles'] = floor($diff / (60*60*24));
+			if ($asignacione['Asignacione']['dias_disponibles'] < 1) {
+				$asignacione['Asignacione']['dias_disponibles'] = 1;
+			}
+
+			$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime(date('Y-m-d'));
+			$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));
+
+			$asignacione['Asignacione']['progreso'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
+			if ($asignacione['Asignacione']['progreso'] > 100) {
+				$asignacione['Asignacione']['progreso'] = 100;
+			}
+			if ($asignacione['Asignacione']['progreso'] < 51) {
+				$asignacione['Asignacione']['bar_class'] = 'success';
+			} else if ($asignacione['Asignacione']['progreso'] > 50 && ($asignacione['Asignacione']['progreso'] < 80)) {
+				$asignacione['Asignacione']['bar_class'] = 'warning';
+			} else {
+				$asignacione['Asignacione']['bar_class'] = 'danger';
+			}
+			$this->Asignacione->save($asignacione);
+
 			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 0);
-			$asignacione['Avance'] = $this->Asignacione->Avance->findAllByAsignacioneId($asignacione['Asignacione']['id']);
+			foreach ($asignacione['ChildrenAsignacione'] as &$child) {
+				if ($child['Asignacione']['progreso'] < 51) {
+					$child['Asignacione']['bar_class'] = 'danger';
+				} else if ($child['Asignacione']['progreso'] > 50 && ($child['Asignacione']['progreso'] < 80)) {
+					$child['Asignacione']['bar_class'] = 'warning';
+				} else {
+					$child['Asignacione']['bar_class'] = 'success';
+				}
+			}
+			$asignacione_ids = array_merge(array($asignacione['Asignacione']['id']), Hash::extract($asignacione['ChildrenAsignacione'], '{n}.Asignacione.id'));
 		}
-		$this->set(compact('asignaciones'));
+		$options['conditions'] = array(
+			'Avance.asignacione_id' => $asignacione_ids
+		);
+		$avances = $this->Asignacione->Avance->find('all', $options);
+		foreach ($avances as &$avance) {
+			if ($avance['Avance']['porcentaje_avanzado'] < 51) {
+				$avance['Avance']['bar_class'] = 'danger';
+			} else if ($avance['Avance']['porcentaje_avanzado'] > 50 && ($avance['Avance']['porcentaje_avanzado'] < 80)) {
+				$avance['Avance']['bar_class'] = 'warning';
+			} else {
+				$avance['Avance']['bar_class'] = 'success';
+			}
+		}
+		$this->set(compact('asignaciones', 'avances'));
 	}
 
-	public function getComunicaciones() {
-		$this->layout = false;
-		$this->Asignacione->recursive = 0;
-		$comunicaciones = $this->Asignacione->findAllByTipoAndParentId('C', null);
-		foreach ($comunicaciones as &$comunicacione) {
-			$comunicacione['ChildrenComunicacione'] = $this->Asignacione->children($comunicacione['Asignacione']['id'], false, null, null, null, 1, 0);
+	public function finalizar($id) {
+		if ($this->request->is(array('post', 'put'))) {
+			$asignacione = $this->Asignacione->findById($id);
+			$asignacione['Asignacione']['completada'] = 1;
+			if ($this->Asignacione->save($asignacione)) {
+				$this->Session->setFlash(__('The asignacione has been ended.'));
+			} else {
+				$this->Session->setFlash(__('The asignacione could not be ended. Please, try again.'));
+			}
 		}
-		$this->set(compact('comunicaciones'));
+		return $this->redirect(array('action' => 'index'));
 	}
 }

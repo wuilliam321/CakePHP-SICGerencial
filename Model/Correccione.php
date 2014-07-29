@@ -3,16 +3,9 @@ App::uses('AppModel', 'Model');
 /**
  * Correccione Model
  *
- * @property Asignacione $Asignacione
+ * @property Comunicacione $Comunicacione
  */
 class Correccione extends AppModel {
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'id';
 
 /**
  * Validation rules
@@ -20,7 +13,7 @@ class Correccione extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'asignacione_id' => array(
+		'comunicacione_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -50,9 +43,9 @@ class Correccione extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Asignacione' => array(
-			'className' => 'Asignacione',
-			'foreignKey' => 'asignacione_id',
+		'Comunicacione' => array(
+			'className' => 'Comunicacione',
+			'foreignKey' => 'comunicacione_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

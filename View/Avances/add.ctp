@@ -12,13 +12,22 @@
 		<div class="row">
 			<div class="col-xs-4 left-sidebar">
 				<div class="form-group">
-					<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label')); ?>
+					<?php echo $this->Form->label('porcentaje_avanzado', null, array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
-						<div class="col-xs-12">
-							<p><?php echo $asignacione['Asignacione']['codigo']; ?></p>
-						</div>
+						<?php echo $this->Form->input('porcentaje_avanzado', array('max' => 100, 'min' => 0, 'value' => 100, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
 					</div>
 				</div>
+				<hr />
+				<?php if ($asignacione['Asignacione']['codigo']): ?>
+					<div class="form-group">
+						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label')); ?>
+						<div class="col-xs-8">
+							<div class="col-xs-12">
+								<p><?php echo $asignacione['Asignacione']['codigo']; ?></p>
+							</div>
+						</div>
+					</div>
+				<?php endif; ?>
 				<div class="form-group">
 					<?php echo $this->Form->label('titulo', null, array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
@@ -39,16 +48,8 @@
 					<?php echo $this->Form->label('user_id', null, array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
 						<div class="col-xs-12">
-							<p><?php echo $user['User']['name']; ?></p>
+							<p><?php echo $asignacione['Responsable']['name']; ?></p>
 						</div>
-					</div>
-				</div>
-				<hr />
-
-				<div class="form-group">
-					<?php echo $this->Form->label('porcentaje_avanzado', null, array('class' => 'col-xs-4 control-label')); ?>
-					<div class="col-xs-8">
-						<?php echo $this->Form->input('porcentaje_avanzado', array('max' => 100, 'min' => 0, 'value' => 100, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
 					</div>
 				</div>
 			</div>
