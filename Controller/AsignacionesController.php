@@ -62,12 +62,16 @@ class AsignacionesController extends AppController {
 					$asignacione = $this->Asignacione->findById($parent_id);
 					$asignacione['Asignacione']['porcentaje_distribuido'] += $this->request->data['Asignacione']['porcentaje_asignado'];
 					$this->Asignacione->save($asignacione);
+				} else {
+					$this->increase_contador('A');
 				}
 				$this->Session->setFlash(__('The asignacione has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'));
 			}
+		} else {
+			$this->request->data['Asignacione']['codigo'] = $this->get_last_code('A');
 		}
 		$responsables = $this->Asignacione->Responsable->find('list', array('conditions' => array('Responsable.id NOT' => $auth_user['id'])));
 		$dependencias = $this->Asignacione->Dependencia->find('list');
@@ -120,6 +124,7 @@ class AsignacionesController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Asignacione->delete()) {
+			$this->decrease_contador('A');
 			$this->Session->setFlash(__('The asignacione has been deleted.'));
 		} else {
 			$this->Session->setFlash(__('The asignacione could not be deleted. Please, try again.'));

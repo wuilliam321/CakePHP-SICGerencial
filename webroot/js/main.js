@@ -5,6 +5,9 @@ $(function () {
 	if ($( "div.comunicaciones-list" ).length) {
 		getAsignaciones("div.comunicaciones-list");
 	}
+	if ($( "div.directorios-list" ).length) {
+		getAsignaciones("div.directorios-list");
+	}
 
 	if ($( "span.do-show" ).length) {
 		$("span.do-show").click(function () {

@@ -21,3 +21,15 @@
 <div class="row">
 	<div class="col-xs-12 asignaciones-list" data-url="<?php echo $this->Html->url(array('action' => 'getAsignaciones')); ?>"></div>
 </div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<h2>
+			<?php echo __("Directorios"); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo directorio'), array('controller' => 'directorios', 'action' => 'add'), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+		</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 directorios-list" data-url="<?php echo $this->Html->url(array('controller' => 'directorios', 'action' => 'getDirectorios')); ?>"></div>
+</div>

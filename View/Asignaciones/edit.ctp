@@ -52,7 +52,15 @@
 					<div class="col-xs-8">
 						<?php echo $this->Form->input('porcentaje_asignado', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
 					</div>
-				</div><!-- 
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('porcentaje_distribuido', null, array('class' => 'col-xs-4 control-label')); ?>
+					<div class="col-xs-8">
+						<?php echo $this->Form->input('porcentaje_distribuido', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon">%</div>', 'escape' => false)); ?>
+					</div>
+				</div>
+				<!-- 
 
 				<div class="form-group">
 					<?php //echo $this->Form->label('progreso', null, array('class' => 'col-xs-4 control-label')); ?>

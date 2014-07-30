@@ -212,19 +212,6 @@ class Asignacione extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Correccione' => array(
-			'className' => 'Correccione',
-			'foreignKey' => 'asignacione_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Evaluacione' => array(
 			'className' => 'Evaluacione',
 			'foreignKey' => 'asignacione_id',

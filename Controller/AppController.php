@@ -62,4 +62,46 @@ class AppController extends Controller {
 		);
 		$this->Auth->allow(array('pages' => 'display'));
 	}
+
+	public function get_last_code($tipo) {
+		$this->loadModel('Parametro');
+		$tipos = array(
+			'D' => 'contador_directorio',
+			'C' => 'contador_comunicaciones',
+			'A' => 'contador_asignaciones',
+		);
+		$nombre = $tipos[$tipo];
+
+		$parametro = $this->Parametro->findByNombre($nombre);
+		$valor = $parametro['Parametro']['valor'] + 1;
+		return $tipo . sprintf('%09d', $valor);
+	}
+
+	public function increase_contador($tipo) {
+		$this->loadModel('Parametro');
+		$tipos = array(
+			'D' => 'contador_directorio',
+			'C' => 'contador_comunicaciones',
+			'A' => 'contador_asignaciones',
+		);
+		$nombre = $tipos[$tipo];
+
+		$parametro = $this->Parametro->findByNombre($nombre);
+		$parametro['Parametro']['valor'] += 1;
+		$this->Parametro->save($parametro);
+	}
+
+	public function decrease_contador($tipo) {
+		$this->loadModel('Parametro');
+		$tipos = array(
+			'D' => 'contador_directorio',
+			'C' => 'contador_comunicaciones',
+			'A' => 'contador_asignaciones',
+		);
+		$nombre = $tipos[$tipo];
+
+		$parametro = $this->Parametro->findByNombre($nombre);
+		$parametro['Parametro']['valor'] -= 1;
+		$this->Parametro->save($parametro);
+	}
 }

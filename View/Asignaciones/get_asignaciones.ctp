@@ -1,13 +1,13 @@
 <table class="table table-condensed table-bordered table-striped">
 	<thead>
 		<tr>
-			<th>&nbsp;</th>
-			<th>Codigo</th>
+			<th class="col-xs-0">&nbsp;</th>
+			<th class="col-xs-1">Codigo</th>
 			<th>Titulo</th>
 			<th>Asignador</th>
 			<th>Responsable</th>
 			<th>Progreso</th>
-			<th>Acciones</th>
+			<th class="col-xs-1">Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -54,7 +54,7 @@
 									<p><?php echo $asignacione['Asignacione']['detalles']; ?></p>
 									<h4>
 										<?php echo __('Desgloce de la asignacion'); ?>
-										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Delegar'), array('action' => 'add', 'I', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Delegar'), array('action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 									</h4>
 									<table class="table table-condensed table-bordered table-hover">
 										<thead>
@@ -64,7 +64,7 @@
 												<th><?php echo __('Responsable'); ?></th>
 												<th><?php echo __('% Asignado'); ?></th>
 												<th><?php echo __('Progreso'); ?></th>
-												<th><?php echo __('Acciones'); ?></th>
+												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -118,7 +118,7 @@
 												<th><?php echo __('Fecha'); ?></th>
 												<th><?php echo __('Detalles'); ?></th>
 												<th><?php echo __('Porcentaje Avanzado'); ?></th>
-												<th><?php echo __('Acciones'); ?></th>
+												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -132,13 +132,7 @@
 														<td><?php echo $avance['User']['name']; ?></td>
 														<td><?php echo $avance['Avance']['created']; ?></td>
 														<td><?php echo $avance['Avance']['detalles']; ?></td>
-														<td>
-															<div class="progress">
-																<div class="progress-bar progress-bar-<?php echo $avance['Avance']['bar_class']; ?>" role="progressbar" aria-valuenow="<?php echo $avance['Avance']['porcentaje_avanzado']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $avance['Avance']['porcentaje_avanzado']; ?>%">
-																	<span><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</span>
-																</div>
-															</div>
-														</td>
+														<td><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</td>
 														<td>
 														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 														</td>

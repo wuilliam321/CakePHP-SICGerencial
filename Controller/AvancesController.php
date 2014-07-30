@@ -48,10 +48,10 @@ class AvancesController extends AppController {
  */
 	public function add($asignacione_id) {
 		$auth_user = $this->Session->read('Auth.User');
+		$this->Avance->Asignacione->recursive = 0;
 		$asignacione = $this->Avance->Asignacione->findById($asignacione_id);
 		if ($this->request->is('post')) {
 			$this->Avance->create();
-			$this->Avance->Asignacione->recursive = -1;
 			$this->request->data['Avance']['asignacione_id'] = $asignacione_id;
 			$this->request->data['Avance']['user_id'] = $asignacione['Asignacione']['responsable_id'];
 			if ($this->Avance->save($this->request->data)) {
@@ -63,6 +63,7 @@ class AvancesController extends AppController {
 				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
 			}
 		}
+		$this->Avance->User->recursive = -1;
 		$user = $this->Avance->User->findById($auth_user['id']);
 		$this->set(compact('asignacione', 'user'));
 	}
