@@ -3,3 +3,5 @@ table div.progress { margin-bottom: 0 }
 div.left-sidebar { border-right: 1px solid rgb(169, 169, 169); }
 div.input-group {padding-right: 15px;padding-left: 15px;}
 .col-xs-0 { width: 1%;}
+div.inline { display: inline-block; }
+.fg-white, .fg-white:hover { color: #fff;}

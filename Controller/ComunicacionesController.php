@@ -58,7 +58,7 @@ class ComunicacionesController extends AppController {
 			$this->request->data['Comunicacione']['parent_id'] = $parent_id;
 			$this->request->data['Comunicacione']['fecha_remision'] = date('Y-m-d H:i:s');
 			$this->Comunicacione->create();
-			if ($this->Comunicacione->save($this->request->data)) {
+			if ($this->Comunicacione->saveWithAttachments($this->request->data, 'Comunicacione')) {
 				if (!$parent_id) {
 					$this->increase_contador('C');
 				}
@@ -96,7 +96,7 @@ class ComunicacionesController extends AppController {
 			$parent = $this->Comunicacione->findById($comunicacione['ParentComunicacione']['id']);
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Comunicacione->save($this->request->data)) {
+			if ($this->Comunicacione->saveWithAttachments($this->request->data, 'Comunicacione')) {
 				$this->Session->setFlash(__('The comunicacione has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 			} else {
@@ -136,10 +136,31 @@ class ComunicacionesController extends AppController {
 
 	public function getComunicaciones() {
 		$this->layout = false;
-		$this->Comunicacione->recursive = 0;
-		$comunicaciones = $this->Comunicacione->findAllByParentId(null);
+		$auth_user = $this->Session->read('Auth.User');
+		if ($auth_user['group_id'] == 1) {
+			$comunicaciones = $this->Comunicacione->findAllByParentId(null);
+		} else {
+			$options['joins'] = array(
+				array(
+					'table' => 'comunicaciones_users',
+					'alias' => 'ComunicacionesUser',
+					'type' => 'LEFT',
+					'conditions' => array(
+						'ComunicacionesUser.comunicacione_id = Comunicacione.id',
+					)
+				)
+			);
+			$options['conditions'] = array(
+				'Comunicacione.parent_id' => null,
+				'OR' => array(
+					'Comunicacione.remitente_id' => $auth_user['id'],
+					'ComunicacionesUser.user_id' => $auth_user['id'],
+				)
+			);
+			$comunicaciones = $this->Comunicacione->find('all', $options);
+		}
 		foreach ($comunicaciones as &$comunicacione) {
-			$comunicacione['ChildrenComunicacione'] = $this->Comunicacione->children($comunicacione['Comunicacione']['id'], false, null, null, null, 1, 0);
+			$comunicacione['ChildrenComunicacione'] = $this->Comunicacione->children($comunicacione['Comunicacione']['id'], false, null, null, null, 1, 1);
 		}
 		$this->set(compact('comunicaciones'));
 	}

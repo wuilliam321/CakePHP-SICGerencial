@@ -20,10 +20,22 @@
 					<td><?php echo $directorio['Directorio']['codigo']; ?></td>
 					<td><?php echo $directorio['Directorio']['objetivo']; ?></td>
 					<td><?php echo $directorio['Directorio']['fecha_inicio']; ?></td>
-					<td>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+					<td class="text-right">
+						<?php if ($directorio['Attachment']): ?>
+							<div class="dropdown inline">
+								<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<?php foreach ($directorio['Attachment'] as $attachment): ?>
+										<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'directorios'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+						<div class="btn-group">
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+						</div>
 					</td>
 				</tr>
 				<tr style="display:none">
@@ -34,7 +46,7 @@
 									<p><?php echo $directorio['Directorio']['detalles']; ?></p>
 									<h4>
 										<?php echo __('Puntos a tratar'); ?>
-										<?php echo $this->Html->link('<span class="glyphicon glyphicon-share-alt"></span> ' . __('Nuevo punto'), array('controller' => 'puntos', 'action' => 'add', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo punto'), array('controller' => 'puntos', 'action' => 'add', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 									</h4>
 									<table class="table table-condensed table-bordered table-hover">
 										<thead>
@@ -52,7 +64,7 @@
 												<?php foreach ($directorio['Punto'] as $punto): ?>
 													<tr>
 														<td><?php echo $punto['detalles']; ?></td>
-														<td>
+														<td class="text-right">
 															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'puntos', 'action' => 'edit', $punto['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'puntos', 'action' => 'delete', $punto['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
 														</td>

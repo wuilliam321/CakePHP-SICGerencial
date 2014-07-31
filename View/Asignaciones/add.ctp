@@ -6,7 +6,7 @@
 		</h2>
 	</div>
 </div>
-<?php echo $this->Form->create('Asignacione', array('class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => array('class' => 'col-xs-12'), 'class' => 'form-control'))); ?>
+<?php echo $this->Form->create('Asignacione', array('type' => 'file', 'class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => array('class' => 'col-xs-12'), 'class' => 'form-control'))); ?>
 	<fieldset>
 		<legend><?php echo __('Datos de la asignacion'); ?></legend>
 		<div class="row">
@@ -115,6 +115,14 @@
 					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-1 control-label')); ?>
 					<div class="col-xs-11">
 						<?php echo $this->Form->input('detalles', array('rows' => 12)); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-1 control-label')); ?>
+					<div class="col-xs-11">
+						<?php echo $this->Form->input('Attachment.0.attachment', array('type' => 'file', 'required' => false, 'empty' => true)); ?>
+						<?php echo $this->Form->input('Attachment.0.model', array('type' => 'hidden', 'value' => 'Asignacione')); ?>
 					</div>
 				</div>
 

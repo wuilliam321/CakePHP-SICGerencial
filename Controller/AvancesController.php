@@ -54,7 +54,7 @@ class AvancesController extends AppController {
 			$this->Avance->create();
 			$this->request->data['Avance']['asignacione_id'] = $asignacione_id;
 			$this->request->data['Avance']['user_id'] = $asignacione['Asignacione']['responsable_id'];
-			if ($this->Avance->save($this->request->data)) {
+			if ($this->Avance->saveWithAttachments($this->request->data, 'Avance')) {
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
 				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'));
@@ -81,7 +81,7 @@ class AvancesController extends AppController {
 		}
 		$auth_user = $this->Session->read('Auth.User');
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Avance->save($this->request->data)) {
+			if ($this->Avance->saveWithAttachments($this->request->data, 'Avance')) {
 				$avance = $this->Avance->findById($id);
 				$asignacione = $this->Avance->Asignacione->findById($avance['Avance']['asignacione_id']);
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
@@ -96,6 +96,7 @@ class AvancesController extends AppController {
 			$this->request->data = $this->Avance->find('first', $options);
 		}
 		$asignacione = $this->Avance->Asignacione->findById($this->request->data['Avance']['asignacione_id']);
+		$this->Avance->User->recursive = -1;
 		$user = $this->Avance->User->findById($auth_user['id']);
 		$this->set(compact('asignacione', 'user'));
 	}
@@ -118,6 +119,6 @@ class AvancesController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The avance could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 	}
 }

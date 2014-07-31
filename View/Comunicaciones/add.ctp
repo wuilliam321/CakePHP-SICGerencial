@@ -1,12 +1,12 @@
 <div class="row">
 	<div class="col-xs-12">
 		<h2>
-			<?php echo __('Crear Respuesta'); ?>
+			<?php echo __('Crear Comunicacion'); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-chevron-left"></span> Volver', array('controller' => 'asignaciones', 'action' => 'index'), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 		</h2>
 	</div>
 </div>
-<?php echo $this->Form->create('Comunicacione', array('class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => array('class' => 'col-xs-12'), 'class' => 'form-control'))); ?>
+<?php echo $this->Form->create('Comunicacione', array('type' => 'file', 'class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => array('class' => 'col-xs-12'), 'class' => 'form-control'))); ?>
 	<fieldset>
 		<legend><?php echo __('Datos de la comunicacion / respuesta'); ?></legend>
 		<div class="row">
@@ -62,7 +62,11 @@
 					<?php echo $this->Form->label('titulo', null, array('class' => 'col-xs-1 control-label')); ?>
 					<div class="col-xs-11">
 						<?php if (isset($parent['Comunicacione']['titulo'])): ?>
-							<?php echo $this->Form->input('titulo', array('rows' => 2, 'value' => '>> ' . $parent['Comunicacione']['titulo'])); ?>
+							<?php $titulo = '>> ' . $parent['Comunicacione']['titulo']; ?>
+							<?php if (isset($this->request->data['Comunicacione']['titulo'])): ?>
+								<?php $titulo = $this->request->data['Comunicacione']['titulo']; ?>
+							<?php endif;?>
+							<?php echo $this->Form->input('titulo', array('rows' => 2, 'value' => $titulo)); ?>
 						<?php else: ?>
 							<?php echo $this->Form->input('titulo', array('rows' => 2)); ?>
 						<?php endif; ?>
@@ -73,7 +77,7 @@
 					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-1 control-label')); ?>
 					<div class="col-xs-11">
 						<?php if (isset($parent['Comunicacione']['titulo'])): ?>
-							<?php echo $this->Form->input('User', array('value' => Hash::extract($parent['User'], '{n}.id'))); ?>
+							<?php echo $this->Form->input('User', array('value' => $parent['Comunicacione']['remitente_id'])); ?>
 						<?php else: ?>
 							<?php echo $this->Form->input('User'); ?>
 						<?php endif; ?>
@@ -84,10 +88,22 @@
 					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-1 control-label')); ?>
 					<div class="col-xs-11">
 						<?php if (isset($parent['Comunicacione']['titulo'])): ?>
-							<?php echo $this->Form->input('detalles', array('rows' => 12, 'value' => "\n\n--Mensaje Original--\n>> " . str_replace('--Mensaje Original--', '', $parent['Comunicacione']['detalles']))); ?>
+							<?php $detalles = "\n\n--Mensaje Original--\n>> " . str_replace('--Mensaje Original--', '', $parent['Comunicacione']['detalles']); ?>
+							<?php if (isset($this->request->data['Comunicacione']['detalles'])): ?>
+								<?php $detalles = $this->request->data['Comunicacione']['detalles']; ?>
+							<?php endif;?>
+							<?php echo $this->Form->input('detalles', array('rows' => 12, 'value' => $detalles)); ?>
 						<?php else: ?>
 							<?php echo $this->Form->input('detalles', array('rows' => 12)); ?>
 						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-1 control-label')); ?>
+					<div class="col-xs-11">
+						<?php echo $this->Form->input('Attachment.0.attachment', array('type' => 'file', 'required' => false, 'empty' => true)); ?>
+						<?php echo $this->Form->input('Attachment.0.model', array('type' => 'hidden', 'value' => 'Comunicacione')); ?>
 					</div>
 				</div>
 

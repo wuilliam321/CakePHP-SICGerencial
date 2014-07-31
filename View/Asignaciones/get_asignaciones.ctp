@@ -40,10 +40,23 @@
 							</div>
 						</div>
 					</td>
-					<td>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+					<td class="text-right">
+						<?php if ($asignacione['Attachment']): ?>
+							<div class="dropdown inline">
+								<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<?php foreach ($asignacione['Attachment'] as $attachment): ?>
+										<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'asignaciones'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+						<div class="btn-group">
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+						</div>
 					</td>
 				</tr>
 				<tr style="display:none">
@@ -62,6 +75,7 @@
 												<th><?php echo __('Titulo'); ?></th>
 												<th><?php echo __('Asignador'); ?></th>
 												<th><?php echo __('Responsable'); ?></th>
+												<th><?php echo __('Detalles'); ?></th>
 												<th><?php echo __('% Asignado'); ?></th>
 												<th><?php echo __('Progreso'); ?></th>
 												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
@@ -70,7 +84,7 @@
 										<tbody>
 											<?php if (empty($asignacione['ChildrenAsignacione'])): ?>
 												<tr>
-													<td colspan="6"><?php echo __('No se ha desglozado la presente asignacion'); ?></td>
+													<td colspan="7"><?php echo __('No se ha desglozado la presente asignacion'); ?></td>
 												</tr>
 											<?php else: ?>
 												<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
@@ -78,6 +92,7 @@
 														<td><?php echo $children_asignacione['Asignacione']['titulo']; ?></td>
 														<td><?php echo $children_asignacione['Asignador']['name']; ?></td>
 														<td><?php echo $children_asignacione['Responsable']['name']; ?></td>
+														<td><?php echo $children_asignacione['Asignacione']['detalles']; ?></td>
 														<td><?php echo $children_asignacione['Asignacione']['porcentaje_asignado']; ?>%</td>
 														<td>
 															<div class="row">
@@ -96,10 +111,23 @@
 																</div>
 															</div>
 														</td>
-														<td>
-															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span> ', array('controller' => 'avances', 'action' => 'add', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
-															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'asignaciones', 'action' => 'delete', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
+														<td class="text-right">
+															<?php if ($children_asignacione['Attachment']): ?>
+																<div class="dropdown inline">
+																	<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+																	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+																		<?php foreach ($children_asignacione['Attachment'] as $attachment): ?>
+																			<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'asignaciones'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+																			</li>
+																		<?php endforeach; ?>
+																	</ul>
+																</div>
+															<?php endif; ?>
+															<div class="btn-group">
+																<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+																<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
+																<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+															</div>
 														</td>
 													</tr>
 												<?php endforeach; ?>
@@ -133,8 +161,20 @@
 														<td><?php echo $avance['Avance']['created']; ?></td>
 														<td><?php echo $avance['Avance']['detalles']; ?></td>
 														<td><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</td>
-														<td>
+														<td class="text-right">
+															<?php if ($avance['Attachment']): ?>
+																<div class="dropdown inline">
+																	<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+																	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+																		<?php foreach ($avance['Attachment'] as $attachment): ?>
+																			<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'avances'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+																			</li>
+																		<?php endforeach; ?>
+																	</ul>
+																</div>
+															<?php endif; ?>
 														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+														<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 														</td>
 													</tr>
 												<?php endforeach; ?>
@@ -144,10 +184,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xs-4">
-									<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span> ' . __('Agregar avance'), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
-								</div>
-								<div class="col-xs-8 text-right">
+								<div class="col-xs-12 text-right">
 									<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span> ' . __('Finalizar'), array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 								</div>
 							</div>

@@ -46,9 +46,13 @@ class PuntosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($directorio_id) {
+		$auth_user = $this->Session->read('Auth.User');
+		$this->Punto->Directorio->recursive = 0;
+		$directorio = $this->Punto->Directorio->findById($directorio_id);
 		if ($this->request->is('post')) {
 			$this->Punto->create();
+			$this->request->data['Punto']['directorio_id'] = $directorio_id;
 			if ($this->Punto->save($this->request->data)) {
 				$this->Session->setFlash(__('The punto has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
@@ -56,8 +60,7 @@ class PuntosController extends AppController {
 				$this->Session->setFlash(__('The punto could not be saved. Please, try again.'));
 			}
 		}
-		$directorios = $this->Punto->Directorio->find('list');
-		$this->set(compact('directorios'));
+		$this->set(compact('directorio'));
 	}
 
 /**
@@ -82,8 +85,8 @@ class PuntosController extends AppController {
 			$options = array('conditions' => array('Punto.' . $this->Punto->primaryKey => $id));
 			$this->request->data = $this->Punto->find('first', $options);
 		}
-		$directorios = $this->Punto->Directorio->find('list');
-		$this->set(compact('directorios'));
+		$directorio = $this->Punto->Directorio->findById($this->request->data['Directorio']['id']);
+		$this->set(compact('directorio'));
 	}
 
 /**
@@ -104,6 +107,6 @@ class PuntosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The punto could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 	}
 }

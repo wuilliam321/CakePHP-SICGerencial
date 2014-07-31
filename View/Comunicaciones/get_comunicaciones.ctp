@@ -24,10 +24,23 @@
 					<td><?php echo $comunicacione['Remitente']['name']; ?></td>
 					<td><?php echo $comunicacione['Comunicacione']['fecha_remision']; ?></td>
 					<td><?php echo $comunicacione['Comunicacione']['fecha_fin']; ?></td>
-					<td>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', array('action' => 'edit', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-						<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+					<td class="text-right">
+						<?php if ($comunicacione['Attachment']): ?>
+							<div class="dropdown inline">
+								<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<?php foreach ($comunicacione['Attachment'] as $attachment): ?>
+										<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'comunicaciones'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+						<div class="btn-group">
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-share-alt"></span>', array('action' => 'add', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-info btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+						</div>
 					</td>
 				</tr>
 				<tr style="display:none">
@@ -38,7 +51,6 @@
 									<p><?php echo $comunicacione['Comunicacione']['detalles']; ?></p>
 									<h4>
 										<?php echo __('Historial de comunicacion'); ?>
-										<?php echo $this->Html->link('<span class="glyphicon glyphicon-share-alt"></span> ' . __('Responder'), array('action' => 'add', $comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 									</h4>
 									<table class="table table-condensed table-bordered table-hover">
 										<thead>
@@ -62,10 +74,23 @@
 														<td><?php echo $children_comunicacione['Remitente']['name']; ?></td>
 														<td><?php echo $this->Text->truncate($children_comunicacione['Comunicacione']['detalles'], 100); ?></td>
 														<td><?php echo $children_comunicacione['Comunicacione']['fecha_remision']; ?></td>
-														<td>
-															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<?php echo $this->Html->link('<span class="glyphicon glyphicon-share-alt"></span>', array('action' => 'add', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'comunicaciones', 'action' => 'delete', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
+														<td class="text-right">
+															<?php if ($children_comunicacione['Attachment']): ?>
+																<div class="dropdown inline">
+																	<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+																	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+																		<?php foreach ($children_comunicacione['Attachment'] as $attachment): ?>
+																			<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'comunicaciones'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+																			</li>
+																		<?php endforeach; ?>
+																	</ul>
+																</div>
+															<?php endif; ?>
+															<div class="btn-group">
+																<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+																<?php echo $this->Html->link('<span class="glyphicon glyphicon-share-alt"></span>', array('action' => 'add', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-info btn-xs', 'escape' => false)); ?>
+																<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'comunicaciones', 'action' => 'delete', $children_comunicacione['Comunicacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
+															</div>
 														</td>
 													</tr>
 												<?php endforeach; ?>

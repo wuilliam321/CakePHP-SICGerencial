@@ -158,7 +158,7 @@ class UsersController extends AppController {
 					$user = $this->User->save($user);
 					$is_new = false;
 				} else {
-					$auth_user['User']['group_id'] = 99; // 99 = Bloqueado
+					$auth_user['User']['group_id'] = 9; // 99 = Bloqueado // Por ahora todos son asistentes fiscals
 					$user = $this->User->save($auth_user);
 					$user = $this->User->findByUsername($this->request->data['User']['username']);
 					$is_new = true;
@@ -208,6 +208,8 @@ class UsersController extends AppController {
 		$group = $this->User->Group;
 		// Admin puede hacer todo
 		$group->id = 1;
+		$this->Acl->allow($group, 'controllers');
+		$group->id = 9;
 		$this->Acl->allow($group, 'controllers');
 /*		
 		// Contralor puede todo menos algunas cosas

@@ -173,11 +173,13 @@ class Asignacione extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Adjunto' => array(
-			'className' => 'Adjunto',
-			'foreignKey' => 'asignacione_id',
-			'dependent' => false,
-			'conditions' => '',
+		'Attachment' => array(
+			'className' => 'Attachment',
+			'foreignKey' => 'foreign_key',
+			'dependent' => true,
+			'conditions' => array(
+				'Attachment.model' => 'Asignacione',
+			),
 			'fields' => '',
 			'order' => '',
 			'limit' => '',

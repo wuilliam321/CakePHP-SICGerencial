@@ -92,6 +92,16 @@ class Comunicacione extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'attachment' => array(
+			'file' => array(
+				'rule' => array('file'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -124,6 +134,21 @@ class Comunicacione extends AppModel {
  * @var array
  */
 	public $hasMany = array(
+		'Attachment' => array(
+			'className' => 'Attachment',
+			'foreignKey' => 'foreign_key',
+			'dependent' => true,
+			'conditions' => array(
+				'Attachment.model' => 'Comunicacione',
+			),
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'ChildComunicacione' => array(
 			'className' => 'Comunicacione',
 			'foreignKey' => 'parent_id',

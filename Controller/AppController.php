@@ -104,4 +104,18 @@ class AppController extends Controller {
 		$parametro['Parametro']['valor'] -= 1;
 		$this->Parametro->save($parametro);
 	}
+
+    public function download($id, $folder) {
+		$this->loadModel('Attachment');
+        $this->viewClass = 'Media';
+        $attachment = $this->Attachment->findById($id);
+        // Download app/outside_webroot_dir/example.zip
+        $params = array(
+            'id'        => $attachment['Attachment']['attachment'],
+            'name'      => $attachment['Attachment']['name'],
+            'download'  => true,
+            'path'      => WEBROOT_DIR . DS . 'files/' . $folder . DS
+        );
+        $this->set($params);
+    }
 }

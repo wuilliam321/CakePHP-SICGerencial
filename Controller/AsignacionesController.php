@@ -57,7 +57,7 @@ class AsignacionesController extends AppController {
 			$this->Asignacione->create();
 			$this->request->data['Asignacione']['asignador_id'] = $auth_user['id'];
 			$this->request->data['Asignacione']['parent_id'] = $parent_id;
-			if ($this->Asignacione->save($this->request->data)) {
+			if ($this->Asignacione->saveWithAttachments($this->request->data, 'Asignacione')) {
 				if ($parent_id) {
 					$asignacione = $this->Asignacione->findById($parent_id);
 					$asignacione['Asignacione']['porcentaje_distribuido'] += $this->request->data['Asignacione']['porcentaje_asignado'];
@@ -91,7 +91,7 @@ class AsignacionesController extends AppController {
 			throw new NotFoundException(__('Invalid asignacione'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Asignacione->save($this->request->data)) {
+			if ($this->Asignacione->saveWithAttachments($this->request->data, 'Asignacione')) {
 				$this->Session->setFlash(__('The asignacione has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -134,8 +134,33 @@ class AsignacionesController extends AppController {
 
 	public function getAsignaciones() {
 		$this->layout = false;
-		$this->Asignacione->recursive = 0;
-		$asignaciones = $this->Asignacione->findAllByParentIdAndCompletada(null, 0);
+
+		$auth_user = $this->Session->read('Auth.User');
+		if ($auth_user['group_id'] == 1) {
+			$asignaciones = $this->Asignacione->findAllByParentIdAndCompletada(null, 0);
+		} else {
+			$options['joins'] = array(
+				array(
+					'table' => 'asignaciones_users',
+					'alias' => 'AsignacionesUser',
+					'type' => 'LEFT',
+					'conditions' => array(
+						'AsignacionesUser.asignacione_id = Asignacione.id',
+					)
+				)
+			);
+			$options['conditions'] = array(
+				'Asignacione.parent_id' => null,
+				'Asignacione.completada' => 0,
+				'OR' => array(
+					'Asignacione.asignador_id' => $auth_user['id'],
+					'Asignacione.responsable_id' => $auth_user['id'],
+					'AsignacionesUser.user_id' => $auth_user['id'],
+				)
+			);
+			$asignaciones = $this->Asignacione->find('all', $options);
+		}
+
 		$asignacione_ids = array();
 		foreach ($asignaciones as &$asignacione) {
 			$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime($asignacione['Asignacione']['fecha_asignacion']);
@@ -160,7 +185,7 @@ class AsignacionesController extends AppController {
 			}
 			$this->Asignacione->save($asignacione);
 
-			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 0);
+			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
 			foreach ($asignacione['ChildrenAsignacione'] as &$child) {
 				if ($child['Asignacione']['progreso'] < 51) {
 					$child['Asignacione']['bar_class'] = 'danger';

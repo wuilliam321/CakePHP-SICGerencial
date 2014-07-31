@@ -49,7 +49,7 @@ class DirectoriosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Directorio->create();
-			if ($this->Directorio->save($this->request->data)) {
+			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->increase_contador('D');
 				$this->Session->setFlash(__('The directorio has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
@@ -75,7 +75,7 @@ class DirectoriosController extends AppController {
 			throw new NotFoundException(__('Invalid directorio'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Directorio->save($this->request->data)) {
+			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->Session->setFlash(__('The directorio has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 			} else {
@@ -113,8 +113,25 @@ class DirectoriosController extends AppController {
 
 	public function getDirectorios() {
 		$this->layout = false;
-		$this->Directorio->recursive = 1;
-		$directorios = $this->Directorio->find('all');
+		$auth_user = $this->Session->read('Auth.User');
+		if ($auth_user['group_id'] == 1) {
+			$directorios = $this->Directorio->find('all');
+		} else {
+			$options['joins'] = array(
+				array(
+					'table' => 'directorios_users',
+					'alias' => 'DirectoriosUser',
+					'type' => 'LEFT',
+					'conditions' => array(
+						'DirectoriosUser.directorio_id = Directorio.id',
+					)
+				)
+			);
+			$options['conditions'] = array(
+				'DirectoriosUser.user_id' => $auth_user['id'],
+			);
+			$directorios = $this->Directorio->find('all', $options);
+		}
 		$this->set(compact('directorios'));
 	}
 }
