@@ -49,6 +49,7 @@ class DirectoriosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Directorio->create();
+			$this->request->data['Punto'] = Hash::filter($this->request->data['Punto']);
 			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->increase_contador('D');
 				$this->Session->setFlash(__('The directorio has been saved.'));
@@ -75,6 +76,7 @@ class DirectoriosController extends AppController {
 			throw new NotFoundException(__('Invalid directorio'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			$this->request->data['Punto'] = Hash::filter($this->request->data['Punto']);
 			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->Session->setFlash(__('The directorio has been saved.'));
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));

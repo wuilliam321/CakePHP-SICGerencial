@@ -54,7 +54,7 @@
 						<?php endif; ?>
 						<div class="btn-group">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
+								<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 						</div>
 					</td>
@@ -65,6 +65,55 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<p><?php echo $asignacione['Asignacione']['detalles']; ?></p>
+									<h4>
+										<?php echo __('Registro de avances'); ?>
+									</h4>
+									<table class="table table-condensed table-bordered table-hover">
+										<thead>
+											<tr>
+												<th><?php echo __('Responsable'); ?></th>
+												<th><?php echo __('Fecha'); ?></th>
+												<th><?php echo __('Detalles'); ?></th>
+												<th><?php echo __('Porcentaje Avanzado'); ?></th>
+												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php if (empty($avances)): ?>
+												<tr>
+													<td colspan="6"><?php echo __('No hay avances registrados en la asignacion'); ?></td>
+												</tr>
+											<?php else: ?>
+												<?php foreach ($avances as $avance): ?>
+													<tr>
+														<td><?php echo $avance['User']['name']; ?></td>
+														<td><?php echo $avance['Avance']['created']; ?></td>
+														<td><?php echo $avance['Avance']['detalles']; ?></td>
+														<td><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</td>
+														<td class="text-right">
+															<?php if ($avance['Attachment']): ?>
+																<div class="dropdown inline">
+																	<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+																	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+																		<?php foreach ($avance['Attachment'] as $attachment): ?>
+																			<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'avances'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+																			</li>
+																		<?php endforeach; ?>
+																	</ul>
+																</div>
+															<?php endif; ?>
+														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+														<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+														</td>
+													</tr>
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
 									<h4>
 										<?php echo __('Desgloce de la asignacion'); ?>
 										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Delegar'), array('action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
@@ -128,53 +177,6 @@
 																<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
 																<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $children_asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 															</div>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-											<?php endif; ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12">
-									<h4><?php echo __('Registro de avances'); ?></h4>
-									<table class="table table-condensed table-bordered table-hover">
-										<thead>
-											<tr>
-												<th><?php echo __('Responsable'); ?></th>
-												<th><?php echo __('Fecha'); ?></th>
-												<th><?php echo __('Detalles'); ?></th>
-												<th><?php echo __('Porcentaje Avanzado'); ?></th>
-												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php if (empty($avances)): ?>
-												<tr>
-													<td colspan="6"><?php echo __('No hay avances registrados en la asignacion'); ?></td>
-												</tr>
-											<?php else: ?>
-												<?php foreach ($avances as $avance): ?>
-													<tr>
-														<td><?php echo $avance['User']['name']; ?></td>
-														<td><?php echo $avance['Avance']['created']; ?></td>
-														<td><?php echo $avance['Avance']['detalles']; ?></td>
-														<td><?php echo $avance['Avance']['porcentaje_avanzado']; ?>%</td>
-														<td class="text-right">
-															<?php if ($avance['Attachment']): ?>
-																<div class="dropdown inline">
-																	<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
-																	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-																		<?php foreach ($avance['Attachment'] as $attachment): ?>
-																			<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'avances'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
-																			</li>
-																		<?php endforeach; ?>
-																	</ul>
-																</div>
-															<?php endif; ?>
-														<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-														<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 														</td>
 													</tr>
 												<?php endforeach; ?>

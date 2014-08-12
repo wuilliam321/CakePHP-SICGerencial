@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"atta",
+				"attachment"
+			],
+			[
+				"Asignaciones",
+				"AsignacionesUser"
+			],
+			[
+				"Comuni",
+				"ComunicacionesUser"
+			],
+			[
+				"tm",
+				"tmp_name"
+			],
+			[
+				"direc",
+				"directorio_id"
+			],
+			[
+				"Dire",
+				"Directorio"
+			],
+			[
+				"dir",
+				"directorio_id"
+			],
+			[
+				"tab",
+				"tabindex"
+			],
+			[
+				"menu",
+				"menuitem"
+			],
+			[
+				"WWW",
+				"WWW_ROOT"
+			],
+			[
 				"get",
 				"get_last_code  (function)"
 			],
@@ -148,114 +188,26 @@
 	"buffers":
 	[
 		{
-			"file": "Model/Asignacione.php",
+			"file": "Model/AppModel.php",
 			"settings":
 			{
-				"buffer_size": 6400,
+				"buffer_size": 2288,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Model/User.php",
+			"file": "Config/database.php",
 			"settings":
 			{
-				"buffer_size": 6134,
+				"buffer_size": 725,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Model/Comunicacione.php",
+			"file": "Config/core.php",
 			"settings":
 			{
-				"buffer_size": 4140,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Controller/AsignacionesController.php",
-			"settings":
-			{
-				"buffer_size": 7397,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Controller/AppController.php",
-			"settings":
-			{
-				"buffer_size": 2831,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Controller/ComunicacionesController.php",
-			"settings":
-			{
-				"buffer_size": 4718,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Comunicaciones/add.ctp",
-			"settings":
-			{
-				"buffer_size": 4577,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Comunicaciones/edit.ctp",
-			"settings":
-			{
-				"buffer_size": 3838,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Asignaciones/add.ctp",
-			"settings":
-			{
-				"buffer_size": 5609,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Controller/DirectoriosController.php",
-			"settings":
-			{
-				"buffer_size": 3297,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Comunicaciones/get_comunicaciones.ctp",
-			"settings":
-			{
-				"buffer_size": 4888,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Directorios/get_directorios.ctp",
-			"settings":
-			{
-				"buffer_size": 3802,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "View/Asignaciones/get_asignaciones.ctp",
-			"settings":
-			{
-				"buffer_size": 8505,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "webroot/css/main.css",
-			"settings":
-			{
-				"buffer_size": 221,
+				"buffer_size": 13489,
 				"line_ending": "Unix"
 			}
 		}
@@ -305,43 +257,50 @@
 	"file_history":
 	[
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_asignaciones.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/ComunicacionesController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/PuntosController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/DirectoriosController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Directorio.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/get_comunicaciones.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Asignacione.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Comunicacione.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/add.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/DirectoriosController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AppModel.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/UsersController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/database.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/add.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AvancesController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/get_directorios.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_asignaciones.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Comunicacione.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/routes.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/get_directorios.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/get_comunicaciones.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/PuntosController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Avance.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Attachment.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Directorio.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/core.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Asignacione.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/bootstrap.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AsignacionesUser.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_comunicaciones.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Dependencia.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Correccione.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Avance.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/show_hide.js",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_asignaciones_by_tipo.ctp",
 		"/home/wuilliam/Proyectos/sac/trunk/View/Layouts/default.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/UsersController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/login.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Mensaje.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/MensajesController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/bootstrap.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Config/bootstrap.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/GroupsController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/profile.ctp",
@@ -356,7 +315,6 @@
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Adjunto.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Sistema.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Evaluacione.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/database.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Config/database.php",
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/View/Layouts/default.ctp",
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/View/Reservations/index.ctp",
@@ -443,6 +401,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"danger",
+			"auth",
+			"share",
+			"right",
+			"attachment",
+			"drop",
 			"$comunicacione",
 			"'I",
 			"children_directorio",
@@ -516,50 +480,154 @@
 	"groups":
 	[
 		{
-			"selected": 13,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Model/Asignacione.php",
+					"file": "Model/AppModel.php",
 					"settings":
 					{
-						"buffer_size": 6400,
+						"buffer_size": 2288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1388,
+								1388
 							]
 						],
 						"settings":
 						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 502.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Model/User.php",
+					"file": "Config/database.php",
 					"settings":
 					{
-						"buffer_size": 6134,
+						"buffer_size": 725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								725,
+								725
 							]
 						],
 						"settings":
@@ -575,1360 +643,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "Model/Comunicacione.php",
+					"file": "Config/core.php",
 					"settings":
 					{
-						"buffer_size": 4140,
+						"buffer_size": 13489,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								13489,
+								13489
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Controller/AsignacionesController.php",
-					"settings":
-					{
-						"buffer_size": 7397,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3985,
-								3985
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3120.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Controller/AppController.php",
-					"settings":
-					{
-						"buffer_size": 2831,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2069,
-								2069
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1122.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Controller/ComunicacionesController.php",
-					"settings":
-					{
-						"buffer_size": 4718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4024,
-								4024
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1743.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "View/Comunicaciones/add.ctp",
-					"settings":
-					{
-						"buffer_size": 4577,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3181,
-								3181
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "View/Comunicaciones/edit.ctp",
-					"settings":
-					{
-						"buffer_size": 3838,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2990,
-								2990
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1173.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "View/Asignaciones/add.ctp",
-					"settings":
-					{
-						"buffer_size": 5609,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Controller/DirectoriosController.php",
-					"settings":
-					{
-						"buffer_size": 3297,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2721,
-								2721
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1530.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "View/Comunicaciones/get_comunicaciones.ctp",
-					"settings":
-					{
-						"buffer_size": 4888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								86,
-								86
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "View/Directorios/get_directorios.ctp",
-					"settings":
-					{
-						"buffer_size": 3802,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								118,
-								118
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "View/Asignaciones/get_asignaciones.ctp",
-					"settings":
-					{
-						"buffer_size": 8505,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CakePHP (tmbundle)/Syntaxes/(HTML) CakePHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "webroot/css/main.css",
-					"settings":
-					{
-						"buffer_size": 221,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								221,
-								221
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1981,12 +713,196 @@
 		"selected_items":
 		[
 			[
-				"main.css",
-				"webroot/css/main.css"
+				"core",
+				"Config/core.php"
+			],
+			[
+				"data",
+				"Config/database.php"
+			],
+			[
+				"appmo",
+				"Model/AppModel.php"
+			],
+			[
+				"directorios",
+				"Controller/DirectoriosController.php"
+			],
+			[
+				"comunicaadd",
+				"View/Comunicaciones/add.ctp"
+			],
+			[
+				"get",
+				"View/Asignaciones/get_asignaciones.ctp"
+			],
+			[
+				"asignacione",
+				"Controller/AsignacionesController.php"
+			],
+			[
+				"comunicac",
+				"Controller/ComunicacionesController.php"
+			],
+			[
+				"appm",
+				"Model/AppModel.php"
+			],
+			[
+				"user",
+				"Controller/UsersController.php"
+			],
+			[
+				"defa",
+				"View/Layouts/default.ctp"
+			],
+			[
+				"configrot",
+				"Config/routes.php"
+			],
+			[
+				"appc",
+				"Controller/AppController.php"
+			],
+			[
+				"comunica",
+				"Model/Comunicacione.php"
+			],
+			[
+				"comuniedit",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"avanceedit",
+				"View/Avances/edit.ctp"
+			],
+			[
+				"getasign",
+				"View/Asignaciones/get_asignaciones.ctp"
+			],
+			[
+				"comuniadd",
+				"View/Comunicaciones/add.ctp"
+			],
+			[
+				"avanceadd",
+				"View/Avances/add.ctp"
+			],
+			[
+				"getcom",
+				"View/Comunicaciones/get_comunicaciones.ctp"
 			],
 			[
 				"getasi",
 				"View/Asignaciones/get_asignaciones.ctp"
+			],
+			[
+				"getdirec",
+				"View/Directorios/get_directorios.ctp"
+			],
+			[
+				"puntoedit",
+				"View/Puntos/edit.ctp"
+			],
+			[
+				"asignaadd",
+				"View/Asignaciones/add.ctp"
+			],
+			[
+				"puntoadd",
+				"View/Puntos/add.ctp"
+			],
+			[
+				"aanceadd",
+				"View/Avances/add.ctp"
+			],
+			[
+				"directorioadd",
+				"View/Directorios/add.ctp"
+			],
+			[
+				"puntoscontr",
+				"Controller/PuntosController.php"
+			],
+			[
+				"avancescno",
+				"Controller/AvancesController.php"
+			],
+			[
+				"asignedit",
+				"View/Asignaciones/edit.ctp"
+			],
+			[
+				"direcoedit",
+				"View/Directorios/edit.ctp"
+			],
+			[
+				"asignacionadd",
+				"View/Asignaciones/add.ctp"
+			],
+			[
+				"getco",
+				"View/Comunicaciones/get_comunicaciones.ctp"
+			],
+			[
+				"directorioedit",
+				"View/Directorios/edit.ctp"
+			],
+			[
+				"avanccon",
+				"Controller/AvancesController.php"
+			],
+			[
+				"avan",
+				"Model/Avance.php"
+			],
+			[
+				"direct",
+				"Controller/DirectoriosController.php"
+			],
+			[
+				"avanc",
+				"Model/Avance.php"
+			],
+			[
+				"comuni",
+				"Model/Comunicacione.php"
+			],
+			[
+				"atta",
+				"Model/Attachment.php"
+			],
+			[
+				"modeldireco",
+				"Model/Directorio.php"
+			],
+			[
+				"users",
+				"Controller/UsersController.php"
+			],
+			[
+				"asignaedit",
+				"View/Asignaciones/edit.ctp"
+			],
+			[
+				"appmodel",
+				"Model/AppModel.php"
+			],
+			[
+				"main.cs",
+				"webroot/css/main.css"
+			],
+			[
+				"config",
+				"Config/core.php"
+			],
+			[
+				"boot",
+				"Config/bootstrap.php"
+			],
+			[
+				"main.css",
+				"webroot/css/main.css"
 			],
 			[
 				"getdire",
@@ -1999,18 +915,6 @@
 			[
 				"comunicaedit",
 				"View/Comunicaciones/edit.ctp"
-			],
-			[
-				"getcom",
-				"View/Comunicaciones/get_comunicaciones.ctp"
-			],
-			[
-				"asignaadd",
-				"View/Asignaciones/add.ctp"
-			],
-			[
-				"comuniadd",
-				"View/Comunicaciones/add.ctp"
 			],
 			[
 				"comunic",
@@ -2029,28 +933,12 @@
 				"Model/Comunicacione.php"
 			],
 			[
-				"user",
-				"Model/User.php"
-			],
-			[
 				"asigna",
 				"Model/Asignacione.php"
 			],
 			[
-				"avanceadd",
-				"View/Avances/add.ctp"
-			],
-			[
 				"avancescon",
 				"Controller/AvancesController.php"
-			],
-			[
-				"asignaedit",
-				"View/Asignaciones/edit.ctp"
-			],
-			[
-				"get",
-				"View/Comunicaciones/get_comunicaciones.ctp"
 			],
 			[
 				"direedit",
@@ -2077,20 +965,12 @@
 				"Controller/DirectoriosController.php"
 			],
 			[
-				"direct",
-				"Model/Directorio.php"
-			],
-			[
 				"asignadd",
 				"View/Asignaciones/add.ctp"
 			],
 			[
 				"avancadd",
 				"View/Avances/add.ctp"
-			],
-			[
-				"avanc",
-				"Controller/AvancesController.php"
 			],
 			[
 				"comunedit",
@@ -2115,14 +995,6 @@
 			[
 				"asigninde",
 				"View/Asignaciones/index.ctp"
-			],
-			[
-				"comunicac",
-				"Controller/ComunicacionesController.php"
-			],
-			[
-				"comunica",
-				"Model/Comunicacione.php"
 			],
 			[
 				"corr",
@@ -2193,14 +1065,6 @@
 				"View/Asignaciones/index.ctp"
 			],
 			[
-				"defa",
-				"View/Layouts/default.ctp"
-			],
-			[
-				"users",
-				"Controller/UsersController.php"
-			],
-			[
 				"asignaci",
 				"Controller/AsignacionesController.php"
 			],
@@ -2215,10 +1079,6 @@
 			[
 				"mensa",
 				"Controller/MensajesController.php"
-			],
-			[
-				"boot",
-				"Config/bootstrap.php"
 			],
 			[
 				"gro",
@@ -2255,10 +1115,6 @@
 			[
 				"adj",
 				"Model/Adjunto.php"
-			],
-			[
-				"data",
-				"Config/database.php"
 			],
 			[
 				"inde",
@@ -2325,18 +1181,6 @@
 				"Controller/ReservationsController.php"
 			],
 			[
-				"appmo",
-				"Model/ReservationManagerAppModel.php"
-			],
-			[
-				"core",
-				"trunk/Config/core.php"
-			],
-			[
-				"config",
-				"trunk/Config/bootstrap.php"
-			],
-			[
 				"main.",
 				"trunk/View/Portal/main.ctp"
 			],
@@ -2379,94 +1223,6 @@
 			[
 				"equipo",
 				"trunk/Model/Equipo.php"
-			],
-			[
-				"partidosedit",
-				"trunk/View/Partidos/edit.ctp"
-			],
-			[
-				"partidosadd",
-				"trunk/View/Partidos/add.ctp"
-			],
-			[
-				"quinielasedit",
-				"trunk/View/Quinielas/edit.ctp"
-			],
-			[
-				"quinielasadd",
-				"trunk/View/Quinielas/add.ctp"
-			],
-			[
-				"clientesadd",
-				"trunk/View/Clientes/add.ctp"
-			],
-			[
-				"quinielad",
-				"trunk/quinieladb.sql"
-			],
-			[
-				"clientesedit",
-				"trunk/View/Clientes/edit.ctp"
-			],
-			[
-				"quinielaadd",
-				"trunk/View/Quinielas/add.ctp"
-			],
-			[
-				"quinielaedit",
-				"trunk/View/Quinielas/edit.ctp"
-			],
-			[
-				"partidosindex",
-				"trunk/View/Partidos/index.ctp"
-			],
-			[
-				"quinielasinde",
-				"trunk/View/Quinielas/index.ctp"
-			],
-			[
-				"clienteedit",
-				"trunk/View/Clientes/edit.ctp"
-			],
-			[
-				"clienteadd",
-				"trunk/View/Clientes/add.ctp"
-			],
-			[
-				"cliente",
-				"trunk/Model/Cliente.php"
-			],
-			[
-				"quinielascontr",
-				"trunk/Controller/QuinielasController.php"
-			],
-			[
-				"equiposadd",
-				"trunk/View/Equipos/add.ctp"
-			],
-			[
-				"equiposedit",
-				"trunk/View/Equipos/edit.ctp"
-			],
-			[
-				"equiposco",
-				"trunk/Controller/EquiposController.php"
-			],
-			[
-				"paridosindex",
-				"trunk/View/Partidos/index.ctp"
-			],
-			[
-				"route",
-				"trunk/Config/routes.php"
-			],
-			[
-				"daa",
-				"trunk/Config/database.php"
-			],
-			[
-				"webind",
-				"trunk/webroot/index.php"
 			]
 		],
 		"width": 0.0

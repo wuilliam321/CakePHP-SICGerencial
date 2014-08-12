@@ -22,6 +22,33 @@ class AsignacionesController extends AppController {
  * @return void
  */
 	public function index() {
+		// $this->loadModel('User');
+		// $ldap = ldap_connect('192.168.0.2', 389);
+ 
+  //       ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
+  //       ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+  //       @ldap_bind($ldap, 'userldap@cemerida.net.ve', 'A123456b');
+  //       $attributes = array('givenName','sn','mail','samaccountname','memberof', 'userAccountControl');
+  //       $result = ldap_search($ldap, 'OU=UsuariosActivos,OU=UO_Contraloria,dc=cemerida,dc=net,dc=ve', "(&(samaccountname=*)(userAccountControl=512))", $attributes);
+  //       $entries = ldap_get_entries($ldap, $result);
+  //       $this->User->recursive = 0;
+  //       foreach ($entries as $array) {
+  //       	if ($array['samaccountname'][0]) {
+  //       		$info['User']['first_name'] = $array['givenname'][0];
+		//         $info['User']['last_name'] = $array['sn'][0];
+		//         $info['User']['username'] = $array['samaccountname'][0];
+		//         $info['User']['cargo'] = 'Sin indicar';
+		//         $info['User']['group_id'] = '99';
+		//         if ($this->User->findByUsername($info['User']['username'])) {
+		//         	echo "Ya existe: " . $info['User']['username'] . "<br />";
+		//         } else {
+		//         	$this->User->create();
+		//         	$this->User->save($info);
+		//         	echo "Creando a: " . $info['User']['username'] . "<br />";
+		//         }
+  //       	}
+  //       }
+		// echo "Aqui";die;
 	}
 
 /**
@@ -48,9 +75,17 @@ class AsignacionesController extends AppController {
 		$auth_user = $this->Session->read('Auth.User');
 
 		$parent = null;
+		$responsable_options['conditions'] = array('Responsable.id NOT' => $auth_user['id']);
+		$user_options = null;
 		if ($parent_id) {
+			$this->Asignacione->AsignacionesUser->recursive = -1;
+			$colaboradores_ids = $this->Asignacione->AsignacionesUser->findAllByAsignacioneId($parent_id);
+			$colaboradores_ids = Hash::extract($colaboradores_ids, "{n}.AsignacionesUser.user_id");
+
 			$this->Asignacione->ParentAsignacione->recursive = -1;
 			$parent = $this->Asignacione->ParentAsignacione->findById($parent_id);
+			$responsable_options['conditions'] = array('Responsable.id NOT' => $auth_user['id'], 'Responsable.id IN' => $colaboradores_ids);
+			$user_options['conditions'] = array('User.id NOT' => $auth_user['id'], 'User.id IN' => $colaboradores_ids);
 		}
 
 		if ($this->request->is('post')) {
@@ -73,9 +108,9 @@ class AsignacionesController extends AppController {
 		} else {
 			$this->request->data['Asignacione']['codigo'] = $this->get_last_code('A');
 		}
-		$responsables = $this->Asignacione->Responsable->find('list', array('conditions' => array('Responsable.id NOT' => $auth_user['id'])));
+		$responsables = $this->Asignacione->Responsable->find('list', $responsable_options);
 		$dependencias = $this->Asignacione->Dependencia->find('list');
-		$users = $this->Asignacione->User->find('list');
+		$users = $this->Asignacione->User->find('list', $user_options);
 		$this->set(compact('responsables', 'parent', 'dependencias', 'users'));
 	}
 
@@ -137,7 +172,7 @@ class AsignacionesController extends AppController {
 
 		$auth_user = $this->Session->read('Auth.User');
 		if ($auth_user['group_id'] == 1) {
-			$asignaciones = $this->Asignacione->findAllByParentIdAndCompletada(null, 0);
+			$options['conditions'] = array('Asignacione.parent_id' => null, 'Asignacione.completada' => 0);
 		} else {
 			$options['joins'] = array(
 				array(
@@ -158,8 +193,8 @@ class AsignacionesController extends AppController {
 					'AsignacionesUser.user_id' => $auth_user['id'],
 				)
 			);
-			$asignaciones = $this->Asignacione->find('all', $options);
 		}
+		$asignaciones = $this->Asignacione->find('all', $options);
 
 		$asignacione_ids = array();
 		foreach ($asignaciones as &$asignacione) {

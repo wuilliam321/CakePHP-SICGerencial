@@ -9,6 +9,15 @@ $(function () {
 		getAsignaciones("div.directorios-list");
 	}
 
+	// TODO: Viendo lo de la url, ver si hay un plugin que se que hay, jquery address o algo asi
+	// if (window.location.hash) {
+	// 	var hash = window.location.hash.split('!');
+	// 	$("a[href="+hash[0]+"]").click();
+	// 	setTimeout(function () {
+	// 		$(hash[0] + " span[alt="+hash[1]+"]").click();
+	// 	}, 10);
+	// }
+
 	if ($( "span.do-show" ).length) {
 		$("span.do-show").click(function () {
 			tr = $(this).parent().parent().next();
@@ -35,4 +44,6 @@ $(function () {
 			}
 		});
 	}
+
+	// function getCurrentUrl
 })

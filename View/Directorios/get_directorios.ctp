@@ -16,7 +16,7 @@
 		<?php else: ?>
 			<?php foreach ($directorios as $directorio): ?>
 				<tr>
-					<td class="text-center"><span class="glyphicon glyphicon-chevron-down do-show block-display"></span></td>
+					<td class="text-center"><span class="glyphicon glyphicon-chevron-down do-show block-display" alt="<?php echo $directorio['Directorio']['id']; ?>"></span></td>
 					<td><?php echo $directorio['Directorio']['codigo']; ?></td>
 					<td><?php echo $directorio['Directorio']['objetivo']; ?></td>
 					<td><?php echo $directorio['Directorio']['fecha_inicio']; ?></td>

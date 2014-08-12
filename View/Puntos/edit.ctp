@@ -48,6 +48,13 @@
 					</div>
 				</div>
 
+				<div class="form-group">
+					<?php echo $this->Form->label('conclusiones', null, array('class' => 'col-xs-1 control-label')); ?>
+					<div class="col-xs-11">
+						<?php echo $this->Form->input('conclusiones', array('rows' => 4)); ?>
+					</div>
+				</div>
+
 				<div class="form-buttons">
 					<div class="col-xs-12 text-right">
 						<button type="submit" class="btn btn-primary btn-sm">Guardar</button>

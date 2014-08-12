@@ -55,6 +55,15 @@
 					</div>
 				</div>
 
+				<?php for ($i = 0; $i < 10; $i++): ?>
+					<div class="form-group">
+						<?php echo $this->Form->label('Punto', __('Punto') . ($i + 1), array('class' => 'col-xs-1 control-label')); ?>
+						<div class="col-xs-11">
+							<?php echo $this->Form->input('Punto.' . $i . '.detalles', array('rows' => 2, 'required' => false)); ?>
+						</div>
+					</div>
+				<?php endfor; ?>
+
 				<div class="form-group">
 					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-1 control-label')); ?>
 					<div class="col-xs-11">
