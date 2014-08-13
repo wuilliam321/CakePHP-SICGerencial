@@ -5,10 +5,30 @@ $(function () {
 		enableCaseInsensitiveFiltering:true,
 		maxHeight: 350
 	});
+	$('select[multiple=multiple]').next().addClass('col-xs-12').css('padding', 0);
+	$('select[multiple=multiple]').next().children().addClass('col-xs-12');
+
+
+	$('select:not(multiple)').multiselect({
+		onChange: function(option, checked) {
+			var values = [];
+			$('select:not(multiple) option').each(function() {
+				if ($(this).val() !== option.val()) {
+				values.push($(this).val());
+				}
+			});
+
+			$('select:not(multiple)').multiselect('deselect', values);
+		},
+		enableFiltering: true,
+		enableCaseInsensitiveFiltering:true,
+		maxHeight: 350
+	});
+	$('select:not(multiple)').next().addClass('col-xs-12').css('padding', 0);
+	$('select:not(multiple)').next().children().addClass('col-xs-12');
+
 	$('input[name*=fecha').data('date-format', 'YYYY-MM-DD hh:mm:ss');
 	$('input[name*=fecha').datetimepicker();
-	$('select[multiple=multiple]').next().addClass('col-xs-12');
-	$('select[multiple=multiple]').next().children().addClass('col-xs-12');
 
 	if ($( "div.asignaciones-list" ).length) {
 		getAsignaciones("div.asignaciones-list");
