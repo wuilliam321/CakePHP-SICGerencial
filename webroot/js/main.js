@@ -1,4 +1,13 @@
 $(function () {
+	$('select[multiple=multiple]').multiselect({
+		includeSelectAllOption: true,
+		enableFiltering: true,
+		enableCaseInsensitiveFiltering:true,
+		maxHeight: 350
+	});
+	$('select[multiple=multiple]').next().addClass('col-xs-12');
+	$('select[multiple=multiple]').next().children().addClass('col-xs-12');
+
 	if ($( "div.asignaciones-list" ).length) {
 		getAsignaciones("div.asignaciones-list");
 	}

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Asig",
+				"Asignacione"
+			],
+			[
 				"atta",
 				"attachment"
 			],
@@ -188,26 +192,58 @@
 	"buffers":
 	[
 		{
-			"file": "Model/AppModel.php",
+			"file": "View/Directorios/add.ctp",
 			"settings":
 			{
-				"buffer_size": 2288,
+				"buffer_size": 3709,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Config/database.php",
+			"file": "Controller/DirectoriosController.php",
 			"settings":
 			{
-				"buffer_size": 725,
+				"buffer_size": 3972,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Config/core.php",
+			"file": "View/Directorios/edit.ctp",
 			"settings":
 			{
-				"buffer_size": 13489,
+				"buffer_size": 5357,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Directorios/get_directorios.ctp",
+			"settings":
+			{
+				"buffer_size": 4433,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "webroot/js/main.js",
+			"settings":
+			{
+				"buffer_size": 1269,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Asignaciones/index.ctp",
+			"settings":
+			{
+				"buffer_size": 2688,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Asignaciones/get_asignaciones.ctp",
+			"settings":
+			{
+				"buffer_size": 11082,
 				"line_ending": "Unix"
 			}
 		}
@@ -256,41 +292,43 @@
 	},
 	"file_history":
 	[
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AppModel.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/core.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/get_directorios.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/README.md",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/database.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/Component/Auth/LdapAuthenticate.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_asignaciones.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/get_comunicaciones.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/ComunicacionesController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/DirectoriosController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AppModel.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/UsersController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/database.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/add.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AvancesController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Comunicacione.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/routes.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/get_directorios.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/get_comunicaciones.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/PuntosController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/add.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/add.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Avance.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Attachment.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Directorio.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/core.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Asignacione.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/bootstrap.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AsignacionesUser.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_comunicaciones.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Dependencia.php",
@@ -309,7 +347,6 @@
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Datasource/LdapSource.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Model/User.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Controller/AppController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/Component/Auth/LdapAuthenticate.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Group.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Model/Group.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Adjunto.php",
@@ -480,159 +517,109 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Model/AppModel.php",
+					"file": "View/Directorios/add.ctp",
 					"settings":
 					{
-						"buffer_size": 2288,
+						"buffer_size": 3709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1388,
-								1388
+								2063,
+								2063
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 502.0,
+						"translation.y": 714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Config/database.php",
+					"file": "Controller/DirectoriosController.php",
 					"settings":
 					{
-						"buffer_size": 725,
+						"buffer_size": 3972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								725,
-								725
+								1423,
+								1423
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 845.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "View/Directorios/edit.ctp",
+					"settings":
+					{
+						"buffer_size": 5357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2949,
+								2949
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "View/Directorios/get_directorios.ctp",
+					"settings":
+					{
+						"buffer_size": 4433,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								472
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -642,28 +629,82 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Config/core.php",
+					"buffer": 4,
+					"file": "webroot/js/main.js",
 					"settings":
 					{
-						"buffer_size": 13489,
+						"buffer_size": 1269,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13489,
-								13489
+								607,
+								607
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "View/Asignaciones/index.ctp",
+					"settings":
+					{
+						"buffer_size": 2688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2133,
+								2133
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "View/Asignaciones/get_asignaciones.ctp",
+					"settings":
+					{
+						"buffer_size": 11082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3033,
+								3033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 726.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -713,16 +754,100 @@
 		"selected_items":
 		[
 			[
-				"core",
-				"Config/core.php"
+				"asigna",
+				"Controller/AsignacionesController.php"
+			],
+			[
+				"getasig",
+				"View/Asignaciones/get_asignaciones.ctp"
+			],
+			[
+				"inde",
+				"View/Asignaciones/index.ctp"
+			],
+			[
+				"js",
+				"webroot/js/main.js"
+			],
+			[
+				"getdire",
+				"View/Directorios/get_directorios.ctp"
+			],
+			[
+				"directoedit",
+				"View/Directorios/edit.ctp"
+			],
+			[
+				"puntosedit",
+				"View/Puntos/edit.ctp"
+			],
+			[
+				"puntosadd",
+				"View/Puntos/add.ctp"
+			],
+			[
+				"appmo",
+				"Model/AppModel.php"
+			],
+			[
+				"appcont",
+				"Controller/AppController.php"
+			],
+			[
+				"directo",
+				"Controller/DirectoriosController.php"
+			],
+			[
+				"directoadd",
+				"View/Directorios/add.ctp"
+			],
+			[
+				"asignaedit",
+				"View/Asignaciones/edit.ctp"
+			],
+			[
+				"main.c",
+				"webroot/css/main.css"
+			],
+			[
+				"main.",
+				"webroot/js/main.js"
 			],
 			[
 				"data",
 				"Config/database.php"
 			],
 			[
-				"appmo",
-				"Model/AppModel.php"
+				"asign",
+				"Controller/AsignacionesController.php"
+			],
+			[
+				"ldap",
+				"Controller/Component/Auth/LdapAuthenticate.php"
+			],
+			[
+				"getdi",
+				"View/Directorios/get_directorios.ctp"
+			],
+			[
+				"asignac",
+				"Controller/AsignacionesController.php"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"get",
+				"View/Comunicaciones/get_comunicaciones.ctp"
+			],
+			[
+				"asignind",
+				"View/Asignaciones/index.ctp"
+			],
+			[
+				"core",
+				"Config/core.php"
 			],
 			[
 				"directorios",
@@ -731,10 +856,6 @@
 			[
 				"comunicaadd",
 				"View/Comunicaciones/add.ctp"
-			],
-			[
-				"get",
-				"View/Asignaciones/get_asignaciones.ctp"
 			],
 			[
 				"asignacione",
@@ -881,10 +1002,6 @@
 				"Controller/UsersController.php"
 			],
 			[
-				"asignaedit",
-				"View/Asignaciones/edit.ctp"
-			],
-			[
 				"appmodel",
 				"Model/AppModel.php"
 			],
@@ -905,14 +1022,6 @@
 				"webroot/css/main.css"
 			],
 			[
-				"getdire",
-				"View/Directorios/get_directorios.ctp"
-			],
-			[
-				"directo",
-				"Controller/DirectoriosController.php"
-			],
-			[
 				"comunicaedit",
 				"View/Comunicaciones/edit.ctp"
 			],
@@ -925,16 +1034,8 @@
 				"Controller/AppController.php"
 			],
 			[
-				"asign",
-				"Controller/AsignacionesController.php"
-			],
-			[
 				"comun",
 				"Model/Comunicacione.php"
-			],
-			[
-				"asigna",
-				"Model/Asignacione.php"
 			],
 			[
 				"avancescon",
@@ -943,10 +1044,6 @@
 			[
 				"direedit",
 				"View/Directorios/edit.ctp"
-			],
-			[
-				"directoadd",
-				"View/Directorios/add.ctp"
 			],
 			[
 				"punto",
@@ -979,10 +1076,6 @@
 			[
 				"comunicadd",
 				"View/Comunicaciones/add.ctp"
-			],
-			[
-				"asignac",
-				"Controller/AsignacionesController.php"
 			],
 			[
 				"get_as",
@@ -1039,10 +1132,6 @@
 			[
 				"asigadd",
 				"View/Asignaciones/add.ctp"
-			],
-			[
-				"main.c",
-				"webroot/css/main.css"
 			],
 			[
 				"asi",
@@ -1117,10 +1206,6 @@
 				"Model/Adjunto.php"
 			],
 			[
-				"inde",
-				"View/Reservations/index.ctp"
-			],
-			[
 				"reserva",
 				"Model/Reservation.php"
 			],
@@ -1179,50 +1264,6 @@
 			[
 				"reservatcont",
 				"Controller/ReservationsController.php"
-			],
-			[
-				"main.",
-				"trunk/View/Portal/main.ctp"
-			],
-			[
-				"consultar",
-				"trunk/View/Portal/consultar.ctp"
-			],
-			[
-				"quinielasindex",
-				"trunk/View/Quinielas/index.ctp"
-			],
-			[
-				"listado",
-				"trunk/View/Portal/listado.ctp"
-			],
-			[
-				"partidosinde",
-				"trunk/View/Partidos/index.ctp"
-			],
-			[
-				"por",
-				"trunk/Controller/PortalController.php"
-			],
-			[
-				"controlle",
-				"trunk/Controller/AppController.php"
-			],
-			[
-				"quiniel",
-				"trunk/quinieladb.sql"
-			],
-			[
-				"contacto",
-				"trunk/View/Portal/contacto.ctp"
-			],
-			[
-				"webrinde",
-				"trunk/webroot/index.php"
-			],
-			[
-				"equipo",
-				"trunk/Model/Equipo.php"
 			]
 		],
 		"width": 0.0

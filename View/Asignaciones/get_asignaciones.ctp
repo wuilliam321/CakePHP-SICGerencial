@@ -55,7 +55,7 @@
 						<div class="btn-group">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $asignacione['Asignacione']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
 								<?php echo $this->Html->link('<span class="glyphicon glyphicon-stats"></span>', array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'btn btn-success btn-xs', 'escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span>', array('controller' => 'asignaciones', 'action' => 'delete', $asignacione['Asignacione']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
 						</div>
 					</td>
 				</tr>
