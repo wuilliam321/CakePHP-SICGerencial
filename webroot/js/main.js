@@ -5,6 +5,8 @@ $(function () {
 		enableCaseInsensitiveFiltering:true,
 		maxHeight: 350
 	});
+	$('input[name*=fecha').data('date-format', 'YYYY-MM-DD hh:mm:ss');
+	$('input[name*=fecha').datetimepicker();
 	$('select[multiple=multiple]').next().addClass('col-xs-12');
 	$('select[multiple=multiple]').next().children().addClass('col-xs-12');
 

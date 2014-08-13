@@ -24,12 +24,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css(array(
 			'bootstrap.min',
 			'bootstrap-theme.min',
+			'bootstrap-datetimepicker.min',
 			'bootstrap-multiselect',
 			'main'
 		));
 		echo $this->Html->script(array(
-			'jquery-1.11.0.min',
+			'jquery-2.1.0.min',
 			'bootstrap.min',
+			'moment',
+			'bootstrap-datetimepicker.min',
 			'bootstrap-multiselect',
 			'main'
 		));
