@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="0.9.12">
+ <project-name>energia</project-name>
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="Localhost" />
+   <property key="Connection Type" value="PostgreSQL" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/energia" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="root" />
+  </data-source>
+  <data-source id="DS0">
+   <property key="Connection Type" value="PostgreSQL" />
+   <property key="Logical" value="Localhost" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/energia" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="root" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+  <database id="DB0" populated="true" dbcs-ref="DS0" name="Localhost" physicalName="Localhost" >
+   <catalog id="CAT1" populated="true" name="energia" nativeTerm="database" physicalName="energia" >
+    <schema id="SCH2" populated="true" name="information_schema" nativeTerm="schema" physicalName="information_schema" >
+    </schema>
+    <schema id="SCH3" populated="true" name="pg_catalog" nativeTerm="schema" physicalName="pg_catalog" >
+    </schema>
+    <schema id="SCH4" populated="true" name="pg_toast_temp_1" nativeTerm="schema" physicalName="pg_toast_temp_1" >
+    </schema>
+    <schema id="SCH5" populated="true" name="public" nativeTerm="schema" physicalName="public" >
+    </schema>
+   </catalog>
+   <relationships>
+   </relationships>
+  </database>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB7" populated="true" name="paises" objectType="TABLE" physicalName="paises" remarks="" >
+   <folder id="FOL8" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL9" populated="true" autoIncrement="true" autoIncrementSequenceName="paises_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL10" populated="true" autoIncrement="false" autoIncrementSequenceName="paises_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL11" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL13" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX14" populated="true" clustered="false" name="paises_pk" physicalName="paises_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC15" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL9" name="id" physicalName="id" />
+    </index>
+    <index id="IDX16" populated="true" clustered="false" name="paises_idx" physicalName="paises_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC17" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL10" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB18" populated="true" name="categoria_productores" objectType="TABLE" physicalName="categoria_productores" remarks="" >
+   <folder id="FOL19" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL20" populated="true" autoIncrement="true" autoIncrementSequenceName="categoria_productores_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL21" populated="true" autoIncrement="false" autoIncrementSequenceName="categoria_productores_descripcion_seq" name="descripcion" nullable="0" physicalName="descripcion" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL22" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL23" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL24" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX25" populated="true" clustered="false" name="categoria_productores_pk" physicalName="categoria_productores_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC26" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL20" name="id" physicalName="id" />
+    </index>
+    <index id="IDX27" populated="true" clustered="false" name="categoria_productores_idx" physicalName="categoria_productores_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC28" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL21" name="descripcion" physicalName="descripcion" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB29" populated="true" name="productores_electricidad" objectType="TABLE" physicalName="productores_electricidad" remarks="" >
+   <folder id="FOL30" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL31" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL32" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_categoria_productores_id_seq" name="categoria_productores_id" nullable="0" physicalName="categoria_productores_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL33" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_produccion_media_seq" name="produccion_media" nullable="0" physicalName="produccion_media" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL34" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_produccion_maxima_seq" name="produccion_maxima" nullable="0" physicalName="produccion_maxima" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL35" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_fecha_inicio_seq" name="fecha_inicio" nullable="0" physicalName="fecha_inicio" precision="10" referenceCount="1" remarks="" scale="0" type="91" />
+    <column id="COL36" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_total_produccion_seq" name="total_produccion" nullable="0" physicalName="total_produccion" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL37" populated="true" autoIncrement="false" autoIncrementSequenceName="productores_electricidad_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL38" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL39" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL40" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX41" populated="true" clustered="false" name="productores_electricidad_pk" physicalName="productores_electricidad_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC42" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL31" name="id" physicalName="id" />
+    </index>
+    <index id="IDX43" populated="true" clustered="false" name="productores_electricidad_idx" physicalName="productores_electricidad_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC44" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL37" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB45" populated="true" name="central_hidroelectrica" objectType="TABLE" physicalName="central_hidroelectrica" remarks="" >
+   <folder id="FOL46" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL47" populated="true" autoIncrement="false" autoIncrementSequenceName="central_hidroelectrica_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL48" populated="true" autoIncrement="false" autoIncrementSequenceName="central_hidroelectrica_capacidad_maxima_seq" name="capacidad_maxima" nullable="0" physicalName="capacidad_maxima" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL49" populated="true" autoIncrement="false" autoIncrementSequenceName="central_hidroelectrica_numero_turbinas_seq" name="numero_turbinas" nullable="0" physicalName="numero_turbinas" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL50" populated="true" autoIncrement="false" autoIncrementSequenceName="central_hidroelectrica_productor_electricidad_id_seq" name="productor_electricidad_id" nullable="0" physicalName="productor_electricidad_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL51" populated="true" autoIncrement="false" autoIncrementSequenceName="central_hidroelectrica_ocupacion_seq" name="ocupacion" nullable="0" physicalName="ocupacion" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL52" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL53" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL54" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX55" populated="true" clustered="false" name="central_hidroelectrica_pk" physicalName="central_hidroelectrica_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC56" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL47" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB57" populated="true" name="central_solar" objectType="TABLE" physicalName="central_solar" remarks="" >
+   <folder id="FOL58" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL59" populated="true" autoIncrement="false" autoIncrementSequenceName="central_solar_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL60" populated="true" autoIncrement="false" autoIncrementSequenceName="central_solar_tipo_seq" name="tipo" nullable="0" physicalName="tipo" precision="1" referenceCount="1" remarks="1 = Fotovoltaica, 2 = Termodinamica" scale="0" type="-6" />
+    <column id="COL61" populated="true" autoIncrement="false" autoIncrementSequenceName="central_solar_media_anual_sol_seq" name="media_anual_sol" nullable="0" physicalName="media_anual_sol" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL62" populated="true" autoIncrement="false" autoIncrementSequenceName="central_solar_productor_electricidad_id_seq" name="productor_electricidad_id" nullable="0" physicalName="productor_electricidad_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL63" populated="true" autoIncrement="false" autoIncrementSequenceName="central_solar_superficie_paneles_seq" name="superficie_paneles" nullable="0" physicalName="superficie_paneles" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+   </folder>
+   <folder id="FOL64" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL65" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL66" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX67" populated="true" clustered="false" name="central_solar_pk" physicalName="central_solar_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC68" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL59" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB69" populated="true" name="central_nuclear" objectType="TABLE" physicalName="central_nuclear" remarks="" >
+   <folder id="FOL70" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL71" populated="true" autoIncrement="false" autoIncrementSequenceName="central_nuclear_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL72" populated="true" autoIncrement="false" autoIncrementSequenceName="central_nuclear_productor_electricidad_id_seq" name="productor_electricidad_id" nullable="0" physicalName="productor_electricidad_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL73" populated="true" autoIncrement="false" autoIncrementSequenceName="central_nuclear_volumen_plutonio_posee_seq" name="volumen_plutonio_posee" nullable="0" physicalName="volumen_plutonio_posee" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL74" populated="true" autoIncrement="false" autoIncrementSequenceName="central_nuclear_volumen_residuos_nucleares_seq" name="volumen_residuos_nucleares" nullable="0" physicalName="volumen_residuos_nucleares" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL75" populated="true" autoIncrement="false" autoIncrementSequenceName="central_nuclear_volumen_plutonio_consumido_seq" name="volumen_plutonio_consumido" nullable="0" physicalName="volumen_plutonio_consumido" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+   </folder>
+   <folder id="FOL76" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL77" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL78" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX79" populated="true" clustered="false" name="central_nuclear_pk" physicalName="central_nuclear_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC80" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL71" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB81" populated="true" name="proveedores_plutonio" objectType="TABLE" physicalName="proveedores_plutonio" remarks="" >
+   <folder id="FOL82" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL83" populated="true" autoIncrement="false" autoIncrementSequenceName="proveedores_plutonio_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL84" populated="true" autoIncrement="false" autoIncrementSequenceName="proveedores_plutonio_pais_id_seq" name="pais_id" nullable="0" physicalName="pais_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL85" populated="true" autoIncrement="false" autoIncrementSequenceName="proveedores_plutonio_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL86" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL87" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL88" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX89" populated="true" clustered="false" name="proveedores_plutonio_pk" physicalName="proveedores_plutonio_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC90" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL83" name="id" physicalName="id" />
+    </index>
+    <index id="IDX91" populated="true" clustered="false" name="proveedores_plutonio_idx" physicalName="proveedores_plutonio_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC92" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL85" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB93" populated="true" name="compras_plutonio" objectType="TABLE" physicalName="compras_plutonio" remarks="" >
+   <folder id="FOL94" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL95" populated="true" autoIncrement="false" autoIncrementSequenceName="compras_plutonio_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="4" remarks="" scale="0" type="4" />
+    <column id="COL96" populated="true" autoIncrement="false" autoIncrementSequenceName="compras_plutonio_transportista_id_seq" name="transportista_id" nullable="0" physicalName="transportista_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL97" populated="true" autoIncrement="false" autoIncrementSequenceName="compras_plutonio_proveedor_plutonio_id_seq" name="proveedor_plutonio_id" nullable="0" physicalName="proveedor_plutonio_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL98" populated="true" autoIncrement="false" autoIncrementSequenceName="compras_plutonio_central_nuclear_id_seq" name="central_nuclear_id" nullable="0" physicalName="central_nuclear_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL99" populated="true" autoIncrement="false" autoIncrementSequenceName="compras_plutonio_cantidad_comprada_seq" name="cantidad_comprada" nullable="0" physicalName="cantidad_comprada" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+   </folder>
+   <folder id="FOL100" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL101" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL102" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX103" populated="true" clustered="false" name="compras_plutonio_pk" physicalName="compras_plutonio_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC104" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL95" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB105" populated="true" name="central_termica" objectType="TABLE" physicalName="central_termica" remarks="" >
+   <folder id="FOL106" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL107" populated="true" autoIncrement="false" autoIncrementSequenceName="central_termica_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL108" populated="true" autoIncrement="false" autoIncrementSequenceName="central_termica_productor_electricidad_id_seq" name="productor_electricidad_id" nullable="0" physicalName="productor_electricidad_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL109" populated="true" autoIncrement="false" autoIncrementSequenceName="central_termica_volumen_gas_emitido_seq" name="volumen_gas_emitido" nullable="0" physicalName="volumen_gas_emitido" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL110" populated="true" autoIncrement="false" autoIncrementSequenceName="central_termica_volumen_carbon_comsumido_seq" name="volumen_carbon_comsumido" nullable="0" physicalName="volumen_carbon_comsumido" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL111" populated="true" autoIncrement="false" autoIncrementSequenceName="central_termica_numero_hornos_seq" name="numero_hornos" nullable="0" physicalName="numero_hornos" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL112" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL113" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL114" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX115" populated="true" clustered="false" name="central_termica_pk" physicalName="central_termica_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC116" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL107" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB117" populated="true" name="transportistas" objectType="TABLE" physicalName="transportistas" remarks="" >
+   <folder id="FOL118" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL119" populated="true" autoIncrement="true" autoIncrementSequenceName="transportistas_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL120" populated="true" autoIncrement="false" autoIncrementSequenceName="transportistas_matricula_seq" name="matricula" nullable="0" physicalName="matricula" precision="100" referenceCount="1" remarks="" scale="0" type="12" />
+    <column id="COL121" populated="true" autoIncrement="false" autoIncrementSequenceName="transportistas_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL122" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL123" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL124" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX125" populated="true" clustered="false" name="transportistas_pk" physicalName="transportistas_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC126" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL119" name="id" physicalName="id" />
+    </index>
+    <index id="IDX127" populated="true" clustered="false" name="transportistas_idx" physicalName="transportistas_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC128" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL120" name="matricula" physicalName="matricula" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB129" populated="true" name="estaciones_primarias" objectType="TABLE" physicalName="estaciones_primarias" remarks="" >
+   <folder id="FOL130" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL131" populated="true" autoIncrement="false" autoIncrementSequenceName="estaciones_primarias_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL132" populated="true" autoIncrement="false" autoIncrementSequenceName="estaciones_primarias_productor_electricidad_id_seq" name="productor_electricidad_id" nullable="0" physicalName="productor_electricidad_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL133" populated="true" autoIncrement="false" autoIncrementSequenceName="estaciones_primarias_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL134" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL135" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL136" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX137" populated="true" clustered="false" name="estaciones_primarias_pk" physicalName="estaciones_primarias_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC138" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL131" name="id" physicalName="id" />
+    </index>
+    <index id="IDX139" populated="true" clustered="false" name="estaciones_primarias_idx" physicalName="estaciones_primarias_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC140" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL133" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB141" populated="true" name="transformadores_baja_tension" objectType="TABLE" physicalName="transformadores_baja_tension" remarks="" >
+   <folder id="FOL142" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL143" populated="true" autoIncrement="false" autoIncrementSequenceName="transformadores_baja_tension_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL144" populated="true" autoIncrement="false" autoIncrementSequenceName="transformadores_baja_tension_estacion_primaria_id_seq" name="estacion_primaria_id" nullable="0" physicalName="estacion_primaria_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL145" populated="true" autoIncrement="false" autoIncrementSequenceName="transformadores_baja_tension_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL146" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL147" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL148" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX149" populated="true" clustered="false" name="transformadores_baja_tension_pk" physicalName="transformadores_baja_tension_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC150" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL143" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB151" populated="true" name="redes_distribucion" objectType="TABLE" physicalName="redes_distribucion" remarks="" >
+   <folder id="FOL152" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL153" populated="true" autoIncrement="false" autoIncrementSequenceName="transformadores_baja_tension_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL154" populated="true" autoIncrement="false" autoIncrementSequenceName="redes_distribucion_numero_red_seq" name="numero_red" nullable="0" physicalName="numero_red" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL155" populated="true" autoIncrement="false" autoIncrementSequenceName="redes_distribucion_transformador_id_seq" name="transformador_id" nullable="0" physicalName="transformador_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL156" populated="true" autoIncrement="false" autoIncrementSequenceName="redes_distribucion_estacion_primaria_id_seq" name="estacion_primaria_id" nullable="0" physicalName="estacion_primaria_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL157" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL158" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL159" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX160" populated="true" clustered="false" name="redes_distribucion_pk" physicalName="redes_distribucion_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC161" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL153" name="id" physicalName="id" />
+    </index>
+    <index id="IDX162" populated="true" clustered="false" name="redes_distribucion_idx" physicalName="redes_distribucion_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC163" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL155" name="transformador_id" physicalName="transformador_id" />
+     <index-column id="IDC164" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL156" name="estacion_primaria_id" physicalName="estacion_primaria_id" />
+    </index>
+    <index id="IDX165" populated="true" clustered="false" name="redes_distribucion_idx1" physicalName="redes_distribucion_idx1" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC166" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL154" name="numero_red" physicalName="numero_red" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB167" populated="true" name="companias_electricas" objectType="TABLE" physicalName="companias_electricas" remarks="" >
+   <folder id="FOL168" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL169" populated="true" autoIncrement="true" autoIncrementSequenceName="companias_electricas_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL170" populated="true" autoIncrement="false" autoIncrementSequenceName="companias_electricas_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL171" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL172" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL173" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX174" populated="true" clustered="false" name="companias_electricas_pk" physicalName="companias_electricas_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC175" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL169" name="id" physicalName="id" />
+    </index>
+    <index id="IDX176" populated="true" clustered="false" name="companias_electricas_idx" physicalName="companias_electricas_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC177" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL170" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB178" populated="true" name="companias_redes" objectType="TABLE" physicalName="companias_redes" remarks="" >
+   <folder id="FOL179" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL180" populated="true" autoIncrement="false" autoIncrementSequenceName="companias_redes_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="3" remarks="" scale="0" type="4" />
+    <column id="COL181" populated="true" autoIncrement="false" autoIncrementSequenceName="companias_redes_red_distribucion_id_seq" name="red_distribucion_id" nullable="0" physicalName="red_distribucion_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL182" populated="true" autoIncrement="false" autoIncrementSequenceName="companias_redes_compania_electrica_id_seq" name="compania_electrica_id" nullable="0" physicalName="compania_electrica_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL183" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL184" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL185" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX186" populated="true" clustered="false" name="companias_redes_pk" physicalName="companias_redes_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC187" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL180" name="id" physicalName="id" />
+    </index>
+    <index id="IDX188" populated="true" clustered="false" name="companias_redes_idx" physicalName="companias_redes_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC189" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL181" name="red_distribucion_id" physicalName="red_distribucion_id" />
+     <index-column id="IDC190" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL182" name="compania_electrica_id" physicalName="compania_electrica_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB191" populated="true" name="intercambios_energia" objectType="TABLE" physicalName="intercambios_energia" remarks="" >
+   <folder id="FOL192" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL193" populated="true" autoIncrement="false" autoIncrementSequenceName="intercambios_energia_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL194" populated="true" autoIncrement="false" autoIncrementSequenceName="transformadores_baja_tension_id_seq" name="redes_distribucion_id" nullable="0" physicalName="redes_distribucion_id" precision="10" primaryKeySeq="1" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL195" populated="true" autoIncrement="false" autoIncrementSequenceName="intercambios_energia_volumen_intercambiado_seq" name="volumen_intercambiado" nullable="0" physicalName="volumen_intercambiado" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL196" populated="true" autoIncrement="false" autoIncrementSequenceName="intercambios_energia_red_recibe_id_seq" name="red_recibe_id" nullable="0" physicalName="red_recibe_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL197" populated="true" autoIncrement="false" autoIncrementSequenceName="intercambios_energia_red_suministra_id_seq" name="red_suministra_id" nullable="0" physicalName="red_suministra_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL198" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL199" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL200" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX201" populated="true" clustered="false" name="intercambios_energia_pk" physicalName="intercambios_energia_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC202" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL193" name="id" physicalName="id" />
+     <index-column id="IDC203" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL194" name="redes_distribucion_id" physicalName="redes_distribucion_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB204" populated="true" name="lineas" objectType="TABLE" physicalName="lineas" remarks="" >
+   <folder id="FOL205" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL206" populated="true" autoIncrement="false" autoIncrementSequenceName="lineas_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL207" populated="true" autoIncrement="false" autoIncrementSequenceName="lineas_longitud_seq" name="longitud" nullable="0" physicalName="longitud" precision="10" referenceCount="1" remarks="" scale="0" type="3" />
+    <column id="COL208" populated="true" autoIncrement="false" autoIncrementSequenceName="lineas_red_distribucion_id_seq" name="red_distribucion_id" nullable="0" physicalName="red_distribucion_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL209" populated="true" autoIncrement="false" autoIncrementSequenceName="lineas_numero_seq" name="numero" nullable="0" physicalName="numero" precision="10" referenceCount="1" remarks="id_red + id secuencial" scale="0" type="4" />
+   </folder>
+   <folder id="FOL210" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL211" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL212" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX213" populated="true" clustered="false" name="lineas_pk" physicalName="lineas_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC214" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL206" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB215" populated="true" name="subestaciones" objectType="TABLE" physicalName="subestaciones" remarks="" >
+   <folder id="FOL216" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL217" populated="true" autoIncrement="false" autoIncrementSequenceName="subestaciones_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="2" remarks="" scale="0" type="4" />
+    <column id="COL218" populated="true" autoIncrement="false" autoIncrementSequenceName="subestaciones_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+    <column id="COL219" populated="true" autoIncrement="false" autoIncrementSequenceName="subestaciones_linea_id_seq" name="linea_id" nullable="0" physicalName="linea_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL220" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL221" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL222" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX223" populated="true" clustered="false" name="subestaciones_pk" physicalName="subestaciones_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC224" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL217" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB225" populated="true" name="zonas_servicio" objectType="TABLE" physicalName="zonas_servicio" remarks="" >
+   <folder id="FOL226" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL227" populated="true" autoIncrement="false" autoIncrementSequenceName="zonas_servicio_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="3" remarks="" scale="0" type="4" />
+    <column id="COL228" populated="true" autoIncrement="false" autoIncrementSequenceName="zonas_servicio_provincia_id_seq" name="provincia_id" nullable="0" physicalName="provincia_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL229" populated="true" autoIncrement="false" autoIncrementSequenceName="zonas_servicio_subestacion_id_seq" name="subestacion_id" nullable="0" physicalName="subestacion_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL230" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL231" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL232" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX233" populated="true" clustered="false" name="zonas_servicio_pk" physicalName="zonas_servicio_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC234" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL227" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB235" populated="true" name="provincias" objectType="TABLE" physicalName="provincias" remarks="" >
+   <folder id="FOL236" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL237" populated="true" autoIncrement="true" autoIncrementSequenceName="provincias_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL238" populated="true" autoIncrement="false" autoIncrementSequenceName="provincias_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+    <column id="COL239" populated="true" autoIncrement="false" autoIncrementSequenceName="provincias_codigo_seq" name="codigo" nullable="0" physicalName="codigo" precision="10" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL240" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL241" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL242" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX243" populated="true" clustered="false" name="provincias_pk" physicalName="provincias_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC244" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL237" name="id" physicalName="id" />
+    </index>
+    <index id="IDX245" populated="true" clustered="false" name="provincias_idx" physicalName="provincias_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC246" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL239" name="codigo" physicalName="codigo" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB247" populated="true" name="consumidores" objectType="TABLE" physicalName="consumidores" remarks="" >
+   <folder id="FOL248" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL249" populated="true" autoIncrement="false" autoIncrementSequenceName="consumidores_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="3" remarks="" scale="0" type="4" />
+    <column id="COL250" populated="true" autoIncrement="false" autoIncrementSequenceName="consumidores_zona_servicio_id_seq" name="zona_servicio_id" nullable="0" physicalName="zona_servicio_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL251" populated="true" autoIncrement="false" autoIncrementSequenceName="consumidores_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+    <column id="COL252" populated="true" autoIncrement="false" autoIncrementSequenceName="consumidores_tipo_consumidor_id_seq" name="tipo_consumidor_id" nullable="0" physicalName="tipo_consumidor_id" precision="10" referenceCount="1" remarks="" scale="0" type="4" />
+   </folder>
+   <folder id="FOL253" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL254" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL255" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX256" populated="true" clustered="false" name="consumidores_pk" physicalName="consumidores_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC257" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL249" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB258" populated="true" name="tipos_consumidor" objectType="TABLE" physicalName="tipos_consumidor" remarks="" >
+   <folder id="FOL259" populated="true" name="Columns" physicalName="Columns" type="1" >
+    <column id="COL260" populated="true" autoIncrement="true" autoIncrementSequenceName="tipos_consumidor_id_seq" name="id" nullable="0" physicalName="id" precision="10" primaryKeySeq="0" referenceCount="1" remarks="" scale="0" type="4" />
+    <column id="COL261" populated="true" autoIncrement="false" autoIncrementSequenceName="tipos_consumidor_nombre_seq" name="nombre" nullable="0" physicalName="nombre" precision="200" referenceCount="1" remarks="" scale="0" type="12" />
+   </folder>
+   <folder id="FOL262" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3" >
+   </folder>
+   <folder id="FOL263" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2" >
+   </folder>
+   <folder id="FOL264" populated="true" name="Indices" physicalName="Indices" type="4" >
+    <index id="IDX265" populated="true" clustered="false" name="tipos_consumidor_pk" physicalName="tipos_consumidor_pk" primaryKeyIndex="true" unique="true" >
+     <index-column id="IDC266" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL260" name="id" physicalName="id" />
+    </index>
+    <index id="IDX267" populated="true" clustered="false" name="tipos_consumidor_idx" physicalName="tipos_consumidor_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC268" populated="true" ascendingOrDescending="UNSPECIFIED" column-ref="COL261" name="nombre" physicalName="nombre" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL269" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB81" fkCardinality="7" identifying="true" name="paises_proveedores_plutonio_fk" physicalName="paises_proveedores_plutonio_fk" pk-table-ref="TAB7" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP270" populated="true" fk-column-ref="COL83" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
+   </relationship>
+   <relationship id="REL271" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="true" name="categoria_productores_productores_electricidad_fk" physicalName="categoria_productores_productores_electricidad_fk" pk-table-ref="TAB18" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP272" populated="true" fk-column-ref="COL31" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL20" />
+   </relationship>
+   <relationship id="REL273" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB69" fkCardinality="7" identifying="true" name="productores_electricidad_central_nuclear_fk" physicalName="productores_electricidad_central_nuclear_fk" pk-table-ref="TAB29" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP274" populated="true" fk-column-ref="COL71" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   </relationship>
+   <relationship id="REL275" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB45" fkCardinality="7" identifying="true" name="productores_electricidad_central_hidroelectrica_fk" physicalName="productores_electricidad_central_hidroelectrica_fk" pk-table-ref="TAB29" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP276" populated="true" fk-column-ref="COL47" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   </relationship>
+   <relationship id="REL277" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB57" fkCardinality="7" identifying="true" name="productores_electricidad_central_solar_fk" physicalName="productores_electricidad_central_solar_fk" pk-table-ref="TAB29" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP278" populated="true" fk-column-ref="COL59" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   </relationship>
+   <relationship id="REL279" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB105" fkCardinality="7" identifying="true" name="productores_electricidad_central_termica_fk" physicalName="productores_electricidad_central_termica_fk" pk-table-ref="TAB29" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP280" populated="true" fk-column-ref="COL107" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   </relationship>
+   <relationship id="REL281" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB129" fkCardinality="7" identifying="true" name="productores_electricidad_estaciones_primarias_fk" physicalName="productores_electricidad_estaciones_primarias_fk" pk-table-ref="TAB29" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP282" populated="true" fk-column-ref="COL131" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   </relationship>
+   <reference ref-id="REL271" />
+   <reference ref-id="REL275" />
+   <reference ref-id="REL277" />
+   <relationship id="REL283" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB93" fkCardinality="7" identifying="true" name="central_nuclear_compras_plutonio_fk" physicalName="central_nuclear_compras_plutonio_fk" pk-table-ref="TAB69" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP284" populated="true" fk-column-ref="COL95" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL71" />
+   </relationship>
+   <reference ref-id="REL273" />
+   <relationship id="REL285" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB93" fkCardinality="7" identifying="true" name="proveedores_plutonio_compras_plutonio_fk" physicalName="proveedores_plutonio_compras_plutonio_fk" pk-table-ref="TAB81" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP286" populated="true" fk-column-ref="COL95" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL83" />
+   </relationship>
+   <reference ref-id="REL269" />
+   <reference ref-id="REL283" />
+   <reference ref-id="REL285" />
+   <relationship id="REL287" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB93" fkCardinality="7" identifying="true" name="transportistas_compras_plutonio_fk" physicalName="transportistas_compras_plutonio_fk" pk-table-ref="TAB117" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP288" populated="true" fk-column-ref="COL95" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL119" />
+   </relationship>
+   <reference ref-id="REL279" />
+   <reference ref-id="REL287" />
+   <relationship id="REL289" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB141" fkCardinality="7" identifying="true" name="estaciones_primarias_transformadores_baja_tension_fk" physicalName="estaciones_primarias_transformadores_baja_tension_fk" pk-table-ref="TAB129" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP290" populated="true" fk-column-ref="COL143" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL131" />
+   </relationship>
+   <relationship id="REL291" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB151" fkCardinality="7" identifying="true" name="estaciones_primarias_redes_distribucion_fk" physicalName="estaciones_primarias_redes_distribucion_fk" pk-table-ref="TAB129" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP292" populated="true" fk-column-ref="COL153" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL131" />
+   </relationship>
+   <reference ref-id="REL281" />
+   <relationship id="REL293" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB151" fkCardinality="7" identifying="true" name="transformadores_baja_tension_redes_distribucion_fk" physicalName="transformadores_baja_tension_redes_distribucion_fk" pk-table-ref="TAB141" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP294" populated="true" fk-column-ref="COL153" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL143" />
+   </relationship>
+   <reference ref-id="REL289" />
+   <relationship id="REL295" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB178" fkCardinality="7" identifying="true" name="redes_distribucion_companias_redes_fk" physicalName="redes_distribucion_companias_redes_fk" pk-table-ref="TAB151" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP296" populated="true" fk-column-ref="COL180" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL153" />
+   </relationship>
+   <relationship id="REL297" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB191" fkCardinality="7" identifying="true" name="redes_distribucion_intercambios_energia_fk" physicalName="redes_distribucion_intercambios_energia_fk" pk-table-ref="TAB151" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP298" populated="true" fk-column-ref="COL193" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL153" />
+   </relationship>
+   <relationship id="REL299" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB191" fkCardinality="7" identifying="true" name="redes_distribucion_intercambios_energia_fk2" physicalName="redes_distribucion_intercambios_energia_fk2" pk-table-ref="TAB151" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP300" populated="true" fk-column-ref="COL194" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL153" />
+   </relationship>
+   <relationship id="REL301" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB204" fkCardinality="7" identifying="true" name="redes_distribucion_lineas_fk" physicalName="redes_distribucion_lineas_fk" pk-table-ref="TAB151" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP302" populated="true" fk-column-ref="COL206" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL153" />
+   </relationship>
+   <reference ref-id="REL293" />
+   <reference ref-id="REL291" />
+   <relationship id="REL303" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB178" fkCardinality="7" identifying="true" name="companias_electricas_companias_redes_fk" physicalName="companias_electricas_companias_redes_fk" pk-table-ref="TAB167" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP304" populated="true" fk-column-ref="COL180" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL169" />
+   </relationship>
+   <reference ref-id="REL303" />
+   <reference ref-id="REL295" />
+   <reference ref-id="REL297" />
+   <reference ref-id="REL299" />
+   <relationship id="REL305" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB215" fkCardinality="7" identifying="true" name="lineas_subestaciones_fk" physicalName="lineas_subestaciones_fk" pk-table-ref="TAB204" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP306" populated="true" fk-column-ref="COL217" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL206" />
+   </relationship>
+   <reference ref-id="REL301" />
+   <relationship id="REL307" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB225" fkCardinality="7" identifying="true" name="subestaciones_zonas_servicio_fk" physicalName="subestaciones_zonas_servicio_fk" pk-table-ref="TAB215" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP308" populated="true" fk-column-ref="COL227" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL217" />
+   </relationship>
+   <reference ref-id="REL305" />
+   <relationship id="REL309" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB247" fkCardinality="7" identifying="true" name="zonas_servicio_consumidores_fk" physicalName="zonas_servicio_consumidores_fk" pk-table-ref="TAB225" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP310" populated="true" fk-column-ref="COL249" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL227" />
+   </relationship>
+   <reference ref-id="REL307" />
+   <relationship id="REL311" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB225" fkCardinality="7" identifying="true" name="provincias_zonas_servicio_fk" physicalName="provincias_zonas_servicio_fk" pk-table-ref="TAB235" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP312" populated="true" fk-column-ref="COL227" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL237" />
+   </relationship>
+   <reference ref-id="REL311" />
+   <reference ref-id="REL309" />
+   <relationship id="REL313" populated="true" deferrability="7" deleteRule="3" fk-table-ref="TAB247" fkCardinality="7" identifying="true" name="tipos_consumidor_consumidores_fk" physicalName="tipos_consumidor_consumidores_fk" pk-table-ref="TAB258" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP314" populated="true" fk-column-ref="COL249" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL260" />
+   </relationship>
+   <reference ref-id="REL313" />
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="energia"> </ddl-generator>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="322" relationship-style="rectilinear" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" showPrimary="true" showForeign="true" showIndexed="true" showUnique="true" showTheRest="true">
+  <table-pane table-ref="TAB7" x="27" y="188" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB18" x="64" y="458" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB29" x="402" y="470" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB45" x="844" y="652" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB57" x="837" y="422" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB69" x="752" y="296" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB81" x="93" y="325" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB93" x="392" y="362" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB105" x="833" y="536" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB117" x="350" y="218" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB129" x="381" y="654" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB141" x="101" y="641" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB151" x="332" y="769" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB167" x="978" y="791" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB178" x="629" y="780" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB191" x="0" y="782" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB204" x="237" y="943" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB215" x="529" y="978" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB225" x="754" y="1004" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB235" x="623" y="882" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB247" x="989" y="1010" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB258" x="908" y="873" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL273" pk-x="250" pk-y="107" fk-x="0" fk-y="10" orientation="33"/>
+  <table-link relationship-ref="REL271" pk-x="216" pk-y="50" fk-x="0" fk-y="33" orientation="33"/>
+  <table-link relationship-ref="REL275" pk-x="250" pk-y="92" fk-x="0" fk-y="27" orientation="33"/>
+  <table-link relationship-ref="REL277" pk-x="250" pk-y="101" fk-x="0" fk-y="18" orientation="33"/>
+  <table-link relationship-ref="REL269" pk-x="144" pk-y="60" fk-x="35" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL279" pk-x="250" pk-y="90" fk-x="0" fk-y="27" orientation="33"/>
+  <table-link relationship-ref="REL283" pk-x="0" pk-y="53" fk-x="228" fk-y="42" orientation="18"/>
+  <table-link relationship-ref="REL285" pk-x="192" pk-y="61" fk-x="0" fk-y="24" orientation="33"/>
+  <table-link relationship-ref="REL287" pk-x="147" pk-y="75" fk-x="49" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL281" pk-x="109" pk-y="135" fk-x="132" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL289" pk-x="0" pk-y="29" fk-x="218" fk-y="44" orientation="18"/>
+  <table-link relationship-ref="REL293" pk-x="201" pk-y="75" fk-x="16" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL291" pk-x="93" pk-y="75" fk-x="139" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL303" pk-x="0" pk-y="30" fk-x="269" fk-y="37" orientation="18"/>
+  <table-link relationship-ref="REL295" pk-x="259" pk-y="46" fk-x="0" fk-y="35" orientation="33"/>
+  <table-link relationship-ref="REL297" pk-x="0" pk-y="80" fk-x="270" fk-y="12" orientation="18"/>
+  <table-link relationship-ref="REL299" pk-x="0" pk-y="60" fk-x="270" fk-y="32" orientation="18"/>
+  <table-link relationship-ref="REL301" pk-x="142" pk-y="90" fk-x="90" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL305" pk-x="207" pk-y="76" fk-x="0" fk-y="14" orientation="33"/>
+  <table-link relationship-ref="REL307" pk-x="151" pk-y="63" fk-x="0" fk-y="10" orientation="33"/>
+  <table-link relationship-ref="REL311" pk-x="156" pk-y="75" fk-x="24" fk-y="0" orientation="132"/>
+  <table-link relationship-ref="REL309" pk-x="184" pk-y="65" fk-x="0" fk-y="10" orientation="33"/>
+  <table-link relationship-ref="REL313" pk-x="131" pk-y="60" fk-x="51" fk-y="0" orientation="132"/>
+ </play-pen>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

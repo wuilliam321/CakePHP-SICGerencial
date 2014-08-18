@@ -1,0 +1,1039 @@
+(1) Starting DDL Generation at Tue Jan 21 09:20:56 VET 2014
+(2) Database Target: Localhost
+(3) Playpen Dump: Localhost
+(4) executing: CREATE SEQUENCE energia.tipos_consumidor_id_seq
+(5) sql statement failed: ERROR: schema "energia" does not exist
+(6) executing: 
+
+CREATE TABLE energia.tipos_consumidor (
+                id INTEGER NOT NULL DEFAULT nextval('energia.tipos_consumidor_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT tipos_consumidor_pk PRIMARY KEY (id)
+)
+(7) sql statement failed: ERROR: schema "energia" does not exist
+(8) executing: 
+ALTER SEQUENCE energia.tipos_consumidor_id_seq OWNED BY energia.tipos_consumidor.id
+(9) sql statement failed: ERROR: schema "energia" does not exist
+(10) executing: 
+
+CREATE UNIQUE INDEX tipos_consumidor_idx
+ ON energia.tipos_consumidor
+ ( nombre )
+(11) sql statement failed: ERROR: schema "energia" does not exist
+(12) executing: 
+CREATE SEQUENCE energia.provincias_id_seq
+(13) sql statement failed: ERROR: schema "energia" does not exist
+(14) executing: 
+
+CREATE TABLE energia.provincias (
+                id INTEGER NOT NULL DEFAULT nextval('energia.provincias_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                codigo VARCHAR(10) NOT NULL,
+                CONSTRAINT provincias_pk PRIMARY KEY (id)
+)
+(15) sql statement failed: ERROR: schema "energia" does not exist
+(16) executing: 
+ALTER SEQUENCE energia.provincias_id_seq OWNED BY energia.provincias.id
+(17) sql statement failed: ERROR: schema "energia" does not exist
+(18) executing: 
+
+CREATE UNIQUE INDEX provincias_idx
+ ON energia.provincias
+ ( codigo )
+(19) sql statement failed: ERROR: schema "energia" does not exist
+(20) executing: 
+CREATE SEQUENCE energia.companias_electricas_id_seq
+(21) sql statement failed: ERROR: schema "energia" does not exist
+(22) executing: 
+
+CREATE TABLE energia.companias_electricas (
+                id INTEGER NOT NULL DEFAULT nextval('energia.companias_electricas_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT companias_electricas_pk PRIMARY KEY (id)
+)
+(23) sql statement failed: ERROR: schema "energia" does not exist
+(24) executing: 
+ALTER SEQUENCE energia.companias_electricas_id_seq OWNED BY energia.companias_electricas.id
+(25) sql statement failed: ERROR: schema "energia" does not exist
+(26) executing: 
+
+CREATE UNIQUE INDEX companias_electricas_idx
+ ON energia.companias_electricas
+ ( nombre )
+(27) sql statement failed: ERROR: schema "energia" does not exist
+(28) executing: 
+CREATE SEQUENCE energia.transportistas_id_seq
+(29) sql statement failed: ERROR: schema "energia" does not exist
+(30) executing: 
+
+CREATE TABLE energia.transportistas (
+                id INTEGER NOT NULL DEFAULT nextval('energia.transportistas_id_seq'),
+                matricula VARCHAR(100) NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT transportistas_pk PRIMARY KEY (id)
+)
+(31) sql statement failed: ERROR: schema "energia" does not exist
+(32) executing: 
+ALTER SEQUENCE energia.transportistas_id_seq OWNED BY energia.transportistas.id
+(33) sql statement failed: ERROR: schema "energia" does not exist
+(34) executing: 
+
+CREATE UNIQUE INDEX transportistas_idx
+ ON energia.transportistas
+ ( matricula )
+(35) sql statement failed: ERROR: schema "energia" does not exist
+(36) executing: 
+CREATE SEQUENCE energia.categoria_productores_id_seq
+(37) sql statement failed: ERROR: schema "energia" does not exist
+(38) executing: 
+
+CREATE TABLE energia.categoria_productores (
+                id INTEGER NOT NULL DEFAULT nextval('energia.categoria_productores_id_seq'),
+                descripcion VARCHAR(200) NOT NULL,
+                CONSTRAINT categoria_productores_pk PRIMARY KEY (id)
+)
+(39) sql statement failed: ERROR: schema "energia" does not exist
+(40) executing: 
+ALTER SEQUENCE energia.categoria_productores_id_seq OWNED BY energia.categoria_productores.id
+(41) sql statement failed: ERROR: schema "energia" does not exist
+(42) executing: 
+
+CREATE UNIQUE INDEX categoria_productores_idx
+ ON energia.categoria_productores
+ ( descripcion )
+(43) sql statement failed: ERROR: schema "energia" does not exist
+(44) executing: 
+
+CREATE TABLE energia.productores_electricidad (
+                id INTEGER NOT NULL,
+                categoria_productores_id INTEGER NOT NULL,
+                produccion_media NUMERIC(10,0) NOT NULL,
+                produccion_maxima NUMERIC(10,0) NOT NULL,
+                fecha_inicio DATE NOT NULL,
+                total_produccion NUMERIC(10,0) NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT productores_electricidad_pk PRIMARY KEY (id)
+)
+(45) sql statement failed: ERROR: schema "energia" does not exist
+(46) executing: 
+
+CREATE UNIQUE INDEX productores_electricidad_idx
+ ON energia.productores_electricidad
+ ( nombre )
+(47) sql statement failed: ERROR: schema "energia" does not exist
+(48) executing: 
+
+CREATE TABLE energia.estaciones_primarias (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT estaciones_primarias_pk PRIMARY KEY (id)
+)
+(49) sql statement failed: ERROR: schema "energia" does not exist
+(50) executing: 
+
+CREATE UNIQUE INDEX estaciones_primarias_idx
+ ON energia.estaciones_primarias
+ ( nombre )
+(51) sql statement failed: ERROR: schema "energia" does not exist
+(52) executing: 
+
+CREATE TABLE energia.transformadores_baja_tension (
+                id INTEGER NOT NULL,
+                estacion_primaria_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT transformadores_baja_tension_pk PRIMARY KEY (id)
+)
+(53) sql statement failed: ERROR: schema "energia" does not exist
+(54) executing: 
+
+CREATE TABLE energia.redes_distribucion (
+                id INTEGER NOT NULL,
+                numero_red INTEGER NOT NULL,
+                transformador_id INTEGER NOT NULL,
+                estacion_primaria_id INTEGER NOT NULL,
+                CONSTRAINT redes_distribucion_pk PRIMARY KEY (id)
+)
+(55) sql statement failed: ERROR: schema "energia" does not exist
+(56) executing: 
+
+CREATE UNIQUE INDEX redes_distribucion_idx
+ ON energia.redes_distribucion
+ ( transformador_id, estacion_primaria_id )
+(57) sql statement failed: ERROR: schema "energia" does not exist
+(58) executing: 
+
+CREATE UNIQUE INDEX redes_distribucion_idx1
+ ON energia.redes_distribucion
+ ( numero_red )
+(59) sql statement failed: ERROR: schema "energia" does not exist
+(60) executing: 
+
+CREATE TABLE energia.lineas (
+                id INTEGER NOT NULL,
+                longitud NUMERIC(10,0) NOT NULL,
+                red_distribucion_id INTEGER NOT NULL,
+                numero INTEGER NOT NULL,
+                CONSTRAINT lineas_pk PRIMARY KEY (id)
+)
+(61) sql statement failed: ERROR: schema "energia" does not exist
+(62) executing: 
+
+CREATE TABLE energia.subestaciones (
+                id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                linea_id INTEGER NOT NULL,
+                CONSTRAINT subestaciones_pk PRIMARY KEY (id)
+)
+(63) sql statement failed: ERROR: schema "energia" does not exist
+(64) executing: 
+
+CREATE TABLE energia.zonas_servicio (
+                id INTEGER NOT NULL,
+                provincia_id INTEGER NOT NULL,
+                subestacion_id INTEGER NOT NULL,
+                CONSTRAINT zonas_servicio_pk PRIMARY KEY (id)
+)
+(65) sql statement failed: ERROR: schema "energia" does not exist
+(66) executing: 
+
+CREATE TABLE energia.consumidores (
+                id INTEGER NOT NULL,
+                zona_servicio_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                tipo_consumidor_id INTEGER NOT NULL,
+                CONSTRAINT consumidores_pk PRIMARY KEY (id)
+)
+(67) sql statement failed: ERROR: schema "energia" does not exist
+(68) executing: 
+
+CREATE TABLE energia.intercambios_energia (
+                id INTEGER NOT NULL,
+                redes_distribucion_id INTEGER NOT NULL,
+                volumen_intercambiado NUMERIC(10,0) NOT NULL,
+                red_recibe_id INTEGER NOT NULL,
+                red_suministra_id INTEGER NOT NULL,
+                CONSTRAINT intercambios_energia_pk PRIMARY KEY (id, redes_distribucion_id)
+)
+(69) sql statement failed: ERROR: schema "energia" does not exist
+(70) executing: 
+
+CREATE TABLE energia.companias_redes (
+                id INTEGER NOT NULL,
+                red_distribucion_id INTEGER NOT NULL,
+                compania_electrica_id INTEGER NOT NULL,
+                CONSTRAINT companias_redes_pk PRIMARY KEY (id)
+)
+(71) sql statement failed: ERROR: schema "energia" does not exist
+(72) executing: 
+
+CREATE UNIQUE INDEX companias_redes_idx
+ ON energia.companias_redes
+ ( red_distribucion_id, compania_electrica_id )
+(73) sql statement failed: ERROR: schema "energia" does not exist
+(74) executing: 
+
+CREATE TABLE energia.central_termica (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                volumen_gas_emitido NUMERIC(10,0) NOT NULL,
+                volumen_carbon_comsumido NUMERIC(10,0) NOT NULL,
+                numero_hornos INTEGER NOT NULL,
+                CONSTRAINT central_termica_pk PRIMARY KEY (id)
+)
+(75) sql statement failed: ERROR: schema "energia" does not exist
+(76) executing: 
+
+CREATE TABLE energia.central_solar (
+                id INTEGER NOT NULL,
+                tipo SMALLINT NOT NULL,
+                media_anual_sol NUMERIC(10,0) NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                superficie_paneles NUMERIC(10,0) NOT NULL,
+                CONSTRAINT central_solar_pk PRIMARY KEY (id)
+)
+(77) sql statement failed: ERROR: schema "energia" does not exist
+(78) executing: 
+
+CREATE TABLE energia.central_hidroelectrica (
+                id INTEGER NOT NULL,
+                capacidad_maxima NUMERIC(10,0) NOT NULL,
+                numero_turbinas INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                ocupacion VARCHAR(200) NOT NULL,
+                CONSTRAINT central_hidroelectrica_pk PRIMARY KEY (id)
+)
+(79) sql statement failed: ERROR: schema "energia" does not exist
+(80) executing: 
+
+CREATE TABLE energia.central_nuclear (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                volumen_plutonio_posee NUMERIC(10,0) NOT NULL,
+                volumen_residuos_nucleares NUMERIC(10,0) NOT NULL,
+                volumen_plutonio_consumido NUMERIC(10,0) NOT NULL,
+                CONSTRAINT central_nuclear_pk PRIMARY KEY (id)
+)
+(81) sql statement failed: ERROR: schema "energia" does not exist
+(82) executing: 
+CREATE SEQUENCE energia.paises_id_seq
+(83) sql statement failed: ERROR: schema "energia" does not exist
+(84) executing: 
+
+CREATE TABLE energia.paises (
+                id INTEGER NOT NULL DEFAULT nextval('energia.paises_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT paises_pk PRIMARY KEY (id)
+)
+(85) sql statement failed: ERROR: schema "energia" does not exist
+(86) executing: 
+ALTER SEQUENCE energia.paises_id_seq OWNED BY energia.paises.id
+(87) sql statement failed: ERROR: schema "energia" does not exist
+(88) executing: 
+
+CREATE UNIQUE INDEX paises_idx
+ ON energia.paises
+ ( nombre )
+(89) sql statement failed: ERROR: schema "energia" does not exist
+(90) executing: 
+
+CREATE TABLE energia.proveedores_plutonio (
+                id INTEGER NOT NULL,
+                pais_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT proveedores_plutonio_pk PRIMARY KEY (id)
+)
+(91) sql statement failed: ERROR: schema "energia" does not exist
+(92) executing: 
+
+CREATE UNIQUE INDEX proveedores_plutonio_idx
+ ON energia.proveedores_plutonio
+ ( nombre )
+(93) sql statement failed: ERROR: schema "energia" does not exist
+(94) executing: 
+
+CREATE TABLE energia.compras_plutonio (
+                id INTEGER NOT NULL,
+                transportista_id INTEGER NOT NULL,
+                proveedor_plutonio_id INTEGER NOT NULL,
+                central_nuclear_id INTEGER NOT NULL,
+                cantidad_comprada NUMERIC(10,0) NOT NULL,
+                CONSTRAINT compras_plutonio_pk PRIMARY KEY (id)
+)
+(95) sql statement failed: ERROR: schema "energia" does not exist
+(96) executing: 
+
+
+ALTER TABLE energia.consumidores ADD CONSTRAINT tipos_consumidor_consumidores_fk
+FOREIGN KEY (id)
+REFERENCES energia.tipos_consumidor (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(97) sql statement failed: ERROR: schema "energia" does not exist
+(98) executing: 
+
+
+ALTER TABLE energia.zonas_servicio ADD CONSTRAINT provincias_zonas_servicio_fk
+FOREIGN KEY (id)
+REFERENCES energia.provincias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(99) sql statement failed: ERROR: schema "energia" does not exist
+(100) executing: 
+
+
+ALTER TABLE energia.companias_redes ADD CONSTRAINT companias_electricas_companias_redes_fk
+FOREIGN KEY (id)
+REFERENCES energia.companias_electricas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(101) sql statement failed: ERROR: schema "energia" does not exist
+(102) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT transportistas_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.transportistas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(103) sql statement failed: ERROR: schema "energia" does not exist
+(104) executing: 
+
+
+ALTER TABLE energia.productores_electricidad ADD CONSTRAINT categoria_productores_productores_electricidad_fk
+FOREIGN KEY (id)
+REFERENCES energia.categoria_productores (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(105) sql statement failed: ERROR: schema "energia" does not exist
+(106) executing: 
+
+
+ALTER TABLE energia.central_nuclear ADD CONSTRAINT productores_electricidad_central_nuclear_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(107) sql statement failed: ERROR: schema "energia" does not exist
+(108) executing: 
+
+
+ALTER TABLE energia.central_hidroelectrica ADD CONSTRAINT productores_electricidad_central_hidroelectrica_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(109) sql statement failed: ERROR: schema "energia" does not exist
+(110) executing: 
+
+
+ALTER TABLE energia.central_solar ADD CONSTRAINT productores_electricidad_central_solar_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(111) sql statement failed: ERROR: schema "energia" does not exist
+(112) executing: 
+
+
+ALTER TABLE energia.central_termica ADD CONSTRAINT productores_electricidad_central_termica_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(113) sql statement failed: ERROR: schema "energia" does not exist
+(114) executing: 
+
+
+ALTER TABLE energia.estaciones_primarias ADD CONSTRAINT productores_electricidad_estaciones_primarias_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(115) sql statement failed: ERROR: schema "energia" does not exist
+(116) executing: 
+
+
+ALTER TABLE energia.transformadores_baja_tension ADD CONSTRAINT estaciones_primarias_transformadores_baja_tension_fk
+FOREIGN KEY (id)
+REFERENCES energia.estaciones_primarias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(117) sql statement failed: ERROR: schema "energia" does not exist
+(118) executing: 
+
+
+ALTER TABLE energia.redes_distribucion ADD CONSTRAINT estaciones_primarias_redes_distribucion_fk
+FOREIGN KEY (id)
+REFERENCES energia.estaciones_primarias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(119) sql statement failed: ERROR: schema "energia" does not exist
+(120) executing: 
+
+
+ALTER TABLE energia.redes_distribucion ADD CONSTRAINT transformadores_baja_tension_redes_distribucion_fk
+FOREIGN KEY (id)
+REFERENCES energia.transformadores_baja_tension (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(121) sql statement failed: ERROR: schema "energia" does not exist
+(122) executing: 
+
+
+ALTER TABLE energia.companias_redes ADD CONSTRAINT redes_distribucion_companias_redes_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(123) sql statement failed: ERROR: schema "energia" does not exist
+(124) executing: 
+
+
+ALTER TABLE energia.intercambios_energia ADD CONSTRAINT redes_distribucion_intercambios_energia_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(125) sql statement failed: ERROR: schema "energia" does not exist
+(126) executing: 
+
+
+ALTER TABLE energia.intercambios_energia ADD CONSTRAINT redes_distribucion_intercambios_energia_fk2
+FOREIGN KEY (redes_distribucion_id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(127) sql statement failed: ERROR: schema "energia" does not exist
+(128) executing: 
+
+
+ALTER TABLE energia.lineas ADD CONSTRAINT redes_distribucion_lineas_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(129) sql statement failed: ERROR: schema "energia" does not exist
+(130) executing: 
+
+
+ALTER TABLE energia.subestaciones ADD CONSTRAINT lineas_subestaciones_fk
+FOREIGN KEY (id)
+REFERENCES energia.lineas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(131) sql statement failed: ERROR: schema "energia" does not exist
+(132) executing: 
+
+
+ALTER TABLE energia.zonas_servicio ADD CONSTRAINT subestaciones_zonas_servicio_fk
+FOREIGN KEY (id)
+REFERENCES energia.subestaciones (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(133) sql statement failed: ERROR: schema "energia" does not exist
+(134) executing: 
+
+
+ALTER TABLE energia.consumidores ADD CONSTRAINT zonas_servicio_consumidores_fk
+FOREIGN KEY (id)
+REFERENCES energia.zonas_servicio (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(135) sql statement failed: ERROR: schema "energia" does not exist
+(136) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT central_nuclear_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.central_nuclear (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(137) sql statement failed: ERROR: schema "energia" does not exist
+(138) executing: 
+
+
+ALTER TABLE energia.proveedores_plutonio ADD CONSTRAINT paises_proveedores_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.paises (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(139) sql statement failed: ERROR: schema "energia" does not exist
+(140) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT proveedores_plutonio_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.proveedores_plutonio (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(141) sql statement failed: ERROR: schema "energia" does not exist
+(142) Did not execute any out of 69 statements.
+(1) Starting DDL Generation at Tue Jan 21 09:21:44 VET 2014
+(2) Database Target: Localhost
+(3) Playpen Dump: Localhost
+(4) executing: CREATE SEQUENCE energia.tipos_consumidor_id_seq
+(5) executing: 
+
+CREATE TABLE energia.tipos_consumidor (
+                id INTEGER NOT NULL DEFAULT nextval('energia.tipos_consumidor_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT tipos_consumidor_pk PRIMARY KEY (id)
+)
+(6) executing: 
+ALTER SEQUENCE energia.tipos_consumidor_id_seq OWNED BY energia.tipos_consumidor.id
+(7) executing: 
+
+CREATE UNIQUE INDEX tipos_consumidor_idx
+ ON energia.tipos_consumidor
+ ( nombre )
+(8) executing: 
+CREATE SEQUENCE energia.provincias_id_seq
+(9) executing: 
+
+CREATE TABLE energia.provincias (
+                id INTEGER NOT NULL DEFAULT nextval('energia.provincias_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                codigo VARCHAR(10) NOT NULL,
+                CONSTRAINT provincias_pk PRIMARY KEY (id)
+)
+(10) executing: 
+ALTER SEQUENCE energia.provincias_id_seq OWNED BY energia.provincias.id
+(11) executing: 
+
+CREATE UNIQUE INDEX provincias_idx
+ ON energia.provincias
+ ( codigo )
+(12) executing: 
+CREATE SEQUENCE energia.companias_electricas_id_seq
+(13) executing: 
+
+CREATE TABLE energia.companias_electricas (
+                id INTEGER NOT NULL DEFAULT nextval('energia.companias_electricas_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT companias_electricas_pk PRIMARY KEY (id)
+)
+(14) executing: 
+ALTER SEQUENCE energia.companias_electricas_id_seq OWNED BY energia.companias_electricas.id
+(15) executing: 
+
+CREATE UNIQUE INDEX companias_electricas_idx
+ ON energia.companias_electricas
+ ( nombre )
+(16) executing: 
+CREATE SEQUENCE energia.transportistas_id_seq
+(17) executing: 
+
+CREATE TABLE energia.transportistas (
+                id INTEGER NOT NULL DEFAULT nextval('energia.transportistas_id_seq'),
+                matricula VARCHAR(100) NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT transportistas_pk PRIMARY KEY (id)
+)
+(18) executing: 
+ALTER SEQUENCE energia.transportistas_id_seq OWNED BY energia.transportistas.id
+(19) executing: 
+
+CREATE UNIQUE INDEX transportistas_idx
+ ON energia.transportistas
+ ( matricula )
+(20) executing: 
+CREATE SEQUENCE energia.categoria_productores_id_seq
+(21) executing: 
+
+CREATE TABLE energia.categoria_productores (
+                id INTEGER NOT NULL DEFAULT nextval('energia.categoria_productores_id_seq'),
+                descripcion VARCHAR(200) NOT NULL,
+                CONSTRAINT categoria_productores_pk PRIMARY KEY (id)
+)
+(22) executing: 
+ALTER SEQUENCE energia.categoria_productores_id_seq OWNED BY energia.categoria_productores.id
+(23) executing: 
+
+CREATE UNIQUE INDEX categoria_productores_idx
+ ON energia.categoria_productores
+ ( descripcion )
+(24) executing: 
+
+CREATE TABLE energia.productores_electricidad (
+                id INTEGER NOT NULL,
+                categoria_productores_id INTEGER NOT NULL,
+                produccion_media NUMERIC(10,0) NOT NULL,
+                produccion_maxima NUMERIC(10,0) NOT NULL,
+                fecha_inicio DATE NOT NULL,
+                total_produccion NUMERIC(10,0) NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT productores_electricidad_pk PRIMARY KEY (id)
+)
+(25) executing: 
+
+CREATE UNIQUE INDEX productores_electricidad_idx
+ ON energia.productores_electricidad
+ ( nombre )
+(26) executing: 
+
+CREATE TABLE energia.estaciones_primarias (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT estaciones_primarias_pk PRIMARY KEY (id)
+)
+(27) executing: 
+
+CREATE UNIQUE INDEX estaciones_primarias_idx
+ ON energia.estaciones_primarias
+ ( nombre )
+(28) executing: 
+
+CREATE TABLE energia.transformadores_baja_tension (
+                id INTEGER NOT NULL,
+                estacion_primaria_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT transformadores_baja_tension_pk PRIMARY KEY (id)
+)
+(29) executing: 
+
+CREATE TABLE energia.redes_distribucion (
+                id INTEGER NOT NULL,
+                numero_red INTEGER NOT NULL,
+                transformador_id INTEGER NOT NULL,
+                estacion_primaria_id INTEGER NOT NULL,
+                CONSTRAINT redes_distribucion_pk PRIMARY KEY (id)
+)
+(30) executing: 
+
+CREATE UNIQUE INDEX redes_distribucion_idx
+ ON energia.redes_distribucion
+ ( transformador_id, estacion_primaria_id )
+(31) executing: 
+
+CREATE UNIQUE INDEX redes_distribucion_idx1
+ ON energia.redes_distribucion
+ ( numero_red )
+(32) executing: 
+
+CREATE TABLE energia.lineas (
+                id INTEGER NOT NULL,
+                longitud NUMERIC(10,0) NOT NULL,
+                red_distribucion_id INTEGER NOT NULL,
+                numero INTEGER NOT NULL,
+                CONSTRAINT lineas_pk PRIMARY KEY (id)
+)
+(33) executing: 
+
+CREATE TABLE energia.subestaciones (
+                id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                linea_id INTEGER NOT NULL,
+                CONSTRAINT subestaciones_pk PRIMARY KEY (id)
+)
+(34) executing: 
+
+CREATE TABLE energia.zonas_servicio (
+                id INTEGER NOT NULL,
+                provincia_id INTEGER NOT NULL,
+                subestacion_id INTEGER NOT NULL,
+                CONSTRAINT zonas_servicio_pk PRIMARY KEY (id)
+)
+(35) executing: 
+
+CREATE TABLE energia.consumidores (
+                id INTEGER NOT NULL,
+                zona_servicio_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                tipo_consumidor_id INTEGER NOT NULL,
+                CONSTRAINT consumidores_pk PRIMARY KEY (id)
+)
+(36) executing: 
+
+CREATE TABLE energia.intercambios_energia (
+                id INTEGER NOT NULL,
+                redes_distribucion_id INTEGER NOT NULL,
+                volumen_intercambiado NUMERIC(10,0) NOT NULL,
+                red_recibe_id INTEGER NOT NULL,
+                red_suministra_id INTEGER NOT NULL,
+                CONSTRAINT intercambios_energia_pk PRIMARY KEY (id, redes_distribucion_id)
+)
+(37) executing: 
+
+CREATE TABLE energia.companias_redes (
+                id INTEGER NOT NULL,
+                red_distribucion_id INTEGER NOT NULL,
+                compania_electrica_id INTEGER NOT NULL,
+                CONSTRAINT companias_redes_pk PRIMARY KEY (id)
+)
+(38) executing: 
+
+CREATE UNIQUE INDEX companias_redes_idx
+ ON energia.companias_redes
+ ( red_distribucion_id, compania_electrica_id )
+(39) executing: 
+
+CREATE TABLE energia.central_termica (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                volumen_gas_emitido NUMERIC(10,0) NOT NULL,
+                volumen_carbon_comsumido NUMERIC(10,0) NOT NULL,
+                numero_hornos INTEGER NOT NULL,
+                CONSTRAINT central_termica_pk PRIMARY KEY (id)
+)
+(40) executing: 
+
+CREATE TABLE energia.central_solar (
+                id INTEGER NOT NULL,
+                tipo SMALLINT NOT NULL,
+                media_anual_sol NUMERIC(10,0) NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                superficie_paneles NUMERIC(10,0) NOT NULL,
+                CONSTRAINT central_solar_pk PRIMARY KEY (id)
+)
+(41) executing: 
+
+CREATE TABLE energia.central_hidroelectrica (
+                id INTEGER NOT NULL,
+                capacidad_maxima NUMERIC(10,0) NOT NULL,
+                numero_turbinas INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                ocupacion VARCHAR(200) NOT NULL,
+                CONSTRAINT central_hidroelectrica_pk PRIMARY KEY (id)
+)
+(42) executing: 
+
+CREATE TABLE energia.central_nuclear (
+                id INTEGER NOT NULL,
+                productor_electricidad_id INTEGER NOT NULL,
+                volumen_plutonio_posee NUMERIC(10,0) NOT NULL,
+                volumen_residuos_nucleares NUMERIC(10,0) NOT NULL,
+                volumen_plutonio_consumido NUMERIC(10,0) NOT NULL,
+                CONSTRAINT central_nuclear_pk PRIMARY KEY (id)
+)
+(43) executing: 
+CREATE SEQUENCE energia.paises_id_seq
+(44) executing: 
+
+CREATE TABLE energia.paises (
+                id INTEGER NOT NULL DEFAULT nextval('energia.paises_id_seq'),
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT paises_pk PRIMARY KEY (id)
+)
+(45) executing: 
+ALTER SEQUENCE energia.paises_id_seq OWNED BY energia.paises.id
+(46) executing: 
+
+CREATE UNIQUE INDEX paises_idx
+ ON energia.paises
+ ( nombre )
+(47) executing: 
+
+CREATE TABLE energia.proveedores_plutonio (
+                id INTEGER NOT NULL,
+                pais_id INTEGER NOT NULL,
+                nombre VARCHAR(200) NOT NULL,
+                CONSTRAINT proveedores_plutonio_pk PRIMARY KEY (id)
+)
+(48) executing: 
+
+CREATE UNIQUE INDEX proveedores_plutonio_idx
+ ON energia.proveedores_plutonio
+ ( nombre )
+(49) executing: 
+
+CREATE TABLE energia.compras_plutonio (
+                id INTEGER NOT NULL,
+                transportista_id INTEGER NOT NULL,
+                proveedor_plutonio_id INTEGER NOT NULL,
+                central_nuclear_id INTEGER NOT NULL,
+                cantidad_comprada NUMERIC(10,0) NOT NULL,
+                CONSTRAINT compras_plutonio_pk PRIMARY KEY (id)
+)
+(50) executing: 
+
+
+ALTER TABLE energia.consumidores ADD CONSTRAINT tipos_consumidor_consumidores_fk
+FOREIGN KEY (id)
+REFERENCES energia.tipos_consumidor (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(51) executing: 
+
+
+ALTER TABLE energia.zonas_servicio ADD CONSTRAINT provincias_zonas_servicio_fk
+FOREIGN KEY (id)
+REFERENCES energia.provincias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(52) executing: 
+
+
+ALTER TABLE energia.companias_redes ADD CONSTRAINT companias_electricas_companias_redes_fk
+FOREIGN KEY (id)
+REFERENCES energia.companias_electricas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(53) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT transportistas_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.transportistas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(54) executing: 
+
+
+ALTER TABLE energia.productores_electricidad ADD CONSTRAINT categoria_productores_productores_electricidad_fk
+FOREIGN KEY (id)
+REFERENCES energia.categoria_productores (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(55) executing: 
+
+
+ALTER TABLE energia.central_nuclear ADD CONSTRAINT productores_electricidad_central_nuclear_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(56) executing: 
+
+
+ALTER TABLE energia.central_hidroelectrica ADD CONSTRAINT productores_electricidad_central_hidroelectrica_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(57) executing: 
+
+
+ALTER TABLE energia.central_solar ADD CONSTRAINT productores_electricidad_central_solar_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(58) executing: 
+
+
+ALTER TABLE energia.central_termica ADD CONSTRAINT productores_electricidad_central_termica_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(59) executing: 
+
+
+ALTER TABLE energia.estaciones_primarias ADD CONSTRAINT productores_electricidad_estaciones_primarias_fk
+FOREIGN KEY (id)
+REFERENCES energia.productores_electricidad (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(60) executing: 
+
+
+ALTER TABLE energia.transformadores_baja_tension ADD CONSTRAINT estaciones_primarias_transformadores_baja_tension_fk
+FOREIGN KEY (id)
+REFERENCES energia.estaciones_primarias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(61) executing: 
+
+
+ALTER TABLE energia.redes_distribucion ADD CONSTRAINT estaciones_primarias_redes_distribucion_fk
+FOREIGN KEY (id)
+REFERENCES energia.estaciones_primarias (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(62) executing: 
+
+
+ALTER TABLE energia.redes_distribucion ADD CONSTRAINT transformadores_baja_tension_redes_distribucion_fk
+FOREIGN KEY (id)
+REFERENCES energia.transformadores_baja_tension (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(63) executing: 
+
+
+ALTER TABLE energia.companias_redes ADD CONSTRAINT redes_distribucion_companias_redes_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(64) executing: 
+
+
+ALTER TABLE energia.intercambios_energia ADD CONSTRAINT redes_distribucion_intercambios_energia_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(65) executing: 
+
+
+ALTER TABLE energia.intercambios_energia ADD CONSTRAINT redes_distribucion_intercambios_energia_fk2
+FOREIGN KEY (redes_distribucion_id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(66) executing: 
+
+
+ALTER TABLE energia.lineas ADD CONSTRAINT redes_distribucion_lineas_fk
+FOREIGN KEY (id)
+REFERENCES energia.redes_distribucion (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(67) executing: 
+
+
+ALTER TABLE energia.subestaciones ADD CONSTRAINT lineas_subestaciones_fk
+FOREIGN KEY (id)
+REFERENCES energia.lineas (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(68) executing: 
+
+
+ALTER TABLE energia.zonas_servicio ADD CONSTRAINT subestaciones_zonas_servicio_fk
+FOREIGN KEY (id)
+REFERENCES energia.subestaciones (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(69) executing: 
+
+
+ALTER TABLE energia.consumidores ADD CONSTRAINT zonas_servicio_consumidores_fk
+FOREIGN KEY (id)
+REFERENCES energia.zonas_servicio (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(70) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT central_nuclear_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.central_nuclear (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(71) executing: 
+
+
+ALTER TABLE energia.proveedores_plutonio ADD CONSTRAINT paises_proveedores_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.paises (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(72) executing: 
+
+
+ALTER TABLE energia.compras_plutonio ADD CONSTRAINT proveedores_plutonio_compras_plutonio_fk
+FOREIGN KEY (id)
+REFERENCES energia.proveedores_plutonio (id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE
+(73) Successfully executed 69 out of 69 statements.

@@ -20,7 +20,7 @@ class Dependencia extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'descripcion';
+	public $displayField = 'iniciales';
 
 /**
  * Validation rules

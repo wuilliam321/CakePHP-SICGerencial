@@ -1,60 +1,90 @@
-<div class="directorios index">
-	<h2><?php echo __('Directorios'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('codigo'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha_inicio'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha_fin'); ?></th>
-			<th><?php echo $this->Paginator->sort('objetivo'); ?></th>
-			<th><?php echo $this->Paginator->sort('detalles'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($directorios as $directorio): ?>
-	<tr>
-		<td><?php echo h($directorio['Directorio']['id']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['codigo']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['fecha_inicio']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['fecha_fin']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['objetivo']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['detalles']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($directorio['User']['name'], array('controller' => 'users', 'action' => 'view', $directorio['User']['id'])); ?>
-		</td>
-		<td><?php echo h($directorio['Directorio']['created']); ?>&nbsp;</td>
-		<td><?php echo h($directorio['Directorio']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $directorio['Directorio']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $directorio['Directorio']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $directorio['Directorio']['id']), array(), __('Are you sure you want to delete # %s?', $directorio['Directorio']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Directorio'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Puntos'), array('controller' => 'puntos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Punto'), array('controller' => 'puntos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo directorio'), array('action' => 'add'), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+<table class="table table-condensed table-bordered table-striped">
+	<thead>
+		<tr>
+			<th class="col-xs-0">&nbsp;</th>
+			<th class="col-xs-1">Codigo</th>
+			<th>Objetivo</th>
+			<th>Fecha</th>
+			<th class="col-xs-1">Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if (empty($directorios)): ?>
+			<tr>
+				<td colspan="5"><?php echo __('No hay directorios registrados'); ?></td>
+			</tr>
+		<?php else: ?>
+			<?php foreach ($directorios as $directorio): ?>
+				<tr>
+					<td class="text-center"><span class="glyphicon glyphicon-chevron-down do-show block-display" alt="<?php echo $directorio['Directorio']['id']; ?>"></span></td>
+					<td><?php echo $directorio['Directorio']['codigo']; ?></td>
+					<td><?php echo $directorio['Directorio']['objetivo']; ?></td>
+					<td><?php echo $directorio['Directorio']['fecha_inicio']; ?></td>
+					<td class="text-right">
+						<?php if ($directorio['Attachment']): ?>
+							<div class="dropdown inline">
+								<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<?php foreach ($directorio['Attachment'] as $attachment): ?>
+										<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'directorios'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+						<div class="btn-group">
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+						</div>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<td colspan="5">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12">
+									<p><?php echo $directorio['Directorio']['detalles']; ?></p>
+									<h4>
+										<?php echo __('Puntos a tratar'); ?>
+										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo punto'), array('controller' => 'puntos', 'action' => 'add', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+									</h4>
+									<table class="table table-condensed table-bordered table-hover">
+										<thead>
+											<tr>
+												<th><?php echo __('Detalles'); ?></th>
+												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php if (empty($directorio['Punto'])): ?>
+												<tr>
+													<td colspan="2"><?php echo __('No hay puntos asignacion al directorio'); ?></td>
+												</tr>
+											<?php else: ?>
+												<?php foreach ($directorio['Punto'] as $punto): ?>
+													<tr>
+														<td><?php echo $punto['detalles']; ?></td>
+														<td class="text-right">
+															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'puntos', 'action' => 'edit', $punto['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
+															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'puntos', 'action' => 'delete', $punto['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
+														</td>
+													</tr>
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 text-right">
+									<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span> ' . __('Finalizar'), array('action' => 'finalizar', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</tbody>
+</table>

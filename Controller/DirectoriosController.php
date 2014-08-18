@@ -22,8 +22,26 @@ class DirectoriosController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Directorio->recursive = 0;
-		$this->set('directorios', $this->Paginator->paginate());
+		$auth_user = $this->Session->read('Auth.User');
+		if ($auth_user['group_id'] == 1) {
+			$directorios = $this->Directorio->find('all');
+		} else {
+			$options['joins'] = array(
+				array(
+					'table' => 'directorios_users',
+					'alias' => 'DirectoriosUser',
+					'type' => 'LEFT',
+					'conditions' => array(
+						'DirectoriosUser.directorio_id = Directorio.id',
+					)
+				)
+			);
+			$options['conditions'] = array(
+				'DirectoriosUser.user_id' => $auth_user['id'],
+			);
+			$directorios = $this->Directorio->find('all', $options);
+		}
+		$this->set(compact('directorios'));
 	}
 
 /**

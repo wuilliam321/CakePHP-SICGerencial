@@ -1,221 +1,129 @@
-<div class="comunicaciones view">
-<h2><?php echo __('Comunicacione'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Codigo'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['codigo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Remitente'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($comunicacione['Remitente']['name'], array('controller' => 'users', 'action' => 'view', $comunicacione['Remitente']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Titulo'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['titulo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Detalles'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['detalles']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Remision'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['fecha_remision']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Fin'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['fecha_fin']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Recepcion'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['fecha_recepcion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Parent Comunicacione'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($comunicacione['ParentComunicacione']['titulo'], array('controller' => 'comunicaciones', 'action' => 'view', $comunicacione['ParentComunicacione']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Lft'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['lft']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Rght'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['rght']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Es Leida'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['es_leida']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($comunicacione['Comunicacione']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Comunicacione'), array('action' => 'edit', $comunicacione['Comunicacione']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Comunicacione'), array('action' => 'delete', $comunicacione['Comunicacione']['id']), array(), __('Are you sure you want to delete # %s?', $comunicacione['Comunicacione']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comunicaciones'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comunicacione'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Remitente'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comunicaciones'), array('controller' => 'comunicaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Comunicacione'), array('controller' => 'comunicaciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Correcciones'), array('controller' => 'correcciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Correccione'), array('controller' => 'correcciones', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Comunicaciones'); ?></h3>
-	<?php if (!empty($comunicacione['ChildComunicacione'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Codigo'); ?></th>
-		<th><?php echo __('Remitente Id'); ?></th>
-		<th><?php echo __('Titulo'); ?></th>
-		<th><?php echo __('Detalles'); ?></th>
-		<th><?php echo __('Fecha Remision'); ?></th>
-		<th><?php echo __('Fecha Fin'); ?></th>
-		<th><?php echo __('Fecha Recepcion'); ?></th>
-		<th><?php echo __('Parent Id'); ?></th>
-		<th><?php echo __('Lft'); ?></th>
-		<th><?php echo __('Rght'); ?></th>
-		<th><?php echo __('Es Leida'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($comunicacione['ChildComunicacione'] as $childComunicacione): ?>
-		<tr>
-			<td><?php echo $childComunicacione['id']; ?></td>
-			<td><?php echo $childComunicacione['codigo']; ?></td>
-			<td><?php echo $childComunicacione['remitente_id']; ?></td>
-			<td><?php echo $childComunicacione['titulo']; ?></td>
-			<td><?php echo $childComunicacione['detalles']; ?></td>
-			<td><?php echo $childComunicacione['fecha_remision']; ?></td>
-			<td><?php echo $childComunicacione['fecha_fin']; ?></td>
-			<td><?php echo $childComunicacione['fecha_recepcion']; ?></td>
-			<td><?php echo $childComunicacione['parent_id']; ?></td>
-			<td><?php echo $childComunicacione['lft']; ?></td>
-			<td><?php echo $childComunicacione['rght']; ?></td>
-			<td><?php echo $childComunicacione['es_leida']; ?></td>
-			<td><?php echo $childComunicacione['created']; ?></td>
-			<td><?php echo $childComunicacione['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'comunicaciones', 'action' => 'view', $childComunicacione['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comunicaciones', 'action' => 'edit', $childComunicacione['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comunicaciones', 'action' => 'delete', $childComunicacione['id']), array(), __('Are you sure you want to delete # %s?', $childComunicacione['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<div class="page_title2">
+<div class="container">
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Child Comunicacione'), array('controller' => 'comunicaciones', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+    <div class="title"><h1><?php if ($comunicacione['Comunicacione']['codigo']): ?><?php echo h($comunicacione['Comunicacione']['codigo']); ?> - <?php endif; ?><?php echo $comunicacione['Comunicacioncategoria']['descripcion']; ?></h1></div>
+    <div class="two_third">
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Comunicaciones list'), array('action' => 'index')); ?> <i>/</i> <?php echo __('Details'); ?></div>
+    </div>
+    <div class="one_third last text-right">
+    	<?php if ($auth_user['id'] == $comunicacione['Comunicacione']['remitente_id']): ?>
+    		<?php echo $this->Html->link(__('<i class="fa fa-pencil fa-lg"></i> %s</a>', __('Edit')), array('action' => 'edit', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+    	 	<i>|</i>
+    		<?php echo $this->Html->link(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('action' => 'finalizar', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+    		<i>|</i>
+    	<?php endif; ?>
+    	<?php if (in_array($auth_user['id'], $reciben_ids)): ?>
+    		<?php echo $this->Html->link(__('<i class="fa fa-reply fa-lg"></i> %s</a>', __('Responder')), array('action' => 'add', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+    		<i>|</i>
+    	<?php endif; ?>
+    	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
+    </div>
+    
 </div>
-<div class="related">
-	<h3><?php echo __('Related Correcciones'); ?></h3>
-	<?php if (!empty($comunicacione['Correccione'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Comunicacione Id'); ?></th>
-		<th><?php echo __('Nro Correccion'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($comunicacione['Correccione'] as $correccione): ?>
-		<tr>
-			<td><?php echo $correccione['id']; ?></td>
-			<td><?php echo $correccione['comunicacione_id']; ?></td>
-			<td><?php echo $correccione['nro_correccion']; ?></td>
-			<td><?php echo $correccione['created']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'correcciones', 'action' => 'view', $correccione['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'correcciones', 'action' => 'edit', $correccione['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'correcciones', 'action' => 'delete', $correccione['id']), array(), __('Are you sure you want to delete # %s?', $correccione['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+</div><!-- end page title --> 
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Correccione'), array('controller' => 'correcciones', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Users'); ?></h3>
-	<?php if (!empty($comunicacione['User'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Username'); ?></th>
-		<th><?php echo __('Password'); ?></th>
-		<th><?php echo __('First Name'); ?></th>
-		<th><?php echo __('Last Name'); ?></th>
-		<th><?php echo __('Group Id'); ?></th>
-		<th><?php echo __('Cargo'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($comunicacione['User'] as $user): ?>
-		<tr>
-			<td><?php echo $user['id']; ?></td>
-			<td><?php echo $user['username']; ?></td>
-			<td><?php echo $user['password']; ?></td>
-			<td><?php echo $user['first_name']; ?></td>
-			<td><?php echo $user['last_name']; ?></td>
-			<td><?php echo $user['group_id']; ?></td>
-			<td><?php echo $user['cargo']; ?></td>
-			<td><?php echo $user['created']; ?></td>
-			<td><?php echo $user['modified']; ?></td>
-			<td><?php echo $user['bloqueado']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'users', 'action' => 'view', $user['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'users', 'action' => 'edit', $user['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'users', 'action' => 'delete', $user['id']), array(), __('Are you sure you want to delete # %s?', $user['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<div class="clearfix"></div>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		</ul>
+<div class="container">
+
+	<div class="content_fullwidth comunicaciones-details">
+
+
+		<?php if ($comunicacione['Comunicacione']['codigo']): ?>
+			<div class="one_fifth">
+		        <h6><?php echo __('Codigo'); ?></h6>
+		        <p><?php echo h($comunicacione['Comunicacione']['codigo']); ?></p>
+	        </div>
+	    <?php endif; ?>
+		<div class="one_fifth">
+	        <h6><?php echo __('Remitente'); ?></h6>
+	        <p><?php echo $this->Html->link($comunicacione['Remitente']['name'], array('controller' => 'users', 'action' => 'view', $comunicacione['Remitente']['id'])); ?></p>
+        </div>
+		<div class="one_fifth">
+	        <h6><?php echo __('Fecha Remision'); ?></h6>
+	        <p><?php echo h($comunicacione['Comunicacione']['fecha_remision']); ?></p>
+        </div>
+        <?php if ($comunicacione['Comunicacione']['fecha_fin']): ?>
+			<div class="one_fifth">
+		        <h6><?php echo __('Fecha Fin'); ?></h6>
+		        <p><?php echo h($comunicacione['Comunicacione']['fecha_fin']); ?></p>
+	        </div>
+	    <?php endif; ?>
+		<div class="one_fifth last">
+	        <h6><?php echo __('Destinatarios'); ?></h6>
+	        <ul class="arrows_list1">
+	        	<?php foreach($comunicacione['User'] as $user): ?>
+	        		<li><i class="fa fa-angle-right"></i> <?php echo $user['name']; ?></li>
+	        	<?php endforeach; ?>
+	        </ul>
+        </div>
+        <div class="margin_top3"></div>
+
+		<div class="blog_post">	
+			<div class="blog_postcontent comment">
+				<p>
+					<?php echo $comunicacione['Comunicacione']['detalles'] ?>
+				</p>
+				<?php if(sizeof($comunicacione['Attachment']) > 0): ?>
+					<div class="margin_top1"></div>
+					<h6><?php echo __('Attachments'); ?></h6>
+					<ul class="arrows_list1">
+						<?php foreach ($comunicacione['Attachment'] as $attachment): ?>
+							<li>
+								<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
+								<?php echo $attachment['name']; ?>
+								<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			</div>
+		</div><!-- /# end post -->
+		<div class="clearfix divider_dashed9"></div>
+
+        <div class="clearfix"></div>
+		<h4><?php echo __('Respuestas'); ?></h4>
+		<div class="mar_top_bottom_lines_small3"></div>
+		<?php if (empty($comunicacione['ChildComunicacione'])): ?>
+			<?php echo __('No hay respuestas a la comunicacion'); ?>
+		<?php else: ?>
+				<?php foreach ($comunicacione['ChildComunicacione'] as $children_comunicacione): ?>
+					<div class="comment_wrap <?php echo ($children_comunicacione['Comunicacione']['level'] > 0) ? 'chaild level' . $children_comunicacione['Comunicacione']['level'] : ''; ?>">
+						<div class="gravatar"><img src="<?php echo $this->webroot; ?>images/blog/people_img.jpg" alt=""></div>
+						<div class="comment_content">
+							<div class="comment_meta">
+
+								<div class="comment_author"><?php echo $children_comunicacione['Remitente']['name']; ?> - <i><?php echo $children_comunicacione['Comunicacione']['fecha_remision']; ?></i>
+									<?php if(sizeof($children_comunicacione['Attachment']) > 0): ?>
+										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
+									<?php endif; ?>
+
+    							<?php echo $this->Html->link('<i class="fa fa-reply fa-lg"></i></a>', array('action' => 'add', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+								<?php if ($auth_user['id'] == $children_comunicacione['Comunicacione']['remitente_id']): ?>
+									<?php echo $this->Html->link('<span class="fa fa-pencil"></span>', array('action' => 'edit', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+									<?php echo $this->Form->postLink('<span class="fa fa-times"></span>', array('action' => 'delete', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+								<?php endif; ?></div>                   
+			                    
+							</div>
+							<div class="comment_text">
+								<p><?php echo $children_comunicacione['Comunicacione']['detalles']; ?></p>
+								<?php if(sizeof($children_comunicacione['Attachment']) > 0): ?>
+									<div class="margin_top1"></div>
+									<h6><?php echo __('Attachments'); ?></h6>
+									<ul class="arrows_list1">
+										<?php foreach ($children_comunicacione['Attachment'] as $attachment): ?>
+											<li>
+												<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
+												<?php echo $attachment['name']; ?>
+												<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+					<?php endforeach; ?>
+			<?php endif; ?>
 	</div>
 </div>

@@ -61,6 +61,9 @@ class AppController extends Controller {
 			'action' => 'index'
 		);
 		$this->Auth->allow(array('pages' => 'display'));
+		
+		$auth_user = $this->Session->read('Auth.User');
+		$this->set(compact('auth_user'));
 	}
 
 	public function get_last_code($tipo) {

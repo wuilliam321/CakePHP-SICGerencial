@@ -24,7 +24,7 @@ class Comunicacione extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'titulo';
+	public $displayField = 'codigo';
 
 /**
  * Validation rules
@@ -122,6 +122,13 @@ class Comunicacione extends AppModel {
 		'ParentComunicacione' => array(
 			'className' => 'Comunicacione',
 			'foreignKey' => 'parent_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Comunicacioncategoria' => array(
+			'className' => 'Comunicacioncategoria',
+			'foreignKey' => 'comunicacioncategoria_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

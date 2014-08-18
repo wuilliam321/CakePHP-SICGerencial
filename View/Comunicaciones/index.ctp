@@ -1,74 +1,44 @@
-<div class="comunicaciones index">
-	<h2><?php echo __('Comunicaciones'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('codigo'); ?></th>
-			<th><?php echo $this->Paginator->sort('remitente_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('titulo'); ?></th>
-			<th><?php echo $this->Paginator->sort('detalles'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha_remision'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha_fin'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha_recepcion'); ?></th>
-			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('lft'); ?></th>
-			<th><?php echo $this->Paginator->sort('rght'); ?></th>
-			<th><?php echo $this->Paginator->sort('es_leida'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($comunicaciones as $comunicacione): ?>
-	<tr>
-		<td><?php echo h($comunicacione['Comunicacione']['id']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['codigo']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($comunicacione['Remitente']['name'], array('controller' => 'users', 'action' => 'view', $comunicacione['Remitente']['id'])); ?>
-		</td>
-		<td><?php echo h($comunicacione['Comunicacione']['titulo']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['detalles']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['fecha_remision']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['fecha_fin']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['fecha_recepcion']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($comunicacione['ParentComunicacione']['titulo'], array('controller' => 'comunicaciones', 'action' => 'view', $comunicacione['ParentComunicacione']['id'])); ?>
-		</td>
-		<td><?php echo h($comunicacione['Comunicacione']['lft']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['rght']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['es_leida']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['created']); ?>&nbsp;</td>
-		<td><?php echo h($comunicacione['Comunicacione']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $comunicacione['Comunicacione']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $comunicacione['Comunicacione']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $comunicacione['Comunicacione']['id']), array(), __('Are you sure you want to delete # %s?', $comunicacione['Comunicacione']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
+<div class="page_title2">
+<div class="container">
+
+    <div class="title"><h1><?php echo __('Comunicaciones'); ?></h1></div>
+    <div class="two_third">
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo __('Comunicaciones list'); ?></div>
+    </div>
+    <div class="one_third last text-right">
+    	<?php echo $this->Html->link(__('<i class="fa fa-plus fa-lg"></i> %s</a>', __('Add Comunicacione')), array('action' => 'add'), array('escape' => false)); ?>
+    </div>
+    
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Comunicacione'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Remitente'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comunicaciones'), array('controller' => 'comunicaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Comunicacione'), array('controller' => 'comunicaciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Correcciones'), array('controller' => 'correcciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Correccione'), array('controller' => 'correcciones', 'action' => 'add')); ?> </li>
-	</ul>
+</div><!-- end page title --> 
+
+<div class="clearfix"></div>
+
+<div class="container">
+
+	<div class="content_fullwidth">
+		<?php if (empty($comunicaciones)): ?>
+			<?php echo __('No hay comunicaciones registradas'); ?>
+		<?php else: ?>
+			<div class="pricing-tables full">
+			    <div class="cont-list">
+			    	<ul>
+						<?php foreach ($comunicaciones as $comunicacione): ?>
+			        		<li>
+			        			<div class="col-xs-1"><?php echo $this->Html->link($comunicacione['Comunicacione']['codigo'], array('action' => 'view', $comunicacione['Comunicacione']['id'])); ?></div>
+			        			<div class="col-xs-2"><?php echo $comunicacione['Remitente']['name']; ?></div>
+			        			<div class="col-xs-7"><?php echo $comunicacione['Comunicacioncategoria']['descripcion']; ?></div>
+			        			<div class="col-xs-2">
+			        				<?php if(sizeof($comunicacione['Attachment']) > 0): ?>
+										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
+									<?php endif; ?>
+			        				<?php echo $comunicacione['Comunicacione']['fecha_remision']; ?>
+			        			</div>
+			        		</li>
+			        	<?php endforeach; ?>
+			        </ul>
+			    </div>
+			</div>
+		<?php endif; ?>
+</div>
 </div>

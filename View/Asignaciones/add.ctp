@@ -1,11 +1,22 @@
-<div class="row">
-	<div class="col-xs-12">
-		<h2>
-			<?php echo __('Agregar asignacion'); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-chevron-left"></span> Volver', array('action' => 'index'), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-		</h2>
-	</div>
+<div class="page_title2">
+<div class="container">
+
+    <div class="title"><h1><?php echo __('Add Asignacione'); ?></h1></div>
+    <div class="two_third">
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <i>/</i> <?php echo __('Add'); ?></div>
+    </div>
+    <div class="one_third last text-right">
+    	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
+    </div>
+    
 </div>
+</div><!-- end page title --> 
+
+<div class="clearfix"></div>
+
+<div class="container">
+
+	<div class="content_fullwidth">
 <?php echo $this->Form->create('Asignacione', array('type' => 'file', 'class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => array('class' => 'col-xs-12'), 'class' => 'form-control'))); ?>
 	<fieldset>
 		<legend><?php echo __('Datos de la asignacion'); ?></legend>
@@ -105,22 +116,22 @@
 			</div>
 			<div class="col-xs-8">
 				<div class="form-group">
-					<?php echo $this->Form->label('titulo', null, array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
+					<?php echo $this->Form->label('titulo', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
 						<?php echo $this->Form->input('titulo', array('rows' => 2)); ?>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
-						<?php echo $this->Form->input('detalles', array('rows' => 12)); ?>
+					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
+						<?php echo $this->Form->input('detalles', array('rows' => 12, 'class' => 'ckeditor')); ?>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
+					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
 						<?php echo $this->Form->input('Attachment.0.attachment', array('type' => 'file', 'required' => false, 'empty' => true)); ?>
 						<?php echo $this->Form->input('Attachment.0.model', array('type' => 'hidden', 'value' => 'Asignacione')); ?>
 					</div>
@@ -135,3 +146,5 @@
 		</div>
 	</fieldset>
 <?php echo $this->Form->end(); ?>
+</div>
+</div>

@@ -59,7 +59,8 @@ class UsersController extends AppController {
 		$groups = $this->User->Group->find('list');
 		$sistemas = $this->User->Sistema->find('list');
 		$asignaciones = $this->User->Asignacione->find('list');
-		$this->set(compact('groups', 'sistemas', 'asignaciones'));
+		$dependencias = $this->User->Dependencia->find('list');
+		$this->set(compact('groups', 'sistemas', 'asignaciones', 'dependencias'));
 	}
 
 /**
@@ -86,8 +87,8 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$sistemas = $this->User->Sistema->find('list');
-		$asignaciones = $this->User->Asignacione->find('list');
-		$this->set(compact('groups', 'sistemas', 'asignaciones'));
+		$dependencias = $this->User->Dependencia->find('list');
+		$this->set(compact('groups', 'sistemas', 'dependencias'));
 	}
 
 /**
@@ -172,6 +173,7 @@ class UsersController extends AppController {
 			}
 			$this->Session->setFlash(__('Your username or password was incorrect.'), 'flash_error');
 		}
+		$this->layout = false;
 	}
 	
 	public function logout() {

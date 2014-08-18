@@ -58,7 +58,7 @@ class AvancesController extends AppController {
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
 				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'view', $asignacione_id));
 			} else {
 				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
 			}
@@ -87,7 +87,7 @@ class AvancesController extends AppController {
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
 				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				return $this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
 			}
@@ -113,12 +113,13 @@ class AvancesController extends AppController {
 		if (!$this->Avance->exists()) {
 			throw new NotFoundException(__('Invalid avance'));
 		}
+		$avance = $this->Avance->findById($id);
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Avance->delete()) {
 			$this->Session->setFlash(__('The avance has been deleted.'));
 		} else {
 			$this->Session->setFlash(__('The avance could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'view', $avance['Avance']['asignacione_id']));
 	}
 }

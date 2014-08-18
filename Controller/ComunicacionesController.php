@@ -22,8 +22,33 @@ class ComunicacionesController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Comunicacione->recursive = 0;
-		$this->set('comunicaciones', $this->Paginator->paginate());
+		$auth_user = $this->Session->read('Auth.User');
+		if ($auth_user['group_id'] == 1) {
+			$comunicaciones = $this->Comunicacione->findAllByParentId(null);
+		} else {
+			$options['joins'] = array(
+				array(
+					'table' => 'comunicaciones_users',
+					'alias' => 'ComunicacionesUser',
+					'type' => 'LEFT',
+					'conditions' => array(
+						'ComunicacionesUser.comunicacione_id = Comunicacione.id',
+					)
+				)
+			);
+			$options['conditions'] = array(
+				'Comunicacione.parent_id' => null,
+				'OR' => array(
+					'Comunicacione.remitente_id' => $auth_user['id'],
+					'ComunicacionesUser.user_id' => $auth_user['id'],
+				)
+			);
+			$comunicaciones = $this->Comunicacione->find('all', $options);
+		}
+		foreach ($comunicaciones as &$comunicacione) {
+			$comunicacione['ChildrenComunicacione'] = $this->Comunicacione->children($comunicacione['Comunicacione']['id'], false, null, null, null, 1, 1);
+		}
+		$this->set(compact('comunicaciones'));
 	}
 
 /**
@@ -38,7 +63,15 @@ class ComunicacionesController extends AppController {
 			throw new NotFoundException(__('Invalid comunicacione'));
 		}
 		$options = array('conditions' => array('Comunicacione.' . $this->Comunicacione->primaryKey => $id));
-		$this->set('comunicacione', $this->Comunicacione->find('first', $options));
+		$this->Comunicacione->recursive = 1;
+		$comunicacione = $this->Comunicacione->find('first', $options);
+		$comunicacione_children = $this->Comunicacione->children($id, false, null, null, null, 1, 1);
+		$comunicacione['ChildComunicacione'] = $comunicacione_children;
+		foreach ($comunicacione['ChildComunicacione'] as &$child) {
+			$child['Comunicacione']['level'] = sizeof($this->Comunicacione->getPath($child['Comunicacione']['id'])) - 2;
+		}
+		$reciben_ids = array_merge(array($comunicacione['Comunicacione']['remitente_id']), Hash::extract($comunicacione['User'], '{n}.id'));
+		$this->set(compact('comunicacione', 'reciben_ids'));
 	}
 
 /**
@@ -48,6 +81,7 @@ class ComunicacionesController extends AppController {
  */
 	public function add($parent_id = null) {
 		$auth_user = $this->Session->read('Auth.User');
+		$parent_redirect = $this->Comunicacione->getPath($parent_id);
 		$parent = null;
 		if ($parent_id) {
 			$parent = $this->Comunicacione->findById($parent_id);
@@ -63,17 +97,26 @@ class ComunicacionesController extends AppController {
 					$this->increase_contador('C');
 				}
 				$this->Session->setFlash(__('The comunicacione has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				if ($parent_id) {
+					$parent_redirect = $parent_redirect[0]['Comunicacione']['id'];
+				} else {
+					$parent_redirect = $this->Comunicacione->getLastInsertID();
+				}
+				return $this->redirect(array('action' => 'view', $parent_redirect));
 			} else {
 				$this->Session->setFlash(__('The comunicacione could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data['Comunicacione']['codigo'] = $this->get_last_code('C');
 		}
+		if ($parent_id) {
+			$parent_id = $parent_redirect[0]['Comunicacione']['id'];
+		}
 		$this->Comunicacione->Remitente->recursive = -1;
 		$remitente = $this->Comunicacione->Remitente->findById($auth_user['id']);
 		$users = $this->Comunicacione->User->find('list');
-		$this->set(compact('remitente', 'parent', 'users'));
+		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list');
+		$this->set(compact('remitente', 'parent', 'users', 'comunicacioncategorias', 'parent_id'));
 	}
 
 /**
@@ -98,7 +141,9 @@ class ComunicacionesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Comunicacione->saveWithAttachments($this->request->data, 'Comunicacione')) {
 				$this->Session->setFlash(__('The comunicacione has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				$parent_redirect = $this->Comunicacione->getPath($id);
+				$parent_redirect = $parent_redirect[0]['Comunicacione']['id'];
+				return $this->redirect(array('action' => 'view', $parent_redirect));
 			} else {
 				$this->Session->setFlash(__('The comunicacione could not be saved. Please, try again.'));
 			}
@@ -109,7 +154,9 @@ class ComunicacionesController extends AppController {
 		$remitente = $this->Comunicacione->Remitente->findById($auth_user['id']);
 		$parents = $this->Comunicacione->ParentComunicacione->find('list');
 		$users = $this->Comunicacione->User->find('list');
-		$this->set(compact('parent', 'remitente', 'parents', 'users'));
+		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list');
+		$this->set(compact('parent', 'remitente', 'parents', 'users', 'comunicacioncategorias'));
+
 	}
 
 /**

@@ -1,293 +1,252 @@
-<div class="asignaciones view">
-<h2><?php echo __('Asignacione'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Codigo'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['codigo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Asignador'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($asignacione['Asignador']['name'], array('controller' => 'users', 'action' => 'view', $asignacione['Asignador']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Responsable'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($asignacione['Responsable']['name'], array('controller' => 'users', 'action' => 'view', $asignacione['Responsable']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Titulo'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['titulo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Detalles'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['detalles']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Asignacion'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['fecha_asignacion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Entrega'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['fecha_entrega']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tipo'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['tipo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Parent Asignacione'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($asignacione['ParentAsignacione']['titulo'], array('controller' => 'asignaciones', 'action' => 'view', $asignacione['ParentAsignacione']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Lft'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['lft']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Rght'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['rght']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($asignacione['Asignacione']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Asignacione'), array('action' => 'edit', $asignacione['Asignacione']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Asignacione'), array('action' => 'delete', $asignacione['Asignacione']['id']), array(), __('Are you sure you want to delete # %s?', $asignacione['Asignacione']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Asignaciones'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Asignacione'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Asignador'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Asignaciones'), array('controller' => 'asignaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Asignacione'), array('controller' => 'asignaciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Adjuntos'), array('controller' => 'adjuntos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Adjunto'), array('controller' => 'adjuntos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Correcciones'), array('controller' => 'correcciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Correccione'), array('controller' => 'correcciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Evaluaciones'), array('controller' => 'evaluaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Evaluacione'), array('controller' => 'evaluaciones', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Adjuntos'); ?></h3>
-	<?php if (!empty($asignacione['Adjunto'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Asignacione Id'); ?></th>
-		<th><?php echo __('Ruta'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($asignacione['Adjunto'] as $adjunto): ?>
-		<tr>
-			<td><?php echo $adjunto['id']; ?></td>
-			<td><?php echo $adjunto['asignacione_id']; ?></td>
-			<td><?php echo $adjunto['ruta']; ?></td>
-			<td><?php echo $adjunto['created']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'adjuntos', 'action' => 'view', $adjunto['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'adjuntos', 'action' => 'edit', $adjunto['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'adjuntos', 'action' => 'delete', $adjunto['id']), array(), __('Are you sure you want to delete # %s?', $adjunto['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<div class="page_title2">
+<div class="container">
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Adjunto'), array('controller' => 'adjuntos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+    <div class="title"><h1><?php echo __('Asignacione details'); ?><?php if ($asignacione['Asignacione']['codigo']): ?> - <?php echo h($asignacione['Asignacione']['codigo']); ?><?php endif; ?></h1></div>
+    <div class="two_third">
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <i>/</i> <?php echo __('Asignacione'); ?></div>
+    </div>
+    <div class="one_third last text-right">
+    	<?php if ($auth_user['id'] == $asignacione['Asignacione']['responsable_id']): ?>
+    		<?php echo $this->Html->link(__('<i class="fa fa-bar-chart-o fa-lg"></i> %s</a>', __('Avance')), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
+    		<i>|</i>
+		<?php endif; ?>
+    	<?php if ($auth_user['id'] == $asignacione['Asignacione']['asignador_id']): ?>
+    		<?php echo $this->Html->link(__('<i class="fa fa-pencil fa-lg"></i> %s</a>', __('Edit')), array('action' => 'edit', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
+    	 	<i>|</i>
+    		<?php echo $this->Html->link(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
+    		<i>|</i>
+    	<?php endif; ?>
+    	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
+    </div>
+    
 </div>
-<div class="related">
-	<h3><?php echo __('Related Asignaciones'); ?></h3>
-	<?php if (!empty($asignacione['ChildAsignacione'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Codigo'); ?></th>
-		<th><?php echo __('Asignador Id'); ?></th>
-		<th><?php echo __('Responsable Id'); ?></th>
-		<th><?php echo __('Titulo'); ?></th>
-		<th><?php echo __('Detalles'); ?></th>
-		<th><?php echo __('Fecha Asignacion'); ?></th>
-		<th><?php echo __('Fecha Entrega'); ?></th>
-		<th><?php echo __('Tipo'); ?></th>
-		<th><?php echo __('Parent Id'); ?></th>
-		<th><?php echo __('Lft'); ?></th>
-		<th><?php echo __('Rght'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($asignacione['ChildAsignacione'] as $childAsignacione): ?>
-		<tr>
-			<td><?php echo $childAsignacione['id']; ?></td>
-			<td><?php echo $childAsignacione['codigo']; ?></td>
-			<td><?php echo $childAsignacione['asignador_id']; ?></td>
-			<td><?php echo $childAsignacione['responsable_id']; ?></td>
-			<td><?php echo $childAsignacione['titulo']; ?></td>
-			<td><?php echo $childAsignacione['detalles']; ?></td>
-			<td><?php echo $childAsignacione['fecha_asignacion']; ?></td>
-			<td><?php echo $childAsignacione['fecha_entrega']; ?></td>
-			<td><?php echo $childAsignacione['tipo']; ?></td>
-			<td><?php echo $childAsignacione['parent_id']; ?></td>
-			<td><?php echo $childAsignacione['lft']; ?></td>
-			<td><?php echo $childAsignacione['rght']; ?></td>
-			<td><?php echo $childAsignacione['created']; ?></td>
-			<td><?php echo $childAsignacione['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'asignaciones', 'action' => 'view', $childAsignacione['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'asignaciones', 'action' => 'edit', $childAsignacione['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'asignaciones', 'action' => 'delete', $childAsignacione['id']), array(), __('Are you sure you want to delete # %s?', $childAsignacione['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+</div><!-- end page title --> 
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Child Asignacione'), array('controller' => 'asignaciones', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Correcciones'); ?></h3>
-	<?php if (!empty($asignacione['Correccione'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Asignacione Id'); ?></th>
-		<th><?php echo __('Nro Correccion'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($asignacione['Correccione'] as $correccione): ?>
-		<tr>
-			<td><?php echo $correccione['id']; ?></td>
-			<td><?php echo $correccione['asignacione_id']; ?></td>
-			<td><?php echo $correccione['nro_correccion']; ?></td>
-			<td><?php echo $correccione['created']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'correcciones', 'action' => 'view', $correccione['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'correcciones', 'action' => 'edit', $correccione['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'correcciones', 'action' => 'delete', $correccione['id']), array(), __('Are you sure you want to delete # %s?', $correccione['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<div class="clearfix"></div>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Correccione'), array('controller' => 'correcciones', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Evaluaciones'); ?></h3>
-	<?php if (!empty($asignacione['Evaluacione'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Asignacione Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
-		<th><?php echo __('Evaluacion'); ?></th>
-		<th><?php echo __('Entrega Temprana'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($asignacione['Evaluacione'] as $evaluacione): ?>
-		<tr>
-			<td><?php echo $evaluacione['id']; ?></td>
-			<td><?php echo $evaluacione['asignacione_id']; ?></td>
-			<td><?php echo $evaluacione['user_id']; ?></td>
-			<td><?php echo $evaluacione['evaluacion']; ?></td>
-			<td><?php echo $evaluacione['entrega_temprana']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'evaluaciones', 'action' => 'view', $evaluacione['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'evaluaciones', 'action' => 'edit', $evaluacione['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'evaluaciones', 'action' => 'delete', $evaluacione['id']), array(), __('Are you sure you want to delete # %s?', $evaluacione['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<div class="container">
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Evaluacione'), array('controller' => 'evaluaciones', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Users'); ?></h3>
-	<?php if (!empty($asignacione['User'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Username'); ?></th>
-		<th><?php echo __('Password'); ?></th>
-		<th><?php echo __('First Name'); ?></th>
-		<th><?php echo __('Last Name'); ?></th>
-		<th><?php echo __('Group Id'); ?></th>
-		<th><?php echo __('Cargo'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($asignacione['User'] as $user): ?>
-		<tr>
-			<td><?php echo $user['id']; ?></td>
-			<td><?php echo $user['username']; ?></td>
-			<td><?php echo $user['password']; ?></td>
-			<td><?php echo $user['first_name']; ?></td>
-			<td><?php echo $user['last_name']; ?></td>
-			<td><?php echo $user['group_id']; ?></td>
-			<td><?php echo $user['cargo']; ?></td>
-			<td><?php echo $user['created']; ?></td>
-			<td><?php echo $user['modified']; ?></td>
-			<td><?php echo $user['bloqueado']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'users', 'action' => 'view', $user['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'users', 'action' => 'edit', $user['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'users', 'action' => 'delete', $user['id']), array(), __('Are you sure you want to delete # %s?', $user['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+	<div class="content_fullwidth">
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		</ul>
+		<?php if ($asignacione['Asignacione']['codigo']): ?>
+			<div class="one_fifth">
+		        <h6><?php echo __('Codigo'); ?></h6>
+		        <p><?php echo h($asignacione['Asignacione']['codigo']); ?></p>
+	        </div>
+	    <?php endif; ?>
+		<div class="one_fifth">
+	        <h6><?php echo __('Asignador'); ?></h6>
+	        <p><?php echo $this->Html->link($asignacione['Asignador']['name'], array('controller' => 'users', 'action' => 'view', $asignacione['Asignador']['id'])); ?></p>
+        </div>
+		<div class="one_fifth">
+	        <h6><?php echo __('Responsable'); ?></h6>
+	        <p><?php echo $this->Html->link($asignacione['Responsable']['name'], array('controller' => 'users', 'action' => 'view', $asignacione['Responsable']['id'])); ?></p>
+        </div>
+		<div class="one_fifth">
+	        <h6><?php echo __('Fecha Inicio'); ?></h6>
+	        <p><?php echo h($asignacione['Asignacione']['fecha_asignacion']); ?></p>
+        </div>
+		<div class="one_fifth last">
+	        <h6><?php echo __('Fecha Fin'); ?></h6>
+	        <p><?php echo h($asignacione['Asignacione']['fecha_entrega']); ?></p>
+        </div>
+        <div class="margin_top3"></div>
+
+		<div class="blog_post">	
+			<div class="blog_postcontent">
+				<h3><?php echo $asignacione['Asignacione']['titulo']; ?></h3>
+				<ul class="post_meta_links">
+					<li class="post_comments"><i>Creada:</i> <?php echo h($asignacione['Asignacione']['created']); ?></li>
+					<li class="post_comments"><i>Inicio:</i> <?php echo $asignacione['Asignacione']['fecha_asignacion']; ?></li>
+					<li class="post_comments"><i>Fin:</i> <?php echo $asignacione['Asignacione']['fecha_entrega']; ?></li>
+					<li class="post_by"><i>Asignador:</i> <?php echo $asignacione['Asignador']['name']; ?></li>
+					<li class="post_categoty"><i>Responsable:</i> <?php echo $asignacione['Responsable']['name']; ?></li>
+				</ul>
+				<div class="clearfix"></div>
+				<div class="progreso one_full">
+					<div class="progress_bar ui-progress-bar ui-container">
+						<div class="ui-progress" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
+					</div><!-- end section -->
+					<div class="progress_bar ui-progress-bar ui-container">
+						<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
+					</div><!-- end section -->
+				</div>
+				<div class="clearfix"></div>
+				<div class="margin_top1"></div>
+				<p>
+					<?php echo $asignacione['Asignacione']['detalles'] ?>
+				</p>
+			</div>
+		</div><!-- /# end post -->
+
+		<div class="margin_top5"></div>
+        <div class="two_third">
+        	<div class="avances">
+		        <h1><?php echo __('Registro de avances'); ?></h1>
+		        <?php if (empty($avances)): ?>
+		        	<?php echo __('No hay avances registrados en la asignacion'); ?>
+				<?php else: ?>
+					<?php foreach ($avances as $avance): ?>
+						<div class="avance">
+							<div class="one_fourth">
+			        			<ul class="tabs full">
+									<li class="animate zoomIn" data-anim-type="zoomIn">
+										<?php echo $this->Html->link('<i class="fa fa-bar-chart-o"></i>' . $avance['Avance']['porcentaje_avanzado'] . '%', '#content', array('escape' => false)); ?>
+									</li>
+								</ul>
+							</div>
+							<div class="three_fourth last">
+								<i>
+									<strong><?php echo $avance['User']['name']; ?></strong> el <?php echo $avance['Avance']['created']; ?>
+									<?php if(sizeof($avance['Attachment']) > 0): ?>
+										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
+									<?php endif; ?>
+									<?php if ($auth_user['id'] == $avance['Avance']['user_id']): ?>
+										<?php echo $this->Html->link('<span class="fa fa-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('escape' => false)); ?>
+										<?php echo $this->Form->postLink('<span class="fa fa-times"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('escape' => false)); ?>
+									<?php endif; ?>
+								</i>
+								<div>
+									<p><?php echo strip_tags($avance['Avance']['detalles']); ?>
+									</p>
+									<?php if(sizeof($avance['Attachment']) > 0): ?>
+										<div class="margin_top1"></div>
+										<ul class="arrows_list1">
+											<?php foreach ($avance['Attachment'] as $attachment): ?>
+												<li>
+													<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
+													<?php echo $attachment['name']; ?>
+													<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+												</li>
+											<?php endforeach; ?>
+										</ul>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				<div class="margin_top3"></div>
+				<div class="text-right">
+					<?php if ($auth_user['id'] == $asignacione['Asignacione']['responsable_id']): ?>
+					 	<?php echo $this->Html->link('<i class="fa fa-bar-chart-o fa-lg"></i> ' . __('Add Avance'), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'but_wifi', 'escape' => false)); ?>
+					 <?php endif; ?>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="margin_top5"></div>
+			<div class="desgloce">
+				<h1><?php echo __('Desgloce de la asignacion'); ?></h1>
+		        <?php if (empty($asignacione['ChildrenAsignacione'])): ?>
+		        	<?php echo __('No se ha desglozado la presente asignacion'); ?>
+				<?php else: ?>
+						<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
+							<div class="blog_post asignacion">	
+								<div class="blog_postcontent">
+									<h3><?php echo $this->Html->link($children_asignacione['Asignacione']['titulo'], array('action' => 'view', $children_asignacione['Asignacione']['id']), array('escape' => false)); ?></h3>
+									<ul class="post_meta_links">
+										<li class="post_comments"><i>Creada:</i> <?php echo h($children_asignacione['Asignacione']['created']); ?></li>
+										<li class="post_comments"><i>Inicio:</i> <?php echo $children_asignacione['Asignacione']['fecha_asignacion']; ?></li>
+										<li class="post_comments"><i>Fin:</i> <?php echo $children_asignacione['Asignacione']['fecha_entrega']; ?></li>
+										<li class="post_by"><i>Asignador:</i> <?php echo $children_asignacione['Asignador']['name']; ?></li>
+										<li class="post_categoty"><i>Responsable:</i> <?php echo $children_asignacione['Responsable']['name']; ?></li>
+										<?php if(sizeof($children_asignacione['Attachment']) > 0): ?>
+											<li class="post_comments"><span title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></span></li>
+										<?php endif; ?>
+										<?php if ($auth_user['id'] == $children_asignacione['Asignacione']['responsable_id']): ?>
+											<li><?php echo $this->Html->link(__('<i class="fa fa-bar-chart-o fa-lg"></i> %s</a>', __('Avance')), array('controller' => 'avances', 'action' => 'add', $children_asignacione['Asignacione']['id']), array('escape' => false)); ?></li>
+										<?php endif; ?>
+										<?php if ($auth_user['id'] == $children_asignacione['Asignacione']['asignador_id']): ?>
+											<li><?php echo $this->Html->link(__('<i class="fa fa-pencil fa-lg"></i> %s</a>', __('Edit')), array('action' => 'edit', $children_asignacione['Asignacione']['id']), array('escape' => false)); ?></li>
+											<li><?php echo $this->Form->postLink(__('<i class="fa fa-check fa-lg"></i> %s</a>', __('Finalizar')), array('action' => 'finalizar', $children_asignacione['Asignacione']['id']), array('escape' => false), __('Esta seguro(a) que desea finalizar esta asignacion?')); ?></li>
+											<li><?php echo $this->Form->postLink(__('<i class="fa fa-times fa-lg"></i> %s</a>', __('Delete')), array('action' => 'delete', $children_asignacione['Asignacione']['id']), array('escape' => false), 'Esta seguro(a) que desea eliminar este registro?'); ?></li>
+										<?php endif; ?>
+									</ul>
+									<div class="clearfix"></div>
+									<div class="progreso one_full">
+										<div class="two_third">
+								            <div class="progress_bar ui-progress-bar ui-container">
+								            	<div class="ui-progress" data-progress="<?php echo $this->Number->precision($children_asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($children_asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
+								            </div><!-- end section -->
+							           </div>
+							           <div class="one_third last">
+							           		<h5>del <?php echo $children_asignacione['Asignacione']['porcentaje_asignado']; ?>% <?php echo __('Asignado'); ?></h5>
+							           	</div>
+						            </div>
+									<div class="clearfix"></div>
+									<div class="margin_top1"></div>
+									<div class="readmore">
+										<?php echo $children_asignacione['Asignacione']['detalles']; ?>
+										<?php if(sizeof($children_asignacione['Attachment']) > 0): ?>
+											<div class="margin_top1"></div>
+											<h6><?php echo __('Attachments'); ?></h6>
+											<ul class="arrows_list1">
+												<?php foreach ($children_asignacione['Attachment'] as $attachment): ?>
+													<li>
+														<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
+														<?php echo $attachment['name']; ?>
+														<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+													</li>
+												<?php endforeach; ?>
+											</ul>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div><!-- /# end post -->
+							<div class="margin_top5"></div>
+							<div class="clearfix"></div>
+						<?php endforeach; ?>
+				<?php endif; ?>
+				<div class="margin_top3"></div>
+				<div class="text-right">
+					<?php if (($auth_user['id'] == $asignacione['Asignacione']['responsable_id']) || ($auth_user['id'] == $asignacione['Asignacione']['asignador_id'])): ?>
+						<?php echo $this->Html->link('<i class="fa fa-tag fa-lg"></i> ' . __('Delegar'), array('action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'but_wifi', 'escape' => false)); ?>
+					<?php endif; ?>
+				</div>
+			</div>
+
+
+        </div>
+		<div class="one_third last">
+			<div class="attachments">
+		        <h6><?php echo __('Attachments'); ?></h6>
+
+				<?php if (empty($asignacione['Attachment'])): ?>
+					<p><?php echo __('No hay adjuntos'); ?></p>
+				<?php else: ?>
+					<ul class="arrows_list1">
+						<?php foreach ($asignacione['Attachment'] as $attachment): ?>
+							<li>
+								<?php echo $this->Html->link('<i class="fa fa-download"></i> ', array('action' => 'download', $attachment['id'], 'asignaciones'), array('escape' => false)); ?>
+								<?php echo $attachment['name']; ?>
+								<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+								<?php echo $this->Form->postLink(' <span class="fa fa-times"></span> ' . __('Delete'), array('controller' => 'adjuntos', 'action' => 'delete', $attachment['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $attachment['id'])); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			</div>
+			<div class="clearfix"></div>
+			<div class="margin_top3"></div>
+			<div class="colaboradores">
+		        <h6><?php echo __('Colaboradores'); ?></h6>
+
+				<?php if (empty($asignacione['User'])): ?>
+					<p><?php echo __('No hay colaboradores'); ?></p>
+				<?php else: ?>
+					<ul class="arrows_list1">
+						<?php foreach ($asignacione['User'] as $user): ?>
+							<li>
+								<a href="#"><i class="fa fa-angle-right"></i></a> <?php echo $user['first_name']; ?> <?php echo $user['last_name']; ?>
+								<i><?php echo $user['cargo']; ?></i>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			</div>
+			<div class="clearfix"></div>
+        </div>	
+        <div class="clearfix"></div>
 	</div>
 </div>

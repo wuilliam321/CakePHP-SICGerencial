@@ -5,3 +5,18 @@ div.input-group {padding-right: 15px;padding-left: 15px;}
 .col-xs-0 { width: 1%;}
 div.inline { display: inline-block; }
 .fg-white, .fg-white:hover { color: #fff;}
+.text-right { text-align: right;}
+.text-justify { text-align: justify;}
+.text-left { text-align: left;}
+.text-center { text-align: center;}
+h3 small { font-size: 8pt}
+.recent_posts_list li a { display: inline;}
+.tabs.full { width: 100% }
+.tabs.full li {margin-bottom: 5px}
+.progreso h5 { padding-top: 13px;margin-bottom: 0;}
+.post_meta_links li a, .post_meta_links li i { color: #13afeb; }
+.pricing-tables.full {width: 100%}
+.pricing-tables.full .cont-list { padding: 5px 0}
+.pricing-tables.full .cont-list li { text-align: left; }
+.pricing-tables.full .cont-list li div { padding:0 0 0 10px; display: inline-block; }
+.comment_content .comment_text a { color: #13afeb; margin-left: 5px; margin-top: 0}
