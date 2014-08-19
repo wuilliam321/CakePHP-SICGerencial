@@ -114,7 +114,18 @@ class ComunicacionesController extends AppController {
 		}
 		$this->Comunicacione->Remitente->recursive = -1;
 		$remitente = $this->Comunicacione->Remitente->findById($auth_user['id']);
-		$users = $this->Comunicacione->User->find('list');
+
+		$user_options['joins'] = array(
+			array('table' => 'sistemas_users',
+				'alias' => 'SistemasUser',
+				'conditions' => array(
+					'SistemasUser.user_id = User.id',
+					'SistemasUser.sistema_id = ' . Configure::read('sistema')
+				)
+			)
+		);
+		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
+		$users = $this->Comunicacione->User->find('list', $user_options);
 		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list');
 		$this->set(compact('remitente', 'parent', 'users', 'comunicacioncategorias', 'parent_id'));
 	}
@@ -153,7 +164,18 @@ class ComunicacionesController extends AppController {
 		$this->Comunicacione->Remitente->recursive = -1;
 		$remitente = $this->Comunicacione->Remitente->findById($auth_user['id']);
 		$parents = $this->Comunicacione->ParentComunicacione->find('list');
-		$users = $this->Comunicacione->User->find('list');
+		
+		$user_options['joins'] = array(
+			array('table' => 'sistemas_users',
+				'alias' => 'SistemasUser',
+				'conditions' => array(
+					'SistemasUser.user_id = User.id',
+					'SistemasUser.sistema_id = ' . Configure::read('sistema')
+				)
+			)
+		);
+		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
+		$users = $this->Comunicacione->User->find('list', $user_options);
 		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list');
 		$this->set(compact('parent', 'remitente', 'parents', 'users', 'comunicacioncategorias'));
 

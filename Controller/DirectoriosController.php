@@ -45,21 +45,6 @@ class DirectoriosController extends AppController {
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Directorio->exists($id)) {
-			throw new NotFoundException(__('Invalid directorio'));
-		}
-		$options = array('conditions' => array('Directorio.' . $this->Directorio->primaryKey => $id));
-		$this->set('directorio', $this->Directorio->find('first', $options));
-	}
-
-/**
  * add method
  *
  * @return void
@@ -71,14 +56,24 @@ class DirectoriosController extends AppController {
 			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->increase_contador('D');
 				$this->Session->setFlash(__('The directorio has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				return $this->redirect(array('action' => 'edit', $this->Directorio->getLastInsertID()));
 			} else {
 				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data['Directorio']['codigo'] = $this->get_last_code('D');
 		}
-		$users = $this->Directorio->User->find('list');
+		$user_options['joins'] = array(
+			array('table' => 'sistemas_users',
+				'alias' => 'SistemasUser',
+				'conditions' => array(
+					'SistemasUser.user_id = User.id',
+					'SistemasUser.sistema_id = ' . Configure::read('sistema')
+				)
+			)
+		);
+		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
+		$users = $this->Directorio->User->find('list', $user_options);
 		$this->set(compact('users'));
 	}
 
@@ -96,8 +91,13 @@ class DirectoriosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			$this->request->data['Punto'] = Hash::filter($this->request->data['Punto']);
 			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
+				$puntos_ids_delete = Hash::extract($this->request->data['Punto'], '{n}[eliminar>0].id');
+				if (!empty($puntos_ids_delete)) {
+					// $this->Directorio->Punto->deleteAll(array('conditions' => array('Punto.id' => $puntos_ids_delete)));
+					$this->Directorio->Punto->delete($puntos_ids_delete);
+				}
 				$this->Session->setFlash(__('The directorio has been saved.'));
-				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+				return $this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'));
 			}
@@ -105,7 +105,17 @@ class DirectoriosController extends AppController {
 			$options = array('conditions' => array('Directorio.' . $this->Directorio->primaryKey => $id));
 			$this->request->data = $this->Directorio->find('first', $options);
 		}
-		$users = $this->Directorio->User->find('list');
+		$user_options['joins'] = array(
+			array('table' => 'sistemas_users',
+				'alias' => 'SistemasUser',
+				'conditions' => array(
+					'SistemasUser.user_id = User.id',
+					'SistemasUser.sistema_id = ' . Configure::read('sistema')
+				)
+			)
+		);
+		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
+		$users = $this->Directorio->User->find('list', $user_options);
 		$this->set(compact('users'));
 	}
 

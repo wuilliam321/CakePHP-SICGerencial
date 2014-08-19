@@ -14,9 +14,13 @@ h3 small { font-size: 8pt}
 .tabs.full { width: 100% }
 .tabs.full li {margin-bottom: 5px}
 .progreso h5 { padding-top: 13px;margin-bottom: 0;}
-.post_meta_links li a, .post_meta_links li i { color: #13afeb; }
+.post_meta_links li a, .post_meta_links li i, .pricing-title i { color: #13afeb; }
 .pricing-tables.full {width: 100%}
 .pricing-tables.full .cont-list { padding: 5px 0}
 .pricing-tables.full .cont-list li { text-align: left; }
 .pricing-tables.full .cont-list li div { padding:0 0 0 10px; display: inline-block; }
 .comment_content .comment_text a { color: #13afeb; margin-left: 5px; margin-top: 0}
+.place-right {float: right;}
+.place-left {float: left;}
+h4 span label { font-size: 10pt; font-weight: normal }
+.pricing-title i, .pricing-title p { font-size: 10pt; }

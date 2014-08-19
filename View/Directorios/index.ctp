@@ -1,90 +1,61 @@
-<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo directorio'), array('action' => 'add'), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-<table class="table table-condensed table-bordered table-striped">
-	<thead>
-		<tr>
-			<th class="col-xs-0">&nbsp;</th>
-			<th class="col-xs-1">Codigo</th>
-			<th>Objetivo</th>
-			<th>Fecha</th>
-			<th class="col-xs-1">Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
+<div class="page_title2">
+<div class="container">
+
+    <div class="title"><h1><?php echo __('Directorios'); ?></h1></div>
+    <div class="two_third">
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo __('Directorios list'); ?></div>
+    </div>
+    <div class="one_third last text-right">
+    	<?php echo $this->Html->link(__('<i class="fa fa-plus fa-lg"></i> %s</a>', __('Add Directorio')), array('action' => 'add'), array('escape' => false)); ?>
+    </div>
+    
+</div>
+</div><!-- end page title --> 
+
+<div class="clearfix"></div>
+
+<div class="container">
+
+	<div class="content_fullwidth">
 		<?php if (empty($directorios)): ?>
-			<tr>
-				<td colspan="5"><?php echo __('No hay directorios registrados'); ?></td>
-			</tr>
+			<?php echo __('No hay directorios registrados'); ?>
 		<?php else: ?>
 			<?php foreach ($directorios as $directorio): ?>
-				<tr>
-					<td class="text-center"><span class="glyphicon glyphicon-chevron-down do-show block-display" alt="<?php echo $directorio['Directorio']['id']; ?>"></span></td>
-					<td><?php echo $directorio['Directorio']['codigo']; ?></td>
-					<td><?php echo $directorio['Directorio']['objetivo']; ?></td>
-					<td><?php echo $directorio['Directorio']['fecha_inicio']; ?></td>
-					<td class="text-right">
-						<?php if ($directorio['Attachment']): ?>
-							<div class="dropdown inline">
-								<?php echo $this->Html->link('<span class="glyphicon glyphicon-download-alt"></span>', '#', array('class' => 'btn btn-default btn-xs', 'escape' => false, 'data-toggle' => 'dropdown')); ?>
-								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-									<?php foreach ($directorio['Attachment'] as $attachment): ?>
-										<li role="presentation"><?php echo $this->Html->link($attachment['name'], array('action' => 'download', $attachment['id'], 'directorios'), array('tabindex' => '-1', 'role' => 'menuitem')); ?>
-										</li>
-									<?php endforeach; ?>
-								</ul>
+				<div class="one_third">
+					<div class="framed-box">
+						<div class="framed-box-wrap">
+							<div class="pricing-title">
+								<h4 class="nocaps">
+									<?php echo $directorio['Directorio']['codigo']; ?>
+
+			        				<?php if(sizeof($directorio['Attachment']) > 0): ?>
+										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
+									<?php endif; ?>
+								</h4>
+								<p>
+									<i>Inicio:</i> <?php echo $directorio['Directorio']['fecha_inicio']; ?>
+									<i>Fin:</i> <?php echo $directorio['Directorio']['fecha_fin']; ?>
+								</p>
 							</div>
-						<?php endif; ?>
-						<div class="btn-group">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
-						</div>
-					</td>
-				</tr>
-				<tr style="display:none">
-					<td colspan="5">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-xs-12">
-									<p><?php echo $directorio['Directorio']['detalles']; ?></p>
-									<h4>
-										<?php echo __('Puntos a tratar'); ?>
-										<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> ' . __('Nuevo punto'), array('controller' => 'puntos', 'action' => 'add', $directorio['Directorio']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-									</h4>
-									<table class="table table-condensed table-bordered table-hover">
-										<thead>
-											<tr>
-												<th><?php echo __('Detalles'); ?></th>
-												<th class="col-xs-1"><?php echo __('Acciones'); ?></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php if (empty($directorio['Punto'])): ?>
-												<tr>
-													<td colspan="2"><?php echo __('No hay puntos asignacion al directorio'); ?></td>
-												</tr>
-											<?php else: ?>
-												<?php foreach ($directorio['Punto'] as $punto): ?>
-													<tr>
-														<td><?php echo $punto['detalles']; ?></td>
-														<td class="text-right">
-															<?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', array('controller' => 'puntos', 'action' => 'edit', $punto['id']), array('class' => 'btn btn-default btn-xs', 'escape' => false)); ?>
-															<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller' => 'puntos', 'action' => 'delete', $punto['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false), 'return confirm("Esta seguro(a) que desea eliminar este registro?"'); ?>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-											<?php endif; ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 text-right">
-									<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-check"></span> ' . __('Finalizar'), array('action' => 'finalizar', $directorio['Directorio']['id']), array('class' => 'btn btn-danger btn-xs', 'escape' => false)); ?>
-								</div>
+							<div class="pricing-text-list">
+								<?php if (empty($directorio['Punto'])): ?>
+									<?php echo __('No hay puntos asignacion al directorio'); ?>
+								<?php else: ?>
+									<ul class="list1">
+										<?php foreach ($directorio['Punto'] as $punto): ?>
+											<li><i class="fa fa-chevron-circle-right"></i> <?php echo $punto['titulo']; ?></li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+								<br />
+								<?php echo $this->Html->link(__('<i class="fa fa-eye"></i> %s', __('Ver Directorio')), array('action' => 'edit', $directorio['Directorio']['id']), array('class' => 'but_calendar', 'escape' => false)); ?>
+								<?php echo $this->Form->postLink(__('<i class="fa fa-check"></i> %s', __('Finalizar')), array('action' => 'finalizar', $directorio['Directorio']['id']), array('class' => 'but_bookmark', 'escape' => false)); ?>
 							</div>
 						</div>
-					</td>
-				</tr>
+
+					</div>
+				</div><!-- end section -->
 			<?php endforeach; ?>
 		<?php endif; ?>
-	</tbody>
-</table>
+	</div>
+</div>

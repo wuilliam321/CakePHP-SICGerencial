@@ -88,7 +88,7 @@
      <div class="container">
     
 		<!-- Logo -->
-		<div class="logo"><a href="index.html" id="logo"></a></div>
+		<div class="logo"><?php echo $this->Html->link('', '/', array('id' => 'logo')); ?></div>
 		
 	<!-- Menu -->
 	<div class="menu_main">
@@ -105,17 +105,27 @@
       <div id="navbar-collapse-1" class="navbar-collapse collapse pull-right">
       
         <?php $auth_user = $this->Session->read('Auth.User'); ?>
+        <?php $controller = $this->request->params['controller']; ?>
         <ul class="nav navbar-nav">
-            <li><?php echo $this->Html->link(__('<i class="fa fa-list"></i> %s</a> ', __('Resumen')), array('controller' => 'asignaciones', 'action' => 'resumen'), array('escape' => false, 'class' => 'active')); ?></li>
-            <li><?php echo $this->Html->link(__('<i class="fa fa-tag"></i> %s</a> ', __('Asignaciones')), array('controller' => 'asignaciones', 'action' => 'index'), array('escape' => false)); ?></li>
-            <li><?php echo $this->Html->link(__('<i class="fa fa-envelope"></i> %s</a> ', __('Comunicaciones')), array('controller' => 'comunicaciones', 'action' => 'index'), array('escape' => false)); ?></li>
-            <li><?php echo $this->Html->link(__('<i class="fa fa-calendar"></i> %s</a> ', __('Directorios')), array('controller' => 'directorios', 'action' => 'index'), array('escape' => false)); ?></li>
-            <li class="dropdown"> <a href="404.html#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog fa-spin"></i> Administracion</a>
-            <ul class="dropdown-menu two" role="menu">
-              <li> <a href="contact.html">Contact Variation 1</a> </li>
-              <li> <a href="contact2.html">Contact Variation 2</a> </li>
-              <li> <a href="contact3.html">Contact Variation 3</a> </li>
-            </ul>
+            <li>
+                <?php echo $this->Html->link(__('<i class="fa fa-list"></i> %s</a> ', __('Resumen')), array('controller' => 'resumen', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'resumen') ? 'active' : '')); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link(__('<i class="fa fa-tag"></i> %s</a> ', __('Asignaciones')), array('controller' => 'asignaciones', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'asignaciones') ? 'active' : '')); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link(__('<i class="fa fa-envelope"></i> %s</a> ', __('Comunicaciones')), array('controller' => 'comunicaciones', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'comunicaciones') ? 'active' : '')); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link(__('<i class="fa fa-calendar"></i> %s</a> ', __('Directorios')), array('controller' => 'directorios', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'directorios') ? 'active' : '')); ?>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog fa-spin"></i> Administracion</a>
+                <ul class="dropdown-menu two" role="menu">
+                  <li> <a href="contact.html">Contact Variation 1</a> </li>
+                  <li> <a href="contact2.html">Contact Variation 2</a> </li>
+                  <li> <a href="contact3.html">Contact Variation 3</a> </li>
+                </ul>
             </li>
             <li><?php echo $this->Html->link(__('<i class="fa fa-lock"></i> %s</a> ', __('Salir')), array('controller' => 'users', 'action' => 'logout'), array('escape' => false)); ?></li>
         </ul>
@@ -147,14 +157,14 @@
 <div class="footer1">
 <div class="container">
 	<div class="one_fourth animate" data-anim-type="fadeInUp">
-        <h4 class="lmb">About Hoxa</h4>
+<!--         <h4 class="lmb">About Hoxa</h4>
         
         <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined an chunks as necessary, making this the first true generator on the Internet. Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites.</p>
-        <br />
+        <br /> -->
 	</div><!-- end address -->
     
     <div class="one_fourth animate" data-anim-type="fadeInUp">
-    <div class="qlinks">
+<!--     <div class="qlinks">
     
     	<h4 class="lmb">Useful Links</h4>
         
@@ -168,26 +178,26 @@
             <li><a href="404.html#"><i class="fa fa-angle-right"></i> Layered PSD Files</a></li>
         </ul>
         
-    </div>
+    </div> -->
 	</div><!-- end links -->
         
     <div class="one_fourth animate" data-anim-type="fadeInUp">
-    <div class="siteinfo">
+<!--     <div class="siteinfo">
     
     	<h4 class="lmb">About Hoxa</h4>
         
         <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined an chunks as necessary, making this the first true generator on the Internet. Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites.</p>
         <br />
         
-	</div>
+	</div> -->
     </div><!-- end site info -->
     
-    <div class="one_fourth last animate" data-anim-type="fadeInUp">
+    <div class="one_fourth last animate" data-anim-type="fadeInUp"><!-- 
         
         <h4>Flickr Photos</h4>
         
         <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined an chunks as necessary, making this the first true generator on the Internet. Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites.</p>
-        <br />
+        <br /> -->
         
     </div><!-- end flickr -->
     
@@ -215,7 +225,7 @@
     </div>
     
 </div>
-<?php echo $this->element('sql_dump'); ?>
+<?php //echo $this->element('sql_dump'); ?>
 </div><!-- end copyright info -->
 
 

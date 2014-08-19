@@ -27,26 +27,15 @@ class AvancesController extends AppController {
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Avance->exists($id)) {
-			throw new NotFoundException(__('Invalid avance'));
-		}
-		$options = array('conditions' => array('Avance.' . $this->Avance->primaryKey => $id));
-		$this->set('avance', $this->Avance->find('first', $options));
-	}
-
-/**
  * add method
  *
  * @return void
  */
-	public function add($asignacione_id) {
+	public function add($asignacione_id = null) {
+		if (!$asignacione_id) {
+			$this->Session->setFlash(__('The avance cannot be created, please try again.'));
+			return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
+		}
 		$auth_user = $this->Session->read('Auth.User');
 		$this->Avance->Asignacione->recursive = 0;
 		$asignacione = $this->Avance->Asignacione->findById($asignacione_id);
