@@ -125,7 +125,7 @@
 				</div>
 				<?php endif; ?>
 
-				<?php if ($this->request->data['Comunicacione']['codigo']): ?>
+				<?php if ($this->request->data['Comunicacione']['codigo'] && ($auth_user['group_id'] == 1 || $auth_user['group_id'] == 2)): ?>
 					<div class="form-group">
 						<?php echo $this->Form->label('fecha_fin', null, array('class' => 'col-xs-2 control-label')); ?>
 						<div class="col-xs-10">

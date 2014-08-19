@@ -16,6 +16,9 @@
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
+// Set system code
+Configure::write('sistema', 7);
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *
