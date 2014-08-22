@@ -5,7 +5,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-gb" class="no-js"> <!--<![endif]-->
 
 <head>
-	<title>Hoxa - Multipurpose HTML5 Template</title>
+	<title>Sistema de Comunicacion Gerencial</title>
 	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -122,9 +122,7 @@
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog fa-spin"></i> Administracion</a>
                 <ul class="dropdown-menu two" role="menu">
-                  <li> <a href="contact.html">Contact Variation 1</a> </li>
-                  <li> <a href="contact2.html">Contact Variation 2</a> </li>
-                  <li> <a href="contact3.html">Contact Variation 3</a> </li>
+                  <li><?php echo $this->Html->link(__('<i class="fa fa-check"></i> %s</a> ', __('Categorias de Comunicacion')), array('controller' => 'comunicacioncategorias', 'action' => 'index'), array('escape' => false)); ?></li>
                 </ul>
             </li>
             <li><?php echo $this->Html->link(__('<i class="fa fa-lock"></i> %s</a> ', __('Salir')), array('controller' => 'users', 'action' => 'logout'), array('escape' => false)); ?></li>

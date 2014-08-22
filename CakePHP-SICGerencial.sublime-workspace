@@ -4,8 +4,44 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size"
+			],
+			[
+				"user",
+				"user_options"
+			],
+			[
+				"comn",
+				"comunicacioncategorias"
+			],
+			[
+				"comunicacio",
+				"comunicacioncategoria_id"
+			],
+			[
+				"size",
+				"sizeof"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"Comun",
+				"Comunicacione"
+			],
+			[
 				"res",
-				"responsable_options"
+				"responsable_id"
+			],
+			[
+				"strip",
+				"strip_tags"
 			],
 			[
 				"t",
@@ -211,13 +247,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/wuilliam/Documentos/TODO_SAC_SICG_OTROS",
+			"settings":
+			{
+				"buffer_size": 3798,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 264.0,
+		"height": 54.0,
 		"selected_items":
 		[
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
 			[
 				"sft",
 				"SFTP: Setup Server…"
@@ -272,21 +320,53 @@
 	},
 	"file_history":
 	[
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/UsersController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Dependencia.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/bootstrap.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/index.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Plugin/Admin/Model/Punto.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Group.php",
+		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/columns.html",
+		"/home/wuilliam/Documentos/TODO_SAC_SICG_OTROS",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/view.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
-		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/404.html",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/UsersController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/GroupsController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/DirectoriosController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AvancesController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/ResumenController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Resumen/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/ComunicacionesController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/add.ctp",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/send_message.php",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/index.php",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/js/tweets.json",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/js/la_boutique.js",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/css/color-schemes/pomegranate.css",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/index.html",
+		"/home/wuilliam/Descargas/themeforest/alpha.laboutiquetheme.com/checkout.html",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/view.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/view.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Comunicacione.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/view.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Correcciones/index.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/main.js",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/style.css",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
+		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/pricing-tables.html",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/view.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Dependencia.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/index.ctp",
+		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/404.html",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/login.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/edit.ctp",
 		"/home/wuilliam/Proyectos/scaf/trunk/Controller/ActuacionesfiscalesController.php",
@@ -299,14 +379,8 @@
 		"/home/wuilliam/Proyectos/sac/trunk/webroot/js/main.js",
 		"/home/wuilliam/Proyectos/sac/sac.komodoproject",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/jquery-2.1.0.min.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/style.css",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/progressbar/ui.progress-bar.css",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/progressbar/progress.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/index.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/index.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/DirectoriosController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/ComunicacionesController.php",
 		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/blog-post.html",
 		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/tabs.html",
 		"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth/blog-2.html",
@@ -323,23 +397,16 @@
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/form/jquery.validate.min.js",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/form/jquery.validate-form.js",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/style-switcher/styleswitcher.js",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Directorios/add.ctp",
 		"/home/wuilliam/Proyectos/tenant1/trunk/Controller/AppController.php",
 		"/home/wuilliam/Proyectos/tenant1/trunk/Config/database.php",
 		"/home/wuilliam/Proyectos/tenant1/trunk/Controller/PagesController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Pages/home.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/edit.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Puntos/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/AppModel.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/core.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/README.md",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/Component/Auth/LdapAuthenticate.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/add.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicaciones/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/edit.ctp",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Comunicacione.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/routes.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/PuntosController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Avance.php",
@@ -354,14 +421,12 @@
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Mensaje.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/MensajesController.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Config/bootstrap.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/GroupsController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/profile.ctp",
 		"/home/wuilliam/Proyectos/sac/trunk/Controller/GroupsController.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Controller/UsersController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Datasource/LdapSource.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Model/User.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Controller/AppController.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Group.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Model/Group.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Adjunto.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Sistema.php",
@@ -382,24 +447,7 @@
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Model/Reservation.php",
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Model/ReservationManagerAppModel.php",
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/webroot/css/main.css",
-		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Controller/ReservationsController.php",
-		"/C/AppServ/www/reservaciones/View/Layouts/ajax.ctp",
-		"/C/AppServ/www/reservaciones/Config/bootstrap.php",
-		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/Config/bootstrap.php",
-		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/Model/Reservation.php",
-		"/C/AppServ/www/reservaciones/Model/Cliente.php",
-		"/C/AppServ/www/reservaciones/Config/database.php",
-		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/Config/routes.php",
-		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/Controller/RoomStatesController.php",
-		"/C/AppServ/www/reservaciones/webroot/index.php",
-		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/Config/Schema/reservations.php",
-		"/C/AppServ/www/quiniela_admin/trunk/Config/database.php",
-		"/C/AppServ/www/quiniela_admin/trunk/Config/Schema/reservations.php",
-		"/C/AppServ/www/quiniela_admin/trunk/Config/core.php",
-		"/C/AppServ/www/quiniela_admin/trunk/Config/bootstrap.php",
-		"/C/AppServ/www/quiniela_admin/trunk/View/Portal/main.ctp",
-		"/C/AppServ/www/quiniela_admin/trunk/View/Portal/consultar.ctp",
-		"/C/AppServ/www/quiniela_admin/trunk/View/Quinielas/index.ctp"
+		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Controller/ReservationsController.php"
 	],
 	"find":
 	{
@@ -410,6 +458,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"",
 			"/home/wuilliam/Descargas/themeforest/gsrthemes.com/hoxa/fullwidth",
 			""
 		]
@@ -419,6 +468,35 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Directorio",
+			"Directorios",
+			"fa-star-o",
+			"avatar",
+			"anal",
+			"color",
+			"Comment",
+			"reca",
+			"captc",
+			"capt",
+			"Respuestas",
+			"titulo",
+			"Comuni",
+			"'titulo'",
+			"comunica",
+			"titulo",
+			"Attac",
+			"Attachm",
+			"download",
+			"Asignacione",
+			"detalles",
+			"Asignacione",
+			"asignacione",
+			"Asignacione",
+			"class",
+			"download",
+			"Dele",
+			"Delegar",
+			"auth",
 			"IN",
 			"Directorio",
 			"$this->Asignacione->Responsable->",
@@ -513,11 +591,17 @@
 			"cliente_id"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"Resumen",
+			"fa-chevron-circle-right",
+			"Comunicacione",
+			"comunicacione",
+			"Comunicacione",
+			"style",
 			"href=\"<?php echo $this->webroot; ?>js",
 			"href=\"<?php echo $this->webroot; ?>css",
 			"href=\"<?php echo $this->webroot; ?>js",
@@ -560,8 +644,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/wuilliam/Documentos/TODO_SAC_SICG_OTROS",
+					"settings":
+					{
+						"buffer_size": 3798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -611,28 +725,228 @@
 		"selected_items":
 		[
 			[
+				"boot",
+				"Config/bootstrap.php"
+			],
+			[
+				"modelgro",
+				"Model/Group.php"
+			],
+			[
 				"user",
 				"Model/User.php"
 			],
 			[
-				"login",
-				"View/Users/login.ctp"
+				"adminpunto",
+				"Plugin/Admin/Model/Punto.php"
+			],
+			[
+				"gro",
+				"Controller/GroupsController.php"
 			],
 			[
 				"users",
 				"Controller/UsersController.php"
 			],
 			[
-				"depende",
-				"Model/Dependencia.php"
+				"direc",
+				"Controller/DirectoriosController.php"
 			],
 			[
-				"boot",
-				"Config/bootstrap.php"
+				"avances",
+				"Controller/AvancesController.php"
+			],
+			[
+				"resuind",
+				"View/Resumen/index.ctp"
+			],
+			[
+				"defa",
+				"View/Layouts/default.ctp"
+			],
+			[
+				"comuniinde",
+				"View/Comunicaciones/index.ctp"
+			],
+			[
+				"main.css",
+				"webroot/css/main.css"
+			],
+			[
+				"comuniind",
+				"View/Comunicaciones/index.ctp"
+			],
+			[
+				"directoind",
+				"View/Directorios/index.ctp"
+			],
+			[
+				"direcedit",
+				"View/Directorios/edit.ctp"
 			],
 			[
 				"asigna",
 				"Controller/AsignacionesController.php"
+			],
+			[
+				"comunica",
+				"Controller/ComunicacionesController.php"
+			],
+			[
+				"directo",
+				"Controller/DirectoriosController.php"
+			],
+			[
+				"directoadd",
+				"View/Directorios/add.ctp"
+			],
+			[
+				"comunicacedit",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"comunicaadd",
+				"View/Comunicaciones/add.ctp"
+			],
+			[
+				"comunicview",
+				"View/Comunicaciones/view.ctp"
+			],
+			[
+				"comunicaed",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"comunic",
+				"Model/Comunicacione.php"
+			],
+			[
+				"comunicac",
+				"Controller/ComunicacionesController.php"
+			],
+			[
+				"comuniadd",
+				"View/Comunicaciones/add.ctp"
+			],
+			[
+				"asignaview",
+				"View/Asignaciones/view.ctp"
+			],
+			[
+				"asignacionesindex",
+				"View/Asignaciones/index.ctp"
+			],
+			[
+				"style",
+				"webroot/css/style.css"
+			],
+			[
+				"main",
+				"webroot/css/main.css"
+			],
+			[
+				"comunicaedit",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"comunicedt",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"asignaedit",
+				"View/Asignaciones/edit.ctp"
+			],
+			[
+				"avancedit",
+				"View/Avances/edit.ctp"
+			],
+			[
+				"avance",
+				"Controller/AvancesController.php"
+			],
+			[
+				"comunicedit",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"comunicadd",
+				"View/Comunicaciones/add.ctp"
+			],
+			[
+				"avanceadd",
+				"View/Avances/add.ctp"
+			],
+			[
+				"asignaadd",
+				"View/Asignaciones/add.ctp"
+			],
+			[
+				"mai",
+				"webroot/css/main.css"
+			],
+			[
+				"main.js",
+				"webroot/js/main.js"
+			],
+			[
+				"default",
+				"View/Layouts/default.ctp"
+			],
+			[
+				"comuniedit",
+				"View/Comunicaciones/edit.ctp"
+			],
+			[
+				"asignview",
+				"View/Asignaciones/view.ctp"
+			],
+			[
+				"main.",
+				"webroot/css/main.css"
+			],
+			[
+				"comunicacindex",
+				"View/Comunicaciones/index.ctp"
+			],
+			[
+				"avanceedit",
+				"View/Avances/edit.ctp"
+			],
+			[
+				"app",
+				"Controller/AppController.php"
+			],
+			[
+				"asignaindex",
+				"View/Asignaciones/index.ctp"
+			],
+			[
+				"asignacioneadd",
+				"View/Asignaciones/add.ctp"
+			],
+			[
+				"asignavie",
+				"View/Asignaciones/view.ctp"
+			],
+			[
+				"avanvie",
+				"View/Avances/view.ctp"
+			],
+			[
+				"avancescontr",
+				"Controller/AvancesController.php"
+			],
+			[
+				"avanadd",
+				"View/Avances/add.ctp"
+			],
+			[
+				"login",
+				"View/Users/login.ctp"
+			],
+			[
+				"depende",
+				"Model/Dependencia.php"
 			],
 			[
 				"data",
@@ -647,36 +961,16 @@
 				"View/Users/index.ctp"
 			],
 			[
-				"asignaedit",
-				"View/Asignaciones/edit.ctp"
-			],
-			[
 				"avancescont",
 				"Controller/AvancesController.php"
-			],
-			[
-				"asignaadd",
-				"View/Asignaciones/add.ctp"
-			],
-			[
-				"main.js",
-				"webroot/js/main.js"
 			],
 			[
 				"jquery2",
 				"webroot/js/jquery-2.1.0.min.js"
 			],
 			[
-				"defa",
-				"View/Layouts/default.ctp"
-			],
-			[
 				"avancesadd",
 				"View/Avances/add.ctp"
-			],
-			[
-				"main",
-				"webroot/css/main.css"
 			],
 			[
 				"main.cs",
@@ -685,18 +979,6 @@
 			[
 				"progress",
 				"webroot/js/progressbar/progress.js"
-			],
-			[
-				"main.css",
-				"webroot/css/main.css"
-			],
-			[
-				"style",
-				"webroot/css/style.css"
-			],
-			[
-				"asignaview",
-				"View/Asignaciones/view.ctp"
 			],
 			[
 				"ui.pro",
@@ -727,16 +1009,8 @@
 				"View/Comunicaciones/index.ctp"
 			],
 			[
-				"asignaindex",
-				"View/Asignaciones/index.ctp"
-			],
-			[
 				"directorio",
 				"Controller/DirectoriosController.php"
-			],
-			[
-				"comunica",
-				"Controller/ComunicacionesController.php"
 			],
 			[
 				"asign",
@@ -799,20 +1073,8 @@
 				"Controller/AppController.php"
 			],
 			[
-				"directo",
-				"Controller/DirectoriosController.php"
-			],
-			[
-				"directoadd",
-				"View/Directorios/add.ctp"
-			],
-			[
 				"main.c",
 				"webroot/css/main.css"
-			],
-			[
-				"main.",
-				"webroot/js/main.js"
 			],
 			[
 				"ldap",
@@ -843,16 +1105,8 @@
 				"Controller/DirectoriosController.php"
 			],
 			[
-				"comunicaadd",
-				"View/Comunicaciones/add.ctp"
-			],
-			[
 				"asignacione",
 				"Controller/AsignacionesController.php"
-			],
-			[
-				"comunicac",
-				"Controller/ComunicacionesController.php"
 			],
 			[
 				"appm",
@@ -867,24 +1121,8 @@
 				"Controller/AppController.php"
 			],
 			[
-				"comuniedit",
-				"View/Comunicaciones/edit.ctp"
-			],
-			[
-				"avanceedit",
-				"View/Avances/edit.ctp"
-			],
-			[
 				"getasign",
 				"View/Asignaciones/get_asignaciones.ctp"
-			],
-			[
-				"comuniadd",
-				"View/Comunicaciones/add.ctp"
-			],
-			[
-				"avanceadd",
-				"View/Avances/add.ctp"
 			],
 			[
 				"getasi",
@@ -975,18 +1213,6 @@
 				"Config/core.php"
 			],
 			[
-				"comunicaedit",
-				"View/Comunicaciones/edit.ctp"
-			],
-			[
-				"comunic",
-				"Controller/ComunicacionesController.php"
-			],
-			[
-				"app",
-				"Controller/AppController.php"
-			],
-			[
 				"comun",
 				"Model/Comunicacione.php"
 			],
@@ -1009,118 +1235,6 @@
 			[
 				"asigind",
 				"View/Asignaciones/index.ctp"
-			],
-			[
-				"direc",
-				"Controller/DirectoriosController.php"
-			],
-			[
-				"asignadd",
-				"View/Asignaciones/add.ctp"
-			],
-			[
-				"avancadd",
-				"View/Avances/add.ctp"
-			],
-			[
-				"comunedit",
-				"View/Comunicaciones/edit.ctp"
-			],
-			[
-				"comunicadd",
-				"View/Comunicaciones/add.ctp"
-			],
-			[
-				"get_as",
-				"View/Asignaciones/get_asignaciones.ctp"
-			],
-			[
-				"get_com",
-				"View/Comunicaciones/get_comunicaciones.ctp"
-			],
-			[
-				"asigninde",
-				"View/Asignaciones/index.ctp"
-			],
-			[
-				"corr",
-				"Model/Correccione.php"
-			],
-			[
-				"avancedit",
-				"View/Avances/edit.ctp"
-			],
-			[
-				"depen",
-				"Model/Dependencia.php"
-			],
-			[
-				"avanadd",
-				"View/Avances/add.ctp"
-			],
-			[
-				"avance",
-				"Model/Avance.php"
-			],
-			[
-				"edit",
-				"View/Asignaciones/edit.ctp"
-			],
-			[
-				"add",
-				"View/Asignaciones/add.ctp"
-			],
-			[
-				"index",
-				"View/Asignaciones/index.ctp"
-			],
-			[
-				"asigedit",
-				"View/Asignaciones/edit.ctp"
-			],
-			[
-				"asigadd",
-				"View/Asignaciones/add.ctp"
-			],
-			[
-				"asi",
-				"Controller/AsignacionesController.php"
-			],
-			[
-				"use",
-				"Model/User.php"
-			],
-			[
-				"get_c",
-				"View/Asignaciones/get_comunicaciones.ctp"
-			],
-			[
-				"asignacioninde",
-				"View/Asignaciones/index.ctp"
-			],
-			[
-				"asignaci",
-				"Controller/AsignacionesController.php"
-			],
-			[
-				"mensajes",
-				"Controller/MensajesController.php"
-			],
-			[
-				"mensj",
-				"Model/Mensaje.php"
-			],
-			[
-				"mensa",
-				"Controller/MensajesController.php"
-			],
-			[
-				"gro",
-				"Controller/GroupsController.php"
-			],
-			[
-				"gru",
-				"Controller/GroupsController.php"
 			]
 		],
 		"width": 0.0
