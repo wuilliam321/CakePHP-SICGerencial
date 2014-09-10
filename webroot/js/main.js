@@ -12,6 +12,17 @@ $(function () {
 		lessLink: '<a href="#">Cerrar</a>',
 	});
 
+	$(".colaboradores-select").on('change', function () {
+		$("#colaboradores-selected").empty();
+		$(".colaboradores-select option:selected").each(function () {
+			li = $("<li>").text($(this).text());
+			$("#colaboradores-selected").append(li);
+		})
+	});
+	if ($(".colaboradores-select").length) {
+		$(".colaboradores-select").trigger("change");
+	}
+
 	$('select[multiple=multiple]').each( function () {
 		var selector = this;
 		$(selector).multiselect({

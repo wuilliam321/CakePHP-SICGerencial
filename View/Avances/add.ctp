@@ -3,7 +3,7 @@
 
     <div class="title"><h1><?php echo __('Add Avance'); ?></h1></div>
     <div class="two_third">
-    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <?php if ($asignacione['Asignacione']['codigo']): ?> <i>/</i> <?php echo $this->Html->link($asignacione['Asignacione']['codigo'], array('controller' => 'asignaciones', 'action' => 'view', $asignacione['Asignacione']['id'])); ?><?php endif; ?> <i>/</i>  <?php echo __('Avance'); ?></div>
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('controller' => 'asignaciones', 'action' => 'index')); ?> <?php if ($asignacione['Asignacione']['codigo']): ?> <i>/</i> <?php echo $this->Html->link($asignacione['Asignacione']['codigo'], array('controller' => 'asignaciones', 'action' => 'view', $asignacione['Asignacione']['id'])); ?><?php endif; ?> <i>/</i>  <?php echo __('Avance'); ?></div>
     </div>
     <div class="one_third last text-right">
     	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>

@@ -3,7 +3,7 @@
 
     <div class="title"><h1><?php echo __('Asignacione details'); ?><?php if ($asignacione['Asignacione']['codigo']): ?> - <?php echo h($asignacione['Asignacione']['codigo']); ?><?php endif; ?></h1></div>
     <div class="two_third">
-    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <i>/</i> <?php echo __('Asignacione'); ?></div>
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <i>/</i> <?php if ($asignacione['Asignacione']['parent_id']): ?>  <?php echo $this->Html->link(__('Asignacione Superior'), array('action' => 'view', $asignacione['Asignacione']['parent_id'])); ?> <i>/</i> <?php echo __('Asignacione'); ?> <?php else: ?> <?php echo __('Asignacione'); ?> <?php endif; ?></div>
     </div>
     <div class="one_third last text-right">
     	<?php if ($auth_user['id'] == $asignacione['Asignacione']['responsable_id']): ?>
@@ -64,12 +64,25 @@
 				</ul>
 				<div class="clearfix"></div>
 				<div class="progreso one_full">
-					<div class="progress_bar ui-progress-bar ui-container">
-						<div class="ui-progress" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
-					</div><!-- end section -->
-					<div class="progress_bar ui-progress-bar ui-container">
-						<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
-					</div><!-- end section -->
+					<div class="three_fourth">
+						<div class="progress_bar ui-progress-bar ui-container">
+							<div class="ui-progress" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%</b></span></div>
+						</div><!-- end section -->
+					</div>
+					<div class="one_fourth last">
+						<h5><?php echo __('Tiempo Transcurrido'); ?></h5>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="progreso one_full">
+					<div class="three_fourth">
+						<div class="progress_bar ui-progress-bar ui-container">
+							<div class="ui-progress green" data-progress="<?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
+						</div><!-- end section -->
+					</div>
+					<div class="one_fourth last">
+						<h5><?php echo __('Progreso Fisico'); ?></h5>
+					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="margin_top1"></div>
@@ -81,67 +94,14 @@
 
 		<div class="margin_top5"></div>
         <div class="two_third">
-        	<div class="avances">
-		        <h1><?php echo __('Registro de avances'); ?></h1>
-		        <?php if (empty($avances)): ?>
-		        	<?php echo __('No hay avances registrados en la asignacion'); ?>
-				<?php else: ?>
-					<?php foreach ($avances as $avance): ?>
-						<div class="avance">
-							<div class="one_fourth">
-			        			<ul class="tabs full">
-									<li class="animate zoomIn" data-anim-type="zoomIn">
-										<?php echo $this->Html->link('<i class="fa fa-bar-chart-o"></i>' . $avance['Avance']['porcentaje_avanzado'] . '%', '#content', array('escape' => false)); ?>
-									</li>
-								</ul>
-							</div>
-							<div class="three_fourth last">
-								<i>
-									<strong><?php echo $avance['User']['name']; ?></strong> el <?php echo $avance['Avance']['created']; ?>
-									<?php if(sizeof($avance['Attachment']) > 0): ?>
-										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
-									<?php endif; ?>
-									<?php if ($auth_user['id'] == $avance['Avance']['user_id']): ?>
-										<?php echo $this->Html->link('<span class="fa fa-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('escape' => false)); ?>
-										<?php echo $this->Form->postLink('<span class="fa fa-times"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('escape' => false)); ?>
-									<?php endif; ?>
-								</i>
-								<div>
-									<p><?php echo strip_tags($avance['Avance']['detalles']); ?>
-									</p>
-									<?php if(sizeof($avance['Attachment']) > 0): ?>
-										<div class="margin_top1"></div>
-										<ul class="arrows_list1">
-											<?php foreach ($avance['Attachment'] as $attachment): ?>
-												<li>
-													<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
-													<?php echo $attachment['name']; ?>
-													<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
-												</li>
-											<?php endforeach; ?>
-										</ul>
-									<?php endif; ?>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					<?php endforeach; ?>
-				<?php endif; ?>
-				<div class="margin_top3"></div>
-				<div class="text-right">
-					<?php if ($auth_user['id'] == $asignacione['Asignacione']['responsable_id']): ?>
-					 	<?php echo $this->Html->link('<i class="fa fa-bar-chart-o fa-lg"></i> ' . __('Add Avance'), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'but_wifi', 'escape' => false)); ?>
-					 <?php endif; ?>
-				</div>
-			</div>
-			<div class="clearfix"></div>
 			<div class="margin_top5"></div>
 			<div class="desgloce">
 				<h1><?php echo __('Desgloce de la asignacion'); ?></h1>
 		        <?php if (empty($asignacione['ChildrenAsignacione'])): ?>
 		        	<?php echo __('No se ha desglozado la presente asignacion'); ?>
 				<?php else: ?>
-						<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
+					<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
+						<?php if (($auth_user['id'] == $children_asignacione['Asignacione']['responsable_id']) || ($auth_user['group_id'] == 1)): ?>
 							<div class="blog_post asignacion">	
 								<div class="blog_postcontent">
 									<h3><?php echo $this->Html->link($children_asignacione['Asignacione']['titulo'], array('action' => 'view', $children_asignacione['Asignacione']['id']), array('escape' => false)); ?></h3>
@@ -171,7 +131,7 @@
 								            </div><!-- end section -->
 							           </div>
 							           <div class="one_third last">
-							           		<h5>del <?php echo $children_asignacione['Asignacione']['porcentaje_asignado']; ?>% <?php echo __('Asignado'); ?></h5>
+							           		<h5><?php echo __('del %s Asignado', $children_asignacione['Asignacione']['porcentaje_asignado'] . '%'); ?></h5>
 							           	</div>
 						            </div>
 									<div class="clearfix"></div>
@@ -196,7 +156,8 @@
 							</div><!-- /# end post -->
 							<div class="margin_top5"></div>
 							<div class="clearfix"></div>
-						<?php endforeach; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
 				<?php endif; ?>
 				<div class="margin_top3"></div>
 				<div class="text-right">
@@ -206,8 +167,65 @@
 				</div>
 			</div>
 
-
+        	<div class="avances">
+		        <h1><?php echo __('Registro de avances'); ?></h1>
+		        <?php if (empty($avances)): ?>
+		        	<?php echo __('No hay avances registrados en la asignacion'); ?>
+				<?php else: ?>
+					<?php foreach ($avances as $avance): ?>
+						<?php if (($auth_user['id'] == $avance['Avance']['user_id']) || ($auth_user['group_id'] == 1)): ?>
+							<div class="avance">
+								<div class="one_fourth">
+				        			<ul class="tabs full">
+										<li class="animate zoomIn" data-anim-type="zoomIn">
+											<?php echo $this->Html->link('<i class="fa fa-bar-chart-o"></i>' . $avance['Avance']['porcentaje_avanzado'] . '%', '#content', array('escape' => false)); ?>
+										</li>
+									</ul>
+								</div>
+								<div class="three_fourth last">
+									<i>
+										<strong><?php echo $avance['User']['name']; ?></strong> el <?php echo $avance['Avance']['created']; ?> en <?php echo $this->Html->link($this->Text->truncate($avance['Asignacione']['titulo'], 40), array('action' => 'view', $avance['Asignacione']['id']), array('escape' => false)); ?>
+										<?php if(sizeof($avance['Attachment']) > 0): ?>
+											<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
+										<?php endif; ?>
+										<?php if ($auth_user['id'] == $avance['Avance']['user_id']): ?>
+											<?php echo $this->Html->link('<span class="fa fa-pencil"></span>', array('controller' => 'avances', 'action' => 'edit', $avance['Avance']['id']), array('escape' => false)); ?>
+											<?php echo $this->Form->postLink('<span class="fa fa-times"></span>', array('controller' => 'avances', 'action' => 'delete', $avance['Avance']['id']), array('escape' => false)); ?>
+										<?php endif; ?>
+									</i>
+									<div>
+										<p><?php echo strip_tags($avance['Avance']['detalles']); ?>
+										</p>
+										<?php if(sizeof($avance['Attachment']) > 0): ?>
+											<div class="margin_top1"></div>
+											<ul class="arrows_list1">
+												<?php foreach ($avance['Attachment'] as $attachment): ?>
+													<li>
+														<?php echo $this->Html->link('<i class="fa fa-download"></i>&nbsp;', array('action' => 'download', $attachment['id'], 'comunicaciones'), array('escape' => false)); ?>
+														<?php echo $attachment['name']; ?>
+														<i><?php echo $this->Number->toReadableSize($attachment['size']); ?></i>
+													</li>
+												<?php endforeach; ?>
+											</ul>
+										<?php endif; ?>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				<div class="margin_top3"></div>
+				<div class="text-right">
+					<?php if ($auth_user['id'] == $asignacione['Asignacione']['responsable_id']): ?>
+					 	<?php echo $this->Html->link('<i class="fa fa-bar-chart-o fa-lg"></i> ' . __('Add Avance'), array('controller' => 'avances', 'action' => 'add', $asignacione['Asignacione']['id']), array('class' => 'but_wifi', 'escape' => false)); ?>
+					 <?php endif; ?>
+				</div>
+			</div>
+			<div class="clearfix"></div>
         </div>
+
+
 		<div class="one_third last">
 			<div class="attachments">
 		        <h6><?php echo __('Attachments'); ?></h6>

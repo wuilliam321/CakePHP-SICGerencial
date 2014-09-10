@@ -69,15 +69,15 @@
 			<div class="col-xs-8">
 
 				<div class="form-group">
-					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
+					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
 						<?php echo $this->Form->input('detalles', array('rows' =>  12, 'class' => 'ckeditor')); ?>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
+					<?php echo $this->Form->label('Attachment.0.attachment', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
 						<?php echo $this->Form->input('Attachment.0.attachment', array('type' => 'file', 'required' => false)); ?>
 						<?php echo $this->Form->input('Attachment.0.model', array('type' => 'hidden', 'value' => 'Comunicacione')); ?>
 					</div>
@@ -85,8 +85,8 @@
 
 				<?php if ($this->request->data['Attachment']): ?>
 				<div class="form-group">
-					<?php echo $this->Form->label('Attachment.0.attachment', '', array('class' => 'col-xs-1 control-label')); ?>
-					<div class="col-xs-11">
+					<?php echo $this->Form->label('Attachment.0.attachment', '', array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
 						<div class="list-group">
 							<div class="col-xs-12">
 								<a href="#" class="list-group-item active">

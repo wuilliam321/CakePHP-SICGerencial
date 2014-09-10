@@ -85,7 +85,10 @@
 					<?php echo $this->Form->label('User', __('Colaboradores'), array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
 						<?php if ($auth_user['id'] == $this->request->data['Asignacione']['asignador_id']): ?>
-							<?php echo $this->Form->input('User'); ?>
+							<?php echo $this->Form->input('User', array('class' => 'colaboradores-select')); ?>
+							<div class="col-xs-12">
+								<ul id="colaboradores-selected"></ul>
+							</div>
 						<?php else: ?>
 							<div class="col-xs-12">
 								<ul>

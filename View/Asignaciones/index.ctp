@@ -39,13 +39,26 @@
 							<?php endif; ?>
 						</ul>
 						<div class="clearfix"></div>
-			            <div class="progress_bar ui-progress-bar ui-container">
-			            	<div class="ui-progress" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
-			            </div><!-- end section -->
+						<div class="progreso one_full">
+							<div class="three_fourth">
+					            <div class="progress_bar ui-progress-bar ui-container">
+					            	<div class="ui-progress" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%</b></span></div>
+					            </div><!-- end section -->
+				           </div>
+				           <div class="one_fourth last">
+				           		<h5><?php echo __('Tiempo Transcurrido'); ?></h5>
+				           	</div>
+			            </div>
 						<div class="clearfix"></div>
-			            <div class="progress_bar ui-progress-bar ui-container">
-			            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
-			            </div><!-- end section -->
+						<div class="progreso one_full">
+							<div class="three_fourth">
+					            <div class="progress_bar ui-progress-bar ui-container">
+					            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%</b></span></div>
+					            </div><!-- end section -->
+				           </div>
+				           <div class="one_fourth last">
+				           		<h5><?php echo __('Progreso Fisico'); ?></h5>
+				           	</div>
 						<div class="clearfix"></div>
 						<div class="margin_top1"></div>
 						<p>

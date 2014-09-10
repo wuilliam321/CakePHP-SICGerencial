@@ -3,7 +3,7 @@
 
     <div class="title"><h1><?php echo __('Add Asignacione'); ?></h1></div>
     <div class="two_third">
-    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <i>/</i> <?php echo __('Add'); ?></div>
+    	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <?php if ($parent['ParentAsignacione']['id']): ?> <i>/</i> <?php echo $this->Html->link(__('Asignacione'), array('action' => 'view', $parent['ParentAsignacione']['id'])); ?> <?php endif; ?> <i>/</i> <?php echo __('Add'); ?></div>
     </div>
     <div class="one_third last text-right">
     	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
@@ -53,7 +53,10 @@
 				<div class="form-group">
 					<?php echo $this->Form->label('User', __('Colaboradores'), array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
-						<?php echo $this->Form->input('User'); ?>
+						<?php echo $this->Form->input('User', array('class' => 'colaboradores-select')); ?>
+						<div class="col-xs-12">
+							<ul id="colaboradores-selected"></ul>
+						</div>
 					</div>
 				</div>
 

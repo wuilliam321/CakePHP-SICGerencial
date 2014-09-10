@@ -87,24 +87,25 @@ class AsignacionesController extends AppController {
 			$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime(date('Y-m-d'));
 			$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));
 
-			$asignacione['Asignacione']['progreso'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
-			if ($asignacione['Asignacione']['progreso'] > 100) {
-				$asignacione['Asignacione']['progreso'] = 100;
+			$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
+			if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {
+				$asignacione['Asignacione']['progreso_tiempo'] = 100;
 			}
-			if ($asignacione['Asignacione']['progreso'] < 51) {
+			if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {
 				$asignacione['Asignacione']['bar_class'] = 'success';
-			} else if ($asignacione['Asignacione']['progreso'] > 50 && ($asignacione['Asignacione']['progreso'] < 80)) {
+			} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {
 				$asignacione['Asignacione']['bar_class'] = 'warning';
 			} else {
 				$asignacione['Asignacione']['bar_class'] = 'danger';
 			}
+			$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
 			$this->Asignacione->save($asignacione);
 
 			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
 			foreach ($asignacione['ChildrenAsignacione'] as &$child) {
-				if ($child['Asignacione']['progreso'] < 51) {
+				if ($child['Asignacione']['progreso_tiempo'] < 51) {
 					$child['Asignacione']['bar_class'] = 'danger';
-				} else if ($child['Asignacione']['progreso'] > 50 && ($child['Asignacione']['progreso'] < 80)) {
+				} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
 					$child['Asignacione']['bar_class'] = 'warning';
 				} else {
 					$child['Asignacione']['bar_class'] = 'success';
@@ -142,12 +143,34 @@ class AsignacionesController extends AppController {
 		}
 		$options = array('conditions' => array('Asignacione.' . $this->Asignacione->primaryKey => $id));
 		$asignacione = $this->Asignacione->find('first', $options);
+		$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime($asignacione['Asignacione']['fecha_asignacion']);
+		$asignacione['Asignacione']['dias_disponibles'] = floor($diff / (60*60*24));
+		if ($asignacione['Asignacione']['dias_disponibles'] < 1) {
+			$asignacione['Asignacione']['dias_disponibles'] = 1;
+		}
+
+		$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime(date('Y-m-d'));
+		$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));
+
+		$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
+		if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {
+			$asignacione['Asignacione']['progreso_tiempo'] = 100;
+		}
+		if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {
+			$asignacione['Asignacione']['bar_class'] = 'success';
+		} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {
+			$asignacione['Asignacione']['bar_class'] = 'warning';
+		} else {
+			$asignacione['Asignacione']['bar_class'] = 'danger';
+		}
+		$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
+		$this->Asignacione->save($asignacione);
 
 		$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
 		foreach ($asignacione['ChildrenAsignacione'] as &$child) {
-			if ($child['Asignacione']['progreso'] < 51) {
+			if ($child['Asignacione']['progreso_tiempo'] < 51) {
 				$child['Asignacione']['bar_class'] = 'danger';
-			} else if ($child['Asignacione']['progreso'] > 50 && ($child['Asignacione']['progreso'] < 80)) {
+			} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
 				$child['Asignacione']['bar_class'] = 'warning';
 			} else {
 				$child['Asignacione']['bar_class'] = 'success';
@@ -284,6 +307,17 @@ class AsignacionesController extends AppController {
 			)
 		);
 		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
+		if ($this->request->data['Asignacione']['parent_id']) {
+			$this->Asignacione->AsignacionesUser->recursive = -1;
+			$colaboradores_ids = $this->Asignacione->AsignacionesUser->findAllByAsignacioneId($this->request->data['Asignacione']['parent_id']);
+			$colaboradores_ids = Hash::extract($colaboradores_ids, "{n}.AsignacionesUser.user_id");
+
+			$this->Asignacione->ParentAsignacione->recursive = -1;
+			$parent = $this->Asignacione->ParentAsignacione->findById($this->request->data['Asignacione']['parent_id']);
+			$responsable_options['conditions'] = array_merge($responsable_options['conditions'], array('Responsable.id' => $colaboradores_ids));
+			$user_options['conditions'] = array_merge($user_options['conditions'], array('User.id' => $colaboradores_ids));
+		}
+
 		$parent['ParentAsignacione'] = $this->request->data['ParentAsignacione'];
 		$asignadors = $this->Asignacione->Asignador->find('list');
 		$responsables = $this->Asignacione->Responsable->find('list', $responsable_options);
@@ -355,13 +389,13 @@ class AsignacionesController extends AppController {
 			$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime(date('Y-m-d'));
 			$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));
 
-			$asignacione['Asignacione']['progreso'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
-			if ($asignacione['Asignacione']['progreso'] > 100) {
-				$asignacione['Asignacione']['progreso'] = 100;
+			$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);
+			if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {
+				$asignacione['Asignacione']['progreso_tiempo'] = 100;
 			}
-			if ($asignacione['Asignacione']['progreso'] < 51) {
+			if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {
 				$asignacione['Asignacione']['bar_class'] = 'success';
-			} else if ($asignacione['Asignacione']['progreso'] > 50 && ($asignacione['Asignacione']['progreso'] < 80)) {
+			} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {
 				$asignacione['Asignacione']['bar_class'] = 'warning';
 			} else {
 				$asignacione['Asignacione']['bar_class'] = 'danger';
@@ -370,9 +404,9 @@ class AsignacionesController extends AppController {
 
 			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
 			foreach ($asignacione['ChildrenAsignacione'] as &$child) {
-				if ($child['Asignacione']['progreso'] < 51) {
+				if ($child['Asignacione']['progreso_tiempo'] < 51) {
 					$child['Asignacione']['bar_class'] = 'danger';
-				} else if ($child['Asignacione']['progreso'] > 50 && ($child['Asignacione']['progreso'] < 80)) {
+				} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
 					$child['Asignacione']['bar_class'] = 'warning';
 				} else {
 					$child['Asignacione']['bar_class'] = 'success';

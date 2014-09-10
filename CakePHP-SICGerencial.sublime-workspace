@@ -254,6 +254,38 @@
 				"buffer_size": 3798,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "View/Layouts/default.ctp",
+			"settings":
+			{
+				"buffer_size": 12514,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Controller/ComunicacioncategoriasController.php",
+			"settings":
+			{
+				"buffer_size": 3250,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Directorios/add.ctp",
+			"settings":
+			{
+				"buffer_size": 3927,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Directorios/edit.ctp",
+			"settings":
+			{
+				"buffer_size": 6807,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -320,6 +352,9 @@
 	},
 	"file_history":
 	[
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicacioncategorias/add.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicacioncategorias/edit.ctp",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Comunicacioncategorias/index.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/bootstrap.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Plugin/Admin/Model/Punto.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/User.php",
@@ -444,10 +479,7 @@
 		"/C/AppServ/www/reservaciones/Plugin/ReservationManager/View/Rooms/state.ctp",
 		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Config/bootstrap.php",
 		"/C/AppServ/www/reservaciones/View/Layouts/default.ctp",
-		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Model/Reservation.php",
-		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Model/ReservationManagerAppModel.php",
-		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/webroot/css/main.css",
-		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Controller/ReservationsController.php"
+		"/home/wuilliam/Proyectos/reservaciones/Plugin/ReservationManager/Model/Reservation.php"
 	],
 	"find":
 	{
@@ -468,6 +500,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Dependencium",
 			"Directorio",
 			"Directorios",
 			"fa-star-o",
@@ -596,6 +629,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Dependencia",
 			"Resumen",
 			"fa-chevron-circle-right",
 			"Comunicacione",
@@ -659,8 +693,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1532,
+								1532
 							]
 						],
 						"settings":
@@ -669,6 +703,127 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "View/Layouts/default.ctp",
+					"settings":
+					{
+						"buffer_size": 12514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4475,
+								4475
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 390.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Controller/ComunicacioncategoriasController.php",
+					"settings":
+					{
+						"buffer_size": 3250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1470,
+								1470
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "View/Directorios/add.ctp",
+					"settings":
+					{
+						"buffer_size": 3927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								769,
+								769
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "View/Directorios/edit.ctp",
+					"settings":
+					{
+						"buffer_size": 6807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1264,
+								1264
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -725,6 +880,30 @@
 		"selected_items":
 		[
 			[
+				"directoadd",
+				"View/Directorios/add.ctp"
+			],
+			[
+				"comunicacaedit",
+				"View/Comunicacioncategorias/edit.ctp"
+			],
+			[
+				"comunicacaadd",
+				"View/Comunicacioncategorias/add.ctp"
+			],
+			[
+				"comuniinde",
+				"View/Comunicacioncategorias/index.ctp"
+			],
+			[
+				"comunica",
+				"Controller/ComunicacioncategoriasController.php"
+			],
+			[
+				"defa",
+				"View/Layouts/default.ctp"
+			],
+			[
 				"boot",
 				"Config/bootstrap.php"
 			],
@@ -761,14 +940,6 @@
 				"View/Resumen/index.ctp"
 			],
 			[
-				"defa",
-				"View/Layouts/default.ctp"
-			],
-			[
-				"comuniinde",
-				"View/Comunicaciones/index.ctp"
-			],
-			[
 				"main.css",
 				"webroot/css/main.css"
 			],
@@ -789,16 +960,8 @@
 				"Controller/AsignacionesController.php"
 			],
 			[
-				"comunica",
-				"Controller/ComunicacionesController.php"
-			],
-			[
 				"directo",
 				"Controller/DirectoriosController.php"
-			],
-			[
-				"directoadd",
-				"View/Directorios/add.ctp"
 			],
 			[
 				"comunicacedit",
@@ -1227,14 +1390,6 @@
 			[
 				"punto",
 				"Controller/PuntosController.php"
-			],
-			[
-				"director",
-				"Controller/DirectoriosController.php"
-			],
-			[
-				"asigind",
-				"View/Asignaciones/index.ctp"
 			]
 		],
 		"width": 0.0

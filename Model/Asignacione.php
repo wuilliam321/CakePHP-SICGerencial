@@ -249,4 +249,15 @@ class Asignacione extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+
+	public function getProgresoFisico($id) {
+		$this->recursive = -1;
+		$children = $this->children($id);
+		$porcentaje_avanzado = 0;
+		foreach ($children as $child) {
+			$porcentaje_avanzado += ($child['Asignacione']['porcentaje_asignado'] * $child['Asignacione']['progreso']) / 100;
+			// echo sprintf("id=%s asignado=%s avanzado=%s total=%s<br />", $child['Asignacione']['id'], $child['Asignacione']['porcentaje_asignado'], $child['Asignacione']['progreso'], $porcentaje_avanzado);
+		}
+		return $porcentaje_avanzado;
+	}
 }
