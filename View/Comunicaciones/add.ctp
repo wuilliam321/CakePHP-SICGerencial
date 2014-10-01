@@ -70,7 +70,7 @@
 				<?php endif; ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-2 control-label')); ?>
+					<?php echo $this->Form->label('User', __('Destinatario(s)'), array('class' => 'col-xs-2 control-label')); ?>
 					<div class="col-xs-10">
 						<?php if (isset($parent['Comunicacione']['id'])): ?>
 							<?php echo $this->Form->input('User', array('value' => $parent['Comunicacione']['remitente_id'])); ?>

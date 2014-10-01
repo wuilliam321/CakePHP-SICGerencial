@@ -71,7 +71,7 @@
 				<?php endif; ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-2 control-label')); ?>
+					<?php echo $this->Form->label('User', __('Destinatario(s)'), array('class' => 'col-xs-2 control-label')); ?>
 					<div class="col-xs-10">
 						<?php echo $this->Form->input('User'); ?>
 					</div>
