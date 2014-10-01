@@ -32,7 +32,7 @@
 						<div class="form-group">
 							<?php echo $this->Form->label('dependencia_id', null, array('class' => 'col-xs-2 control-label')); ?>
 							<div class="col-xs-10">
-								<?php echo $this->Form->input('dependencia_id'); ?>
+								<?php echo $this->Form->input('dependencia_id', array('empty' => 'Todas')); ?>
 							</div>
 						</div>
 
