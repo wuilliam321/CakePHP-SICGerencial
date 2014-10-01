@@ -24,7 +24,7 @@ class ComunicacionesController extends AppController {
 	public function index() {
 		$auth_user = $this->Session->read('Auth.User');
 		if ($auth_user['group_id'] == 1) {
-			$comunicaciones = $this->Comunicacione->findAllByParentId(null);
+			$options['conditions'] = array('Comunicacione.parent_id' => null, 'Comunicacione.completada' => 0);
 		} else {
 			$options['joins'] = array(
 				array(
@@ -38,13 +38,14 @@ class ComunicacionesController extends AppController {
 			);
 			$options['conditions'] = array(
 				'Comunicacione.parent_id' => null,
+				'Comunicacione.completada' => 0,
 				'OR' => array(
 					'Comunicacione.remitente_id' => $auth_user['id'],
 					'ComunicacionesUser.user_id' => $auth_user['id'],
 				)
 			);
-			$comunicaciones = $this->Comunicacione->find('all', $options);
 		}
+		$comunicaciones = $this->Comunicacione->find('all', $options);
 		foreach ($comunicaciones as &$comunicacione) {
 			$comunicacione['ChildrenComunicacione'] = $this->Comunicacione->children($comunicacione['Comunicacione']['id'], false, null, null, null, 1, 1);
 		}
@@ -112,7 +113,6 @@ class ComunicacionesController extends AppController {
 		if ($parent_id) {
 			$parent_id = $parent_redirect[0]['Comunicacione']['id'];
 		}
-		$this->Comunicacione->Remitente->recursive = -1;
 		$remitente = $this->Comunicacione->Remitente->findById($auth_user['id']);
 
 		$user_options['joins'] = array(
@@ -126,7 +126,13 @@ class ComunicacionesController extends AppController {
 		);
 		$user_options['conditions'] = array('User.bloqueado NOT' => 1, 'User.group_id NOT' => 99);
 		$users = $this->Comunicacione->User->find('list', $user_options);
-		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list');
+		$options['conditions'] = array(
+			'OR' => array(
+				'Comunicacioncategoria.dependencia_id' => Hash::extract($remitente['Dependencia'], '{n}.id'),
+				'Comunicacioncategoria.dependencia_id IS NULL'
+			)
+		);
+		$comunicacioncategorias = $this->Comunicacione->Comunicacioncategoria->find('list', $options);
 		$this->set(compact('remitente', 'parent', 'users', 'comunicacioncategorias', 'parent_id'));
 	}
 
@@ -232,5 +238,18 @@ class ComunicacionesController extends AppController {
 			$comunicacione['ChildrenComunicacione'] = $this->Comunicacione->children($comunicacione['Comunicacione']['id'], false, null, null, null, 1, 1);
 		}
 		$this->set(compact('comunicaciones'));
+	}
+
+	public function finalizar($id) {
+		if ($this->request->is(array('post', 'put'))) {
+			$comunicacione = $this->Comunicacione->findById($id);
+			$comunicacione['Comunicacione']['completada'] = 1;
+			if ($this->Comunicacione->save($comunicacione)) {
+				$this->Session->setFlash(__('The comunicacione has been ended.'));
+			} else {
+				$this->Session->setFlash(__('The comunicacione could not be ended. Please, try again.'));
+			}
+		}
+		return $this->redirect(array('action' => 'index'));
 	}
 }

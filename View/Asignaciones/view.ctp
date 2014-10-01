@@ -13,7 +13,7 @@
     	<?php if ($auth_user['id'] == $asignacione['Asignacione']['asignador_id']): ?>
     		<?php echo $this->Html->link(__('<i class="fa fa-pencil fa-lg"></i> %s</a>', __('Edit')), array('action' => 'edit', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
     	 	<i>|</i>
-    		<?php echo $this->Html->link(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
+    		<?php echo $this->Form->postLink(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('controller' => 'asignaciones', 'action' => 'finalizar', $asignacione['Asignacione']['id']), array('escape' => false)); ?>
     		<i>|</i>
     	<?php endif; ?>
     	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>

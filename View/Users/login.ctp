@@ -5,7 +5,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-gb" class="no-js"> <!--<![endif]-->
 
 <head>
-    <title>Hoxa - Multipurpose HTML5 Template</title>
+    <title>Sistema de Comunicacion Gerencial</title>
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -97,6 +97,16 @@
     
 </header>
 
+<div class="clearfix margin_top1"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="one_full">
+            <?php echo $this->Session->flash(); ?>
+            <?php echo $this->Session->flash('auth'); ?>
+        </div>
+    </div>
+</div>
 <div class="clearfix"></div>
 
 <div class="page_title2">

@@ -19,6 +19,8 @@ Cache::config('default', array('engine' => 'File'));
 // Set system code
 Configure::write('sistema', 7);
 
+Configure::write('Config.language', 'eng');
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *

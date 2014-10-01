@@ -70,6 +70,13 @@
 					</div>
 				<?php endif; ?>
 
+				<div class="form-group">
+					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-2 control-label')); ?>
+					<div class="col-xs-10">
+						<?php echo $this->Form->input('User'); ?>
+					</div>
+				</div>
+
 				<?php if (!isset($parent['Comunicacione']['id'])): ?>
 					<div class="form-group">
 						<?php echo $this->Form->label('comunicacioncategoria_id', null, array('class' => 'col-xs-2 control-label')); ?>
@@ -80,13 +87,6 @@
 				<?php else: ?>
 					<?php echo $this->Form->input('comunicacioncategoria_id', array('type' => 'hidden')); ?>
 				<?php endif; ?>
-
-				<div class="form-group">
-					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-2 control-label')); ?>
-					<div class="col-xs-10">
-						<?php echo $this->Form->input('User'); ?>
-					</div>
-				</div>
 
 				<div class="form-group">
 					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-2 control-label')); ?>

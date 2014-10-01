@@ -9,7 +9,7 @@
     	<?php if ($auth_user['id'] == $comunicacione['Comunicacione']['remitente_id']): ?>
     		<?php echo $this->Html->link(__('<i class="fa fa-pencil fa-lg"></i> %s</a>', __('Edit')), array('action' => 'edit', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
     	 	<i>|</i>
-    		<?php echo $this->Html->link(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('action' => 'finalizar', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+    		<?php echo $this->Form->postLink(__('<i class="fa fa-check-square fa-lg"></i> %s</a>', __('Finalizar')), array('action' => 'finalizar', $comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
     		<i>|</i>
     	<?php endif; ?>
     	<?php if (in_array($auth_user['id'], $reciben_ids)): ?>

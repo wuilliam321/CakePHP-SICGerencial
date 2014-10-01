@@ -59,6 +59,7 @@
 				           <div class="one_fourth last">
 				           		<h5><?php echo __('Progreso Fisico'); ?></h5>
 				           	</div>
+				        </div>
 						<div class="clearfix"></div>
 						<div class="margin_top1"></div>
 						<p>

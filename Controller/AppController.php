@@ -37,7 +37,7 @@ class AppController extends Controller {
 			'authorize' => array(
 				'Actions' => array('actionPath' => 'controllers')
 			),
-			'authError' => '<div id="custom-flash" class="success fg-white bg-red"><i class="icon-locked on-right on-left bg-white fg-red" style="padding: 10px;border-radius: 50%"></i>No tiene permisos para realizar esa operación</div>'
+			'authError' => '<div class="error"><div class="message-box-wrap"><strong>Error</strong>! - No tiene permisos para realizar esa operación.</div></div>'
 		),
 		'Session'
 	);

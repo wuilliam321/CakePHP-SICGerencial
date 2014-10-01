@@ -69,17 +69,6 @@
 					</div>
 				<?php endif; ?>
 
-				<?php if ($parent_id): ?>
-					<?php echo $this->Form->input('comunicacioncategoria_id', array('type' => 'text', 'value' => $parent['Comunicacione']['comunicacioncategoria_id'])); ?>
-				<?php else: ?>
-					<div class="form-group">
-						<?php echo $this->Form->label('comunicacioncategoria_id', null, array('class' => 'col-xs-2 control-label')); ?>
-						<div class="col-xs-10">
-							<?php echo $this->Form->input('comunicacioncategoria_id'); ?>
-						</div>
-					</div>
-				<?php endif; ?>
-
 				<div class="form-group">
 					<?php echo $this->Form->label('User', null, array('class' => 'col-xs-2 control-label')); ?>
 					<div class="col-xs-10">
@@ -90,6 +79,17 @@
 						<?php endif; ?>
 					</div>
 				</div>
+
+				<?php if ($parent_id): ?>
+					<?php echo $this->Form->input('comunicacioncategoria_id', array('type' => 'text', 'value' => $parent['Comunicacione']['comunicacioncategoria_id'])); ?>
+				<?php else: ?>
+					<div class="form-group">
+						<?php echo $this->Form->label('comunicacioncategoria_id', null, array('class' => 'col-xs-2 control-label')); ?>
+						<div class="col-xs-10">
+							<?php echo $this->Form->input('comunicacioncategoria_id'); ?>
+						</div>
+					</div>
+				<?php endif; ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->label('detalles', null, array('class' => 'col-xs-2 control-label')); ?>
