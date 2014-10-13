@@ -53,7 +53,7 @@
 						<div class="progreso one_full">
 							<div class="three_fourth">
 					            <div class="progress_bar ui-progress-bar ui-container">
-					            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%</b></span></div>
+					            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
 					            </div><!-- end section -->
 				           </div>
 				           <div class="one_fourth last">
