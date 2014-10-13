@@ -108,7 +108,7 @@
         <?php $controller = $this->request->params['controller']; ?>
         <ul class="nav navbar-nav">
             <li>
-                <?php echo $this->Html->link(__('<i class="fa fa-user"></i> %s</a> ', $auth_user['name']), array('controller' => 'resumen', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'resumen') ? 'active' : '')); ?>
+                <a href="#" onclick="return false"><?php echo __('<i class="fa fa-user"></i> %s</a> ', $auth_user['first_name']); ?></a>
             </li>
             <li>
                 <?php echo $this->Html->link(__('<i class="fa fa-tag"></i> %s</a> ', __('Asignaciones')), array('controller' => 'asignaciones', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'asignaciones') ? 'active' : '')); ?>
@@ -119,12 +119,14 @@
             <li>
                 <?php echo $this->Html->link(__('<i class="fa fa-calendar"></i> %s</a> ', __('Directorios')), array('controller' => 'directorios', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'directorios') ? 'active' : '')); ?>
             </li>
-            <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog fa-spin"></i> Administracion</a>
-                <ul class="dropdown-menu two" role="menu">
-                  <li><?php echo $this->Html->link(__('<i class="fa fa-check"></i> %s</a> ', __('Categorias de Comunicacion')), array('controller' => 'comunicacioncategorias', 'action' => 'index'), array('escape' => false)); ?></li>
-                </ul>
-            </li>
+            <?php if ($auth_user['group_id'] == 1): ?>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog fa-spin"></i> Administracion</a>
+                    <ul class="dropdown-menu two" role="menu">
+                      <li><?php echo $this->Html->link(__('<i class="fa fa-check"></i> %s</a> ', __('Categorias de Comunicacion')), array('controller' => 'comunicacioncategorias', 'action' => 'index'), array('escape' => false)); ?></li>
+                    </ul>
+                </li>
+            <?php endif; ?>
             <li><?php echo $this->Html->link(__('<i class="fa fa-lock"></i> %s</a> ', __('Salir')), array('controller' => 'users', 'action' => 'logout'), array('escape' => false)); ?></li>
         </ul>
       </div>
