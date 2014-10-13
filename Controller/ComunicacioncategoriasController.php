@@ -50,10 +50,10 @@ class ComunicacioncategoriasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Comunicacioncategoria->create();
 			if ($this->Comunicacioncategoria->save($this->request->data)) {
-				$this->Session->setFlash(__('The comunicacioncategoria has been saved.'));
+				$this->Session->setFlash(__('The comunicacioncategoria has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The comunicacioncategoria could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The comunicacioncategoria could not be saved. Please, try again.'), 'flash_error');
 			}
 		}
 		$dependencias = $this->Comunicacioncategoria->Dependencia->find('list');
@@ -73,10 +73,10 @@ class ComunicacioncategoriasController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Comunicacioncategoria->save($this->request->data)) {
-				$this->Session->setFlash(__('The comunicacioncategoria has been saved.'));
+				$this->Session->setFlash(__('The comunicacioncategoria has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The comunicacioncategoria could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The comunicacioncategoria could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$options = array('conditions' => array('Comunicacioncategoria.' . $this->Comunicacioncategoria->primaryKey => $id));
@@ -100,9 +100,9 @@ class ComunicacioncategoriasController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Comunicacioncategoria->delete()) {
-			$this->Session->setFlash(__('The comunicacioncategoria has been deleted.'));
+			$this->Session->setFlash(__('The comunicacioncategoria has been deleted.'), 'flash_success');
 		} else {
-			$this->Session->setFlash(__('The comunicacioncategoria could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The comunicacioncategoria could not be deleted. Please, try again.'), 'flash_error');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

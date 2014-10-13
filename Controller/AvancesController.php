@@ -33,7 +33,7 @@ class AvancesController extends AppController {
  */
 	public function add($asignacione_id = null) {
 		if (!$asignacione_id) {
-			$this->Session->setFlash(__('The avance cannot be created, please try again.'));
+			$this->Session->setFlash(__('The avance cannot be created, please try again.'), 'flash_error');
 			return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 		}
 		$auth_user = $this->Session->read('Auth.User');
@@ -46,10 +46,10 @@ class AvancesController extends AppController {
 			if ($this->Avance->saveWithAttachments($this->request->data, 'Avance')) {
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
 				$this->Avance->Asignacione->save($asignacione);
-				$this->Session->setFlash(__('The avance has been saved.'));
+				$this->Session->setFlash(__('The avance has been saved.'), 'flash_success');
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'view', $asignacione_id));
 			} else {
-				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'), 'flash_error');
 			}
 		}
 		$this->Avance->User->recursive = -1;
@@ -75,10 +75,10 @@ class AvancesController extends AppController {
 				$asignacione = $this->Avance->Asignacione->findById($avance['Avance']['asignacione_id']);
 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
 				$this->Avance->Asignacione->save($asignacione);
-				$this->Session->setFlash(__('The avance has been saved.'));
+				$this->Session->setFlash(__('The avance has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $id));
 			} else {
-				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The avance could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$options = array('conditions' => array('Avance.' . $this->Avance->primaryKey => $id));
@@ -105,9 +105,9 @@ class AvancesController extends AppController {
 		$avance = $this->Avance->findById($id);
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Avance->delete()) {
-			$this->Session->setFlash(__('The avance has been deleted.'));
+			$this->Session->setFlash(__('The avance has been deleted.'), 'flash_success');
 		} else {
-			$this->Session->setFlash(__('The avance could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The avance could not be deleted. Please, try again.'), 'flash_success');
 		}
 		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'view', $avance['Avance']['asignacione_id']));
 	}

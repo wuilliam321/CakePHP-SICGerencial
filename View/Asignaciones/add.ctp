@@ -39,14 +39,14 @@
 				<div class="form-group">
 					<?php echo $this->Form->label('fecha_asignacion', null, array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
-						<?php echo $this->Form->input('fecha_asignacion', array('type' => 'text', 'value' => date('Y-m-d H:i:s'), 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
+						<?php echo $this->Form->input('fecha_asignacion', array('type' => 'text', 'value' => date('Y-m-d H:i:s'), 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="fa fa-calendar"></span></div>', 'escape' => false)); ?>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<?php echo $this->Form->label('fecha_entrega', null, array('class' => 'col-xs-4 control-label')); ?>
 					<div class="col-xs-8">
-						<?php echo $this->Form->input('fecha_entrega', array('type' => 'text', 'value' => date('Y-m-d H:i:s'), 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>', 'escape' => false)); ?>
+						<?php echo $this->Form->input('fecha_entrega', array('type' => 'text', 'div' => array('class' => 'input-group'), 'after' => '<div class="input-group-addon"><span class="fa fa-calendar"></span></div>', 'escape' => false)); ?>
 					</div>
 				</div>
 

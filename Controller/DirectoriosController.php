@@ -55,10 +55,10 @@ class DirectoriosController extends AppController {
 			$this->request->data['Punto'] = Hash::filter($this->request->data['Punto']);
 			if ($this->Directorio->saveWithAttachments($this->request->data, 'Directorio')) {
 				$this->increase_contador('D');
-				$this->Session->setFlash(__('The directorio has been saved.'));
+				$this->Session->setFlash(__('The directorio has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $this->Directorio->getLastInsertID()));
 			} else {
-				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$this->request->data['Directorio']['codigo'] = $this->get_last_code('D');
@@ -96,10 +96,10 @@ class DirectoriosController extends AppController {
 					// $this->Directorio->Punto->deleteAll(array('conditions' => array('Punto.id' => $puntos_ids_delete)));
 					$this->Directorio->Punto->delete($puntos_ids_delete);
 				}
-				$this->Session->setFlash(__('The directorio has been saved.'));
+				$this->Session->setFlash(__('The directorio has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $id));
 			} else {
-				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The directorio could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$options = array('conditions' => array('Directorio.' . $this->Directorio->primaryKey => $id));
@@ -134,9 +134,9 @@ class DirectoriosController extends AppController {
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Directorio->delete()) {
 			$this->decrease_contador('D');
-			$this->Session->setFlash(__('The directorio has been deleted.'));
+			$this->Session->setFlash(__('The directorio has been deleted.'), 'flash_success');
 		} else {
-			$this->Session->setFlash(__('The directorio could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The directorio could not be deleted. Please, try again.'), 'flash_error');
 		}
 		return $this->redirect(array('controller' => 'asignaciones', 'action' => 'index'));
 	}

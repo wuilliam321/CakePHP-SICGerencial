@@ -248,10 +248,10 @@ class AsignacionesController extends AppController {
 				} else {
 					$this->increase_contador('A');
 				}
-				$this->Session->setFlash(__('The asignacione has been saved.'));
+				$this->Session->setFlash(__('The asignacione has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $this->Asignacione->getLastInsertID()));
 			} else {
-				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$this->request->data['Asignacione']['codigo'] = $this->get_last_code('A');
@@ -277,10 +277,10 @@ class AsignacionesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Asignacione->saveWithAttachments($this->request->data, 'Asignacione')) {
-				$this->Session->setFlash(__('The asignacione has been saved.'));
+				$this->Session->setFlash(__('The asignacione has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $id));
 			} else {
-				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'), 'flash_error');
 			}
 		} else {
 			$options = array('conditions' => array('Asignacione.' . $this->Asignacione->primaryKey => $id));
@@ -342,9 +342,9 @@ class AsignacionesController extends AppController {
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Asignacione->delete()) {
 			$this->decrease_contador('A');
-			$this->Session->setFlash(__('The asignacione has been deleted.'));
+			$this->Session->setFlash(__('The asignacione has been deleted.'), 'flash_success');
 		} else {
-			$this->Session->setFlash(__('The asignacione could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The asignacione could not be deleted. Please, try again.'), 'flash_error');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
@@ -435,9 +435,9 @@ class AsignacionesController extends AppController {
 			$asignacione = $this->Asignacione->findById($id);
 			$asignacione['Asignacione']['completada'] = 1;
 			if ($this->Asignacione->save($asignacione)) {
-				$this->Session->setFlash(__('The asignacione has been ended.'));
+				$this->Session->setFlash(__('The asignacione has been ended.'), 'flash_success');
 			} else {
-				$this->Session->setFlash(__('The asignacione could not be ended. Please, try again.'));
+				$this->Session->setFlash(__('The asignacione could not be ended. Please, try again.'), 'flash_error');
 			}
 		}
 		return $this->redirect(array('action' => 'index'));
