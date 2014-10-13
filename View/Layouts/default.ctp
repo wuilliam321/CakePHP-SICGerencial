@@ -68,6 +68,7 @@
 
 	<?php
 	echo $this->Html->css(array(
+        'bootstrap-glyphicons.css',
 		'bootstrap-datetimepicker.min',
 		'bootstrap-multiselect',
 		'main'
