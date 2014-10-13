@@ -108,7 +108,7 @@
         <?php $controller = $this->request->params['controller']; ?>
         <ul class="nav navbar-nav">
             <li>
-                <?php echo $this->Html->link(__('<i class="fa fa-list"></i> %s</a> ', __('Resumen')), array('controller' => 'resumen', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'resumen') ? 'active' : '')); ?>
+                <?php echo $this->Html->link(__('<i class="fa fa-user"></i> %s</a> ', $auth_user['name']), array('controller' => 'resumen', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'resumen') ? 'active' : '')); ?>
             </li>
             <li>
                 <?php echo $this->Html->link(__('<i class="fa fa-tag"></i> %s</a> ', __('Asignaciones')), array('controller' => 'asignaciones', 'action' => 'index'), array('escape' => false, 'class' => ($controller == 'asignaciones') ? 'active' : '')); ?>
