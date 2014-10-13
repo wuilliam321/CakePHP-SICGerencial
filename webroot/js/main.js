@@ -57,8 +57,8 @@ $(function () {
 		$(selector).next().children().addClass('col-xs-12');
 	});
 
-	$('input[name*=fecha').data('date-format', 'YYYY-MM-DD hh:mm:ss');
-	$('input[name*=fecha').datetimepicker();
+	$('input[name*=fecha]').data('date-format', 'YYYY-MM-DD hh:mm:ss');
+	$('input[name*=fecha]').datetimepicker();
 
 	if ($( "div.asignaciones-list" ).length) {
 		getAsignaciones("div.asignaciones-list");
