@@ -81,7 +81,7 @@
 				</div>
 
 				<?php if ($parent_id): ?>
-					<?php echo $this->Form->input('comunicacioncategoria_id', array('type' => 'text', 'value' => $parent['Comunicacione']['comunicacioncategoria_id'])); ?>
+					<?php echo $this->Form->input('comunicacioncategoria_id', array('type' => 'hidden', 'value' => $parent['Comunicacione']['comunicacioncategoria_id'])); ?>
 				<?php else: ?>
 					<div class="form-group">
 						<?php echo $this->Form->label('comunicacioncategoria_id', null, array('class' => 'col-xs-2 control-label')); ?>

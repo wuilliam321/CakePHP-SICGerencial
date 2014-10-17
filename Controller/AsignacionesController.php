@@ -98,19 +98,19 @@ class AsignacionesController extends AppController {
 			} else {
 				$asignacione['Asignacione']['bar_class'] = 'danger';
 			}
-			$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
+			$asignacione['Asignacione']['progreso'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
 			$this->Asignacione->save($asignacione);
 
 			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
-			foreach ($asignacione['ChildrenAsignacione'] as &$child) {
-				if ($child['Asignacione']['progreso_tiempo'] < 51) {
-					$child['Asignacione']['bar_class'] = 'danger';
-				} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
-					$child['Asignacione']['bar_class'] = 'warning';
-				} else {
-					$child['Asignacione']['bar_class'] = 'success';
-				}
-			}
+			// foreach ($asignacione['ChildrenAsignacione'] as &$child) {
+			// 	if ($child['Asignacione']['progreso_tiempo'] < 51) {
+			// 		$child['Asignacione']['bar_class'] = 'danger';
+			// 	} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
+			// 		$child['Asignacione']['bar_class'] = 'warning';
+			// 	} else {
+			// 		$child['Asignacione']['bar_class'] = 'success';
+			// 	}
+			// }
 			$asignacione_ids = array_merge(array($asignacione['Asignacione']['id']), Hash::extract($asignacione['ChildrenAsignacione'], '{n}.Asignacione.id'));
 		}
 		$options['conditions'] = array(
@@ -163,19 +163,19 @@ class AsignacionesController extends AppController {
 		} else {
 			$asignacione['Asignacione']['bar_class'] = 'danger';
 		}
-		$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
+		$asignacione['Asignacione']['progreso'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);
 		$this->Asignacione->save($asignacione);
 
 		$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
-		foreach ($asignacione['ChildrenAsignacione'] as &$child) {
-			if ($child['Asignacione']['progreso_tiempo'] < 51) {
-				$child['Asignacione']['bar_class'] = 'danger';
-			} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
-				$child['Asignacione']['bar_class'] = 'warning';
-			} else {
-				$child['Asignacione']['bar_class'] = 'success';
-			}
-		}
+		// foreach ($asignacione['ChildrenAsignacione'] as &$child) {
+		// 	if ($child['Asignacione']['progreso_tiempo'] < 51) {
+		// 		$child['Asignacione']['bar_class'] = 'danger';
+		// 	} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {
+		// 		$child['Asignacione']['bar_class'] = 'warning';
+		// 	} else {
+		// 		$child['Asignacione']['bar_class'] = 'success';
+		// 	}
+		// }
 		$asignacione_ids = array_merge(array($asignacione['Asignacione']['id']), Hash::extract($asignacione['ChildrenAsignacione'], '{n}.Asignacione.id'));
 		
 		$options['conditions'] = array(
