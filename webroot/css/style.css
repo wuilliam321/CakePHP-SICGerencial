@@ -5200,3 +5200,27 @@ a.knowmore_but:hover {
 	padding: 30px 0px 58px 0px;
 }
 
+.blog_postcontent a {
+	text-decoration: underline !important;
+}
+div.directorio {
+	margin-right: 0;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+.opacity50 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+.margin20left {
+	margin-left: 40px;
+}
+.paging {
+	text-align: center;
+}
+.paging span {
+	margin: 2px 4px;
+}

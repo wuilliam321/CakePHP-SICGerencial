@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"auth",
+				"auth_user"
+			],
+			[
 				"pub",
 				"pub_id"
 			],
@@ -307,7 +311,15 @@
 			"file": "Controller/AsignacionesController.php",
 			"settings":
 			{
-				"buffer_size": 18598,
+				"buffer_size": 18638,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "webroot/js/main.js",
+			"settings":
+			{
+				"buffer_size": 3625,
 				"line_ending": "Unix"
 			}
 		},
@@ -356,6 +368,40 @@
 			"settings":
 			{
 				"buffer_size": 7432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Layouts/default.ctp",
+			"settings":
+			{
+				"buffer_size": 12597,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 493 files for \"progreso\" (case sensitive)\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/CakePHP-SICGerencial.sublime-workspace:\n  615  			\"datetimepicker\",\n  616  			\"input[name*=fecha\",\n  617: 			\"progreso_fisico\",\n  618  			\"en.js\",\n  619  			\"lang\",\n  ...\n  627  			\"one\",\n  628  			\"en \",\n  629: 			\"progreso\",\n  630  			\"Asignado\",\n  631  			\"Dependencium\",\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/sicgerencialdb.sql:\n  121    `porcentaje_asignado` int(11) NOT NULL DEFAULT '100',\n  122    `porcentaje_distribuido` int(11) NOT NULL DEFAULT '0',\n  123:   `progreso` int(11) NOT NULL DEFAULT '0',\n  124    `fecha_asignacion` datetime NOT NULL,\n  125    `fecha_entrega` datetime NOT NULL,\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php:\n   88  			$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));\n   89  \n   90: 			$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);\n   91: 			if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {\n   92: 				$asignacione['Asignacione']['progreso_tiempo'] = 100;\n   93  			}\n   94: 			if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {\n   95  				$asignacione['Asignacione']['bar_class'] = 'success';\n   96: 			} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {\n   97  				$asignacione['Asignacione']['bar_class'] = 'warning';\n   98  			} else {\n   99  				$asignacione['Asignacione']['bar_class'] = 'danger';\n  100  			}\n  101: 			$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);\n  102  			$this->Asignacione->save($asignacione);\n  103  \n  104  			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);\n  105  			foreach ($asignacione['ChildrenAsignacione'] as &$child) {\n  106: 				if ($child['Asignacione']['progreso_tiempo'] < 51) {\n  107  					$child['Asignacione']['bar_class'] = 'danger';\n  108: 				} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {\n  109  					$child['Asignacione']['bar_class'] = 'warning';\n  110  				} else {\n  ...\n  153  		$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));\n  154  \n  155: 		$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);\n  156: 		if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {\n  157: 			$asignacione['Asignacione']['progreso_tiempo'] = 100;\n  158  		}\n  159: 		if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {\n  160  			$asignacione['Asignacione']['bar_class'] = 'success';\n  161: 		} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {\n  162  			$asignacione['Asignacione']['bar_class'] = 'warning';\n  163  		} else {\n  164  			$asignacione['Asignacione']['bar_class'] = 'danger';\n  165  		}\n  166: 		$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);\n  167  		$this->Asignacione->save($asignacione);\n  168  \n  169  		$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);\n  170  		foreach ($asignacione['ChildrenAsignacione'] as &$child) {\n  171: 			if ($child['Asignacione']['progreso_tiempo'] < 51) {\n  172  				$child['Asignacione']['bar_class'] = 'danger';\n  173: 			} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {\n  174  				$child['Asignacione']['bar_class'] = 'warning';\n  175  			} else {\n  ...\n  390  			$asignacione['Asignacione']['dias_transcurridos'] = floor($diff / (60*60*24));\n  391  \n  392: 			$asignacione['Asignacione']['progreso_tiempo'] = 100 - ($asignacione['Asignacione']['dias_transcurridos'] * 100 / $asignacione['Asignacione']['dias_disponibles']);\n  393: 			if ($asignacione['Asignacione']['progreso_tiempo'] > 100) {\n  394: 				$asignacione['Asignacione']['progreso_tiempo'] = 100;\n  395  			}\n  396: 			if ($asignacione['Asignacione']['progreso_tiempo'] < 51) {\n  397  				$asignacione['Asignacione']['bar_class'] = 'success';\n  398: 			} else if ($asignacione['Asignacione']['progreso_tiempo'] > 50 && ($asignacione['Asignacione']['progreso_tiempo'] < 80)) {\n  399  				$asignacione['Asignacione']['bar_class'] = 'warning';\n  400  			} else {\n  ...\n  405  			$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);\n  406  			foreach ($asignacione['ChildrenAsignacione'] as &$child) {\n  407: 				if ($child['Asignacione']['progreso_tiempo'] < 51) {\n  408  					$child['Asignacione']['bar_class'] = 'danger';\n  409: 				} else if ($child['Asignacione']['progreso_tiempo'] > 50 && ($child['Asignacione']['progreso_tiempo'] < 80)) {\n  410  					$child['Asignacione']['bar_class'] = 'warning';\n  411  				} else {\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AvancesController.php:\n   45  			$this->request->data['Avance']['user_id'] = $asignacione['Asignacione']['responsable_id'];\n   46  			if ($this->Avance->saveWithAttachments($this->request->data, 'Avance')) {\n   47: 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];\n   48  				$this->Avance->Asignacione->save($asignacione);\n   49  				$this->Session->setFlash(__('The avance has been saved.'), 'flash_success');\n   ..\n   74  				$avance = $this->Avance->findById($id);\n   75  				$asignacione = $this->Avance->Asignacione->findById($avance['Avance']['asignacione_id']);\n   76: 				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];\n   77  				$this->Avance->Asignacione->save($asignacione);\n   78  				$this->Session->setFlash(__('The avance has been saved.'), 'flash_success');\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Locale/default.pot:\n 1257  msgstr \"\"\n 1258  \n 1259: #: Model/Asignacione.php:validation for field asignador_id;validation for field responsable_id;validation for field dependencia_id;validation for field porcentaje_asignado;validation for field progreso\n 1260  #: Model/AsignacionesUser.php:validation for field user_id;validation for field asignacione_id\n 1261  #: Model/Attachment.php:validation for field foreign_key\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Locale/eng/LC_MESSAGES/default.po:\n 1259  msgstr \"\"\n 1260  \n 1261: #: Model/Asignacione.php:validation for field asignador_id;validation for field responsable_id;validation for field dependencia_id;validation for field porcentaje_asignado;validation for field progreso\n 1262  #: Model/AsignacionesUser.php:validation for field user_id;validation for field asignacione_id\n 1263  #: Model/Attachment.php:validation for field foreign_key\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Asignacione.php:\n   98  			),\n   99  		),\n  100: 		'progreso' => array(\n  101  			'numeric' => array(\n  102  				'rule' => array('numeric'),\n  ...\n  256  		$porcentaje_avanzado = 0;\n  257  		foreach ($children as $child) {\n  258: 			$porcentaje_avanzado += ($child['Asignacione']['porcentaje_asignado'] * $child['Asignacione']['progreso']) / 100;\n  259: 			// echo sprintf(\"id=%s asignado=%s avanzado=%s total=%s<br />\", $child['Asignacione']['id'], $child['Asignacione']['porcentaje_asignado'], $child['Asignacione']['progreso'], $porcentaje_avanzado);\n  260  		}\n  261  		return $porcentaje_avanzado;\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/add.ctp:\n   70  <!-- \n   71  				<div class=\"form-group\">\n   72: 					<?php //echo $this->Form->label('progreso', null, array('class' => 'col-xs-4 control-label')); ?>\n   73  					<div class=\"col-xs-8\">\n   74: 						<?php //echo $this->Form->input('progreso', array('max' => 100, 'min' => 0, 'value' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class=\"input-group-addon\">%</div>', 'escape' => false)); ?>\n   75  					</div>\n   76  				</div> -->\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/edit.ctp:\n  136  \n  137  				<div class=\"form-group\">\n  138: 					<?php //echo $this->Form->label('progreso', null, array('class' => 'col-xs-4 control-label')); ?>\n  139  					<div class=\"col-xs-8\">\n  140: 						<?php //echo $this->Form->input('progreso', array('max' => 100, 'min' => 0, 'div' => array('class' => 'input-group'), 'after' => '<div class=\"input-group-addon\">%</div>', 'escape' => false)); ?>\n  141  					</div>\n  142  				</div> -->\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/get_asignaciones.ctp:\n   31  							<div class=\"col-xs-6\">\n   32  								<div class=\"progress\">\n   33: 									<div class=\"progress-bar progress-bar-<?php echo $asignacione['Asignacione']['bar_class']; ?>\" role=\"progressbar\" aria-valuenow=\"<?php echo $asignacione['Asignacione']['progreso']; ?>\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: <?php echo $asignacione['Asignacione']['progreso']; ?>%\">\n   34: 										<span><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</span>\n   35  									</div>\n   36  								</div>\n   ..\n  151  																<div class=\"col-xs-6\">\n  152  																	<div class=\"progress\">\n  153: 																		<div class=\"progress-bar progress-bar-<?php echo $children_asignacione['Asignacione']['bar_class']; ?>\" role=\"progressbar\" aria-valuenow=\"<?php echo $children_asignacione['Asignacione']['progreso']; ?>\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: <?php echo $children_asignacione['Asignacione']['progreso']; ?>%\">\n  154: 																			<span><?php echo $children_asignacione['Asignacione']['progreso']; ?>%</span>\n  155  																		</div>\n  156  																	</div>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/index.ctp:\n   40  						</ul>\n   41  						<div class=\"clearfix\"></div>\n   42: 						<div class=\"progreso one_full\">\n   43  							<div class=\"three_fourth\">\n   44  					            <div class=\"progress_bar ui-progress-bar ui-container\">\n   45: 					            	<div class=\"ui-progress\" data-progress=\"<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%</b></span></div>\n   46  					            </div><!-- end section -->\n   47  				           </div>\n   ..\n   51  			            </div>\n   52  						<div class=\"clearfix\"></div>\n   53: 						<div class=\"progreso one_full\">\n   54  							<div class=\"three_fourth\">\n   55  					            <div class=\"progress_bar ui-progress-bar ui-container\">\n   56: 					            	<div class=\"ui-progress green\" data-progress=\"<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>\n   57  					            </div><!-- end section -->\n   58  				           </div>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/view.ctp:\n   64  				</ul>\n   65  				<div class=\"clearfix\"></div>\n   66: 				<div class=\"progreso one_full\">\n   67  					<div class=\"three_fourth\">\n   68  						<div class=\"progress_bar ui-progress-bar ui-container\">\n   69: 							<div class=\"ui-progress\" data-progress=\"<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_tiempo'], 0); ?>%</b></span></div>\n   70  						</div><!-- end section -->\n   71  					</div>\n   ..\n   75  				</div>\n   76  				<div class=\"clearfix\"></div>\n   77: 				<div class=\"progreso one_full\">\n   78  					<div class=\"three_fourth\">\n   79  						<div class=\"progress_bar ui-progress-bar ui-container\">\n   80: 							<div class=\"ui-progress green\" data-progress=\"<?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>\n   81  						</div><!-- end section -->\n   82  					</div>\n   ..\n  125  									</ul>\n  126  									<div class=\"clearfix\"></div>\n  127: 									<div class=\"progreso one_full\">\n  128  										<div class=\"two_third\">\n  129  								            <div class=\"progress_bar ui-progress-bar ui-container\">\n  130: 								            	<div class=\"ui-progress\" data-progress=\"<?php echo $this->Number->precision($children_asignacione['Asignacione']['progreso'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision($children_asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>\n  131  								            </div><!-- end section -->\n  132  							           </div>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/view.ctp:\n  152  			<td><?php echo $asignador['porcentaje_asignado']; ?></td>\n  153  			<td><?php echo $asignador['porcentaje_distribuido']; ?></td>\n  154: 			<td><?php echo $asignador['progreso']; ?></td>\n  155: 			<td><?php echo $asignador['progreso_tiempo']; ?></td>\n  156: 			<td><?php echo $asignador['progreso_fisico']; ?></td>\n  157  			<td><?php echo $asignador['fecha_asignacion']; ?></td>\n  158  			<td><?php echo $asignador['fecha_entrega']; ?></td>\n  ...\n  221  			<td><?php echo $responsable['porcentaje_asignado']; ?></td>\n  222  			<td><?php echo $responsable['porcentaje_distribuido']; ?></td>\n  223: 			<td><?php echo $responsable['progreso']; ?></td>\n  224: 			<td><?php echo $responsable['progreso_tiempo']; ?></td>\n  225: 			<td><?php echo $responsable['progreso_fisico']; ?></td>\n  226  			<td><?php echo $responsable['fecha_asignacion']; ?></td>\n  227  			<td><?php echo $responsable['fecha_entrega']; ?></td>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/tmp/cache/models/CakePHP-SICGerencial_cake_model_default_sicgerencialdb_asignaciones:\n    1  1413559131\n    2: a:22:{s:2:\"id\";a:6:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;s:3:\"key\";s:7:\"primary\";}s:6:\"codigo\";a:6:{s:4:\"type\";s:6:\"string\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:10;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:12:\"asignador_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:14:\"responsable_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:14:\"dependencia_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:6:\"titulo\";a:6:{s:4:\"type\";s:4:\"text\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:8:\"detalles\";a:6:{s:4:\"type\";s:4:\"text\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:19:\"porcentaje_asignado\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:3:\"100\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:22:\"porcentaje_distribuido\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:8:\"progreso\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:15:\"progreso_tiempo\";a:5:{s:4:\"type\";s:7:\"decimal\";s:4:\"null\";b:0;s:7:\"default\";s:4:\"0.00\";s:6:\"length\";s:4:\"10,2\";s:8:\"unsigned\";b:0;}s:15:\"progreso_fisico\";a:5:{s:4:\"type\";s:7:\"decimal\";s:4:\"null\";b:0;s:7:\"default\";s:4:\"0.00\";s:6:\"length\";s:4:\"10,2\";s:8:\"unsigned\";b:0;}s:16:\"fecha_asignacion\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;}s:13:\"fecha_entrega\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;}s:15:\"fecha_recepcion\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}s:9:\"parent_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:10:\"completada\";a:4:{s:4:\"type\";s:7:\"boolean\";s:4:\"null\";b:1;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:1;}s:3:\"lft\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:10;s:8:\"unsigned\";b:0;}s:4:\"rght\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:10;s:8:\"unsigned\";b:0;}s:8:\"es_nueva\";a:4:{s:4:\"type\";s:7:\"boolean\";s:4:\"null\";b:1;s:7:\"default\";s:1:\"1\";s:6:\"length\";i:1;}s:7:\"created\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}s:8:\"modified\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}}\n    3  \n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/tmp/cache/persistent/CakePHP-SICGerencial_cake_core_method_cache:\n    1  1413559132\n    2: a:2:{s:4:\"name\";a:242:{s:32:\"315339deed20d2d0a1690d7b3599eef6\";s:8:\"`authdb`\";s:32:\"f94a437fb7858e092079378f93ef2c71\";s:7:\"`users`\";s:32:\"84aed5ca7734df237971a8964bd0217a\";s:11:\"`User`.`id`\";s:32:\"441e6eaad1b5f34da125c63e3ecd7702\";s:17:\"`User`.`username`\";s:32:\"46bea0d8cb0ffa1c5c7f63ad1e39035b\";s:17:\"`User`.`password`\";s:32:\"f31b09fae7200dfc89ccc15231d19899\";s:19:\"`User`.`first_name`\";s:32:\"1f06cca51d67259108baa9a6977b3df6\";s:18:\"`User`.`last_name`\";s:32:\"005867d5978d2edea8113f2b40728a90\";s:17:\"`User`.`group_id`\";s:32:\"a32d76427ad67cd0d62814f151337885\";s:14:\"`User`.`cargo`\";s:32:\"655616af09a4d136eca1b18964f0e43c\";s:16:\"`User`.`created`\";s:32:\"99bf0d2ad6325fefe617717ec0f141d9\";s:17:\"`User`.`modified`\";s:32:\"3996ef140ac43c15b2a9b81d07049bf5\";s:18:\"`User`.`bloqueado`\";s:32:\"476a51774fc2dbe7c9ab95fa9f14620b\";s:12:\"`User__name`\";s:32:\"457210bfb2f7e5bb11bfb2b8d217065b\";s:3:\"\" \"\";s:32:\"eb9b37fa6fe3e5c49f921ddcd721b306\";s:6:\"`User`\";s:32:\"2d9974a4f175f55f431264cea4f497f4\";s:16:\"`sicgerencialdb`\";s:32:\"2663874933c8658180b199cb9b63150e\";s:6:\"`aros`\";s:32:\"6757d590d5a38f1db191703f3d0f541c\";s:10:\"`Aro`.`id`\";s:32:\"bee9a4e573e74d8d8f048d4c570ec593\";s:17:\"`Aro`.`parent_id`\";s:32:\"8baf47e6f57fc0835f3af65f78b3c63b\";s:13:\"`Aro`.`model`\";s:32:\"6bb3e12854f63a63cc7c6d49f3866715\";s:19:\"`Aro`.`foreign_key`\";s:32:\"6d8b84b3bc866042b62a19f3e5cc4339\";s:13:\"`Aro`.`alias`\";s:32:\"b9fb13d5a25c545d6d867b229e9f5dee\";s:11:\"`Aro`.`lft`\";s:32:\"1c86c5854f29038d87fdd7eacb73d1c6\";s:12:\"`Aro`.`rght`\";s:32:\"a30ee26c6b598614397ab9db3c5106f6\";s:11:\"`parent_id`\";s:32:\"5712f09f0c04c88c1d9d4495ffcf19b7\";s:13:\"`foreign_key`\";s:32:\"3c0f34f3bed13892326d9b6d8b32914c\";s:5:\"`Aro`\";s:32:\"f5cee1198c33f5463c6587f24c295119\";s:11:\"`aros_acos`\";s:32:\"8fbd336601f19a5b6d880f08ad6ac02f\";s:17:\"`Permission`.`id`\";s:32:\"155ddac34f1c3835d8bc8fb5b458ff30\";s:21:\"`Permission`.`aro_id`\";s:32:\"210ad78d5b124f266b0549d4ecad3c42\";s:21:\"`Permission`.`aco_id`\";s:32:\"7c4514c017fda228a0b0967b020a4922\";s:22:\"`Permission`.`_create`\";s:32:\"5d30e7901d865b8f227cf49b31ab34a5\";s:20:\"`Permission`.`_read`\";s:32:\"be5bf6afdcf6eae57c8f00ef6377aba7\";s:22:\"`Permission`.`_update`\";s:32:\"b6d4dc75a1b5ba368415eebe28399ae0\";s:22:\"`Permission`.`_delete`\";s:32:\"6492529ec34b27c5ee2e252433be0bce\";s:6:\"`acos`\";s:32:\"a88a37992525ad1a2c88c163fbdfc68e\";s:10:\"`Aco`.`id`\";s:32:\"7b8749f8d2655f4e136ab4d5cde0d586\";s:17:\"`Aco`.`parent_id`\";s:32:\"78e8d574613fbec7f43268c9a99010b5\";s:13:\"`Aco`.`model`\";s:32:\"22c929a76e87992232a9e92fd87ab757\";s:19:\"`Aco`.`foreign_key`\";s:32:\"945bb1c131796e323b226188bcc30fea\";s:13:\"`Aco`.`alias`\";s:32:\"dee5e334806b4dc670ebf511d7f6338f\";s:11:\"`Aco`.`lft`\";s:32:\"b59a394e92178ad46e31ad468862944c\";s:12:\"`Aco`.`rght`\";s:32:\"7a0e9062e627b1d4be66614a31225138\";s:12:\"`Permission`\";s:32:\"a211372ea2f82dd4f33e9a8db80c3c30\";s:5:\"`Aco`\";s:32:\"47eb7bb09414c64f779510914712b6ee\";s:7:\"`count`\";s:32:\"d2c23d1b4feeec456d72cdc94cc44595\";s:4:\"`id`\";s:32:\"6d77646a2fd9ab65f8e3344d7dce661a\";s:10:\"`username`\";s:32:\"6aa91a7fbb8c9edcf4aa5f9411aec19c\";s:10:\"`password`\";s:32:\"a3ff7934435e6c0d8c526b6cb5883e75\";s:12:\"`first_name`\";s:32:\"dd2209550bf4103b608dd004e06bedfd\";s:11:\"`last_name`\";s:32:\"ee36261ee97de5be35e05d3f6045738e\";s:10:\"`group_id`\";s:32:\"a3a41eba6e4a6812f6123cd7db0d68ad\";s:7:\"`cargo`\";s:32:\"d20e7bceeb0135a07432718f0d5096d7\";s:9:\"`created`\";s:32:\"472551d38e1f8bbc78d7dfd28106166f\";s:10:\"`modified`\";s:32:\"69bb84660fb6ca93140b7f6c6dd40db0\";s:11:\"`bloqueado`\";s:32:\"569d4ca3dd266ab7425fb7b9b2cc3816\";s:21:\"`authdb`.`users`.`id`\";s:32:\"10a20e2b4ffc7a7d620dc5dd28f0fda9\";s:12:\"`Aro0`.`lft`\";s:32:\"b8374494561f51798ca53e77b9cefd1e\";s:13:\"`Aro0`.`rght`\";s:32:\"b2d18364e2856fa4686e9ca526f43f6c\";s:6:\"`Aro0`\";s:32:\"7b4c0ae39f9dcd093461a91c5e2fdf94\";s:14:\"`Aro0`.`model`\";s:32:\"5043dd60f8e0665b6c4f64200339488c\";s:20:\"`Aro0`.`foreign_key`\";s:32:\"75fbdb0f842b8a8241449274c4846fe4\";s:10:\"`Aro`.`id`\";s:32:\"e20db5dbee8e3a4fe1108c8362a51046\";s:7:\"`model`\";s:32:\"3668619f75ff743b8968dc130412fde4\";s:28:\"`sicgerencialdb`.`aros`.`id`\";s:32:\"7dec36df8f588a081cd1049ca3b658bf\";s:12:\"`Aco0`.`lft`\";s:32:\"44c2b48ccd654c98f76860d7b0989d2d\";s:13:\"`Aco0`.`rght`\";s:32:\"03f01e951de799318b1426a3e4632d5f\";s:12:\"`Aco1`.`lft`\";s:32:\"d922caa0e294a1a473aae6149e0496bc\";s:13:\"`Aco1`.`rght`\";s:32:\"768781c26cd7ca791b8dd5321353071c\";s:14:\"`Aco1`.`alias`\";s:32:\"21bc9f6e4ac25b2af7d893f3933b621d\";s:11:\"`Aco0`.`id`\";s:32:\"9035cb9626773edaf9aa76fb6eefb373\";s:18:\"`Aco1`.`parent_id`\";s:32:\"a0977c3f52e808e88a5269c07fbddf2a\";s:12:\"`Aco2`.`lft`\";s:32:\"8dbc38f7cd8a6f6dbbfc4778c83aac59\";s:13:\"`Aco2`.`rght`\";s:32:\"8b3332594d289d76b987fa787098ab53\";s:14:\"`Aco2`.`alias`\";s:32:\"1bd13fefbd9c356bd625ef023a1228a0\";s:11:\"`Aco1`.`id`\";s:32:\"23b9ba0046c9d4a9077d58e75f4ea033\";s:18:\"`Aco2`.`parent_id`\";s:32:\"d01581af8ddfee34c57e664b5a716397\";s:6:\"`Aco0`\";s:32:\"a25df345341ede036ba291fcda03654c\";s:14:\"`Aco0`.`alias`\";s:32:\"b04160cc99cd9133adc258edc51b3c30\";s:6:\"`Aco1`\";s:32:\"f120d866c0db1bddc1864e9f6f04a323\";s:14:\"'Asignaciones'\";s:32:\"8dd1fc666952c52e7e23b98ec5b188e8\";s:6:\"`Aco2`\";s:32:\"162f5869e48b1cae6052711b8b0541e9\";s:7:\"'index'\";s:32:\"b4a388d56a513fe9d8c284bb32a6c5ff\";s:14:\"`asignaciones`\";s:32:\"f4e88246b8f2b7758e3617a4f426a2ef\";s:18:\"`Asignacione`.`id`\";s:32:\"c7ac5e733a620cc99c4a3209902be026\";s:22:\"`Asignacione`.`codigo`\";s:32:\"1cf8146786214b8987706e3460d5abe3\";s:28:\"`Asignacione`.`asignador_id`\";s:32:\"e1b23b7fe517f4a3c92a8acd502734b3\";s:30:\"`Asignacione`.`responsable_id`\";s:32:\"26c85cca3dfdc84e1a39168c55426c90\";s:30:\"`Asignacione`.`dependencia_id`\";s:32:\"b402053806058a3da4251fff9ba10b4a\";s:22:\"`Asignacione`.`titulo`\";s:32:\"24536946613edf6fecf52da950ae7a9a\";s:24:\"`Asignacione`.`detalles`\";s:32:\"a2fa0052062de47bda4e8d566e84367e\";s:35:\"`Asignacione`.`porcentaje_asignado`\";s:32:\"a601ee6379ea932953a9a15068fee899\";s:38:\"`Asignacione`.`porcentaje_distribuido`\";s:32:\"81280f678a29185acc930ea52f3c2877\";s:24:\"`Asignacione`.`progreso`\";s:32:\"a0b060531ac1c63ad3d3183ef30f7871\";s:31:\"`Asignacione`.`progreso_tiempo`\";s:32:\"6946447da7a107ee7aa2fd24571ee15f\";s:31:\"`Asignacione`.`progreso_fisico`\";s:32:\"c838bcb4debc30b15a69b9f492b22d01\";s:32:\"`Asignacione`.`fecha_asignacion`\";s:32:\"310b41fe36e174fceec43d434e20796a\";s:29:\"`Asignacione`.`fecha_entrega`\";s:32:\"9b9567cece333e9ad235077a638fddfd\";s:31:\"`Asignacione`.`fecha_recepcion`\";s:32:\"1d3cf56ec4ecbe783aecd7d48c861434\";s:25:\"`Asignacione`.`parent_id`\";s:32:\"d9743df4b15de78eb0f2eaf0deeadc99\";s:26:\"`Asignacione`.`completada`\";s:32:\"347adfc564b3c08faf0ea1810c09acbc\";s:19:\"`Asignacione`.`lft`\";s:32:\"947ab65cc596f559af5ab1b98bd37f8c\";s:20:\"`Asignacione`.`rght`\";s:32:\"b3a235bcff5a90056b17294ad01d5cb6\";s:24:\"`Asignacione`.`es_nueva`\";s:32:\"246b3c5b85f52b06f3d52c0e1717e1b8\";s:23:\"`Asignacione`.`created`\";s:32:\"8eadce1eb5a1ffdfe004c32224f20e23\";s:24:\"`Asignacione`.`modified`\";s:32:\"b6192985ded3c5e4a255f58bc9047d7c\";s:24:\"`ParentAsignacione`.`id`\";s:32:\"75fa00e77691d148f28b5c386be793cb\";s:28:\"`ParentAsignacione`.`codigo`\";s:32:\"e5e780041dccd1a945bc9e469bff03e2\";s:34:\"`ParentAsignacione`.`asignador_id`\";s:32:\"44df4ecf48b3af483ea6bb0021cbf72d\";s:36:\"`ParentAsignacione`.`responsable_id`\";s:32:\"c42a91d71ab44cfd30728fab01068a18\";s:36:\"`ParentAsignacione`.`dependencia_id`\";s:32:\"a5287061336f0c8b4d2f6fc493436633\";s:28:\"`ParentAsignacione`.`titulo`\";s:32:\"42a2a6f94054f40818d550a922a23ec1\";s:30:\"`ParentAsignacione`.`detalles`\";s:32:\"9f68819000ad094de63e08fc24ead113\";s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";s:32:\"d0829bd74f497a0b4e18345c0a598b4f\";s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";s:32:\"243c22d7906c099bb133ed4233b70383\";s:30:\"`ParentAsignacione`.`progreso`\";s:32:\"8729d1a381ebd9532bb8891736d39c82\";s:37:\"`ParentAsignacione`.`progreso_tiempo`\";s:32:\"46f414d4a49e54e8942a7660744b701c\";s:37:\"`ParentAsignacione`.`progreso_fisico`\";s:32:\"39d46eb8c5b314120f29e5a9bdfa69a6\";s:38:\"`ParentAsignacione`.`fecha_asignacion`\";s:32:\"84b913e35e714c3edfbc36e8ea91b247\";s:35:\"`ParentAsignacione`.`fecha_entrega`\";s:32:\"04a5f3eb699d69795dc2e4742b7c12aa\";s:37:\"`ParentAsignacione`.`fecha_recepcion`\";s:32:\"2633803080a6584696699c896ffcadb9\";s:31:\"`ParentAsignacione`.`parent_id`\";s:32:\"9b1a99f86f188f8c78a3a0608168045f\";s:32:\"`ParentAsignacione`.`completada`\";s:32:\"3775ff5c7b109f63086c1571e95ef299\";s:25:\"`ParentAsignacione`.`lft`\";s:32:\"2ba62c2fac1b2425fd1950ff2889e123\";s:26:\"`ParentAsignacione`.`rght`\";s:32:\"0bc6addb48d57413dc81091104cac9bd\";s:30:\"`ParentAsignacione`.`es_nueva`\";s:32:\"160b105159cd666fc5346f4159a63068\";s:29:\"`ParentAsignacione`.`created`\";s:32:\"560f82eb53669fc1c6fbf19abc2a9ac8\";s:30:\"`ParentAsignacione`.`modified`\";s:32:\"815eb1f0f04b4f763f6047dc95797258\";s:19:\"`ParentAsignacione`\";s:32:\"391c356e7c737f6633d8fb05ec12a951\";s:13:\"`Asignacione`\";s:32:\"cb11380d6b6d971a37546858e9dc5ed4\";s:16:\"`Asignador`.`id`\";s:32:\"7389c5f1e8e8f19ccd13cf00529cadeb\";s:22:\"`Asignador`.`username`\";s:32:\"784b4875728f8151b493d1e9ebad087e\";s:22:\"`Asignador`.`password`\";s:32:\"b400fe3222bd93e715940963a78daa90\";s:24:\"`Asignador`.`first_name`\";s:32:\"923ea7449083bb5e905afe8fca27af03\";s:23:\"`Asignador`.`last_name`\";s:32:\"f4acf6a43f114ee38a691309ab123465\";s:22:\"`Asignador`.`group_id`\";s:32:\"e56a3cff2b84161875fdf92e73745a82\";s:19:\"`Asignador`.`cargo`\";s:32:\"da57027a1fb66356c6ccf3b3517222f7\";s:21:\"`Asignador`.`created`\";s:32:\"70b461e58aa0e689b39c5d4491789a6d\";s:22:\"`Asignador`.`modified`\";s:32:\"f98f9df4cabf889bb4355f742be6edff\";s:23:\"`Asignador`.`bloqueado`\";s:32:\"30af21819de180f2cca5d671c4505366\";s:17:\"`Asignador__name`\";s:32:\"b9058ca92dfc940d2a730002cae40a49\";s:11:\"`Asignador`\";s:32:\"a1b78bf1c9bb05ab55257568e83f22a5\";s:18:\"`Responsable`.`id`\";s:32:\"ee334451a9e5664e1a3ee154d83b9e77\";s:24:\"`Responsable`.`username`\";s:32:\"8d5e735f31952e8f45027e4433d12818\";s:24:\"`Responsable`.`password`\";s:32:\"93ba974c8079024836a0200e911f0824\";s:26:\"`Responsable`.`first_name`\";s:32:\"a828e5a4d7ecb316a45a0a9ae412b18c\";s:25:\"`Responsable`.`last_name`\";s:32:\"d562cca907dbe9c1527b2a97b2d88bba\";s:24:\"`Responsable`.`group_id`\";s:32:\"09798b2804d14ed8e70f2fd4b38f381f\";s:21:\"`Responsable`.`cargo`\";s:32:\"03c21bdbe1434614feba5725d9902cc1\";s:23:\"`Responsable`.`created`\";s:32:\"26702bc58b1cf0feb759501ed7a14cfe\";s:24:\"`Responsable`.`modified`\";s:32:\"5cd37dd64a182221deff85ca5f0581b1\";s:25:\"`Responsable`.`bloqueado`\";s:32:\"2524221b00d6edb37fa01c24bbb0313c\";s:19:\"`Responsable__name`\";s:32:\"2886eb05b061b15b67f3444d5602f7e9\";s:13:\"`Responsable`\";s:32:\"b86237b600ec160b5beb2e2bafd6fe05\";s:14:\"`dependencias`\";s:32:\"47abd1c697ee47c1e635561e9eab6783\";s:18:\"`Dependencia`.`id`\";s:32:\"22ac8bfa03d350578092ab88b5f0eb72\";s:27:\"`Dependencia`.`descripcion`\";s:32:\"c36940d76e979fc6871ff04cfa47ba3a\";s:25:\"`Dependencia`.`iniciales`\";s:32:\"788dd69c904822d8ef04f98798e707c3\";s:39:\"`Dependencia`.`dependenciacategoria_id`\";s:32:\"d5ed4525f398ea1de6d9e77ec9f4f51c\";s:13:\"`Dependencia`\";s:32:\"979f45d292372843145c7a70b4a9fd6f\";s:13:\"`attachments`\";s:32:\"68f9976255bd7f4f151c4a4916929b5e\";s:17:\"`Attachment`.`id`\";s:32:\"4da6d15093a153104e5f75c6297a9af1\";s:20:\"`Attachment`.`model`\";s:32:\"f8a4011e7f2621b96f32f2718ce715cc\";s:26:\"`Attachment`.`foreign_key`\";s:32:\"c12375e0262621d0575c1e8d5b39d3b9\";s:19:\"`Attachment`.`name`\";s:32:\"08e01fcb44da3f7d2e301ce068d1b079\";s:25:\"`Attachment`.`attachment`\";s:32:\"d4cb2b4e143cdd28f7b695b1fe8c7be8\";s:18:\"`Attachment`.`dir`\";s:32:\"282070dc7e51d65627bd9f306a140163\";s:19:\"`Attachment`.`type`\";s:32:\"1ffd53ebb5c6688b3329b5533744652e\";s:19:\"`Attachment`.`size`\";s:32:\"7f8919cb6ce06edb4cd8c56c888f923b\";s:21:\"`Attachment`.`active`\";s:32:\"9d5daac7b47c14533160717349a7dcd7\";s:12:\"`Attachment`\";s:32:\"b4b11f93e5ca16fb04a0becb5d555faa\";s:9:\"`avances`\";s:32:\"57319748b955a983b1038daf689df8ce\";s:13:\"`Avance`.`id`\";s:32:\"3333577a85c0c0bfde6394f82344ece5\";s:25:\"`Avance`.`asignacione_id`\";s:32:\"0efd7b2f1ce61ca168a665689edaf0fd\";s:18:\"`Avance`.`user_id`\";s:32:\"f175fe45f8ce5ff8dcef6ad2fc57bf31\";s:19:\"`Avance`.`detalles`\";s:32:\"4cdfeb8dc1e0a7d6bab776730422f35f\";s:30:\"`Avance`.`porcentaje_avanzado`\";s:32:\"b6697dca4d3c0970c49bc28a6e68d02e\";s:19:\"`Avance`.`es_nueva`\";s:32:\"02409b4844c450f45bc65c8816e2a5c0\";s:18:\"`Avance`.`created`\";s:32:\"bbe53fc0194548a70b7f86cc0ee464c5\";s:19:\"`Avance`.`modified`\";s:32:\"430162155971c3bba95850583e446fd6\";s:8:\"`Avance`\";s:32:\"82690b2258477b960e44d9c3fe7301dd\";s:23:\"`ChildAsignacione`.`id`\";s:32:\"f195aebee116cccd8b516769d6e3375b\";s:27:\"`ChildAsignacione`.`codigo`\";s:32:\"8d2785c14336c6374e5687380701a3b4\";s:33:\"`ChildAsignacione`.`asignador_id`\";s:32:\"cde405ed792fa9340428808184747607\";s:35:\"`ChildAsignacione`.`responsable_id`\";s:32:\"6006ae2a8d6eec164594bef47eb723d1\";s:35:\"`ChildAsignacione`.`dependencia_id`\";s:32:\"7a090b6e8f9e1614e5b72ab469b53a31\";s:27:\"`ChildAsignacione`.`titulo`\";s:32:\"4d7e54971a91656319ff0a6f376fb1a3\";s:29:\"`ChildAsignacione`.`detalles`\";s:32:\"8d4453955e16bd076457307a74ac5190\";s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";s:32:\"44d89ea76f554f362bd232ca3529ee9f\";s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";s:32:\"bb3c8336bc8cfc277e06a2ad6595b441\";s:29:\"`ChildAsignacione`.`progreso`\";s:32:\"0fd6fe46c581d30b372fa9e3998a8ae2\";s:36:\"`ChildAsignacione`.`progreso_tiempo`\";s:32:\"b241ab87e0e5376e23ae4aca73755fff\";s:36:\"`ChildAsignacione`.`progreso_fisico`\";s:32:\"3e55d6ac843fac151c8a036c43ce2df9\";s:37:\"`ChildAsignacione`.`fecha_asignacion`\";s:32:\"c6008619552fca51cfd6fafe5719bfdc\";s:34:\"`ChildAsignacione`.`fecha_entrega`\";s:32:\"b0d40c2577970214906282af09c2f1f5\";s:36:\"`ChildAsignacione`.`fecha_recepcion`\";s:32:\"75475cd63418c910ea0259ba5d3a8717\";s:30:\"`ChildAsignacione`.`parent_id`\";s:32:\"7dfad140dc9f0d21a5c7f61418158deb\";s:31:\"`ChildAsignacione`.`completada`\";s:32:\"0d9f45d3fdb679e5fe0722a00e3a8d39\";s:24:\"`ChildAsignacione`.`lft`\";s:32:\"b5fe54cd89d67b03923e3835c5548920\";s:25:\"`ChildAsignacione`.`rght`\";s:32:\"8011e9769ac72df48b6d1dec64c54c98\";s:29:\"`ChildAsignacione`.`es_nueva`\";s:32:\"59f3d135fa0d984641b9d7b7327cf14f\";s:28:\"`ChildAsignacione`.`created`\";s:32:\"2d56a0c2e22f82f237189fbbacd15950\";s:29:\"`ChildAsignacione`.`modified`\";s:32:\"758baf15ae034f8d8dcfe48a2fda89d9\";s:18:\"`ChildAsignacione`\";s:32:\"781e32daf904b6ca34e4f558d20772e0\";s:14:\"`evaluaciones`\";s:32:\"28298712c6610ee1272a807319fdb11f\";s:18:\"`Evaluacione`.`id`\";s:32:\"bda459f4c4012e5015d8cba5b8ad86eb\";s:30:\"`Evaluacione`.`asignacione_id`\";s:32:\"ddf20ec2beb13909e98c5fcf82f90a46\";s:23:\"`Evaluacione`.`user_id`\";s:32:\"69057a8d86bf4ffbbabbdd5948203352\";s:26:\"`Evaluacione`.`evaluacion`\";s:32:\"da5f3426473b659a364c36ee555c148a\";s:32:\"`Evaluacione`.`entrega_temprana`\";s:32:\"e5cffc509a48275a045a24a5e321c333\";s:13:\"`Evaluacione`\";s:32:\"0ea7a69c86f41a4ee932dcf65ab24c42\";s:20:\"`asignaciones_users`\";s:32:\"da7e865d0b834900262408fba0d85219\";s:23:\"`AsignacionesUser`.`id`\";s:32:\"3cd5c560eea48db6a1ab795293ff852f\";s:28:\"`AsignacionesUser`.`user_id`\";s:32:\"04d3df25a4bfc7cbec573b22ae904f3d\";s:35:\"`AsignacionesUser`.`asignacione_id`\";s:32:\"967f515bb5ac59e3feeaedb83c31c02c\";s:29:\"`AsignacionesUser`.`es_nueva`\";s:32:\"9e559fc0043b5fa370f89cd06e6e26c4\";s:18:\"`AsignacionesUser`\";s:32:\"e6bad3bc1f68cadbec78312bbddc55a1\";s:18:\"`Asignacione`.`id`\";s:32:\"be1d0f5271fe297c4cdebb2069347bfa\";s:20:\"`Asignacione`.`rght`\";s:32:\"d08495a640950ccca491dfe3651b915e\";s:19:\"`Asignacione`.`lft`\";s:32:\"24f93f5c6323fa7694060b57124e8258\";s:8:\"`codigo`\";s:32:\"6df7e174bb204da3f7c35a1d2baac95c\";s:14:\"`asignador_id`\";s:32:\"565ffd8c1208735145b193c43cb3f612\";s:16:\"`responsable_id`\";s:32:\"1804795863659297bf5fc2c13610c8ae\";s:16:\"`dependencia_id`\";s:32:\"e3f77bc598430119f52874c441b19606\";s:8:\"`titulo`\";s:32:\"236ba25ac81fc1a3c773e6804aac6ef3\";s:10:\"`detalles`\";s:32:\"7e851535427ca1da3cdf29ce4e05bca2\";s:21:\"`porcentaje_asignado`\";s:32:\"73774cae358f78eed6e74f3986e9d6a1\";s:24:\"`porcentaje_distribuido`\";s:32:\"f064bd45396e162026928b58b240cd86\";s:10:\"`progreso`\";s:32:\"6242589e02abab535747f5dd117e0c1d\";s:17:\"`progreso_tiempo`\";s:32:\"cc2286c6fac0c66632f0e9dc2df53801\";s:17:\"`progreso_fisico`\";s:32:\"c5d804a1b90041ddc407a379d4af3dde\";s:18:\"`fecha_asignacion`\";s:32:\"a83fcbe995404a390beb11bd156267fe\";s:15:\"`fecha_entrega`\";s:32:\"24245efe5605a5a6885f788f9edc0e45\";s:17:\"`fecha_recepcion`\";s:32:\"7abd1fcdd42e5d3b38b2262cfa0ab155\";s:12:\"`completada`\";s:32:\"49f3e8b25de5a67c4d370cc5045341d8\";s:5:\"`lft`\";s:32:\"f4e127e324ff7a88e67ad35b2a31d4d0\";s:6:\"`rght`\";s:32:\"a5e07f28991a84ddc2bec85c579e8124\";s:10:\"`es_nueva`\";s:32:\"5c02c44b875f3e0d9932ad177788f2c4\";s:36:\"`sicgerencialdb`.`asignaciones`.`id`\";s:32:\"5cae10000f58c14cd4000ca6e82e3897\";s:16:\"`asignacione_id`\";s:32:\"322115c6be8b9535c3319bd4f238f540\";s:9:\"`user_id`\";s:32:\"622ff7fdaca528210ff945b521b1d7e8\";s:42:\"`sicgerencialdb`.`asignaciones_users`.`id`\";}s:6:\"fields\";a:42:{s:32:\"796bb692790e09f9f44f6eb5ad190b8a\";a:11:{i:0;s:11:\"`User`.`id`\";i:1;s:17:\"`User`.`username`\";i:2;s:17:\"`User`.`password`\";i:3;s:19:\"`User`.`first_name`\";i:4;s:18:\"`User`.`last_name`\";i:5;s:17:\"`User`.`group_id`\";i:6;s:14:\"`User`.`cargo`\";i:7;s:16:\"`User`.`created`\";i:8;s:17:\"`User`.`modified`\";i:9;s:18:\"`User`.`bloqueado`\";i:10;s:71:\"(CONCAT(`User`.`first_name`, \" \", `User`.`last_name`)) AS  `User__name`\";}s:32:\"e3954b10105f1895f7792e42df48f397\";a:7:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:13:\"`Aro`.`model`\";i:3;s:19:\"`Aro`.`foreign_key`\";i:4;s:13:\"`Aro`.`alias`\";i:5;s:11:\"`Aro`.`lft`\";i:6;s:12:\"`Aro`.`rght`\";}s:32:\"c4576299d414224d728c8ca308ab05ed\";a:7:{i:0;s:17:\"`Permission`.`id`\";i:1;s:21:\"`Permission`.`aro_id`\";i:2;s:21:\"`Permission`.`aco_id`\";i:3;s:22:\"`Permission`.`_create`\";i:4;s:20:\"`Permission`.`_read`\";i:5;s:22:\"`Permission`.`_update`\";i:6;s:22:\"`Permission`.`_delete`\";}s:32:\"4b721a86d166bc311275b1a110cc4071\";a:7:{i:0;s:10:\"`Aco`.`id`\";i:1;s:17:\"`Aco`.`parent_id`\";i:2;s:13:\"`Aco`.`model`\";i:3;s:19:\"`Aco`.`foreign_key`\";i:4;s:13:\"`Aco`.`alias`\";i:5;s:11:\"`Aco`.`lft`\";i:6;s:12:\"`Aco`.`rght`\";}s:32:\"7d212ee41b45617e0934ca060e50c9e2\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"dab03da48ffe79bbafc0cad8f2c3bc20\";a:5:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:13:\"`Aro`.`model`\";i:3;s:19:\"`Aro`.`foreign_key`\";i:4;s:13:\"`Aro`.`alias`\";}s:32:\"ed023e6f8911f83d756492df70e79bc8\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"8d6b4e8e89384324fae32901c38bb9ad\";a:1:{i:0;s:17:\"`Aro`.`parent_id`\";}s:32:\"84a9da7195f0c72ade80851fa1aa4304\";a:4:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:11:\"`Aro`.`lft`\";i:3;s:12:\"`Aro`.`rght`\";}s:32:\"c1693d5c15ecb26206c7e4e3e057ce33\";a:3:{i:0;s:10:\"`Aro`.`id`\";i:1;s:11:\"`Aro`.`lft`\";i:2;s:12:\"`Aro`.`rght`\";}s:32:\"0e06013adc816a9011b5e1ddd81a4e1c\";a:5:{i:0;s:10:\"`Aco`.`id`\";i:1;s:17:\"`Aco`.`parent_id`\";i:2;s:13:\"`Aco`.`model`\";i:3;s:19:\"`Aco`.`foreign_key`\";i:4;s:13:\"`Aco`.`alias`\";}s:32:\"f09942670dbccfb97a088dcc39990290\";a:7:{i:0;s:17:\"`Permission`.`id`\";i:1;s:21:\"`Permission`.`aro_id`\";i:2;s:21:\"`Permission`.`aco_id`\";i:3;s:22:\"`Permission`.`_create`\";i:4;s:20:\"`Permission`.`_read`\";i:5;s:22:\"`Permission`.`_update`\";i:6;s:22:\"`Permission`.`_delete`\";}s:32:\"dd3a89a0883f5b05d9043870309b63f6\";a:7:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:13:\"`Aro`.`model`\";i:3;s:19:\"`Aro`.`foreign_key`\";i:4;s:13:\"`Aro`.`alias`\";i:5;s:11:\"`Aro`.`lft`\";i:6;s:12:\"`Aro`.`rght`\";}s:32:\"b7929b71553c07c22ddb3fe5178dd8b2\";a:22:{i:0;s:18:\"`Asignacione`.`id`\";i:1;s:22:\"`Asignacione`.`codigo`\";i:2;s:28:\"`Asignacione`.`asignador_id`\";i:3;s:30:\"`Asignacione`.`responsable_id`\";i:4;s:30:\"`Asignacione`.`dependencia_id`\";i:5;s:22:\"`Asignacione`.`titulo`\";i:6;s:24:\"`Asignacione`.`detalles`\";i:7;s:35:\"`Asignacione`.`porcentaje_asignado`\";i:8;s:38:\"`Asignacione`.`porcentaje_distribuido`\";i:9;s:24:\"`Asignacione`.`progreso`\";i:10;s:31:\"`Asignacione`.`progreso_tiempo`\";i:11;s:31:\"`Asignacione`.`progreso_fisico`\";i:12;s:32:\"`Asignacione`.`fecha_asignacion`\";i:13;s:29:\"`Asignacione`.`fecha_entrega`\";i:14;s:31:\"`Asignacione`.`fecha_recepcion`\";i:15;s:25:\"`Asignacione`.`parent_id`\";i:16;s:26:\"`Asignacione`.`completada`\";i:17;s:19:\"`Asignacione`.`lft`\";i:18;s:20:\"`Asignacione`.`rght`\";i:19;s:24:\"`Asignacione`.`es_nueva`\";i:20;s:23:\"`Asignacione`.`created`\";i:21;s:24:\"`Asignacione`.`modified`\";}s:32:\"ce934d5be9cc681d5f273a1b44bc1d8e\";a:22:{i:0;s:24:\"`ParentAsignacione`.`id`\";i:1;s:28:\"`ParentAsignacione`.`codigo`\";i:2;s:34:\"`ParentAsignacione`.`asignador_id`\";i:3;s:36:\"`ParentAsignacione`.`responsable_id`\";i:4;s:36:\"`ParentAsignacione`.`dependencia_id`\";i:5;s:28:\"`ParentAsignacione`.`titulo`\";i:6;s:30:\"`ParentAsignacione`.`detalles`\";i:7;s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";i:8;s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";i:9;s:30:\"`ParentAsignacione`.`progreso`\";i:10;s:37:\"`ParentAsignacione`.`progreso_tiempo`\";i:11;s:37:\"`ParentAsignacione`.`progreso_fisico`\";i:12;s:38:\"`ParentAsignacione`.`fecha_asignacion`\";i:13;s:35:\"`ParentAsignacione`.`fecha_entrega`\";i:14;s:37:\"`ParentAsignacione`.`fecha_recepcion`\";i:15;s:31:\"`ParentAsignacione`.`parent_id`\";i:16;s:32:\"`ParentAsignacione`.`completada`\";i:17;s:25:\"`ParentAsignacione`.`lft`\";i:18;s:26:\"`ParentAsignacione`.`rght`\";i:19;s:30:\"`ParentAsignacione`.`es_nueva`\";i:20;s:29:\"`ParentAsignacione`.`created`\";i:21;s:30:\"`ParentAsignacione`.`modified`\";}s:32:\"f7606c229add8f66a22951630017d4c2\";a:1:{i:0;s:18:\"`Asignacione`.`id`\";}s:32:\"3b597b96a767bb5025f9537fb1122643\";a:11:{i:0;s:16:\"`Asignador`.`id`\";i:1;s:22:\"`Asignador`.`username`\";i:2;s:22:\"`Asignador`.`password`\";i:3;s:24:\"`Asignador`.`first_name`\";i:4;s:23:\"`Asignador`.`last_name`\";i:5;s:22:\"`Asignador`.`group_id`\";i:6;s:19:\"`Asignador`.`cargo`\";i:7;s:21:\"`Asignador`.`created`\";i:8;s:22:\"`Asignador`.`modified`\";i:9;s:23:\"`Asignador`.`bloqueado`\";i:10;s:86:\"(CONCAT(`Asignador`.`first_name`, \" \", `Asignador`.`last_name`)) AS  `Asignador__name`\";}s:32:\"efb1c805a375636c1bba072c1b18c8b7\";a:11:{i:0;s:18:\"`Responsable`.`id`\";i:1;s:24:\"`Responsable`.`username`\";i:2;s:24:\"`Responsable`.`password`\";i:3;s:26:\"`Responsable`.`first_name`\";i:4;s:25:\"`Responsable`.`last_name`\";i:5;s:24:\"`Responsable`.`group_id`\";i:6;s:21:\"`Responsable`.`cargo`\";i:7;s:23:\"`Responsable`.`created`\";i:8;s:24:\"`Responsable`.`modified`\";i:9;s:25:\"`Responsable`.`bloqueado`\";i:10;s:92:\"(CONCAT(`Responsable`.`first_name`, \" \", `Responsable`.`last_name`)) AS  `Responsable__name`\";}s:32:\"73e585c357db5d80ab1cbacbbadad522\";a:4:{i:0;s:18:\"`Dependencia`.`id`\";i:1;s:27:\"`Dependencia`.`descripcion`\";i:2;s:25:\"`Dependencia`.`iniciales`\";i:3;s:39:\"`Dependencia`.`dependenciacategoria_id`\";}s:32:\"a51d8f54d17b575e86778e0a333cb8f3\";a:9:{i:0;s:17:\"`Attachment`.`id`\";i:1;s:20:\"`Attachment`.`model`\";i:2;s:26:\"`Attachment`.`foreign_key`\";i:3;s:19:\"`Attachment`.`name`\";i:4;s:25:\"`Attachment`.`attachment`\";i:5;s:18:\"`Attachment`.`dir`\";i:6;s:19:\"`Attachment`.`type`\";i:7;s:19:\"`Attachment`.`size`\";i:8;s:21:\"`Attachment`.`active`\";}s:32:\"1b78cfe5d619adfdcd42a39b53934c7e\";a:1:{i:0;s:26:\"`Attachment`.`foreign_key`\";}s:32:\"a74be7c1bdced115adc97958172d6a37\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"86bb846e336092cbe57f7d084059d261\";a:1:{i:0;s:25:\"`Avance`.`asignacione_id`\";}s:32:\"083a1187d13265a25e8180f0cfaab8c0\";a:22:{i:0;s:23:\"`ChildAsignacione`.`id`\";i:1;s:27:\"`ChildAsignacione`.`codigo`\";i:2;s:33:\"`ChildAsignacione`.`asignador_id`\";i:3;s:35:\"`ChildAsignacione`.`responsable_id`\";i:4;s:35:\"`ChildAsignacione`.`dependencia_id`\";i:5;s:27:\"`ChildAsignacione`.`titulo`\";i:6;s:29:\"`ChildAsignacione`.`detalles`\";i:7;s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";i:8;s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";i:9;s:29:\"`ChildAsignacione`.`progreso`\";i:10;s:36:\"`ChildAsignacione`.`progreso_tiempo`\";i:11;s:36:\"`ChildAsignacione`.`progreso_fisico`\";i:12;s:37:\"`ChildAsignacione`.`fecha_asignacion`\";i:13;s:34:\"`ChildAsignacione`.`fecha_entrega`\";i:14;s:36:\"`ChildAsignacione`.`fecha_recepcion`\";i:15;s:30:\"`ChildAsignacione`.`parent_id`\";i:16;s:31:\"`ChildAsignacione`.`completada`\";i:17;s:24:\"`ChildAsignacione`.`lft`\";i:18;s:25:\"`ChildAsignacione`.`rght`\";i:19;s:29:\"`ChildAsignacione`.`es_nueva`\";i:20;s:28:\"`ChildAsignacione`.`created`\";i:21;s:29:\"`ChildAsignacione`.`modified`\";}s:32:\"525229fda2770e482c8380a39bdcf920\";a:1:{i:0;s:30:\"`ChildAsignacione`.`parent_id`\";}s:32:\"1b52021ef10b79a27ff3c8eff9a3d96a\";a:5:{i:0;s:18:\"`Evaluacione`.`id`\";i:1;s:30:\"`Evaluacione`.`asignacione_id`\";i:2;s:23:\"`Evaluacione`.`user_id`\";i:3;s:26:\"`Evaluacione`.`evaluacion`\";i:4;s:32:\"`Evaluacione`.`entrega_temprana`\";}s:32:\"fb5afdb254974ae4d8918b75642e33c6\";a:1:{i:0;s:30:\"`Evaluacione`.`asignacione_id`\";}s:32:\"b169b5e5d26522342b7ae3900d923b5a\";a:4:{i:0;s:23:\"`AsignacionesUser`.`id`\";i:1;s:28:\"`AsignacionesUser`.`user_id`\";i:2;s:35:\"`AsignacionesUser`.`asignacione_id`\";i:3;s:29:\"`AsignacionesUser`.`es_nueva`\";}s:32:\"044e60913b4d13e85cb56f26b7ab1eb2\";a:11:{i:0;s:11:\"`User`.`id`\";i:1;s:17:\"`User`.`username`\";i:2;s:17:\"`User`.`password`\";i:3;s:19:\"`User`.`first_name`\";i:4;s:18:\"`User`.`last_name`\";i:5;s:17:\"`User`.`group_id`\";i:6;s:14:\"`User`.`cargo`\";i:7;s:16:\"`User`.`created`\";i:8;s:17:\"`User`.`modified`\";i:9;s:18:\"`User`.`bloqueado`\";i:10;s:71:\"(CONCAT(`User`.`first_name`, \" \", `User`.`last_name`)) AS  `User__name`\";}s:32:\"56972176093e3d96e0de6080f8d44757\";a:2:{i:0;s:19:\"`Asignacione`.`lft`\";i:1;s:20:\"`Asignacione`.`rght`\";}s:32:\"f3f353990a8e9527e6fce3e197c6fdee\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"25a926f4fcc7d85250025bff1dd69e7a\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"9d2e7d52b0d0c31aa7ef298c2fbb3694\";a:1:{i:0;s:25:\"`Asignacione`.`parent_id`\";}s:32:\"550cde8e6580bf5ac7bb6e1e478b99d7\";a:1:{i:0;s:28:\"`AsignacionesUser`.`user_id`\";}s:32:\"7ae9ffa66319f82404712cbc6b3b72a3\";a:9:{i:0;s:17:\"`Attachment`.`id`\";i:1;s:20:\"`Attachment`.`model`\";i:2;s:26:\"`Attachment`.`foreign_key`\";i:3;s:19:\"`Attachment`.`name`\";i:4;s:25:\"`Attachment`.`attachment`\";i:5;s:18:\"`Attachment`.`dir`\";i:6;s:19:\"`Attachment`.`type`\";i:7;s:19:\"`Attachment`.`size`\";i:8;s:21:\"`Attachment`.`active`\";}s:32:\"9ed2276d3ad677181914439efe1bb9ce\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"e206bdedb3caaad28bce8889c01abaf0\";a:22:{i:0;s:23:\"`ChildAsignacione`.`id`\";i:1;s:27:\"`ChildAsignacione`.`codigo`\";i:2;s:33:\"`ChildAsignacione`.`asignador_id`\";i:3;s:35:\"`ChildAsignacione`.`responsable_id`\";i:4;s:35:\"`ChildAsignacione`.`dependencia_id`\";i:5;s:27:\"`ChildAsignacione`.`titulo`\";i:6;s:29:\"`ChildAsignacione`.`detalles`\";i:7;s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";i:8;s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";i:9;s:29:\"`ChildAsignacione`.`progreso`\";i:10;s:36:\"`ChildAsignacione`.`progreso_tiempo`\";i:11;s:36:\"`ChildAsignacione`.`progreso_fisico`\";i:12;s:37:\"`ChildAsignacione`.`fecha_asignacion`\";i:13;s:34:\"`ChildAsignacione`.`fecha_entrega`\";i:14;s:36:\"`ChildAsignacione`.`fecha_recepcion`\";i:15;s:30:\"`ChildAsignacione`.`parent_id`\";i:16;s:31:\"`ChildAsignacione`.`completada`\";i:17;s:24:\"`ChildAsignacione`.`lft`\";i:18;s:25:\"`ChildAsignacione`.`rght`\";i:19;s:29:\"`ChildAsignacione`.`es_nueva`\";i:20;s:28:\"`ChildAsignacione`.`created`\";i:21;s:29:\"`ChildAsignacione`.`modified`\";}s:32:\"99319ee4a809c7bfbfff764f8be866b3\";a:5:{i:0;s:18:\"`Evaluacione`.`id`\";i:1;s:30:\"`Evaluacione`.`asignacione_id`\";i:2;s:23:\"`Evaluacione`.`user_id`\";i:3;s:26:\"`Evaluacione`.`evaluacion`\";i:4;s:32:\"`Evaluacione`.`entrega_temprana`\";}s:32:\"54c83e58aaab7ff48a43f471814673e6\";a:22:{i:0;s:24:\"`ParentAsignacione`.`id`\";i:1;s:28:\"`ParentAsignacione`.`codigo`\";i:2;s:34:\"`ParentAsignacione`.`asignador_id`\";i:3;s:36:\"`ParentAsignacione`.`responsable_id`\";i:4;s:36:\"`ParentAsignacione`.`dependencia_id`\";i:5;s:28:\"`ParentAsignacione`.`titulo`\";i:6;s:30:\"`ParentAsignacione`.`detalles`\";i:7;s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";i:8;s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";i:9;s:30:\"`ParentAsignacione`.`progreso`\";i:10;s:37:\"`ParentAsignacione`.`progreso_tiempo`\";i:11;s:37:\"`ParentAsignacione`.`progreso_fisico`\";i:12;s:38:\"`ParentAsignacione`.`fecha_asignacion`\";i:13;s:35:\"`ParentAsignacione`.`fecha_entrega`\";i:14;s:37:\"`ParentAsignacione`.`fecha_recepcion`\";i:15;s:31:\"`ParentAsignacione`.`parent_id`\";i:16;s:32:\"`ParentAsignacione`.`completada`\";i:17;s:25:\"`ParentAsignacione`.`lft`\";i:18;s:26:\"`ParentAsignacione`.`rght`\";i:19;s:30:\"`ParentAsignacione`.`es_nueva`\";i:20;s:29:\"`ParentAsignacione`.`created`\";i:21;s:30:\"`ParentAsignacione`.`modified`\";}s:32:\"ae2847aaf8c53e3618a150eb0dcaa550\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"7794b33730fb9b153fa446c2c442d9c0\";a:22:{i:0;s:18:\"`Asignacione`.`id`\";i:1;s:22:\"`Asignacione`.`codigo`\";i:2;s:28:\"`Asignacione`.`asignador_id`\";i:3;s:30:\"`Asignacione`.`responsable_id`\";i:4;s:30:\"`Asignacione`.`dependencia_id`\";i:5;s:22:\"`Asignacione`.`titulo`\";i:6;s:24:\"`Asignacione`.`detalles`\";i:7;s:35:\"`Asignacione`.`porcentaje_asignado`\";i:8;s:38:\"`Asignacione`.`porcentaje_distribuido`\";i:9;s:24:\"`Asignacione`.`progreso`\";i:10;s:31:\"`Asignacione`.`progreso_tiempo`\";i:11;s:31:\"`Asignacione`.`progreso_fisico`\";i:12;s:32:\"`Asignacione`.`fecha_asignacion`\";i:13;s:29:\"`Asignacione`.`fecha_entrega`\";i:14;s:31:\"`Asignacione`.`fecha_recepcion`\";i:15;s:25:\"`Asignacione`.`parent_id`\";i:16;s:26:\"`Asignacione`.`completada`\";i:17;s:19:\"`Asignacione`.`lft`\";i:18;s:20:\"`Asignacione`.`rght`\";i:19;s:24:\"`Asignacione`.`es_nueva`\";i:20;s:23:\"`Asignacione`.`created`\";i:21;s:24:\"`Asignacione`.`modified`\";}s:32:\"d532cfe88b5007d22a47c4a154789714\";a:1:{i:0;s:13:\"`Avance`.`id`\";}}}\n    3  \n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/css/main.css:\n   14  .tabs.full { width: 100% }\n   15  .tabs.full li {margin-bottom: 5px}\n   16: .progreso h5 { padding-top: 13px;margin-bottom: 0;}\n   17  .post_meta_links li a, .post_meta_links li i, .pricing-title i { color: #13afeb; }\n   18  .pricing-tables.full {width: 100%}\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/webroot/js/lang/es.js:\n    3  For licensing, see LICENSE.html or http://ckeditor.com/license\n    4  */\n    5: CKEDITOR.lang['es']={\"editor\":\"Editor de texto enriquecido\",\"editorPanel\":\"Panel del Editor de Texto Enriquecido\",\"common\":{\"editorHelp\":\"Pulse ALT 0 para ayuda\",\"browseServer\":\"Ver Servidor\",\"url\":\"URL\",\"protocol\":\"Protocolo\",\"upload\":\"Cargar\",\"uploadSubmit\":\"Enviar al Servidor\",\"image\":\"Imagen\",\"flash\":\"Flash\",\"form\":\"Formulario\",\"checkbox\":\"Casilla de Verificación\",\"radio\":\"Botones de Radio\",\"textField\":\"Campo de Texto\",\"textarea\":\"Area de Texto\",\"hiddenField\":\"Campo Oculto\",\"button\":\"Botón\",\"select\":\"Campo de Selección\",\"imageButton\":\"Botón Imagen\",\"notSet\":\"<No definido>\",\"id\":\"Id\",\"name\":\"Nombre\",\"langDir\":\"Orientación\",\"langDirLtr\":\"Izquierda a Derecha (LTR)\",\"langDirRtl\":\"Derecha a Izquierda (RTL)\",\"langCode\":\"Cód. de idioma\",\"longDescr\":\"Descripción larga URL\",\"cssClass\":\"Clases de hojas de estilo\",\"advisoryTitle\":\"Título\",\"cssStyle\":\"Estilo\",\"ok\":\"Aceptar\",\"cancel\":\"Cancelar\",\"close\":\"Cerrar\",\"preview\":\"Previsualización\",\"resize\":\"Arrastre para redimensionar\",\"generalTab\":\"General\",\"advancedTab\":\"Avanzado\",\"validateNumberFailed\":\"El valor no es un número.\",\"confirmNewPage\":\"Cualquier cambio que no se haya guardado se perderá.\\r\\n¿Está seguro de querer crear una nueva página?\",\"confirmCancel\":\"Algunas de las opciones se han cambiado.\\r\\n¿Está seguro de querer cerrar el diálogo?\",\"options\":\"Opciones\",\"target\":\"Destino\",\"targetNew\":\"Nueva ventana (_blank)\",\"targetTop\":\"Ventana principal (_top)\",\"targetSelf\":\"Misma ventana (_self)\",\"targetParent\":\"Ventana padre (_parent)\",\"langDirLTR\":\"Izquierda a derecha (LTR)\",\"langDirRTL\":\"Derecha a izquierda (RTL)\",\"styles\":\"Estilos\",\"cssClasses\":\"Clase de la hoja de estilos\",\"width\":\"Anchura\",\"height\":\"Altura\",\"align\":\"Alineación\",\"alignLeft\":\"Izquierda\",\"alignRight\":\"Derecha\",\"alignCenter\":\"Centrado\",\"alignTop\":\"Tope\",\"alignMiddle\":\"Centro\",\"alignBottom\":\"Pie\",\"invalidValue\":\"Valor no válido\",\"invalidHeight\":\"Altura debe ser un número.\",\"invalidWidth\":\"Anchura debe ser un número.\",\"invalidCssLength\":\"El valor especificado para el campo \\\"%1\\\" debe ser un número positivo, incluyendo optionalmente una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, o pc).\",\"invalidHtmlLength\":\"El valor especificado para el campo \\\"%1\\\" debe ser un número positivo, incluyendo optionalmente una unidad de medida HTML válida (px o %).\",\"invalidInlineStyle\":\"El valor especificado para el estilo debe consistir en uno o más pares con el formato \\\"nombre: valor\\\", separados por punto y coma.\",\"cssLengthTooltip\":\"Introduca un número para el valor en pixels o un número con una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, o pc).\",\"unavailable\":\"%1<span class=\\\"cke_accessibility\\\">, no disponible</span>\"},\"about\":{\"copy\":\"Copyright &copy; $1. Todos los derechos reservados.\",\"dlgTitle\":\"Acerca de CKEditor\",\"help\":\"Lea la  $1 para resolver sus dudas.\",\"moreInfo\":\"Para información de licencia, por favor visite nuestro sitio web:\",\"title\":\"Acerca de CKEditor\",\"userGuide\":\"Guía de usuario de CKEditor\"},\"basicstyles\":{\"bold\":\"Negrita\",\"italic\":\"Cursiva\",\"strike\":\"Tachado\",\"subscript\":\"Subíndice\",\"superscript\":\"Superíndice\",\"underline\":\"Subrayado\"},\"bidi\":{\"ltr\":\"Dirección del texto de izquierda a derecha\",\"rtl\":\"Dirección del texto de derecha a izquierda\"},\"blockquote\":{\"toolbar\":\"Cita\"},\"clipboard\":{\"copy\":\"Copiar\",\"copyError\":\"La configuración de seguridad de este navegador no permite la ejecución automática de operaciones de copiado.\\r\\nPor favor use el teclado (Ctrl/Cmd+C).\",\"cut\":\"Cortar\",\"cutError\":\"La configuración de seguridad de este navegador no permite la ejecución automática de operaciones de cortado.\\r\\nPor favor use el teclado (Ctrl/Cmd+X).\",\"paste\":\"Pegar\",\"pasteArea\":\"Zona de pegado\",\"pasteMsg\":\"Por favor pegue dentro del cuadro utilizando el teclado (<STRONG>Ctrl/Cmd+V</STRONG>);\\r\\nluego presione <STRONG>Aceptar</STRONG>.\",\"securityMsg\":\"Debido a la configuración de seguridad de su navegador, el editor no tiene acceso al portapapeles.\\r\\nEs necesario que lo pegue de nuevo en esta ventana.\",\"title\":\"Pegar\"},\"button\":{\"selectedLabel\":\"%1 (Selected)\"},\"colorbutton\":{\"auto\":\"Automático\",\"bgColorTitle\":\"Color de Fondo\",\"colors\":{\"000\":\"Negro\",\"800000\":\"Marrón oscuro\",\"8B4513\":\"Marrón tierra\",\"2F4F4F\":\"Pizarra Oscuro\",\"008080\":\"Azul verdoso\",\"000080\":\"Azul marino\",\"4B0082\":\"Añil\",\"696969\":\"Gris oscuro\",\"B22222\":\"Ladrillo\",\"A52A2A\":\"Marrón\",\"DAA520\":\"Oro oscuro\",\"006400\":\"Verde oscuro\",\"40E0D0\":\"Turquesa\",\"0000CD\":\"Azul medio-oscuro\",\"800080\":\"Púrpura\",\"808080\":\"Gris\",\"F00\":\"Rojo\",\"FF8C00\":\"Naranja oscuro\",\"FFD700\":\"Oro\",\"008000\":\"Verde\",\"0FF\":\"Cian\",\"00F\":\"Azul\",\"EE82EE\":\"Violeta\",\"A9A9A9\":\"Gris medio\",\"FFA07A\":\"Salmón claro\",\"FFA500\":\"Naranja\",\"FFFF00\":\"Amarillo\",\"00FF00\":\"Lima\",\"AFEEEE\":\"Turquesa claro\",\"ADD8E6\":\"Azul claro\",\"DDA0DD\":\"Violeta claro\",\"D3D3D3\":\"Gris claro\",\"FFF0F5\":\"Lavanda rojizo\",\"FAEBD7\":\"Blanco antiguo\",\"FFFFE0\":\"Amarillo claro\",\"F0FFF0\":\"Miel\",\"F0FFFF\":\"Azul celeste\",\"F0F8FF\":\"Azul pálido\",\"E6E6FA\":\"Lavanda\",\"FFF\":\"Blanco\"},\"more\":\"Más Colores...\",\"panelTitle\":\"Colores\",\"textColorTitle\":\"Color de Texto\"},\"colordialog\":{\"clear\":\"Borrar\",\"highlight\":\"Muestra\",\"options\":\"Opciones de colores\",\"selected\":\"Elegido\",\"title\":\"Elegir color\"},\"templates\":{\"button\":\"Plantillas\",\"emptyListMsg\":\"(No hay plantillas definidas)\",\"insertOption\":\"Reemplazar el contenido actual\",\"options\":\"Opciones de plantillas\",\"selectPromptMsg\":\"Por favor selecciona la plantilla a abrir en el editor<br>(el contenido actual se perderá):\",\"title\":\"Contenido de Plantillas\"},\"contextmenu\":{\"options\":\"Opciones del menú contextual\"},\"div\":{\"IdInputLabel\":\"Id\",\"advisoryTitleInputLabel\":\"Título\",\"cssClassInputLabel\":\"Clase de hoja de estilos\",\"edit\":\"Editar Div\",\"inlineStyleInputLabel\":\"Estilo\",\"langDirLTRLabel\":\"Izquierda a Derecha (LTR)\",\"langDirLabel\":\"Orientación\",\"langDirRTLLabel\":\"Derecha a Izquierda (RTL)\",\"languageCodeInputLabel\":\" Codigo de idioma\",\"remove\":\"Quitar Div\",\"styleSelectLabel\":\"Estilo\",\"title\":\"Crear contenedor DIV\",\"toolbar\":\"Crear contenedor DIV\"},\"toolbar\":{\"toolbarCollapse\":\"Contraer barra de herramientas\",\"toolbarExpand\":\"Expandir barra de herramientas\",\"toolbarGroups\":{\"document\":\"Documento\",\"clipboard\":\"Portapapeles/Deshacer\",\"editing\":\"Edición\",\"forms\":\"Formularios\",\"basicstyles\":\"Estilos básicos\",\"paragraph\":\"Párrafo\",\"links\":\"Enlaces\",\"insert\":\"Insertar\",\"styles\":\"Estilos\",\"colors\":\"Colores\",\"tools\":\"Herramientas\"},\"toolbars\":\"Barras de herramientas del editor\"},\"elementspath\":{\"eleLabel\":\"Ruta de los elementos\",\"eleTitle\":\"%1 elemento\"},\"find\":{\"find\":\"Buscar\",\"findOptions\":\"Opciones de búsqueda\",\"findWhat\":\"Texto a buscar:\",\"matchCase\":\"Coincidir may/min\",\"matchCyclic\":\"Buscar en todo el contenido\",\"matchWord\":\"Coincidir toda la palabra\",\"notFoundMsg\":\"El texto especificado no ha sido encontrado.\",\"replace\":\"Reemplazar\",\"replaceAll\":\"Reemplazar Todo\",\"replaceSuccessMsg\":\"La expresión buscada ha sido reemplazada %1 veces.\",\"replaceWith\":\"Reemplazar con:\",\"title\":\"Buscar y Reemplazar\"},\"fakeobjects\":{\"anchor\":\"Ancla\",\"flash\":\"Animación flash\",\"hiddenfield\":\"Campo oculto\",\"iframe\":\"IFrame\",\"unknown\":\"Objeto desconocido\"},\"flash\":{\"access\":\"Acceso de scripts\",\"accessAlways\":\"Siempre\",\"accessNever\":\"Nunca\",\"accessSameDomain\":\"Mismo dominio\",\"alignAbsBottom\":\"Abs inferior\",\"alignAbsMiddle\":\"Abs centro\",\"alignBaseline\":\"Línea de base\",\"alignTextTop\":\"Tope del texto\",\"bgcolor\":\"Color de Fondo\",\"chkFull\":\"Permitir pantalla completa\",\"chkLoop\":\"Repetir\",\"chkMenu\":\"Activar Menú Flash\",\"chkPlay\":\"Autoejecución\",\"flashvars\":\"Opciones\",\"hSpace\":\"Esp.Horiz\",\"properties\":\"Propiedades de Flash\",\"propertiesTab\":\"Propiedades\",\"quality\":\"Calidad\",\"qualityAutoHigh\":\"Auto Alta\",\"qualityAutoLow\":\"Auto Baja\",\"qualityBest\":\"La mejor\",\"qualityHigh\":\"Alta\",\"qualityLow\":\"Baja\",\"qualityMedium\":\"Media\",\"scale\":\"Escala\",\"scaleAll\":\"Mostrar todo\",\"scaleFit\":\"Ajustado\",\"scaleNoBorder\":\"Sin Borde\",\"title\":\"Propiedades de Flash\",\"vSpace\":\"Esp.Vert\",\"validateHSpace\":\"Esp.Horiz debe ser un número.\",\"validateSrc\":\"Por favor escriba el vínculo URL\",\"validateVSpace\":\"Esp.Vert debe ser un número.\",\"windowMode\":\"WindowMode\",\"windowModeOpaque\":\"Opaco\",\"windowModeTransparent\":\"Transparente\",\"windowModeWindow\":\"Ventana\"},\"font\":{\"fontSize\":{\"label\":\"Tamaño\",\"voiceLabel\":\"Tamaño de fuente\",\"panelTitle\":\"Tamaño\"},\"label\":\"Fuente\",\"panelTitle\":\"Fuente\",\"voiceLabel\":\"Fuente\"},\"forms\":{\"button\":{\"title\":\"Propiedades de Botón\",\"text\":\"Texto (Valor)\",\"type\":\"Tipo\",\"typeBtn\":\"Boton\",\"typeSbm\":\"Enviar\",\"typeRst\":\"Reestablecer\"},\"checkboxAndRadio\":{\"checkboxTitle\":\"Propiedades de Casilla\",\"radioTitle\":\"Propiedades de Botón de Radio\",\"value\":\"Valor\",\"selected\":\"Seleccionado\"},\"form\":{\"title\":\"Propiedades de Formulario\",\"menu\":\"Propiedades de Formulario\",\"action\":\"Acción\",\"method\":\"Método\",\"encoding\":\"Codificación\"},\"hidden\":{\"title\":\"Propiedades de Campo Oculto\",\"name\":\"Nombre\",\"value\":\"Valor\"},\"select\":{\"title\":\"Propiedades de Campo de Selección\",\"selectInfo\":\"Información\",\"opAvail\":\"Opciones disponibles\",\"value\":\"Valor\",\"size\":\"Tamaño\",\"lines\":\"Lineas\",\"chkMulti\":\"Permitir múltiple selección\",\"opText\":\"Texto\",\"opValue\":\"Valor\",\"btnAdd\":\"Agregar\",\"btnModify\":\"Modificar\",\"btnUp\":\"Subir\",\"btnDown\":\"Bajar\",\"btnSetValue\":\"Establecer como predeterminado\",\"btnDelete\":\"Eliminar\"},\"textarea\":{\"title\":\"Propiedades de Area de Texto\",\"cols\":\"Columnas\",\"rows\":\"Filas\"},\"textfield\":{\"title\":\"Propiedades de Campo de Texto\",\"name\":\"Nombre\",\"value\":\"Valor\",\"charWidth\":\"Caracteres de ancho\",\"maxChars\":\"Máximo caracteres\",\"type\":\"Tipo\",\"typeText\":\"Texto\",\"typePass\":\"Contraseña\",\"typeEmail\":\"Correo electrónico\",\"typeSearch\":\"Buscar\",\"typeTel\":\"Número de teléfono\",\"typeUrl\":\"URL\"}},\"format\":{\"label\":\"Formato\",\"panelTitle\":\"Formato\",\"tag_address\":\"Dirección\",\"tag_div\":\"Normal (DIV)\",\"tag_h1\":\"Encabezado 1\",\"tag_h2\":\"Encabezado 2\",\"tag_h3\":\"Encabezado 3\",\"tag_h4\":\"Encabezado 4\",\"tag_h5\":\"Encabezado 5\",\"tag_h6\":\"Encabezado 6\",\"tag_p\":\"Normal\",\"tag_pre\":\"Con formato\"},\"horizontalrule\":{\"toolbar\":\"Insertar Línea Horizontal\"},\"iframe\":{\"border\":\"Mostrar borde del marco\",\"noUrl\":\"Por favor, escriba la dirección del iframe\",\"scrolling\":\"Activar barras de desplazamiento\",\"title\":\"Propiedades de iframe\",\"toolbar\":\"IFrame\"},\"image\":{\"alertUrl\":\"Por favor escriba la URL de la imagen\",\"alt\":\"Texto Alternativo\",\"border\":\"Borde\",\"btnUpload\":\"Enviar al Servidor\",\"button2Img\":\"¿Desea convertir el botón de imagen en una simple imagen?\",\"hSpace\":\"Esp.Horiz\",\"img2Button\":\"¿Desea convertir la imagen en un botón de imagen?\",\"infoTab\":\"Información de Imagen\",\"linkTab\":\"Vínculo\",\"lockRatio\":\"Proporcional\",\"menu\":\"Propiedades de Imagen\",\"resetSize\":\"Tamaño Original\",\"title\":\"Propiedades de Imagen\",\"titleButton\":\"Propiedades de Botón de Imagen\",\"upload\":\"Cargar\",\"urlMissing\":\"Debe indicar la URL de la imagen.\",\"vSpace\":\"Esp.Vert\",\"validateBorder\":\"El borde debe ser un número.\",\"validateHSpace\":\"El espaciado horizontal debe ser un número.\",\"validateVSpace\":\"El espaciado vertical debe ser un número.\"},\"indent\":{\"indent\":\"Aumentar Sangría\",\"outdent\":\"Disminuir Sangría\"},\"smiley\":{\"options\":\"Opciones de emoticonos\",\"title\":\"Insertar un Emoticon\",\"toolbar\":\"Emoticonos\"},\"justify\":{\"block\":\"Justificado\",\"center\":\"Centrar\",\"left\":\"Alinear a Izquierda\",\"right\":\"Alinear a Derecha\"},\"language\":{\"button\":\"Fijar lenguaje\",\"remove\":\"Quitar lenguaje\"},\"link\":{\"acccessKey\":\"Tecla de Acceso\",\"advanced\":\"Avanzado\",\"advisoryContentType\":\"Tipo de Contenido\",\"advisoryTitle\":\"Título\",\"anchor\":{\"toolbar\":\"Referencia\",\"menu\":\"Propiedades de Referencia\",\"title\":\"Propiedades de Referencia\",\"name\":\"Nombre de la Referencia\",\"errorName\":\"Por favor, complete el nombre de la Referencia\",\"remove\":\"Quitar Referencia\"},\"anchorId\":\"Por ID de elemento\",\"anchorName\":\"Por Nombre de Referencia\",\"charset\":\"Fuente de caracteres vinculado\",\"cssClasses\":\"Clases de hojas de estilo\",\"emailAddress\":\"Dirección de E-Mail\",\"emailBody\":\"Cuerpo del Mensaje\",\"emailSubject\":\"Título del Mensaje\",\"id\":\"Id\",\"info\":\"Información de Vínculo\",\"langCode\":\"Código idioma\",\"langDir\":\"Orientación\",\"langDirLTR\":\"Izquierda a Derecha (LTR)\",\"langDirRTL\":\"Derecha a Izquierda (RTL)\",\"menu\":\"Editar Vínculo\",\"name\":\"Nombre\",\"noAnchors\":\"(No hay referencias disponibles en el documento)\",\"noEmail\":\"Por favor escriba la dirección de e-mail\",\"noUrl\":\"Por favor escriba el vínculo URL\",\"other\":\"<otro>\",\"popupDependent\":\"Dependiente (Netscape)\",\"popupFeatures\":\"Características de Ventana Emergente\",\"popupFullScreen\":\"Pantalla Completa (IE)\",\"popupLeft\":\"Posición Izquierda\",\"popupLocationBar\":\"Barra de ubicación\",\"popupMenuBar\":\"Barra de Menú\",\"popupResizable\":\"Redimensionable\",\"popupScrollBars\":\"Barras de desplazamiento\",\"popupStatusBar\":\"Barra de Estado\",\"popupToolbar\":\"Barra de Herramientas\",\"popupTop\":\"Posición Derecha\",\"rel\":\"Relación\",\"selectAnchor\":\"Seleccionar una referencia\",\"styles\":\"Estilo\",\"tabIndex\":\"Indice de tabulación\",\"target\":\"Destino\",\"targetFrame\":\"<marco>\",\"targetFrameName\":\"Nombre del Marco Destino\",\"targetPopup\":\"<ventana emergente>\",\"targetPopupName\":\"Nombre de Ventana Emergente\",\"title\":\"Vínculo\",\"toAnchor\":\"Referencia en esta página\",\"toEmail\":\"E-Mail\",\"toUrl\":\"URL\",\"toolbar\":\"Insertar/Editar Vínculo\",\"type\":\"Tipo de vínculo\",\"unlink\":\"Eliminar Vínculo\",\"upload\":\"Cargar\"},\"list\":{\"bulletedlist\":\"Viñetas\",\"numberedlist\":\"Numeración\"},\"liststyle\":{\"armenian\":\"Numeración armenia\",\"bulletedTitle\":\"Propiedades de viñetas\",\"circle\":\"Círculo\",\"decimal\":\"Decimal (1, 2, 3, etc.)\",\"decimalLeadingZero\":\"Decimal con cero inicial (01, 02, 03, etc.)\",\"disc\":\"Disco\",\"georgian\":\"Numeración georgiana (an, ban, gan, etc.)\",\"lowerAlpha\":\"Alfabeto en minúsculas (a, b, c, d, e, etc.)\",\"lowerGreek\":\"Letras griegas (alpha, beta, gamma, etc.)\",\"lowerRoman\":\"Números romanos en minúsculas (i, ii, iii, iv, v, etc.)\",\"none\":\"Ninguno\",\"notset\":\"<sin establecer>\",\"numberedTitle\":\"Propiedades de lista numerada\",\"square\":\"Cuadrado\",\"start\":\"Inicio\",\"type\":\"Tipo\",\"upperAlpha\":\"Alfabeto en mayúsculas  (A, B, C, D, E, etc.)\",\"upperRoman\":\"Números romanos en mayúsculas (I, II, III, IV, V, etc.)\",\"validateStartNumber\":\"El Inicio debe ser un número entero.\"},\"magicline\":{\"title\":\"Insertar párrafo aquí\"},\"maximize\":{\"maximize\":\"Maximizar\",\"minimize\":\"Minimizar\"},\"newpage\":{\"toolbar\":\"Nueva Página\"},\"pagebreak\":{\"alt\":\"Salto de página\",\"toolbar\":\"Insertar Salto de Página\"},\"pastetext\":{\"button\":\"Pegar como Texto Plano\",\"title\":\"Pegar como Texto Plano\"},\"pastefromword\":{\"confirmCleanup\":\"El texto que desea parece provenir de Word.\\r\\n¿Desea depurarlo antes de pegarlo?\",\"error\":\"No ha sido posible limpiar los datos debido a un error interno\",\"title\":\"Pegar desde Word\",\"toolbar\":\"Pegar desde Word\"},\"preview\":{\"preview\":\"Vista Previa\"},\"print\":{\"toolbar\":\"Imprimir\"},\"removeformat\":{\"toolbar\":\"Eliminar Formato\"},\"save\":{\"toolbar\":\"Guardar\"},\"selectall\":{\"toolbar\":\"Seleccionar Todo\"},\"showblocks\":{\"toolbar\":\"Mostrar bloques\"},\"sourcearea\":{\"toolbar\":\"Fuente HTML\"},\"specialchar\":{\"options\":\"Opciones de caracteres especiales\",\"title\":\"Seleccione un caracter especial\",\"toolbar\":\"Insertar Caracter Especial\"},\"scayt\":{\"about\":\"Acerca de Corrector\",\"aboutTab\":\"Acerca de\",\"addWord\":\"Añadir palabra\",\"allCaps\":\"Omitir palabras en MAYÚSCULAS\",\"dic_create\":\"Crear\",\"dic_delete\":\"Borrar\",\"dic_field_name\":\"Nombre del diccionario\",\"dic_info\":\"Inicialmente el Diccionario de usuario se guarda en una Cookie. Sin embargo, las cookies están limitadas en tamaño. Cuando el diccionario crece a un punto en el que no se puede guardar en una Cookie, el diccionario puede ser almacenado en nuestro servidor. Para almacenar su diccionario personalizado en nuestro servidor debe especificar un nombre para su diccionario. Si ya ha guardado un diccionaro, por favor, escriba su nombre y pulse el botón Recuperar\",\"dic_rename\":\"Renombrar\",\"dic_restore\":\"Recuperar\",\"dictionariesTab\":\"Diccionarios\",\"disable\":\"Desactivar Corrector\",\"emptyDic\":\"El nombre del diccionario no puede estar en blanco.\",\"enable\":\"Activar Corrector\",\"ignore\":\"Ignorar\",\"ignoreAll\":\"Ignorar Todas\",\"ignoreDomainNames\":\"Omitir nombres de dominio\",\"langs\":\"Idiomas\",\"languagesTab\":\"Idiomas\",\"mixedCase\":\"Ignorar palabras con combinación de mayúsculas y minúsculas\",\"mixedWithDigits\":\"Omitir palabras con números\",\"moreSuggestions\":\"Más sugerencias\",\"opera_title\":\"No soportado en Opera\",\"options\":\"Opciones\",\"optionsTab\":\"Opciones\",\"title\":\"Comprobar Ortografía Mientras Escribe\",\"toggle\":\"Cambiar Corrector\",\"noSuggestions\":\"No suggestion\"},\"stylescombo\":{\"label\":\"Estilo\",\"panelTitle\":\"Estilos para formatear\",\"panelTitle1\":\"Estilos de párrafo\",\"panelTitle2\":\"Estilos de carácter\",\"panelTitle3\":\"Estilos de objeto\"},\"table\":{\"border\":\"Tamaño de Borde\",\"caption\":\"Título\",\"cell\":{\"menu\":\"Celda\",\"insertBefore\":\"Insertar celda a la izquierda\",\"insertAfter\":\"Insertar celda a la derecha\",\"deleteCell\":\"Eliminar Celdas\",\"merge\":\"Combinar Celdas\",\"mergeRight\":\"Combinar a la derecha\",\"mergeDown\":\"Combinar hacia abajo\",\"splitHorizontal\":\"Dividir la celda horizontalmente\",\"splitVertical\":\"Dividir la celda verticalmente\",\"title\":\"Propiedades de celda\",\"cellType\":\"Tipo de Celda\",\"rowSpan\":\"Expandir filas\",\"colSpan\":\"Expandir columnas\",\"wordWrap\":\"Ajustar al contenido\",\"hAlign\":\"Alineación Horizontal\",\"vAlign\":\"Alineación Vertical\",\"alignBaseline\":\"Linea de base\",\"bgColor\":\"Color de fondo\",\"borderColor\":\"Color de borde\",\"data\":\"Datos\",\"header\":\"Encabezado\",\"yes\":\"Sí\",\"no\":\"No\",\"invalidWidth\":\"La anchura de celda debe ser un número.\",\"invalidHeight\":\"La altura de celda debe ser un número.\",\"invalidRowSpan\":\"La expansión de filas debe ser un número entero.\",\"invalidColSpan\":\"La expansión de columnas debe ser un número entero.\",\"chooseColor\":\"Elegir\"},\"cellPad\":\"Esp. interior\",\"cellSpace\":\"Esp. e/celdas\",\"column\":{\"menu\":\"Columna\",\"insertBefore\":\"Insertar columna a la izquierda\",\"insertAfter\":\"Insertar columna a la derecha\",\"deleteColumn\":\"Eliminar Columnas\"},\"columns\":\"Columnas\",\"deleteTable\":\"Eliminar Tabla\",\"headers\":\"Encabezados\",\"headersBoth\":\"Ambas\",\"headersColumn\":\"Primera columna\",\"headersNone\":\"Ninguno\",\"headersRow\":\"Primera fila\",\"invalidBorder\":\"El tamaño del borde debe ser un número.\",\"invalidCellPadding\":\"El espaciado interior debe ser un número.\",\"invalidCellSpacing\":\"El espaciado entre celdas debe ser un número.\",\"invalidCols\":\"El número de columnas debe ser un número mayor que 0.\",\"invalidHeight\":\"La altura de tabla debe ser un número.\",\"invalidRows\":\"El número de filas debe ser un número mayor que 0.\",\"invalidWidth\":\"La anchura de tabla debe ser un número.\",\"menu\":\"Propiedades de Tabla\",\"row\":{\"menu\":\"Fila\",\"insertBefore\":\"Insertar fila en la parte superior\",\"insertAfter\":\"Insertar fila en la parte inferior\",\"deleteRow\":\"Eliminar Filas\"},\"rows\":\"Filas\",\"summary\":\"Síntesis\",\"title\":\"Propiedades de Tabla\",\"toolbar\":\"Tabla\",\"widthPc\":\"porcentaje\",\"widthPx\":\"pixeles\",\"widthUnit\":\"unidad de la anchura\"},\"undo\":{\"redo\":\"Rehacer\",\"undo\":\"Deshacer\"},\"wsc\":{\"btnIgnore\":\"Ignorar\",\"btnIgnoreAll\":\"Ignorar Todo\",\"btnReplace\":\"Reemplazar\",\"btnReplaceAll\":\"Reemplazar Todo\",\"btnUndo\":\"Deshacer\",\"changeTo\":\"Cambiar a\",\"errorLoading\":\"Error cargando la aplicación del servidor: %s.\",\"ieSpellDownload\":\"Módulo de Control de Ortografía no instalado.\\r\\n¿Desea descargarlo ahora?\",\"manyChanges\":\"Control finalizado: se ha cambiado %1 palabras\",\"noChanges\":\"Control finalizado: no se ha cambiado ninguna palabra\",\"noMispell\":\"Control finalizado: no se encontraron errores\",\"noSuggestions\":\"- No hay sugerencias -\",\"notAvailable\":\"Lo sentimos pero el servicio no está disponible.\",\"notInDic\":\"No se encuentra en el Diccionario\",\"oneChange\":\"Control finalizado: se ha cambiado una palabra\",\"progress\":\"Control de Ortografía en progreso...\",\"title\":\"Comprobar ortografía\",\"toolbar\":\"Ortografía\"}};\n\n109 matches across 17 files\n\n\nSearching 493 files for \"progreso_fisico\" (case sensitive)\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/CakePHP-SICGerencial.sublime-workspace:\n  615  			\"datetimepicker\",\n  616  			\"input[name*=fecha\",\n  617: 			\"progreso_fisico\",\n  618  			\"en.js\",\n  619  			\"lang\",\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AsignacionesController.php:\n   99  				$asignacione['Asignacione']['bar_class'] = 'danger';\n  100  			}\n  101: 			$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);\n  102  			$this->Asignacione->save($asignacione);\n  103  \n  ...\n  164  			$asignacione['Asignacione']['bar_class'] = 'danger';\n  165  		}\n  166: 		$asignacione['Asignacione']['progreso_fisico'] = $this->Asignacione->getProgresoFisico($asignacione['Asignacione']['id']);\n  167  		$this->Asignacione->save($asignacione);\n  168  \n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Asignaciones/view.ctp:\n   78  					<div class=\"three_fourth\">\n   79  						<div class=\"progress_bar ui-progress-bar ui-container\">\n   80: 							<div class=\"ui-progress green\" data-progress=\"<?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%\"><span class=\"ui-label\"><b class=\"value\"><?php echo $this->Number->precision(($asignacione['Asignacione']['progreso_fisico']) ? $asignacione['Asignacione']['progreso_fisico'] : $asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>\n   81  						</div><!-- end section -->\n   82  					</div>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Users/view.ctp:\n  154  			<td><?php echo $asignador['progreso']; ?></td>\n  155  			<td><?php echo $asignador['progreso_tiempo']; ?></td>\n  156: 			<td><?php echo $asignador['progreso_fisico']; ?></td>\n  157  			<td><?php echo $asignador['fecha_asignacion']; ?></td>\n  158  			<td><?php echo $asignador['fecha_entrega']; ?></td>\n  ...\n  223  			<td><?php echo $responsable['progreso']; ?></td>\n  224  			<td><?php echo $responsable['progreso_tiempo']; ?></td>\n  225: 			<td><?php echo $responsable['progreso_fisico']; ?></td>\n  226  			<td><?php echo $responsable['fecha_asignacion']; ?></td>\n  227  			<td><?php echo $responsable['fecha_entrega']; ?></td>\n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/tmp/cache/models/CakePHP-SICGerencial_cake_model_default_sicgerencialdb_asignaciones:\n    1  1413559709\n    2: a:22:{s:2:\"id\";a:6:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;s:3:\"key\";s:7:\"primary\";}s:6:\"codigo\";a:6:{s:4:\"type\";s:6:\"string\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:10;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:12:\"asignador_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:14:\"responsable_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:14:\"dependencia_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:6:\"titulo\";a:6:{s:4:\"type\";s:4:\"text\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:8:\"detalles\";a:6:{s:4:\"type\";s:4:\"text\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;s:7:\"collate\";s:15:\"utf8_general_ci\";s:7:\"charset\";s:4:\"utf8\";}s:19:\"porcentaje_asignado\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:3:\"100\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:22:\"porcentaje_distribuido\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:8:\"progreso\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:0;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:15:\"progreso_tiempo\";a:5:{s:4:\"type\";s:7:\"decimal\";s:4:\"null\";b:0;s:7:\"default\";s:4:\"0.00\";s:6:\"length\";s:4:\"10,2\";s:8:\"unsigned\";b:0;}s:15:\"progreso_fisico\";a:5:{s:4:\"type\";s:7:\"decimal\";s:4:\"null\";b:0;s:7:\"default\";s:4:\"0.00\";s:6:\"length\";s:4:\"10,2\";s:8:\"unsigned\";b:0;}s:16:\"fecha_asignacion\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;}s:13:\"fecha_entrega\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:0;s:7:\"default\";N;s:6:\"length\";N;}s:15:\"fecha_recepcion\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}s:9:\"parent_id\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:11;s:8:\"unsigned\";b:0;}s:10:\"completada\";a:4:{s:4:\"type\";s:7:\"boolean\";s:4:\"null\";b:1;s:7:\"default\";s:1:\"0\";s:6:\"length\";i:1;}s:3:\"lft\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:10;s:8:\"unsigned\";b:0;}s:4:\"rght\";a:5:{s:4:\"type\";s:7:\"integer\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";i:10;s:8:\"unsigned\";b:0;}s:8:\"es_nueva\";a:4:{s:4:\"type\";s:7:\"boolean\";s:4:\"null\";b:1;s:7:\"default\";s:1:\"1\";s:6:\"length\";i:1;}s:7:\"created\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}s:8:\"modified\";a:4:{s:4:\"type\";s:8:\"datetime\";s:4:\"null\";b:1;s:7:\"default\";N;s:6:\"length\";N;}}\n    3  \n\n/home/wuilliam/Proyectos/CakePHP-SICGerencial/tmp/cache/persistent/CakePHP-SICGerencial_cake_core_method_cache:\n    1  1413559713\n    2: a:2:{s:4:\"name\";a:231:{s:32:\"2d9974a4f175f55f431264cea4f497f4\";s:16:\"`sicgerencialdb`\";s:32:\"f5cee1198c33f5463c6587f24c295119\";s:11:\"`aros_acos`\";s:32:\"b9fb13d5a25c545d6d867b229e9f5dee\";s:11:\"`Aro`.`lft`\";s:32:\"10a20e2b4ffc7a7d620dc5dd28f0fda9\";s:12:\"`Aro0`.`lft`\";s:32:\"1c86c5854f29038d87fdd7eacb73d1c6\";s:12:\"`Aro`.`rght`\";s:32:\"b8374494561f51798ca53e77b9cefd1e\";s:13:\"`Aro0`.`rght`\";s:32:\"6757d590d5a38f1db191703f3d0f541c\";s:10:\"`Aro`.`id`\";s:32:\"bee9a4e573e74d8d8f048d4c570ec593\";s:17:\"`Aro`.`parent_id`\";s:32:\"8baf47e6f57fc0835f3af65f78b3c63b\";s:13:\"`Aro`.`model`\";s:32:\"6bb3e12854f63a63cc7c6d49f3866715\";s:19:\"`Aro`.`foreign_key`\";s:32:\"6d8b84b3bc866042b62a19f3e5cc4339\";s:13:\"`Aro`.`alias`\";s:32:\"2663874933c8658180b199cb9b63150e\";s:6:\"`aros`\";s:32:\"b2d18364e2856fa4686e9ca526f43f6c\";s:6:\"`Aro0`\";s:32:\"7b4c0ae39f9dcd093461a91c5e2fdf94\";s:14:\"`Aro0`.`model`\";s:32:\"5043dd60f8e0665b6c4f64200339488c\";s:20:\"`Aro0`.`foreign_key`\";s:32:\"3c0f34f3bed13892326d9b6d8b32914c\";s:5:\"`Aro`\";s:32:\"dee5e334806b4dc670ebf511d7f6338f\";s:11:\"`Aco`.`lft`\";s:32:\"7dec36df8f588a081cd1049ca3b658bf\";s:12:\"`Aco0`.`lft`\";s:32:\"b59a394e92178ad46e31ad468862944c\";s:12:\"`Aco`.`rght`\";s:32:\"44c2b48ccd654c98f76860d7b0989d2d\";s:13:\"`Aco0`.`rght`\";s:32:\"03f01e951de799318b1426a3e4632d5f\";s:12:\"`Aco1`.`lft`\";s:32:\"d922caa0e294a1a473aae6149e0496bc\";s:13:\"`Aco1`.`rght`\";s:32:\"768781c26cd7ca791b8dd5321353071c\";s:14:\"`Aco1`.`alias`\";s:32:\"21bc9f6e4ac25b2af7d893f3933b621d\";s:11:\"`Aco0`.`id`\";s:32:\"9035cb9626773edaf9aa76fb6eefb373\";s:18:\"`Aco1`.`parent_id`\";s:32:\"a0977c3f52e808e88a5269c07fbddf2a\";s:12:\"`Aco2`.`lft`\";s:32:\"8dbc38f7cd8a6f6dbbfc4778c83aac59\";s:13:\"`Aco2`.`rght`\";s:32:\"8b3332594d289d76b987fa787098ab53\";s:14:\"`Aco2`.`alias`\";s:32:\"1bd13fefbd9c356bd625ef023a1228a0\";s:11:\"`Aco1`.`id`\";s:32:\"23b9ba0046c9d4a9077d58e75f4ea033\";s:18:\"`Aco2`.`parent_id`\";s:32:\"a88a37992525ad1a2c88c163fbdfc68e\";s:10:\"`Aco`.`id`\";s:32:\"7b8749f8d2655f4e136ab4d5cde0d586\";s:17:\"`Aco`.`parent_id`\";s:32:\"78e8d574613fbec7f43268c9a99010b5\";s:13:\"`Aco`.`model`\";s:32:\"22c929a76e87992232a9e92fd87ab757\";s:19:\"`Aco`.`foreign_key`\";s:32:\"945bb1c131796e323b226188bcc30fea\";s:13:\"`Aco`.`alias`\";s:32:\"6492529ec34b27c5ee2e252433be0bce\";s:6:\"`acos`\";s:32:\"d01581af8ddfee34c57e664b5a716397\";s:6:\"`Aco0`\";s:32:\"a25df345341ede036ba291fcda03654c\";s:14:\"`Aco0`.`alias`\";s:32:\"b04160cc99cd9133adc258edc51b3c30\";s:6:\"`Aco1`\";s:32:\"f120d866c0db1bddc1864e9f6f04a323\";s:14:\"'Asignaciones'\";s:32:\"8dd1fc666952c52e7e23b98ec5b188e8\";s:6:\"`Aco2`\";s:32:\"162f5869e48b1cae6052711b8b0541e9\";s:7:\"'index'\";s:32:\"a211372ea2f82dd4f33e9a8db80c3c30\";s:5:\"`Aco`\";s:32:\"8fbd336601f19a5b6d880f08ad6ac02f\";s:17:\"`Permission`.`id`\";s:32:\"155ddac34f1c3835d8bc8fb5b458ff30\";s:21:\"`Permission`.`aro_id`\";s:32:\"210ad78d5b124f266b0549d4ecad3c42\";s:21:\"`Permission`.`aco_id`\";s:32:\"7c4514c017fda228a0b0967b020a4922\";s:22:\"`Permission`.`_create`\";s:32:\"5d30e7901d865b8f227cf49b31ab34a5\";s:20:\"`Permission`.`_read`\";s:32:\"be5bf6afdcf6eae57c8f00ef6377aba7\";s:22:\"`Permission`.`_update`\";s:32:\"b6d4dc75a1b5ba368415eebe28399ae0\";s:22:\"`Permission`.`_delete`\";s:32:\"7a0e9062e627b1d4be66614a31225138\";s:12:\"`Permission`\";s:32:\"b4a388d56a513fe9d8c284bb32a6c5ff\";s:14:\"`asignaciones`\";s:32:\"f4e88246b8f2b7758e3617a4f426a2ef\";s:18:\"`Asignacione`.`id`\";s:32:\"c7ac5e733a620cc99c4a3209902be026\";s:22:\"`Asignacione`.`codigo`\";s:32:\"1cf8146786214b8987706e3460d5abe3\";s:28:\"`Asignacione`.`asignador_id`\";s:32:\"e1b23b7fe517f4a3c92a8acd502734b3\";s:30:\"`Asignacione`.`responsable_id`\";s:32:\"26c85cca3dfdc84e1a39168c55426c90\";s:30:\"`Asignacione`.`dependencia_id`\";s:32:\"b402053806058a3da4251fff9ba10b4a\";s:22:\"`Asignacione`.`titulo`\";s:32:\"24536946613edf6fecf52da950ae7a9a\";s:24:\"`Asignacione`.`detalles`\";s:32:\"a2fa0052062de47bda4e8d566e84367e\";s:35:\"`Asignacione`.`porcentaje_asignado`\";s:32:\"a601ee6379ea932953a9a15068fee899\";s:38:\"`Asignacione`.`porcentaje_distribuido`\";s:32:\"81280f678a29185acc930ea52f3c2877\";s:24:\"`Asignacione`.`progreso`\";s:32:\"a0b060531ac1c63ad3d3183ef30f7871\";s:31:\"`Asignacione`.`progreso_tiempo`\";s:32:\"6946447da7a107ee7aa2fd24571ee15f\";s:31:\"`Asignacione`.`progreso_fisico`\";s:32:\"c838bcb4debc30b15a69b9f492b22d01\";s:32:\"`Asignacione`.`fecha_asignacion`\";s:32:\"310b41fe36e174fceec43d434e20796a\";s:29:\"`Asignacione`.`fecha_entrega`\";s:32:\"9b9567cece333e9ad235077a638fddfd\";s:31:\"`Asignacione`.`fecha_recepcion`\";s:32:\"1d3cf56ec4ecbe783aecd7d48c861434\";s:25:\"`Asignacione`.`parent_id`\";s:32:\"d9743df4b15de78eb0f2eaf0deeadc99\";s:26:\"`Asignacione`.`completada`\";s:32:\"347adfc564b3c08faf0ea1810c09acbc\";s:19:\"`Asignacione`.`lft`\";s:32:\"947ab65cc596f559af5ab1b98bd37f8c\";s:20:\"`Asignacione`.`rght`\";s:32:\"b3a235bcff5a90056b17294ad01d5cb6\";s:24:\"`Asignacione`.`es_nueva`\";s:32:\"246b3c5b85f52b06f3d52c0e1717e1b8\";s:23:\"`Asignacione`.`created`\";s:32:\"8eadce1eb5a1ffdfe004c32224f20e23\";s:24:\"`Asignacione`.`modified`\";s:32:\"b6192985ded3c5e4a255f58bc9047d7c\";s:24:\"`ParentAsignacione`.`id`\";s:32:\"75fa00e77691d148f28b5c386be793cb\";s:28:\"`ParentAsignacione`.`codigo`\";s:32:\"e5e780041dccd1a945bc9e469bff03e2\";s:34:\"`ParentAsignacione`.`asignador_id`\";s:32:\"44df4ecf48b3af483ea6bb0021cbf72d\";s:36:\"`ParentAsignacione`.`responsable_id`\";s:32:\"c42a91d71ab44cfd30728fab01068a18\";s:36:\"`ParentAsignacione`.`dependencia_id`\";s:32:\"a5287061336f0c8b4d2f6fc493436633\";s:28:\"`ParentAsignacione`.`titulo`\";s:32:\"42a2a6f94054f40818d550a922a23ec1\";s:30:\"`ParentAsignacione`.`detalles`\";s:32:\"9f68819000ad094de63e08fc24ead113\";s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";s:32:\"d0829bd74f497a0b4e18345c0a598b4f\";s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";s:32:\"243c22d7906c099bb133ed4233b70383\";s:30:\"`ParentAsignacione`.`progreso`\";s:32:\"8729d1a381ebd9532bb8891736d39c82\";s:37:\"`ParentAsignacione`.`progreso_tiempo`\";s:32:\"46f414d4a49e54e8942a7660744b701c\";s:37:\"`ParentAsignacione`.`progreso_fisico`\";s:32:\"39d46eb8c5b314120f29e5a9bdfa69a6\";s:38:\"`ParentAsignacione`.`fecha_asignacion`\";s:32:\"84b913e35e714c3edfbc36e8ea91b247\";s:35:\"`ParentAsignacione`.`fecha_entrega`\";s:32:\"04a5f3eb699d69795dc2e4742b7c12aa\";s:37:\"`ParentAsignacione`.`fecha_recepcion`\";s:32:\"2633803080a6584696699c896ffcadb9\";s:31:\"`ParentAsignacione`.`parent_id`\";s:32:\"9b1a99f86f188f8c78a3a0608168045f\";s:32:\"`ParentAsignacione`.`completada`\";s:32:\"3775ff5c7b109f63086c1571e95ef299\";s:25:\"`ParentAsignacione`.`lft`\";s:32:\"2ba62c2fac1b2425fd1950ff2889e123\";s:26:\"`ParentAsignacione`.`rght`\";s:32:\"0bc6addb48d57413dc81091104cac9bd\";s:30:\"`ParentAsignacione`.`es_nueva`\";s:32:\"160b105159cd666fc5346f4159a63068\";s:29:\"`ParentAsignacione`.`created`\";s:32:\"560f82eb53669fc1c6fbf19abc2a9ac8\";s:30:\"`ParentAsignacione`.`modified`\";s:32:\"815eb1f0f04b4f763f6047dc95797258\";s:19:\"`ParentAsignacione`\";s:32:\"9e559fc0043b5fa370f89cd06e6e26c4\";s:18:\"`AsignacionesUser`\";s:32:\"04d3df25a4bfc7cbec573b22ae904f3d\";s:35:\"`AsignacionesUser`.`asignacione_id`\";s:32:\"0ea7a69c86f41a4ee932dcf65ab24c42\";s:20:\"`asignaciones_users`\";s:32:\"3cd5c560eea48db6a1ab795293ff852f\";s:28:\"`AsignacionesUser`.`user_id`\";s:32:\"391c356e7c737f6633d8fb05ec12a951\";s:13:\"`Asignacione`\";s:32:\"315339deed20d2d0a1690d7b3599eef6\";s:8:\"`authdb`\";s:32:\"f94a437fb7858e092079378f93ef2c71\";s:7:\"`users`\";s:32:\"cb11380d6b6d971a37546858e9dc5ed4\";s:16:\"`Asignador`.`id`\";s:32:\"7389c5f1e8e8f19ccd13cf00529cadeb\";s:22:\"`Asignador`.`username`\";s:32:\"784b4875728f8151b493d1e9ebad087e\";s:22:\"`Asignador`.`password`\";s:32:\"b400fe3222bd93e715940963a78daa90\";s:24:\"`Asignador`.`first_name`\";s:32:\"923ea7449083bb5e905afe8fca27af03\";s:23:\"`Asignador`.`last_name`\";s:32:\"f4acf6a43f114ee38a691309ab123465\";s:22:\"`Asignador`.`group_id`\";s:32:\"e56a3cff2b84161875fdf92e73745a82\";s:19:\"`Asignador`.`cargo`\";s:32:\"da57027a1fb66356c6ccf3b3517222f7\";s:21:\"`Asignador`.`created`\";s:32:\"70b461e58aa0e689b39c5d4491789a6d\";s:22:\"`Asignador`.`modified`\";s:32:\"f98f9df4cabf889bb4355f742be6edff\";s:23:\"`Asignador`.`bloqueado`\";s:32:\"30af21819de180f2cca5d671c4505366\";s:17:\"`Asignador__name`\";s:32:\"457210bfb2f7e5bb11bfb2b8d217065b\";s:3:\"\" \"\";s:32:\"b9058ca92dfc940d2a730002cae40a49\";s:11:\"`Asignador`\";s:32:\"a1b78bf1c9bb05ab55257568e83f22a5\";s:18:\"`Responsable`.`id`\";s:32:\"ee334451a9e5664e1a3ee154d83b9e77\";s:24:\"`Responsable`.`username`\";s:32:\"8d5e735f31952e8f45027e4433d12818\";s:24:\"`Responsable`.`password`\";s:32:\"93ba974c8079024836a0200e911f0824\";s:26:\"`Responsable`.`first_name`\";s:32:\"a828e5a4d7ecb316a45a0a9ae412b18c\";s:25:\"`Responsable`.`last_name`\";s:32:\"d562cca907dbe9c1527b2a97b2d88bba\";s:24:\"`Responsable`.`group_id`\";s:32:\"09798b2804d14ed8e70f2fd4b38f381f\";s:21:\"`Responsable`.`cargo`\";s:32:\"03c21bdbe1434614feba5725d9902cc1\";s:23:\"`Responsable`.`created`\";s:32:\"26702bc58b1cf0feb759501ed7a14cfe\";s:24:\"`Responsable`.`modified`\";s:32:\"5cd37dd64a182221deff85ca5f0581b1\";s:25:\"`Responsable`.`bloqueado`\";s:32:\"2524221b00d6edb37fa01c24bbb0313c\";s:19:\"`Responsable__name`\";s:32:\"2886eb05b061b15b67f3444d5602f7e9\";s:13:\"`Responsable`\";s:32:\"b86237b600ec160b5beb2e2bafd6fe05\";s:14:\"`dependencias`\";s:32:\"47abd1c697ee47c1e635561e9eab6783\";s:18:\"`Dependencia`.`id`\";s:32:\"22ac8bfa03d350578092ab88b5f0eb72\";s:27:\"`Dependencia`.`descripcion`\";s:32:\"c36940d76e979fc6871ff04cfa47ba3a\";s:25:\"`Dependencia`.`iniciales`\";s:32:\"788dd69c904822d8ef04f98798e707c3\";s:39:\"`Dependencia`.`dependenciacategoria_id`\";s:32:\"d5ed4525f398ea1de6d9e77ec9f4f51c\";s:13:\"`Dependencia`\";s:32:\"979f45d292372843145c7a70b4a9fd6f\";s:13:\"`attachments`\";s:32:\"68f9976255bd7f4f151c4a4916929b5e\";s:17:\"`Attachment`.`id`\";s:32:\"4da6d15093a153104e5f75c6297a9af1\";s:20:\"`Attachment`.`model`\";s:32:\"f8a4011e7f2621b96f32f2718ce715cc\";s:26:\"`Attachment`.`foreign_key`\";s:32:\"c12375e0262621d0575c1e8d5b39d3b9\";s:19:\"`Attachment`.`name`\";s:32:\"08e01fcb44da3f7d2e301ce068d1b079\";s:25:\"`Attachment`.`attachment`\";s:32:\"d4cb2b4e143cdd28f7b695b1fe8c7be8\";s:18:\"`Attachment`.`dir`\";s:32:\"282070dc7e51d65627bd9f306a140163\";s:19:\"`Attachment`.`type`\";s:32:\"1ffd53ebb5c6688b3329b5533744652e\";s:19:\"`Attachment`.`size`\";s:32:\"7f8919cb6ce06edb4cd8c56c888f923b\";s:21:\"`Attachment`.`active`\";s:32:\"9d5daac7b47c14533160717349a7dcd7\";s:12:\"`Attachment`\";s:32:\"b4b11f93e5ca16fb04a0becb5d555faa\";s:9:\"`avances`\";s:32:\"57319748b955a983b1038daf689df8ce\";s:13:\"`Avance`.`id`\";s:32:\"3333577a85c0c0bfde6394f82344ece5\";s:25:\"`Avance`.`asignacione_id`\";s:32:\"0efd7b2f1ce61ca168a665689edaf0fd\";s:18:\"`Avance`.`user_id`\";s:32:\"f175fe45f8ce5ff8dcef6ad2fc57bf31\";s:19:\"`Avance`.`detalles`\";s:32:\"4cdfeb8dc1e0a7d6bab776730422f35f\";s:30:\"`Avance`.`porcentaje_avanzado`\";s:32:\"b6697dca4d3c0970c49bc28a6e68d02e\";s:19:\"`Avance`.`es_nueva`\";s:32:\"02409b4844c450f45bc65c8816e2a5c0\";s:18:\"`Avance`.`created`\";s:32:\"bbe53fc0194548a70b7f86cc0ee464c5\";s:19:\"`Avance`.`modified`\";s:32:\"430162155971c3bba95850583e446fd6\";s:8:\"`Avance`\";s:32:\"82690b2258477b960e44d9c3fe7301dd\";s:23:\"`ChildAsignacione`.`id`\";s:32:\"f195aebee116cccd8b516769d6e3375b\";s:27:\"`ChildAsignacione`.`codigo`\";s:32:\"8d2785c14336c6374e5687380701a3b4\";s:33:\"`ChildAsignacione`.`asignador_id`\";s:32:\"cde405ed792fa9340428808184747607\";s:35:\"`ChildAsignacione`.`responsable_id`\";s:32:\"6006ae2a8d6eec164594bef47eb723d1\";s:35:\"`ChildAsignacione`.`dependencia_id`\";s:32:\"7a090b6e8f9e1614e5b72ab469b53a31\";s:27:\"`ChildAsignacione`.`titulo`\";s:32:\"4d7e54971a91656319ff0a6f376fb1a3\";s:29:\"`ChildAsignacione`.`detalles`\";s:32:\"8d4453955e16bd076457307a74ac5190\";s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";s:32:\"44d89ea76f554f362bd232ca3529ee9f\";s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";s:32:\"bb3c8336bc8cfc277e06a2ad6595b441\";s:29:\"`ChildAsignacione`.`progreso`\";s:32:\"0fd6fe46c581d30b372fa9e3998a8ae2\";s:36:\"`ChildAsignacione`.`progreso_tiempo`\";s:32:\"b241ab87e0e5376e23ae4aca73755fff\";s:36:\"`ChildAsignacione`.`progreso_fisico`\";s:32:\"3e55d6ac843fac151c8a036c43ce2df9\";s:37:\"`ChildAsignacione`.`fecha_asignacion`\";s:32:\"c6008619552fca51cfd6fafe5719bfdc\";s:34:\"`ChildAsignacione`.`fecha_entrega`\";s:32:\"b0d40c2577970214906282af09c2f1f5\";s:36:\"`ChildAsignacione`.`fecha_recepcion`\";s:32:\"75475cd63418c910ea0259ba5d3a8717\";s:30:\"`ChildAsignacione`.`parent_id`\";s:32:\"7dfad140dc9f0d21a5c7f61418158deb\";s:31:\"`ChildAsignacione`.`completada`\";s:32:\"0d9f45d3fdb679e5fe0722a00e3a8d39\";s:24:\"`ChildAsignacione`.`lft`\";s:32:\"b5fe54cd89d67b03923e3835c5548920\";s:25:\"`ChildAsignacione`.`rght`\";s:32:\"8011e9769ac72df48b6d1dec64c54c98\";s:29:\"`ChildAsignacione`.`es_nueva`\";s:32:\"59f3d135fa0d984641b9d7b7327cf14f\";s:28:\"`ChildAsignacione`.`created`\";s:32:\"2d56a0c2e22f82f237189fbbacd15950\";s:29:\"`ChildAsignacione`.`modified`\";s:32:\"758baf15ae034f8d8dcfe48a2fda89d9\";s:18:\"`ChildAsignacione`\";s:32:\"781e32daf904b6ca34e4f558d20772e0\";s:14:\"`evaluaciones`\";s:32:\"28298712c6610ee1272a807319fdb11f\";s:18:\"`Evaluacione`.`id`\";s:32:\"bda459f4c4012e5015d8cba5b8ad86eb\";s:30:\"`Evaluacione`.`asignacione_id`\";s:32:\"ddf20ec2beb13909e98c5fcf82f90a46\";s:23:\"`Evaluacione`.`user_id`\";s:32:\"69057a8d86bf4ffbbabbdd5948203352\";s:26:\"`Evaluacione`.`evaluacion`\";s:32:\"da5f3426473b659a364c36ee555c148a\";s:32:\"`Evaluacione`.`entrega_temprana`\";s:32:\"e5cffc509a48275a045a24a5e321c333\";s:13:\"`Evaluacione`\";s:32:\"da7e865d0b834900262408fba0d85219\";s:23:\"`AsignacionesUser`.`id`\";s:32:\"967f515bb5ac59e3feeaedb83c31c02c\";s:29:\"`AsignacionesUser`.`es_nueva`\";s:32:\"84aed5ca7734df237971a8964bd0217a\";s:11:\"`User`.`id`\";s:32:\"441e6eaad1b5f34da125c63e3ecd7702\";s:17:\"`User`.`username`\";s:32:\"46bea0d8cb0ffa1c5c7f63ad1e39035b\";s:17:\"`User`.`password`\";s:32:\"f31b09fae7200dfc89ccc15231d19899\";s:19:\"`User`.`first_name`\";s:32:\"1f06cca51d67259108baa9a6977b3df6\";s:18:\"`User`.`last_name`\";s:32:\"005867d5978d2edea8113f2b40728a90\";s:17:\"`User`.`group_id`\";s:32:\"a32d76427ad67cd0d62814f151337885\";s:14:\"`User`.`cargo`\";s:32:\"655616af09a4d136eca1b18964f0e43c\";s:16:\"`User`.`created`\";s:32:\"99bf0d2ad6325fefe617717ec0f141d9\";s:17:\"`User`.`modified`\";s:32:\"3996ef140ac43c15b2a9b81d07049bf5\";s:18:\"`User`.`bloqueado`\";s:32:\"476a51774fc2dbe7c9ab95fa9f14620b\";s:12:\"`User__name`\";s:32:\"eb9b37fa6fe3e5c49f921ddcd721b306\";s:6:\"`User`\";s:32:\"e6bad3bc1f68cadbec78312bbddc55a1\";s:18:\"`Asignacione`.`id`\";s:32:\"be1d0f5271fe297c4cdebb2069347bfa\";s:20:\"`Asignacione`.`rght`\";s:32:\"d08495a640950ccca491dfe3651b915e\";s:19:\"`Asignacione`.`lft`\";s:32:\"47eb7bb09414c64f779510914712b6ee\";s:7:\"`count`\";s:32:\"d2c23d1b4feeec456d72cdc94cc44595\";s:4:\"`id`\";s:32:\"24f93f5c6323fa7694060b57124e8258\";s:8:\"`codigo`\";s:32:\"6df7e174bb204da3f7c35a1d2baac95c\";s:14:\"`asignador_id`\";s:32:\"565ffd8c1208735145b193c43cb3f612\";s:16:\"`responsable_id`\";s:32:\"1804795863659297bf5fc2c13610c8ae\";s:16:\"`dependencia_id`\";s:32:\"e3f77bc598430119f52874c441b19606\";s:8:\"`titulo`\";s:32:\"236ba25ac81fc1a3c773e6804aac6ef3\";s:10:\"`detalles`\";s:32:\"7e851535427ca1da3cdf29ce4e05bca2\";s:21:\"`porcentaje_asignado`\";s:32:\"73774cae358f78eed6e74f3986e9d6a1\";s:24:\"`porcentaje_distribuido`\";s:32:\"f064bd45396e162026928b58b240cd86\";s:10:\"`progreso`\";s:32:\"6242589e02abab535747f5dd117e0c1d\";s:17:\"`progreso_tiempo`\";s:32:\"cc2286c6fac0c66632f0e9dc2df53801\";s:17:\"`progreso_fisico`\";s:32:\"c5d804a1b90041ddc407a379d4af3dde\";s:18:\"`fecha_asignacion`\";s:32:\"a83fcbe995404a390beb11bd156267fe\";s:15:\"`fecha_entrega`\";s:32:\"24245efe5605a5a6885f788f9edc0e45\";s:17:\"`fecha_recepcion`\";s:32:\"a30ee26c6b598614397ab9db3c5106f6\";s:11:\"`parent_id`\";s:32:\"7abd1fcdd42e5d3b38b2262cfa0ab155\";s:12:\"`completada`\";s:32:\"49f3e8b25de5a67c4d370cc5045341d8\";s:5:\"`lft`\";s:32:\"f4e127e324ff7a88e67ad35b2a31d4d0\";s:6:\"`rght`\";s:32:\"a5e07f28991a84ddc2bec85c579e8124\";s:10:\"`es_nueva`\";s:32:\"d20e7bceeb0135a07432718f0d5096d7\";s:9:\"`created`\";s:32:\"472551d38e1f8bbc78d7dfd28106166f\";s:10:\"`modified`\";s:32:\"5c02c44b875f3e0d9932ad177788f2c4\";s:36:\"`sicgerencialdb`.`asignaciones`.`id`\";s:32:\"5cae10000f58c14cd4000ca6e82e3897\";s:16:\"`asignacione_id`\";s:32:\"322115c6be8b9535c3319bd4f238f540\";s:9:\"`user_id`\";s:32:\"622ff7fdaca528210ff945b521b1d7e8\";s:42:\"`sicgerencialdb`.`asignaciones_users`.`id`\";s:32:\"edf51cf0c9273e78c60a1028f3ff20d8\";s:6:\"'view'\";}s:6:\"fields\";a:38:{s:32:\"dab03da48ffe79bbafc0cad8f2c3bc20\";a:5:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:13:\"`Aro`.`model`\";i:3;s:19:\"`Aro`.`foreign_key`\";i:4;s:13:\"`Aro`.`alias`\";}s:32:\"0e06013adc816a9011b5e1ddd81a4e1c\";a:5:{i:0;s:10:\"`Aco`.`id`\";i:1;s:17:\"`Aco`.`parent_id`\";i:2;s:13:\"`Aco`.`model`\";i:3;s:19:\"`Aco`.`foreign_key`\";i:4;s:13:\"`Aco`.`alias`\";}s:32:\"f09942670dbccfb97a088dcc39990290\";a:7:{i:0;s:17:\"`Permission`.`id`\";i:1;s:21:\"`Permission`.`aro_id`\";i:2;s:21:\"`Permission`.`aco_id`\";i:3;s:22:\"`Permission`.`_create`\";i:4;s:20:\"`Permission`.`_read`\";i:5;s:22:\"`Permission`.`_update`\";i:6;s:22:\"`Permission`.`_delete`\";}s:32:\"dd3a89a0883f5b05d9043870309b63f6\";a:7:{i:0;s:10:\"`Aro`.`id`\";i:1;s:17:\"`Aro`.`parent_id`\";i:2;s:13:\"`Aro`.`model`\";i:3;s:19:\"`Aro`.`foreign_key`\";i:4;s:13:\"`Aro`.`alias`\";i:5;s:11:\"`Aro`.`lft`\";i:6;s:12:\"`Aro`.`rght`\";}s:32:\"4b721a86d166bc311275b1a110cc4071\";a:7:{i:0;s:10:\"`Aco`.`id`\";i:1;s:17:\"`Aco`.`parent_id`\";i:2;s:13:\"`Aco`.`model`\";i:3;s:19:\"`Aco`.`foreign_key`\";i:4;s:13:\"`Aco`.`alias`\";i:5;s:11:\"`Aco`.`lft`\";i:6;s:12:\"`Aco`.`rght`\";}s:32:\"b7929b71553c07c22ddb3fe5178dd8b2\";a:22:{i:0;s:18:\"`Asignacione`.`id`\";i:1;s:22:\"`Asignacione`.`codigo`\";i:2;s:28:\"`Asignacione`.`asignador_id`\";i:3;s:30:\"`Asignacione`.`responsable_id`\";i:4;s:30:\"`Asignacione`.`dependencia_id`\";i:5;s:22:\"`Asignacione`.`titulo`\";i:6;s:24:\"`Asignacione`.`detalles`\";i:7;s:35:\"`Asignacione`.`porcentaje_asignado`\";i:8;s:38:\"`Asignacione`.`porcentaje_distribuido`\";i:9;s:24:\"`Asignacione`.`progreso`\";i:10;s:31:\"`Asignacione`.`progreso_tiempo`\";i:11;s:31:\"`Asignacione`.`progreso_fisico`\";i:12;s:32:\"`Asignacione`.`fecha_asignacion`\";i:13;s:29:\"`Asignacione`.`fecha_entrega`\";i:14;s:31:\"`Asignacione`.`fecha_recepcion`\";i:15;s:25:\"`Asignacione`.`parent_id`\";i:16;s:26:\"`Asignacione`.`completada`\";i:17;s:19:\"`Asignacione`.`lft`\";i:18;s:20:\"`Asignacione`.`rght`\";i:19;s:24:\"`Asignacione`.`es_nueva`\";i:20;s:23:\"`Asignacione`.`created`\";i:21;s:24:\"`Asignacione`.`modified`\";}s:32:\"ce934d5be9cc681d5f273a1b44bc1d8e\";a:22:{i:0;s:24:\"`ParentAsignacione`.`id`\";i:1;s:28:\"`ParentAsignacione`.`codigo`\";i:2;s:34:\"`ParentAsignacione`.`asignador_id`\";i:3;s:36:\"`ParentAsignacione`.`responsable_id`\";i:4;s:36:\"`ParentAsignacione`.`dependencia_id`\";i:5;s:28:\"`ParentAsignacione`.`titulo`\";i:6;s:30:\"`ParentAsignacione`.`detalles`\";i:7;s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";i:8;s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";i:9;s:30:\"`ParentAsignacione`.`progreso`\";i:10;s:37:\"`ParentAsignacione`.`progreso_tiempo`\";i:11;s:37:\"`ParentAsignacione`.`progreso_fisico`\";i:12;s:38:\"`ParentAsignacione`.`fecha_asignacion`\";i:13;s:35:\"`ParentAsignacione`.`fecha_entrega`\";i:14;s:37:\"`ParentAsignacione`.`fecha_recepcion`\";i:15;s:31:\"`ParentAsignacione`.`parent_id`\";i:16;s:32:\"`ParentAsignacione`.`completada`\";i:17;s:25:\"`ParentAsignacione`.`lft`\";i:18;s:26:\"`ParentAsignacione`.`rght`\";i:19;s:30:\"`ParentAsignacione`.`es_nueva`\";i:20;s:29:\"`ParentAsignacione`.`created`\";i:21;s:30:\"`ParentAsignacione`.`modified`\";}s:32:\"f7606c229add8f66a22951630017d4c2\";a:1:{i:0;s:18:\"`Asignacione`.`id`\";}s:32:\"3b597b96a767bb5025f9537fb1122643\";a:11:{i:0;s:16:\"`Asignador`.`id`\";i:1;s:22:\"`Asignador`.`username`\";i:2;s:22:\"`Asignador`.`password`\";i:3;s:24:\"`Asignador`.`first_name`\";i:4;s:23:\"`Asignador`.`last_name`\";i:5;s:22:\"`Asignador`.`group_id`\";i:6;s:19:\"`Asignador`.`cargo`\";i:7;s:21:\"`Asignador`.`created`\";i:8;s:22:\"`Asignador`.`modified`\";i:9;s:23:\"`Asignador`.`bloqueado`\";i:10;s:86:\"(CONCAT(`Asignador`.`first_name`, \" \", `Asignador`.`last_name`)) AS  `Asignador__name`\";}s:32:\"efb1c805a375636c1bba072c1b18c8b7\";a:11:{i:0;s:18:\"`Responsable`.`id`\";i:1;s:24:\"`Responsable`.`username`\";i:2;s:24:\"`Responsable`.`password`\";i:3;s:26:\"`Responsable`.`first_name`\";i:4;s:25:\"`Responsable`.`last_name`\";i:5;s:24:\"`Responsable`.`group_id`\";i:6;s:21:\"`Responsable`.`cargo`\";i:7;s:23:\"`Responsable`.`created`\";i:8;s:24:\"`Responsable`.`modified`\";i:9;s:25:\"`Responsable`.`bloqueado`\";i:10;s:92:\"(CONCAT(`Responsable`.`first_name`, \" \", `Responsable`.`last_name`)) AS  `Responsable__name`\";}s:32:\"73e585c357db5d80ab1cbacbbadad522\";a:4:{i:0;s:18:\"`Dependencia`.`id`\";i:1;s:27:\"`Dependencia`.`descripcion`\";i:2;s:25:\"`Dependencia`.`iniciales`\";i:3;s:39:\"`Dependencia`.`dependenciacategoria_id`\";}s:32:\"a51d8f54d17b575e86778e0a333cb8f3\";a:9:{i:0;s:17:\"`Attachment`.`id`\";i:1;s:20:\"`Attachment`.`model`\";i:2;s:26:\"`Attachment`.`foreign_key`\";i:3;s:19:\"`Attachment`.`name`\";i:4;s:25:\"`Attachment`.`attachment`\";i:5;s:18:\"`Attachment`.`dir`\";i:6;s:19:\"`Attachment`.`type`\";i:7;s:19:\"`Attachment`.`size`\";i:8;s:21:\"`Attachment`.`active`\";}s:32:\"1b78cfe5d619adfdcd42a39b53934c7e\";a:1:{i:0;s:26:\"`Attachment`.`foreign_key`\";}s:32:\"a74be7c1bdced115adc97958172d6a37\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"86bb846e336092cbe57f7d084059d261\";a:1:{i:0;s:25:\"`Avance`.`asignacione_id`\";}s:32:\"083a1187d13265a25e8180f0cfaab8c0\";a:22:{i:0;s:23:\"`ChildAsignacione`.`id`\";i:1;s:27:\"`ChildAsignacione`.`codigo`\";i:2;s:33:\"`ChildAsignacione`.`asignador_id`\";i:3;s:35:\"`ChildAsignacione`.`responsable_id`\";i:4;s:35:\"`ChildAsignacione`.`dependencia_id`\";i:5;s:27:\"`ChildAsignacione`.`titulo`\";i:6;s:29:\"`ChildAsignacione`.`detalles`\";i:7;s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";i:8;s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";i:9;s:29:\"`ChildAsignacione`.`progreso`\";i:10;s:36:\"`ChildAsignacione`.`progreso_tiempo`\";i:11;s:36:\"`ChildAsignacione`.`progreso_fisico`\";i:12;s:37:\"`ChildAsignacione`.`fecha_asignacion`\";i:13;s:34:\"`ChildAsignacione`.`fecha_entrega`\";i:14;s:36:\"`ChildAsignacione`.`fecha_recepcion`\";i:15;s:30:\"`ChildAsignacione`.`parent_id`\";i:16;s:31:\"`ChildAsignacione`.`completada`\";i:17;s:24:\"`ChildAsignacione`.`lft`\";i:18;s:25:\"`ChildAsignacione`.`rght`\";i:19;s:29:\"`ChildAsignacione`.`es_nueva`\";i:20;s:28:\"`ChildAsignacione`.`created`\";i:21;s:29:\"`ChildAsignacione`.`modified`\";}s:32:\"525229fda2770e482c8380a39bdcf920\";a:1:{i:0;s:30:\"`ChildAsignacione`.`parent_id`\";}s:32:\"1b52021ef10b79a27ff3c8eff9a3d96a\";a:5:{i:0;s:18:\"`Evaluacione`.`id`\";i:1;s:30:\"`Evaluacione`.`asignacione_id`\";i:2;s:23:\"`Evaluacione`.`user_id`\";i:3;s:26:\"`Evaluacione`.`evaluacion`\";i:4;s:32:\"`Evaluacione`.`entrega_temprana`\";}s:32:\"fb5afdb254974ae4d8918b75642e33c6\";a:1:{i:0;s:30:\"`Evaluacione`.`asignacione_id`\";}s:32:\"b169b5e5d26522342b7ae3900d923b5a\";a:4:{i:0;s:23:\"`AsignacionesUser`.`id`\";i:1;s:28:\"`AsignacionesUser`.`user_id`\";i:2;s:35:\"`AsignacionesUser`.`asignacione_id`\";i:3;s:29:\"`AsignacionesUser`.`es_nueva`\";}s:32:\"044e60913b4d13e85cb56f26b7ab1eb2\";a:11:{i:0;s:11:\"`User`.`id`\";i:1;s:17:\"`User`.`username`\";i:2;s:17:\"`User`.`password`\";i:3;s:19:\"`User`.`first_name`\";i:4;s:18:\"`User`.`last_name`\";i:5;s:17:\"`User`.`group_id`\";i:6;s:14:\"`User`.`cargo`\";i:7;s:16:\"`User`.`created`\";i:8;s:17:\"`User`.`modified`\";i:9;s:18:\"`User`.`bloqueado`\";i:10;s:71:\"(CONCAT(`User`.`first_name`, \" \", `User`.`last_name`)) AS  `User__name`\";}s:32:\"56972176093e3d96e0de6080f8d44757\";a:2:{i:0;s:19:\"`Asignacione`.`lft`\";i:1;s:20:\"`Asignacione`.`rght`\";}s:32:\"f3f353990a8e9527e6fce3e197c6fdee\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"25a926f4fcc7d85250025bff1dd69e7a\";a:1:{i:0;s:19:\"COUNT(*) AS `count`\";}s:32:\"9d2e7d52b0d0c31aa7ef298c2fbb3694\";a:1:{i:0;s:25:\"`Asignacione`.`parent_id`\";}s:32:\"550cde8e6580bf5ac7bb6e1e478b99d7\";a:1:{i:0;s:28:\"`AsignacionesUser`.`user_id`\";}s:32:\"7ae9ffa66319f82404712cbc6b3b72a3\";a:9:{i:0;s:17:\"`Attachment`.`id`\";i:1;s:20:\"`Attachment`.`model`\";i:2;s:26:\"`Attachment`.`foreign_key`\";i:3;s:19:\"`Attachment`.`name`\";i:4;s:25:\"`Attachment`.`attachment`\";i:5;s:18:\"`Attachment`.`dir`\";i:6;s:19:\"`Attachment`.`type`\";i:7;s:19:\"`Attachment`.`size`\";i:8;s:21:\"`Attachment`.`active`\";}s:32:\"9ed2276d3ad677181914439efe1bb9ce\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"e206bdedb3caaad28bce8889c01abaf0\";a:22:{i:0;s:23:\"`ChildAsignacione`.`id`\";i:1;s:27:\"`ChildAsignacione`.`codigo`\";i:2;s:33:\"`ChildAsignacione`.`asignador_id`\";i:3;s:35:\"`ChildAsignacione`.`responsable_id`\";i:4;s:35:\"`ChildAsignacione`.`dependencia_id`\";i:5;s:27:\"`ChildAsignacione`.`titulo`\";i:6;s:29:\"`ChildAsignacione`.`detalles`\";i:7;s:40:\"`ChildAsignacione`.`porcentaje_asignado`\";i:8;s:43:\"`ChildAsignacione`.`porcentaje_distribuido`\";i:9;s:29:\"`ChildAsignacione`.`progreso`\";i:10;s:36:\"`ChildAsignacione`.`progreso_tiempo`\";i:11;s:36:\"`ChildAsignacione`.`progreso_fisico`\";i:12;s:37:\"`ChildAsignacione`.`fecha_asignacion`\";i:13;s:34:\"`ChildAsignacione`.`fecha_entrega`\";i:14;s:36:\"`ChildAsignacione`.`fecha_recepcion`\";i:15;s:30:\"`ChildAsignacione`.`parent_id`\";i:16;s:31:\"`ChildAsignacione`.`completada`\";i:17;s:24:\"`ChildAsignacione`.`lft`\";i:18;s:25:\"`ChildAsignacione`.`rght`\";i:19;s:29:\"`ChildAsignacione`.`es_nueva`\";i:20;s:28:\"`ChildAsignacione`.`created`\";i:21;s:29:\"`ChildAsignacione`.`modified`\";}s:32:\"99319ee4a809c7bfbfff764f8be866b3\";a:5:{i:0;s:18:\"`Evaluacione`.`id`\";i:1;s:30:\"`Evaluacione`.`asignacione_id`\";i:2;s:23:\"`Evaluacione`.`user_id`\";i:3;s:26:\"`Evaluacione`.`evaluacion`\";i:4;s:32:\"`Evaluacione`.`entrega_temprana`\";}s:32:\"54c83e58aaab7ff48a43f471814673e6\";a:22:{i:0;s:24:\"`ParentAsignacione`.`id`\";i:1;s:28:\"`ParentAsignacione`.`codigo`\";i:2;s:34:\"`ParentAsignacione`.`asignador_id`\";i:3;s:36:\"`ParentAsignacione`.`responsable_id`\";i:4;s:36:\"`ParentAsignacione`.`dependencia_id`\";i:5;s:28:\"`ParentAsignacione`.`titulo`\";i:6;s:30:\"`ParentAsignacione`.`detalles`\";i:7;s:41:\"`ParentAsignacione`.`porcentaje_asignado`\";i:8;s:44:\"`ParentAsignacione`.`porcentaje_distribuido`\";i:9;s:30:\"`ParentAsignacione`.`progreso`\";i:10;s:37:\"`ParentAsignacione`.`progreso_tiempo`\";i:11;s:37:\"`ParentAsignacione`.`progreso_fisico`\";i:12;s:38:\"`ParentAsignacione`.`fecha_asignacion`\";i:13;s:35:\"`ParentAsignacione`.`fecha_entrega`\";i:14;s:37:\"`ParentAsignacione`.`fecha_recepcion`\";i:15;s:31:\"`ParentAsignacione`.`parent_id`\";i:16;s:32:\"`ParentAsignacione`.`completada`\";i:17;s:25:\"`ParentAsignacione`.`lft`\";i:18;s:26:\"`ParentAsignacione`.`rght`\";i:19;s:30:\"`ParentAsignacione`.`es_nueva`\";i:20;s:29:\"`ParentAsignacione`.`created`\";i:21;s:30:\"`ParentAsignacione`.`modified`\";}s:32:\"ae2847aaf8c53e3618a150eb0dcaa550\";a:8:{i:0;s:13:\"`Avance`.`id`\";i:1;s:25:\"`Avance`.`asignacione_id`\";i:2;s:18:\"`Avance`.`user_id`\";i:3;s:19:\"`Avance`.`detalles`\";i:4;s:30:\"`Avance`.`porcentaje_avanzado`\";i:5;s:19:\"`Avance`.`es_nueva`\";i:6;s:18:\"`Avance`.`created`\";i:7;s:19:\"`Avance`.`modified`\";}s:32:\"7794b33730fb9b153fa446c2c442d9c0\";a:22:{i:0;s:18:\"`Asignacione`.`id`\";i:1;s:22:\"`Asignacione`.`codigo`\";i:2;s:28:\"`Asignacione`.`asignador_id`\";i:3;s:30:\"`Asignacione`.`responsable_id`\";i:4;s:30:\"`Asignacione`.`dependencia_id`\";i:5;s:22:\"`Asignacione`.`titulo`\";i:6;s:24:\"`Asignacione`.`detalles`\";i:7;s:35:\"`Asignacione`.`porcentaje_asignado`\";i:8;s:38:\"`Asignacione`.`porcentaje_distribuido`\";i:9;s:24:\"`Asignacione`.`progreso`\";i:10;s:31:\"`Asignacione`.`progreso_tiempo`\";i:11;s:31:\"`Asignacione`.`progreso_fisico`\";i:12;s:32:\"`Asignacione`.`fecha_asignacion`\";i:13;s:29:\"`Asignacione`.`fecha_entrega`\";i:14;s:31:\"`Asignacione`.`fecha_recepcion`\";i:15;s:25:\"`Asignacione`.`parent_id`\";i:16;s:26:\"`Asignacione`.`completada`\";i:17;s:19:\"`Asignacione`.`lft`\";i:18;s:20:\"`Asignacione`.`rght`\";i:19;s:24:\"`Asignacione`.`es_nueva`\";i:20;s:23:\"`Asignacione`.`created`\";i:21;s:24:\"`Asignacione`.`modified`\";}s:32:\"d532cfe88b5007d22a47c4a154789714\";a:1:{i:0;s:13:\"`Avance`.`id`\";}s:32:\"7556c68ce1d3de8ecb1508f856b4f6eb\";a:1:{i:0;s:26:\"`Attachment`.`foreign_key`\";}s:32:\"c4395b15c23bbf81cc11b4cf1e063961\";a:1:{i:0;s:25:\"`Avance`.`asignacione_id`\";}s:32:\"86417f8d9120a62c16949a96c1cdfed9\";a:1:{i:0;s:30:\"`ChildAsignacione`.`parent_id`\";}s:32:\"140e55f10ed6ed4f592172f1b8acb1e0\";a:1:{i:0;s:30:\"`Evaluacione`.`asignacione_id`\";}}}\n    3  \n\n20 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 100654,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "View/Asignaciones/index.ctp",
+			"settings":
+			{
+				"buffer_size": 4472,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "View/Asignaciones/view.ctp",
+			"settings":
+			{
+				"buffer_size": 15805,
 				"line_ending": "Unix"
 			}
 		}
@@ -428,6 +474,9 @@
 	},
 	"file_history":
 	[
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/tmp/logs/error.log",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/routes.php",
+		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Avances/index.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Elements/flash_success.ctp",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/AppController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/View/Layouts/default.ctp",
@@ -535,7 +584,6 @@
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/core.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/README.md",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/Component/Auth/LdapAuthenticate.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Config/routes.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Controller/PuntosController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Avance.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Attachment.php",
@@ -553,9 +601,7 @@
 		"/home/wuilliam/Proyectos/sac/trunk/Controller/UsersController.php",
 		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Datasource/LdapSource.php",
 		"/home/wuilliam/Proyectos/sac/trunk/Model/User.php",
-		"/home/wuilliam/Proyectos/sac/trunk/Controller/AppController.php",
-		"/home/wuilliam/Proyectos/sac/trunk/Model/Group.php",
-		"/home/wuilliam/Proyectos/CakePHP-SICGerencial/Model/Adjunto.php"
+		"/home/wuilliam/Proyectos/sac/trunk/Controller/AppController.php"
 	],
 	"find":
 	{
@@ -576,6 +622,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"progreso_fisico",
+			"progreso",
+			"datetimepicker",
+			"input[name*=fecha",
+			"progreso_fisico",
+			"en.js",
+			"lang",
 			"Flash",
 			"image: '",
 			"Attachment",
@@ -696,14 +749,7 @@
 			"getReservationDaysQty",
 			"print",
 			"margin-",
-			"$this->Paginator->sort(",
-			"setReservationShowedDays",
-			"margin-left: ",
-			".days_",
-			"% }",
-			"width",
-			"getLeftAndRightRangeDates",
-			"root"
+			"$this->Paginator->sort("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -761,7 +807,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -769,15 +815,15 @@
 					"file": "Controller/AsignacionesController.php",
 					"settings":
 					{
-						"buffer_size": 18598,
+						"buffer_size": 18638,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18408,
-								18408
+								2426,
+								2426
 							]
 						],
 						"settings":
@@ -789,13 +835,43 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6200.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "webroot/js/main.js",
+					"settings":
+					{
+						"buffer_size": 3625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1794,
+								1794
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 505.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "Controller/ComunicacioncategoriasController.php",
 					"settings":
 					{
@@ -825,7 +901,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "Controller/DirectoriosController.php",
 					"settings":
 					{
@@ -855,7 +931,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "Controller/AvancesController.php",
 					"settings":
 					{
@@ -866,8 +942,8 @@
 						"selection":
 						[
 							[
-								3825,
-								3825
+								2925,
+								2925
 							]
 						],
 						"settings":
@@ -885,7 +961,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "Controller/ResumenController.php",
 					"settings":
 					{
@@ -913,7 +989,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Controller/ComunicacionesController.php",
 					"settings":
 					{
@@ -942,7 +1018,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Controller/UsersController.php",
 					"settings":
 					{
@@ -966,6 +1042,655 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "View/Layouts/default.ctp",
+					"settings":
+					{
+						"buffer_size": 12597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2892,
+								2892
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 100654,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										209,
+										217
+									],
+									[
+										315,
+										323
+									],
+									[
+										578,
+										586
+									],
+									[
+										931,
+										939
+									],
+									[
+										1109,
+										1117
+									],
+									[
+										1176,
+										1184
+									],
+									[
+										1256,
+										1264
+									],
+									[
+										1397,
+										1405
+									],
+									[
+										1453,
+										1461
+									],
+									[
+										1679,
+										1687
+									],
+									[
+										2082,
+										2090
+									],
+									[
+										2212,
+										2220
+									],
+									[
+										2262,
+										2270
+									],
+									[
+										2509,
+										2517
+									],
+									[
+										2686,
+										2694
+									],
+									[
+										2752,
+										2760
+									],
+									[
+										2830,
+										2838
+									],
+									[
+										2969,
+										2977
+									],
+									[
+										3025,
+										3033
+									],
+									[
+										3246,
+										3254
+									],
+									[
+										3645,
+										3653
+									],
+									[
+										3773,
+										3781
+									],
+									[
+										3823,
+										3831
+									],
+									[
+										4070,
+										4078
+									],
+									[
+										4248,
+										4256
+									],
+									[
+										4315,
+										4323
+									],
+									[
+										4395,
+										4403
+									],
+									[
+										4536,
+										4544
+									],
+									[
+										4592,
+										4600
+									],
+									[
+										4960,
+										4968
+									],
+									[
+										5090,
+										5098
+									],
+									[
+										5140,
+										5148
+									],
+									[
+										5553,
+										5561
+									],
+									[
+										5966,
+										5974
+									],
+									[
+										6473,
+										6481
+									],
+									[
+										6955,
+										6963
+									],
+									[
+										7235,
+										7243
+									],
+									[
+										7511,
+										7519
+									],
+									[
+										7702,
+										7710
+									],
+									[
+										7954,
+										7962
+									],
+									[
+										8100,
+										8108
+									],
+									[
+										8481,
+										8489
+									],
+									[
+										8627,
+										8635
+									],
+									[
+										9177,
+										9185
+									],
+									[
+										9285,
+										9293
+									],
+									[
+										9391,
+										9399
+									],
+									[
+										9774,
+										9782
+									],
+									[
+										9891,
+										9899
+									],
+									[
+										9990,
+										9998
+									],
+									[
+										10238,
+										10246
+									],
+									[
+										10509,
+										10517
+									],
+									[
+										10642,
+										10650
+									],
+									[
+										10868,
+										10876
+									],
+									[
+										11145,
+										11153
+									],
+									[
+										11271,
+										11279
+									],
+									[
+										11543,
+										11551
+									],
+									[
+										11790,
+										11798
+									],
+									[
+										11923,
+										11931
+									],
+									[
+										12113,
+										12121
+									],
+									[
+										12367,
+										12375
+									],
+									[
+										12417,
+										12425
+									],
+									[
+										12466,
+										12474
+									],
+									[
+										12593,
+										12601
+									],
+									[
+										12643,
+										12651
+									],
+									[
+										12692,
+										12700
+									],
+									[
+										12889,
+										12897
+									],
+									[
+										13175,
+										13183
+									],
+									[
+										13310,
+										13318
+									],
+									[
+										13677,
+										13685
+									],
+									[
+										13734,
+										13742
+									],
+									[
+										13798,
+										13806
+									],
+									[
+										14140,
+										14148
+									],
+									[
+										14199,
+										14207
+									],
+									[
+										14265,
+										14273
+									],
+									[
+										15808,
+										15816
+									],
+									[
+										15929,
+										15937
+									],
+									[
+										16066,
+										16074
+									],
+									[
+										23226,
+										23234
+									],
+									[
+										23298,
+										23306
+									],
+									[
+										23377,
+										23385
+									],
+									[
+										24928,
+										24936
+									],
+									[
+										25006,
+										25014
+									],
+									[
+										25091,
+										25099
+									],
+									[
+										30297,
+										30305
+									],
+									[
+										30374,
+										30382
+									],
+									[
+										30458,
+										30466
+									],
+									[
+										33005,
+										33013
+									],
+									[
+										33063,
+										33071
+									],
+									[
+										33128,
+										33136
+									],
+									[
+										36787,
+										36795
+									],
+									[
+										36824,
+										36832
+									],
+									[
+										36868,
+										36876
+									],
+									[
+										37756,
+										37764
+									],
+									[
+										37799,
+										37807
+									],
+									[
+										37849,
+										37857
+									],
+									[
+										40860,
+										40868
+									],
+									[
+										40902,
+										40910
+									],
+									[
+										40951,
+										40959
+									],
+									[
+										43987,
+										43995
+									],
+									[
+										44029,
+										44037
+									],
+									[
+										44078,
+										44086
+									],
+									[
+										45251,
+										45259
+									],
+									[
+										45294,
+										45302
+									],
+									[
+										45344,
+										45352
+									],
+									[
+										46535,
+										46543
+									],
+									[
+										46572,
+										46580
+									],
+									[
+										46616,
+										46624
+									],
+									[
+										47253,
+										47261
+									],
+									[
+										67249,
+										67257
+									],
+									[
+										67566,
+										67581
+									],
+									[
+										67822,
+										67837
+									],
+									[
+										68092,
+										68107
+									],
+									[
+										68552,
+										68567
+									],
+									[
+										68602,
+										68617
+									],
+									[
+										68778,
+										68793
+									],
+									[
+										68828,
+										68843
+									],
+									[
+										69199,
+										69214
+									],
+									[
+										69523,
+										69538
+									],
+									[
+										71324,
+										71339
+									],
+									[
+										76717,
+										76732
+									],
+									[
+										78431,
+										78446
+									],
+									[
+										84250,
+										84265
+									],
+									[
+										87489,
+										87504
+									],
+									[
+										90052,
+										90067
+									],
+									[
+										91033,
+										91048
+									],
+									[
+										94135,
+										94150
+									],
+									[
+										97262,
+										97277
+									],
+									[
+										98528,
+										98543
+									],
+									[
+										99800,
+										99815
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								67828,
+								67828
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"output_tag": 2,
+							"remote_loading": false,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"synced": false,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 9240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "View/Asignaciones/index.ctp",
+					"settings":
+					{
+						"buffer_size": 4472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3226,
+								3226
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "View/Asignaciones/view.ctp",
+					"settings":
+					{
+						"buffer_size": 15805,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4089,
+								4089
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 732.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1019,16 +1744,36 @@
 		"selected_items":
 		[
 			[
+				"asigna",
+				"Controller/AsignacionesController.php"
+			],
+			[
+				"asignaindex",
+				"View/Asignaciones/index.ctp"
+			],
+			[
+				"defa",
+				"View/Layouts/default.ctp"
+			],
+			[
+				"view",
+				"View/Asignaciones/view.ctp"
+			],
+			[
+				"rout",
+				"Config/routes.php"
+			],
+			[
+				"avanindex",
+				"View/Avances/index.ctp"
+			],
+			[
 				"flash",
 				"View/Elements/flash_success.ctp"
 			],
 			[
 				"asign",
 				"Controller/AsignacionesController.php"
-			],
-			[
-				"defa",
-				"View/Layouts/default.ctp"
 			],
 			[
 				"asiedit",
@@ -1103,10 +1848,6 @@
 				"View/Asignaciones/edit.ctp"
 			],
 			[
-				"asignaindex",
-				"View/Asignaciones/index.ctp"
-			],
-			[
 				"categoriaindex",
 				"View/Comunicacioncategorias/index.ctp"
 			],
@@ -1125,10 +1866,6 @@
 			[
 				"asignvi",
 				"View/Asignaciones/view.ctp"
-			],
-			[
-				"asigna",
-				"Controller/AsignacionesController.php"
 			],
 			[
 				"asignaadd",
@@ -1517,18 +2254,6 @@
 			[
 				"puntoedit",
 				"View/Puntos/edit.ctp"
-			],
-			[
-				"puntoadd",
-				"View/Puntos/add.ctp"
-			],
-			[
-				"aanceadd",
-				"View/Avances/add.ctp"
-			],
-			[
-				"directorioadd",
-				"View/Directorios/add.ctp"
 			]
 		],
 		"width": 0.0

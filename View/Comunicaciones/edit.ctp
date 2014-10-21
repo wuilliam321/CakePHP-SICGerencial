@@ -65,7 +65,7 @@
 					<div class="form-group">
 						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-2 control-label')); ?>
 						<div class="col-xs-2">
-							<?php echo $this->Form->input('codigo'); ?>
+							<?php echo $this->Form->input('codigo', array('readonly' => 'readonly')); ?>
 						</div>
 					</div>
 				<?php endif; ?>

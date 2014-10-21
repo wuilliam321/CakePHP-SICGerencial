@@ -23,9 +23,9 @@ class DirectoriosController extends AppController {
  */
 	public function index() {
 		$auth_user = $this->Session->read('Auth.User');
-		if ($auth_user['group_id'] == 1) {
-			$directorios = $this->Directorio->find('all');
-		} else {
+		$options['order'] = array('Directorio.id' => 'DESC');
+		$options['limit'] = 3;
+		if ($auth_user['group_id'] != 1) {
 			$options['joins'] = array(
 				array(
 					'table' => 'directorios_users',
@@ -39,8 +39,9 @@ class DirectoriosController extends AppController {
 			$options['conditions'] = array(
 				'DirectoriosUser.user_id' => $auth_user['id'],
 			);
-			$directorios = $this->Directorio->find('all', $options);
 		}
+		$this->Paginator->settings = $options;
+		$directorios = $this->Paginator->paginate('Directorio');
 		$this->set(compact('directorios'));
 	}
 
@@ -163,5 +164,18 @@ class DirectoriosController extends AppController {
 			$directorios = $this->Directorio->find('all', $options);
 		}
 		$this->set(compact('directorios'));
+	}
+
+	public function finalizar($id) {
+		if ($this->request->is(array('post', 'put'))) {
+			$asignacione = $this->Directorio->findById($id);
+			$asignacione['Directorio']['completada'] = 1;
+			if ($this->Directorio->save($asignacione)) {
+				$this->Session->setFlash(__('The directorio has been ended.'), 'flash_success');
+			} else {
+				$this->Session->setFlash(__('The directorio could not be ended. Please, try again.'), 'flash_error');
+			}
+		}
+		return $this->redirect(array('action' => 'index'));
 	}
 }

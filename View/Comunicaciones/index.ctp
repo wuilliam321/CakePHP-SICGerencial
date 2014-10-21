@@ -24,7 +24,7 @@
 			    <div class="cont-list">
 			    	<ul>
 						<?php foreach ($comunicaciones as $comunicacione): ?>
-			        		<li>
+			        		<li <?php echo ($comunicacione['Comunicacione']['completada']) ? ' class="opacity50"' : ''; ?>>
 			        			<div class="col-xs-1"><?php echo $this->Html->link($comunicacione['Comunicacione']['codigo'], array('action' => 'view', $comunicacione['Comunicacione']['id'])); ?></div>
 			        			<div class="col-xs-2"><?php echo $comunicacione['Remitente']['name']; ?></div>
 			        			<div class="col-xs-7"><?php echo $comunicacione['Comunicacioncategoria']['descripcion']; ?></div>
@@ -40,5 +40,21 @@
 			    </div>
 			</div>
 		<?php endif; ?>
-</div>
+	</div>
+
+	<div class="paging">
+		<p>
+		<?php
+		echo $this->Paginator->counter(array(
+		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		));
+		?>	</p>
+		<p>
+		<?php
+			echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+			echo $this->Paginator->numbers(array('separator' => ''));
+			echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		?>
+		</p>
+	</div>
 </div>

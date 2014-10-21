@@ -111,7 +111,7 @@
 									<input disabled="disabled" class="form-control" value="<?php echo $parent['ParentAsignacione']['codigo']; ?>" />
 								</div>
 							<?php else: ?>
-								<?php echo $this->Form->input('codigo'); ?>
+								<?php echo $this->Form->input('codigo', array('readonly' => 'readonly')); ?>
 							<?php endif; ?>
 						</div>
 					</div>

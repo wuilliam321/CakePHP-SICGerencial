@@ -21,7 +21,7 @@
 			<?php echo __('No hay asignaciones registradas'); ?>
 		<?php else: ?>
 			<?php foreach ($asignaciones as $asignacione): ?>
-				<div class="blog_post">	
+				<div class="blog_post<?php echo ($asignacione['Asignacione']['completada']) ? ' opacity50' : ''; ?>">	
 					<div class="blog_postcontent">
 						<h3><?php echo $this->Html->link($asignacione['Asignacione']['codigo'] . ' / ' . $this->Text->truncate($asignacione['Asignacione']['titulo'], 120) . __(' <small><i class="fa fa-share"></i> %s</small>', __('Ver detalles')), array('action' => 'view', $asignacione['Asignacione']['id']), array('escape' => false)); ?></h3>
 						<ul class="post_meta_links">
@@ -53,7 +53,7 @@
 						<div class="progreso one_full">
 							<div class="three_fourth">
 					            <div class="progress_bar ui-progress-bar ui-container">
-					            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso'], 0); ?>%</b></span></div>
+					            	<div class="ui-progress green" data-progress="<?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%"><span class="ui-label"><b class="value"><?php echo $this->Number->precision($asignacione['Asignacione']['progreso_fisico'], 0); ?>%</b></span></div>
 					            </div><!-- end section -->
 				           </div>
 				           <div class="one_fourth last">
@@ -71,6 +71,22 @@
 				<div class="clearfix"></div>
 			<?php endforeach; ?>
 		<?php endif; ?>
+	</div>
+
+	<div class="paging">
+		<p>
+		<?php
+		echo $this->Paginator->counter(array(
+		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		));
+		?>	</p>
+		<p>
+		<?php
+			echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+			echo $this->Paginator->numbers(array('separator' => ''));
+			echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		?>
+		</p>
 	</div>
 
 </div><!-- end content area -->

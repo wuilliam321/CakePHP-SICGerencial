@@ -37,7 +37,7 @@
 	    <?php endif; ?>
 		<div class="one_fifth">
 	        <h6><?php echo __('Remitente'); ?></h6>
-	        <p><?php echo $this->Html->link($comunicacione['Remitente']['name'], array('controller' => 'users', 'action' => 'view', $comunicacione['Remitente']['id'])); ?></p>
+	        <p><?php echo $comunicacione['Remitente']['name']; ?></p>
         </div>
 		<div class="one_fifth">
 	        <h6><?php echo __('Fecha Remision'); ?></h6>
@@ -98,10 +98,10 @@
 										<i title="<?php echo __('Tiene adjuntos'); ?>"><span class="fa fa-paperclip"></span></i>
 									<?php endif; ?>
 
-    							<?php echo $this->Html->link('<i class="fa fa-reply fa-lg"></i></a>', array('action' => 'add', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+    							<?php echo $this->Html->link('<i class="fa fa-reply fa-lg"></i> <small>Responder</small>', array('action' => 'add', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
 								<?php if ($auth_user['id'] == $children_comunicacione['Comunicacione']['remitente_id']): ?>
-									<?php echo $this->Html->link('<span class="fa fa-pencil"></span>', array('action' => 'edit', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
-									<?php echo $this->Form->postLink('<span class="fa fa-times"></span>', array('action' => 'delete', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+									<?php // echo $this->Html->link('<i class="fa fa-pencil"></i> <small>Editar</small>', array('action' => 'edit', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
+									<?php // echo $this->Form->postLink('<span class="fa fa-times"></span>', array('action' => 'delete', $children_comunicacione['Comunicacione']['id']), array('escape' => false)); ?>
 								<?php endif; ?></div>                   
 			                    
 							</div>

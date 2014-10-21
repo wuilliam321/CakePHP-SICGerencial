@@ -44,8 +44,6 @@ class AvancesController extends AppController {
 			$this->request->data['Avance']['asignacione_id'] = $asignacione_id;
 			$this->request->data['Avance']['user_id'] = $asignacione['Asignacione']['responsable_id'];
 			if ($this->Avance->saveWithAttachments($this->request->data, 'Avance')) {
-				$asignacione['Asignacione']['progreso'] = $this->request->data['Avance']['porcentaje_avanzado'];
-				$this->Avance->Asignacione->save($asignacione);
 				$this->Session->setFlash(__('The avance has been saved.'), 'flash_success');
 				return $this->redirect(array('controller' => 'asignaciones', 'action' => 'view', $asignacione_id));
 			} else {

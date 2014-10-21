@@ -250,14 +250,70 @@ class Asignacione extends AppModel {
 		)
 	);
 
-	public function getProgresoFisico($id) {
+	public function getProgresoFisico($asignacione) {
 		$this->recursive = -1;
-		$children = $this->children($id);
+		$children = $this->children($asignacione['Asignacione']['id']);
 		$porcentaje_avanzado = 0;
-		foreach ($children as $child) {
-			$porcentaje_avanzado += ($child['Asignacione']['porcentaje_asignado'] * $child['Asignacione']['progreso']) / 100;
-			// echo sprintf("id=%s asignado=%s avanzado=%s total=%s<br />", $child['Asignacione']['id'], $child['Asignacione']['porcentaje_asignado'], $child['Asignacione']['progreso'], $porcentaje_avanzado);
+
+		if ($children) {
+			foreach ($children as $child) {
+				$porcentaje_avanzado += ($child['Asignacione']['porcentaje_asignado'] * $child['Asignacione']['progreso']) / 100;
+				// echo sprintf("id=%s asignado=%s avanzado=%s total=%s<br />", $child['Asignacione']['id'], $child['Asignacione']['porcentaje_asignado'], $child['Asignacione']['progreso'], $porcentaje_avanzado);
+			}
+		} else {
+			$porcentaje_avanzado = $this->getProgreso($asignacione);
 		}
 		return $porcentaje_avanzado;
+	}
+
+	public function getDiasDisponibles($asignacione) {
+		$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime($asignacione['Asignacione']['fecha_asignacion']);
+		$dias_disponibles = floor($diff / (60*60*24));
+		if ($dias_disponibles < 1) {
+			$dias_disponibles = 1;
+		}
+
+		return $dias_disponibles;
+	}
+
+	public function getDiasTranscurridos($asignacione) {
+		$diff = strtotime($asignacione['Asignacione']['fecha_entrega']) - strtotime(date('Y-m-d'));
+		return floor($diff / (60*60*24));
+	}
+
+	public function getProgresoTiempo($asignacione) {
+		$dias_transcurridos = $this->getDiasTranscurridos($asignacione);
+		$dias_disponibles = $this->getDiasDisponibles($asignacione);
+
+		$progreso_tiempo = 100 - ($dias_transcurridos * 100 / $dias_disponibles);
+		if ($progreso_tiempo > 100) {
+			$progreso_tiempo = 100;
+		}
+
+		return $progreso_tiempo;
+	}
+
+	public function getProgreso($asignacione) {
+		$options['conditions'] = array(
+			'Avance.asignacione_id' => $asignacione['Asignacione']['id']
+		);
+		$options['order'] = array(
+			'Avance.id DESC'
+		);
+		$avance = $this->Avance->find('first', $options);
+		return (isset($avance['Avance']['porcentaje_avanzado'])) ? $avance['Avance']['porcentaje_avanzado'] : 0;
+	}
+
+	public function updateProgresos(&$asignacione) {
+		$asignacione['Asignacione']['progreso_tiempo'] = $this->getProgresoTiempo($asignacione);
+		if ($asignacione['Asignacione']['parent_id']) {
+			$asignacione['Asignacione']['progreso_fisico'] = 0;
+			$asignacione['Asignacione']['progreso'] = $this->getProgreso($asignacione);
+		} else {
+			$asignacione['Asignacione']['progreso_fisico'] = $this->getProgresoFisico($asignacione);
+			$asignacione['Asignacione']['progreso'] = 0;
+		}
+
+		$this->save($asignacione);
 	}
 }

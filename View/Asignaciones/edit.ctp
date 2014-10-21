@@ -170,7 +170,7 @@
 					<hr />
 				<?php else: ?>
 					<div class="form-group">
-						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label')); ?>
+						<?php echo $this->Form->label('codigo', null, array('class' => 'col-xs-4 control-label', 'readonly' => 'readonly')); ?>
 						<div class="col-xs-8">
 							<?php if ($parent['ParentAsignacione']['id']): ?>
 								<div class="col-xs-12">
@@ -178,11 +178,11 @@
 								</div>
 							<?php else: ?>
 								<?php if ($auth_user['id'] == $this->request->data['Asignacione']['asignador_id']): ?>
-									<?php echo $this->Form->input('codigo'); ?>
+									<?php echo $this->Form->input('codigo', array('readonly' => 'readonly')); ?>
 								<?php else: ?>
 									<div class="col-xs-12">
 											<p class="form-control"><?php echo $this->request->data['Asignacione']['codigo']; ?></p>
-											<?php echo $this->Form->input('codigo', array('type' => 'hidden')); ?>
+											<?php echo $this->Form->input('codigo', array('type' => 'hidden', 'readonly' => 'readonly')); ?>
 									</div>
 								<?php endif; ?>
 							<?php endif; ?>
