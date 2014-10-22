@@ -105,7 +105,7 @@
 		        	<?php echo __('No se ha desglozado la presente asignacion'); ?>
 				<?php else: ?>
 					<?php foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione): ?>
-						<?php if (($auth_user['id'] == $children_asignacione['Asignacione']['responsable_id']) || ($auth_user['group_id'] == 1)): ?>
+						<?php //if (($auth_user['id'] == $children_asignacione['Asignacione']['responsable_id']) || ($auth_user['group_id'] == 1)): ?>
 							<div class="blog_post asignacion">	
 								<div class="blog_postcontent">
 									<h3><?php echo $this->Html->link($children_asignacione['Asignacione']['titulo'], array('action' => 'view', $children_asignacione['Asignacione']['id']), array('escape' => false)); ?></h3>
@@ -163,7 +163,7 @@
 							</div><!-- /# end post -->
 							<div class="margin_top5"></div>
 							<div class="clearfix"></div>
-						<?php endif; ?>
+						<?php //endif; ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
 				<div class="margin_top3"></div>
@@ -180,7 +180,7 @@
 		        	<?php echo __('No hay avances registrados en la asignacion'); ?>
 				<?php else: ?>
 					<?php foreach ($avances as $avance): ?>
-						<?php if (($auth_user['id'] == $avance['Avance']['user_id']) || ($auth_user['group_id'] == 1)): ?>
+						<?php //if (($auth_user['id'] == $avance['Avance']['user_id']) || ($auth_user['group_id'] == 1)): ?>
 							<div class="avance">
 								<div class="one_fourth">
 				        			<ul class="tabs full">
@@ -219,7 +219,7 @@
 								</div>
 							</div>
 							<div class="clearfix"></div>
-						<?php endif; ?>
+						<?php //endif; ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
 				<div class="margin_top3"></div>

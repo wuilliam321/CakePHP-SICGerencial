@@ -40,7 +40,7 @@ class LdapAuthenticate extends BaseAuthenticate {
             return false;
         }
         $info['User']['first_name'] = $array[0]['givenname'][0];
-        $info['User']['last_name'] = $array[0]['sn'][0];
+        $info['User']['last_name'] = isset($array[0]['sn']) ? $array[0]['sn'][0] : '';
         $info['User']['username'] = $array[0]['samaccountname'][0];
         return $info;
     }

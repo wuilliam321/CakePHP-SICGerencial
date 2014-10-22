@@ -6,7 +6,8 @@
     	<div class="pagenation">&nbsp;<?php echo $this->Html->link(__('Home'), '/'); ?> <i>/</i> <?php echo $this->Html->link(__('Asignaciones list'), array('action' => 'index')); ?> <?php if ($parent['ParentAsignacione']['id']): ?> <i>/</i> <?php echo $this->Html->link(__('Asignacione'), array('controller' => 'asignaciones', 'action' => 'view', $parent['ParentAsignacione']['id'])); ?><?php endif; ?> <i>/</i> <?php echo __('Edit'); ?></div>
     </div>
     <div class="one_third last text-right">
-    	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
+    	<?php echo $this->Html->link(__('<i class="fa fa-chevron-left fa-lg"></i> %s</a>', __('Volver')), 'javascript: window.history.go(-1)', array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?> |
+    	<?php echo $this->Html->link(__('<i class="fa fa-eye fa-lg"></i> %s</a>', __('Visualizar')), array('action' => 'view', $this->request->data['Asignacione']['id']), array('onclick' => "return confirm('Esta seguro(a) que desea salir y perder los cambios?');", 'escape' => false)); ?>
     </div>
     
 </div>

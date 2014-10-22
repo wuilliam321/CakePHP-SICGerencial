@@ -52,6 +52,7 @@ class AsignacionesController extends AppController {
 
 		$auth_user = $this->Session->read('Auth.User');
 		$options['order'] = array('Asignacione.id' => 'DESC');
+		$options['group'] = array('Asignacione.id');
 		$options['limit'] = 4;
 		if ($auth_user['group_id'] == 1) {
 			$options['conditions'] = array('Asignacione.parent_id' => null);
@@ -68,7 +69,7 @@ class AsignacionesController extends AppController {
 			);
 			$options['conditions'] = array(
 				'Asignacione.parent_id' => null,
-				'Asignacione.completada' => 0,
+				// 'Asignacione.completada' => 0,
 				'OR' => array(
 					'Asignacione.asignador_id' => $auth_user['id'],
 					'Asignacione.responsable_id' => $auth_user['id'],
@@ -152,6 +153,13 @@ class AsignacionesController extends AppController {
 		// $this->Asignacione->save($asignacione);
 
 		$asignacione['ChildrenAsignacione'] = $this->Asignacione->children($asignacione['Asignacione']['id'], false, null, null, null, 1, 1);
+		$i = 0;
+		foreach ($asignacione['ChildrenAsignacione'] as $children_asignacione) {
+			if (!(($auth_user['id'] == $children_asignacione['Asignacione']['responsable_id']) || ($auth_user['group_id'] == 1) || ($asignacione['Asignacione']['asignador_id'] == $auth_user['id']) || ($asignacione['Asignacione']['responsable_id'] == $auth_user['id']))) {
+				unset($asignacione['ChildrenAsignacione'][$i]);
+			}
+			$i++;
+		}
 		// foreach ($asignacione['ChildrenAsignacione'] as &$child) {
 		// 	if ($child['Asignacione']['progreso_tiempo'] < 51) {
 		// 		$child['Asignacione']['bar_class'] = 'danger';
@@ -167,6 +175,14 @@ class AsignacionesController extends AppController {
 			'Avance.asignacione_id' => $asignacione_ids
 		);
 		$avances = $this->Asignacione->Avance->find('all', $options);
+		$i = 0;
+		// Ocultando lo que no tiene permisos para ver
+		foreach ($avances as $avance) {
+			if (!(($auth_user['id'] == $avance['Avance']['user_id']) || ($auth_user['group_id'] == 1) || $asignacione['Asignacione']['asignador_id'] == $auth_user['id'] || $asignacione['Asignacione']['responsable_id'] == $auth_user['id'])) {
+				unset($avances[$i]);
+			}
+			$i++;
+		}
 		// foreach ($avances as &$avance) {
 		// 	if ($avance['Avance']['porcentaje_avanzado'] < 51) {
 		// 		$avance['Avance']['bar_class'] = 'danger';
@@ -234,7 +250,7 @@ class AsignacionesController extends AppController {
 					$this->increase_contador('A');
 				}
 				$this->Session->setFlash(__('The asignacione has been saved.'), 'flash_success');
-				return $this->redirect(array('action' => 'edit', $this->Asignacione->getLastInsertID()));
+				return $this->redirect(array('action' => 'view', $this->Asignacione->getLastInsertID()));
 			} else {
 				$this->Session->setFlash(__('The asignacione could not be saved. Please, try again.'), 'flash_error');
 			}
